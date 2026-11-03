@@ -12,6 +12,43 @@ documented as not yet converted / not applicable.
   <https://github.com/CompEvol/beast3/tree/master/beast-base/src/test/resources/beast.base/examples> — top-level `*.xml` / `*.json`.
   (`examples/legacy/` in beast3 holds unconverted BEAST 2 copies)
 
+### Which XMLs are in scope (sub-folders)
+
+Only `*.xml` / `*.json` files sitting **directly** in the `examples/` folder are tested.
+Nothing from a sub-folder is in scope, in either repository.
+
+> **Note:**
+> - `parameterised/`, `starbeastinit/` and `beast2vs1/` are **excluded**: they hold extra XMLs
+>   (a parameterised RSV2 analysis, *BEAST starting-tree tests, and long-run BEAST 2 vs BEAST 1
+>   comparisons), not the examples being tested here.
+> - `fasta/` and `nexus/` are **data, not tests**: they contain alignment files only, no XML
+>   analyses, so there is nothing in them to run or convert.
+
+| Repository | Sub-folder | What it is | In scope? |
+|------------|------------|------------|:---------:|
+| beast2 `examples/` | `parameterised/`, `starbeastinit/`, `beast2vs1/` | extra XMLs (see note) | excluded |
+| beast2 `examples/` | `benchmark/`, `testDirichlet/` | benchmark / Dirichlet test XMLs | no |
+| beast2 `examples/` | `fasta/`, `nexus/` | data, not tests | no |
+| beast3 `examples/` | `legacy/` (and its sub-folders) | unconverted BEAST 2 copies, not for release | no — take the BEAST 2 XML from the beast2 repo, not from here |
+| beast3 `examples/` | `beast2vs1/` | long-run BEAST 2 vs BEAST 1 comparisons, not for release | excluded |
+| beast3 `examples/` | `fasta/`, `nexus/` | data, not tests | no |
+
+Rules:
+
+- **BEAST 2 XML**: download it from the beast2 repo at tag
+  [`v2.7.8`](https://github.com/CompEvol/beast2/tree/v2.7.8/examples), not from `master` and not
+  from beast3 `examples/legacy/` (which may have been edited).
+- **BEAST 3 XML**: only a file at the top level of the beast3 `examples/` folder counts as
+  converted. A file with the same name in `legacy/` or `beast2vs1/` does **not** count.
+- **Data**: every top-level BEAST 2 example has its alignment inline in the XML (none reads
+  from `fasta/` or `nexus/`), so each XML can be copied into `beast2/xml/` on its own. New BEAST 3
+  conversions must also be self-contained; if one does need an external data file, copy that
+  file next to the XML in `beast3/xml/` and note it in the report.
+- New XMLs made with BEAUti (TODO 2) go in `beast2/xml/` and `beast3/xml/` here, at the top
+  level, with a name that does not clash with an example.
+
+Who does what: see [ASSIGNMENTS.md](ASSIGNMENTS.md).
+
 ## Software versions
 
 | Tool    | Version | Where to get it |
@@ -60,8 +97,8 @@ Status as of 2026-11-03. `*.state` and editor backup files (`testHKY.xml~`) are 
 | 30 | testSeqGen.xml | no | simulator, no MCMC posterior |
 | 31 | testSimulatedAlignment.xml | no | simulates data, then runs MCMC |
 | 32 | testSliceHKY.xml | no | not present in beast3 `legacy/` either |
-| 33 | testStarBeast.xml | no | |
-| 34 | testStarBeastFBD.xml | no | |
+| 33 | testStarBeast.xml | excluded | *BEAST 1, code not migrated to BEAST 3 |
+| 34 | testStarBeastFBD.xml | excluded | *BEAST 1, code not migrated to BEAST 3 |
 | 35 | testTIM.xml | yes | |
 | 36 | testTN93.xml | yes | |
 | 37 | testTVM.xml | yes | |
@@ -73,7 +110,9 @@ Status as of 2026-11-03. `*.state` and editor backup files (`testHKY.xml~`) are 
 | 43 | testYuleOneSite.xml | yes | |
 | 44 | testYuleUncalibrated.xml | no | |
 
-Summary: 44 examples, 18 converted, 26 not converted. Before starting, re-check both
+**Excluded:** the *BEAST 1 examples (`testStarBeast.xml`, `testStarBeastFBD.xml`) are excluded because the *BEAST 1 code was not migrated to BEAST 3.
+
+Summary: 44 examples, 2 excluded, 42 to test: 18 converted, 24 not converted. Before starting, re-check both
 folders on GitHub and update this table — the beast3 conversion is ongoing.
 
 To regenerate the lists:
@@ -162,7 +201,7 @@ Example Slurm array script (`nesi/run.sl`), one task per example × replicate:
 #SBATCH --time=02:00:00
 #SBATCH --mem=4G
 #SBATCH --cpus-per-task=2
-#SBATCH --array=0-87            # (number of examples × replicates) - 1
+#SBATCH --array=0-83            # (number of examples × replicates) - 1, e.g. 42 × 2 - 1
 #SBATCH --output=slurm-%A_%a.out
 
 VERSION=$1                      # beast2 | beast3
@@ -213,7 +252,7 @@ shape, clock rate, birth rate, population size, …) using the mapping from step
 Write `reports/REPORT.md` containing:
 
 - BEAST 2 and BEAST 3 versions (tag/commit), Java version, NeSI cluster, date, seeds, burn-in.
-- One summary table covering all 44 examples:
+- One summary table covering all 42 tested examples (list the 2 excluded *BEAST 1 examples separately):
 
   | Example | Converted | Model check | BEAST 2 ran | BEAST 3 ran | Min ESS | Posterior matched | Notes |
   |---------|-----------|-------------|-------------|-------------|---------|-------------------|-------|
@@ -242,7 +281,7 @@ in `reports/beauti-manual.md`, and raise issues on <https://github.com/CompEvol/
 
 ### 2. Core model coverage
 
-The 44 examples do not cover every core model. Build a coverage matrix of the models
+The 42 examples do not cover every core model. Build a coverage matrix of the models
 available in BEAUti (core `beast.base` only, no packages) and mark which are covered by an
 existing example:
 
