@@ -198,35 +198,8 @@ Rules for every run:
 - Do not change `chainLength`; if an example's chain is too short to reach ESS ≥ 200, increase it **identically** in both versions and record it.
 - Keep stdout/stderr (`beast.out`) — it contains the start/end state and run time.
 
-Example Slurm array script (`nesi/run.sl`), one task per example × replicate:
+Example Slurm array script can be shared as request.
 
-```bash
-#!/bin/bash -e
-#SBATCH --job-name=beast-ex
-#SBATCH --account=<project_code>
-#SBATCH --time=02:00:00
-#SBATCH --mem=4G
-#SBATCH --cpus-per-task=2
-#SBATCH --array=0-83            # (number of examples × replicates) - 1, e.g. 42 × 2 - 1
-#SBATCH --output=slurm-%A_%a.out
-
-VERSION=$1                      # beast2 | beast3
-BEAST=/nesi/project/<project_code>/$USER/${VERSION/beast2/beast2.7.8}/bin/beast
-REPO=/nesi/project/<project_code>/$USER/beast3-test
-NREP=2
-
-mapfile -t XMLS < <(ls $REPO/$VERSION/xml/*.xml $REPO/$VERSION/xml/*.json 2>/dev/null)
-XML=${XMLS[$((SLURM_ARRAY_TASK_ID / NREP))]}
-REP=$((SLURM_ARRAY_TASK_ID % NREP + 1))
-NAME=$(basename "${XML%.*}")
-
-OUT=$REPO/$VERSION/log/$NAME/rep$REP
-mkdir -p "$OUT" && cd "$OUT"
-"$BEAST" -seed $REP -overwrite "$XML" > beast.out 2>&1
-```
-
-Submit with `sbatch nesi/run.sl beast2` and `sbatch nesi/run.sl beast3`
-(set `--array` to match the number of XMLs in each folder × replicates).
 
 ### Step 3 — Collect logs
 
