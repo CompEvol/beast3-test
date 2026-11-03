@@ -5,7 +5,7 @@ Two tracks run in parallel before the BEAST 3 (2.8.0) release on **3 December 20
 | Track | Who | What |
 |-------|-----|------|
 | Existing examples | Alexei, Walter | Convert and test the BEAST 2 examples, following [README.md](README.md) steps 1–5 (split below) |
-| BEAUti by hand | Eva, Haoyuan, Sophie, Yao, Yuan | Build the 30 analyses below by hand in BEAUti, in both BEAST 2.7.8 and BEAST 3, then run and compare them. This also covers core model coverage |
+| BEAUti by hand | Eva, Haoyuan, Sophie, Yao, Yuan | Build the 30 analyses below by hand in BEAUti, in both BEAST 2.7.9 and BEAST 3, then run and compare them. This also covers core model coverage |
 
 ## Existing examples track
 
@@ -19,7 +19,7 @@ The 23 unconverted examples are split by theme. Each person reviews the other's 
 Shared and automated by a comparison script:
 
 - Test the 18 already-converted examples (README steps 2–4).
-- Run all unmodified BEAST 2.7.8 example XMLs in BEAST 3 and compare them with BEAST 2.7.8, as a backward-compatibility check.
+- Run all unmodified v2.7.8 example XMLs in BEAST 3 and compare them with BEAST 2.7.9, as a backward-compatibility check.
 
 Run settings, measured with BEAST 3 on 4 Nov:
 
@@ -51,7 +51,7 @@ The rest of this page is about the BEAUti track.
 
 ## How the BEAUti matrix is built
 
-- **Built by hand, twice.** Every combination is built from scratch in BEAUti 2.7.8 and in BEAUti 3. Nobody copies XML between versions, because the point is to test BEAUti as well as the inference engine. The one exception is C28, which deliberately loads 2.7.8 XML into BEAUti 3.
+- **Built by hand, twice.** Every combination is built from scratch in BEAUti 2.7.9 and in BEAUti 3. Nobody copies XML between versions, because the point is to test BEAUti as well as the inference engine. The one exception is C28, which deliberately loads 2.7.9 XML into BEAUti 3.
 - **Covers every BEAUti option.** Together the 30 use every substitution model, frequency option, clock model, tree prior and starting tree in the BEAST 3 BEAUti templates (`beast-fx/src/main/resources/beast.fx/fxtemplates/`), plus ORC and bModelTest as packages.
 - **Covers the workflows that break most often:** partition linking and splitting, tip dates, MRCA calibrations, sampling from the prior, prior editing, the Operators and MCMC panels, and resuming a run.
 - **Spread across areas.** Each tester's six combinations come from different areas, so a tester who falls behind doesn't leave a whole feature area untested. Nobody has more than three slow combinations.
@@ -116,9 +116,9 @@ Slow combinations (long chains, start them first) are marked 🐢.
 
 | ID | Tester | Data | Site model | Clock | Tree prior | Extras | What it exercises |
 |----|--------|------|------------|-------|------------|--------|-------------------|
-| C26 | Eva | anolis.nex | HKY + Γ4 | Strict, fixed | Yule | **Sample from prior** | Every marginal must match its analytic prior, so a pass doesn't depend on 2.7.8 |
+| C26 | Eva | anolis.nex | HKY + Γ4 | Strict, fixed | Yule | **Sample from prior** | Every marginal must match its analytic prior, so a pass doesn't depend on 2.7.9 |
 | C27 | Haoyuan | primate-mtDNA.nex | HKY | Strict, estimated | Calibrated Yule | 2 MRCA priors, sample from prior | Calibration/tree-prior interaction, a common source of unexpected induced priors |
-| C28 | Yao | Eva's 2.7.8 XML for C06 and C10 | as built | as built | as built | Load via File › Load and by drag-and-drop, save, run in BEAST 3 | Backward compatibility of BEAUti 2.7.8 XML in BEAUti 3 |
+| C28 | Yao | Eva's 2.7.9 XML for C06 and C10 | as built | as built | as built | Load via File › Load and by drag-and-drop, save, run in BEAST 3 | Backward compatibility of BEAUti 2.7.9 XML in BEAUti 3 |
 | C29 | Yuan | anolis.nex | HKY + Γ4 | Strict, estimated | Yule | Edit priors: kappa → Exponential(mean 5), shape → Uniform(0, 10), birthRate → Gamma(2, 1), clock → Log-normal | Priors panel parametric distribution editors |
 | C30 | Yuan | primate-mtDNA.nex | HKY, linked | Strict, fixed | Yule | Edit operator weights, chain length, log intervals and file names. Stop at 50 % and `-resume` | Operators and MCMC panels, state file and resume, compared with an uninterrupted run |
 
@@ -129,18 +129,19 @@ Slow combinations (long chains, start them first) are marked 🐢.
 | Eva | C01 JC69 baseline · C06 unlinked partitions · C10 tip dates, coalescent · C13 🐢 Extended BSP · C18 WAG protein · C26 sample from prior |
 | Haoyuan | C02 HKY empirical · C07 linked sites, unlinked clocks · C11 exponential growth · C19 JTT protein · C23 🐢 bModelTest, UPGMA start · C27 calibrations from prior |
 | Sophie | C03 HKY+Γ coalescent · C08 calibrated Yule · C09 two MRCA priors · C12 🐢 Bayesian Skyline · C20 Blosum62 FASTA · C22 Newick start tree |
-| Yao | C05 TN93 birth-death · C15 🐢 RLC with tip dates · C17 🐢 relaxed clock + BSP · C21 binary data · C24 fix mean rate · C28 load 2.7.8 XML |
+| Yao | C05 TN93 birth-death · C15 🐢 RLC with tip dates · C17 🐢 relaxed clock + BSP · C21 binary data · C24 fix mean rate · C28 load 2.7.9 XML |
 | Yuan | C04 GTR+Γ+I · C14 🐢 random local clock · C16 🐢 relaxed clock · C25 unlinked trees · C29 prior editing · C30 operators and resume |
 | Alexei, Walter | Existing examples track (see above) |
 
 ## Run protocol
 
-1. **Versions.** BEAST 2.7.8 and the BEAST 3 release candidate at a fixed tag or commit (see README, Software versions). Install **ORC and bModelTest** through the package manager in both versions, and record the package versions. If a package won't install or load in BEAST 3, record that as a finding.
+1. **Versions.** BEAST 2.7.9 and the BEAST 3 release candidate at a fixed tag or commit (see README, Software versions). BEAST 2.7.9 is BEAST 2.7.8 with the BEAST.base package updated to 2.7.9, which fixes a wrong Hastings ratio in the AVMN operator ([beast2#1219](https://github.com/CompEvol/beast2/issues/1219)). Check the BEAST.base version in the package manager before building anything. Install **ORC and bModelTest** through the package manager in both versions, and record the package versions. If a package won't install or load in BEAST 3, record that as a finding.
 2. **Build.** Follow the row exactly in each version. Write down every non-default click so the two builds match, and take a screenshot of any panel that looks different between versions. Save as `beauti-C07.xml` in `beast2/xml/` and `beast3/xml/`.
+   - **Fallback, only if BEAST.base 2.7.9 isn't published by Thu 5 Nov:** use 2.7.8, and in BEAUti 2.7.8 set the weight of every `AVMNOperator` to 0 on the Operators panel. Its wrong Hastings ratio biases the tree and the parameters proposed with it; without that operator, 2.7.8 targets the correct posterior. Leave AVMN on in BEAST 3. Switch everyone to 2.7.9 at the same time, and record which reference each run used.
 3. **Run.** Run 2 replicates per version on NeSI (README step 2), seeds 1 and 2, in `beast2/log/beauti-C07/rep1/` and so on. Size the chain so every logged parameter reaches ESS ≥ 200 in both versions. For the 🐢 combinations, start with about 50 million steps so they don't need extending later in the week.
 4. **Don't expect identical traces.** The BEAST 3 default tree operators changed (`UpDownOperator` replaces EpochFlex/TreeStretch), so only distributions are comparable, even with the same seed.
 5. **Record speed.** Record wall-clock time and ESS per hour. A large slowdown is a release finding even when the posteriors agree.
-6. **Log every BEAUti oddity** in `reports/beauti-manual.md`, even when the run succeeds: crashes, wrong defaults, IDs that differ from 2.7.8, confusing labels. Raise issues on <https://github.com/CompEvol/beast3/issues>.
+6. **Log every BEAUti oddity** in `reports/beauti-manual.md`, even when the run succeeds: crashes, wrong defaults, IDs that differ from 2.7.9, confusing labels. Raise issues on <https://github.com/CompEvol/beast3/issues>.
 
 ## Pass criteria
 
@@ -148,7 +149,7 @@ Use README step 4, plus the following:
 
 - **Continuous parameters:** z = |mean₂ − mean₃| / √(se₂² + se₃²) < 3, with se = sd / √ESS, on the combined replicates.
 - **Trees:** for every clade with posterior ≥ 0.05 in either version, flag |Δp| > 0.1. Compare root height and every tMRCA.
-- **Sample-from-prior runs (C26, C27):** compare each marginal with its analytic prior, not only with 2.7.8.
+- **Sample-from-prior runs (C26, C27):** compare each marginal with its analytic prior, not only with 2.7.9.
 - **Resume (C30):** the resumed run must match an uninterrupted BEAST 3 run by the same criteria.
 - **Reruns:** a flagged result gets one rerun with new seeds before anyone opens an issue.
 - **Log column names:** these may differ between versions (e.g. spec parameter IDs). Map them before comparing, and record each renaming as a finding.
@@ -159,8 +160,8 @@ Record results per combination in `reports/beauti-manual.md` and the coverage in
 
 | Dates | Step |
 |-------|------|
-| Wed 4 – Thu 5 Nov | Confirm the matrix, pin builds, install ORC and bModelTest in both versions, resolve open questions |
-| Fri 6 Nov | Runs start. Each tester builds their first combination in both versions as a setup check, then builds and launches their 🐢 combinations so they run over the weekend. Eva saves C06 and C10 from 2.7.8 the same day so Yao can start C28 |
+| Wed 4 – Thu 5 Nov | Confirm the matrix, pin builds, publish BEAST.base 2.7.9, install ORC and bModelTest in both versions, resolve open questions |
+| Fri 6 Nov | Runs start. Each tester builds their first combination in both versions as a setup check, then builds and launches their 🐢 combinations so they run over the weekend. Eva saves C06 and C10 from 2.7.9 the same day so Yao can start C28 |
 | Mon 9 – Tue 10 Nov | Build and run the remaining combinations. Comparison script ready by Tue 10 Nov |
 | Wed 11 Nov | Collate and compare. Launch reruns for anything flagged that evening |
 | Thu 12 Nov | Check reruns, write up findings |
@@ -172,5 +173,5 @@ Hands-on time is roughly 1.2–1.8 working days per tester. Building takes 30–
 
 ## Open questions
 
-- C21: confirm that `E15-binary.fasta` ships with 2.7.8 and is imported as binary data in both versions.
+- C21: confirm that `E15-binary.fasta` ships with BEAST 2.7 and is imported as binary data in both versions.
 - The relaxed exponential clock isn't in the matrix. Add ORC's exponential option to C16 or C17 as a variant if time allows.

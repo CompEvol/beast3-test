@@ -24,7 +24,7 @@ Nothing in a sub-folder is tested, in either repository.
 
 | Repository | Location | What it is | To test? |
 |------------|----------|------------|----------|
-| beast2 `examples/` | top-level `*.xml` / `*.json` | the BEAST 2 examples (see [Example inventory](#example-inventory)) | ✅ **Yes** — run with BEAST 2.7.8 as the reference |
+| beast2 `examples/` | top-level `*.xml` / `*.json` | the BEAST 2 examples (see [Example inventory](#example-inventory)) | ✅ **Yes** — run with BEAST 2.7.9 as the reference |
 | beast2 `examples/` | `testStarBeast.xml`, `testStarBeastFBD.xml` | *BEAST 1 examples | ❌ No — *BEAST 1 code was not migrated to BEAST 3 |
 | beast2 `examples/` | `parameterised/`, `starbeastinit/`, `beast2vs1/` | extra XMLs: a parameterised RSV2 analysis, *BEAST starting-tree tests, long-run BEAST 2 vs BEAST 1 comparisons | ❌ No — not part of the examples |
 | beast2 `examples/` | `benchmark/`, `testDirichlet/` | benchmark and Dirichlet test XMLs | ❌ No — not part of the examples |
@@ -63,7 +63,7 @@ Who does what: see [ASSIGNMENTS.md](ASSIGNMENTS.md).
 
 | Tool    | Version | Where to get it |
 |---------|---------|-----------------|
-| BEAST 2 | 2.7.8   | <https://github.com/CompEvol/beast2/releases/tag/v2.7.8> (`BEAST.v2.7.8.Linux.x86_64.tgz`, bundles its own JRE) |
+| BEAST 2 | 2.7.9   | Install 2.7.8 from <https://github.com/CompEvol/beast2/releases/tag/v2.7.8> (`BEAST.v2.7.8.Linux.x86_64.tgz`, bundles its own JRE), then update BEAST.base to 2.7.9: `packagemanager -add BEAST.base -version 2.7.9`. 2.7.9 fixes a wrong Hastings ratio in the AVMN operator ([beast2#1219](https://github.com/CompEvol/beast2/issues/1219)); none of the examples use AVMN, but the BEAUti track does |
 | BEAST 3 | 2.8.0 (currently `v2.8.0-rc1`) or `master` | <https://github.com/CompEvol/beast3/releases> (`BEAST.v2.8.0.Linux.x86_64.tgz`), or build from source with JDK 25 + Maven (`mvn package -Dmaven.test.skip=true`, then `bin/beast`) |
 
 Record the exact BEAST 3 release tag **or** git commit hash in the report — results are only meaningful against a fixed version.
@@ -194,7 +194,8 @@ Install both versions in your NeSI project directory:
 ```bash
 cd /nesi/project/<project_code>/$USER
 wget https://github.com/CompEvol/beast2/releases/download/v2.7.8/BEAST.v2.7.8.Linux.x86_64.tgz
-tar xzf BEAST.v2.7.8.Linux.x86_64.tgz && mv beast beast2.7.8
+tar xzf BEAST.v2.7.8.Linux.x86_64.tgz && mv beast beast2.7.9
+beast2.7.9/bin/packagemanager -add BEAST.base -version 2.7.9
 # BEAST 3: download the release tgz the same way (rename to beast3), or build from source with JDK 25
 ```
 
@@ -223,7 +224,7 @@ shape, clock rate, birth rate, population size, …) using the mapping from step
 
 1. Summarise each log with 10 % burn-in, e.g. with LogAnalyser from either version:
    ```bash
-   beast2.7.8/bin/loganalyser -b 10 beast2/log/testHKY/rep1/testHKY.log
+   beast2.7.9/bin/loganalyser -b 10 beast2/log/testHKY/rep1/testHKY.log
    ```
    or load the logs into Tracer. Save the summaries to `reports/summary/`.
 2. **Convergence**: ESS ≥ 200 for every compared parameter in every replicate. If not, rerun longer (see step 2) before comparing.
@@ -253,6 +254,6 @@ Write `reports/REPORT.md` containing:
 
 The example XMLs only test the XML → MCMC path. Real users start in BEAUti, and the examples
 don't cover every core model. Both gaps are covered by the BEAUti track in
-[ASSIGNMENTS.md](ASSIGNMENTS.md): 30 analyses built by hand in BEAUti 2.7.8 and BEAUti 3,
+[ASSIGNMENTS.md](ASSIGNMENTS.md): 30 analyses built by hand in BEAUti 2.7.9 and BEAUti 3,
 covering every substitution, frequency, clock, tree-prior and starting-tree option in the
 BEAST 3 templates. Results go in `reports/beauti-manual.md` and `reports/model-coverage.md`.
