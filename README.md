@@ -12,6 +12,11 @@ documented as not yet converted / not applicable.
   <https://github.com/CompEvol/beast3/tree/master/beast-base/src/test/resources/beast.base/examples> — top-level `*.xml` / `*.json`.
   (`examples/legacy/` in beast3 holds unconverted BEAST 2 copies)
 
+### Github issue to track
+
+Please use https://github.com/CompEvol/beast3/issues/183 as a reference to track pull requests or changes during testing. 
+However, bug fixes will require a separate issue.
+
 ### What to test
 
 Test the `*.xml` / `*.json` files sitting **directly** in each `examples/` folder.
