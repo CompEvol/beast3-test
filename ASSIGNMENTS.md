@@ -1,115 +1,176 @@
 # Work assignments
 
-How the beast2 → beast3 example testing and conversion is split across 6 testers.
-See [README.md](README.md) for what each step means.
+Two tracks run in parallel before the BEAST 3 (2.8.0) release on **3 December 2026**:
 
-**Excluded:** the *BEAST 1 examples (`testStarBeast.xml`, `testStarBeastFBD.xml`) are excluded because the *BEAST 1 code was not migrated to BEAST 3.
-That leaves 42 examples: 18 to test and 24 to convert and test.
+| Track | Who | What |
+|-------|-----|------|
+| Existing examples | Alexei, Walter | Convert and test the BEAST 2 examples, following [README.md](README.md) steps 1–5 (split below) |
+| BEAUti by hand | Eva, Haoyuan, Sophie, Yao, Yuan | Build the 30 analyses below by hand in BEAUti, in both BEAST 2.7.8 and BEAST 3, then run and compare them. This also covers core model coverage |
 
-Replace **P1–P6** with names in the [Team](#team) table below; nothing else needs editing.
+## Existing examples track
 
-## How the work is split
+The 23 unconverted examples are split by theme. Each person reviews the other's step 1 model checks.
 
-- **By theme**: each person owns one group of related models, so they learn one part of
-  BEAST well and can do the matching BEAUti and model-coverage work for it.
-- **Balanced by effort**: an example that is already converted only needs testing (steps 1–5,
-  about 1 unit of effort). An unconverted one also needs converting first (about 3 units). A
-  simulator with no MCMC needs converting and a run check only (about 2 units). Each person has
-  roughly 15 units, plus one shared group job.
-- **Four eyes**: the model check (step 1) of each XML is reviewed by a partner, not by the
-  person who converted or tested it. Partners: P1 ↔ P2, P3 ↔ P4, P5 ↔ P6.
-- **Conversions go upstream**: a new BEAST 3 XML is submitted as a PR to
-  [CompEvol/beast3](https://github.com/CompEvol/beast3) `beast-base/src/test/resources/beast.base/examples/`
-  and a copy is added to `beast3/xml/` here.
+| | Alexei: calibrations and tree priors (11) | Walter: clocks, tip dates, data and simulators (12) |
+|---|---|---|
+| Convert, then test | testCalYule_5t_2c, testCalibration, testClassicRootCalibrationPrior, testConditionalRootCalibrationPrior, testTwoCalibrationsPrior, testYuleCalibrated, testYuleUncalibrated, testBSP, testCoalescent, testEBSP, testExponentialGrowth | testRandomLocalClock, testRelaxedClock, testUCLNclock.json, testTipDates, testTipDates2, testSRD06, testMultipleAlignments_randomTaxaOrder, testDirectSimulator, testDirectSimulator2, testDirectSimulatorHierarchical, testSeqGen, testSimulatedAlignment |
+| Reviews step 1 for | Walter | Alexei |
 
-## Team
+Shared and automated by a comparison script:
 
-| ID | Name | Theme | Group job | Reviewer of | Units |
-|----|------|-------|-----------|-------------|:-----:|
-| P1 | | Substitution models + Yule | — | P2 | 16 |
-| P2 | | Data, partitions & alignments | — | P1 | 14 |
-| P3 | | Calibrations | Owns `reports/model-coverage.md` | P4 | 15 |
-| P4 | | Coalescent | NeSI setup: install BEAST 2 + 3, maintain `nesi/run.sl`, help with runs | P3 | 12 + setup |
-| P5 | | Clocks & tip dates | Compiles the final `reports/REPORT.md` | P6 | 15 |
-| P6 | | Simulators & multiple alignments | — | P5 | 14 |
+- Test the 18 already-converted examples (README steps 2–4).
+- Run all unmodified BEAST 2.7.8 example XMLs in BEAST 3 and compare them with BEAST 2.7.8, as a backward-compatibility check.
 
-## Per-person task list
+Run settings, measured with BEAST 3 on 4 Nov:
 
-| ID | Test only (already converted) | Convert, then test | BEAUti by hand (TODO 1) | Model coverage (TODO 2) |
-|----|-------------------------------|--------------------|-------------------------|-------------------------|
-| P1 | testGTR, testHKY.xml, testHKY.json, testJukesCantor, testRNA, testRestrictedGTR, testSYM, testTIM, testTN93, testTVM | testYuleCalibrated, testYuleUncalibrated | 2 analyses: different substitution models + gamma / invariant sites | Substitution model and site heterogeneity rows |
-| P2 | bitflip, testJukesCantorShort, testJukesCantorShortUncertain, testJukesCantorShortUncertain2, testJukesCantorShortUncertain2MLE, testOpSubSchedule, testPlates, testYuleOneSite | testSRD06, testSliceHKY | 2 analyses: multiple partitions, linked/unlinked models, NEXUS + FASTA import | Partition and codon-position rows |
-| P3 | — | testCalYule_5t_2c, testCalibration, testClassicRootCalibrationPrior, testConditionalRootCalibrationPrior, testTwoCalibrationsPrior | 2 analyses: taxon sets, MRCA priors, calibrated Yule | Calibration rows; builds the whole matrix |
-| P4 | — | testBSP, testCoalescent, testEBSP, testExponentialGrowth | 2 analyses: constant / exponential coalescent, BSP | Coalescent tree prior rows |
-| P5 | — | testRandomLocalClock, testRelaxedClock, testUCLNclock.json, testTipDates, testTipDates2 | 2 analyses: relaxed clocks with tip dates | Clock model and tip-date rows |
-| P6 | — | testDirectSimulator, testDirectSimulator2, testDirectSimulatorHierarchical, testSeqGen, testSimulatedAlignment, testMultipleAlignments_randomTaxaOrder | 2 analyses: birth–death tree prior, multiple alignments with different taxa order | Birth–death rows |
+- Set `logEvery` on every logger to chain length / 5,000, in both versions, and record it. Fewer samples than that make the ESS estimate unreliable.
+- These examples need a longer chain in both versions to reach ESS ≥ 200: testEBSP 10M → 200M (about 16 min), testRandomLocalClock 2M → 100M, testConditionalRootCalibrationPrior 1M → 40M, testCalYule_5t_2c 10k → 700k. The GTR family passes at 5M with little margin; 7M is safer. Everything else passes at its current length.
+- One replicate of every example takes about 40 CPU-minutes in total. Two replicates in both versions take about 2.5 CPU-hours.
+- testConditionalRootCalibrationPrior has no prior on birthRate (the 1/X is commented out). Compare it on the calibrated node age, not on birthRate.
 
-## Example lookup
+Backward compatibility, checked on 4 Nov: only 9 of the 44 v2.7.8 examples load in BEAST 3. The beast3 `examples/legacy/` copies were edited to work around this, so they are not the v2.7.8 originals.
 
-Look up any example to see who owns it. Owners update the **Status** column as they go.
+| Cause | Examples affected |
+|---|---|
+| `TreeHeightLogger` was removed (beast3 commit `5ed52d0`) | 31, including all converted examples except bitflip |
+| `beast.app.seqgen.*` class names don't resolve | testSeqGen, testSimulatedAlignment |
+| `SliceOperator` doesn't exist in BEAST 3 | testSliceHKY |
+| JSON sequence format no longer accepted | testUCLNclock.json |
 
-Status: ⬜ not started · 🔄 converting · 🔍 model check · 🏃 running on NeSI · 📊 comparing · ✅ matched · ⚠️ borderline · ❌ not matched / blocked
+BEAUti 2.7 writes `TreeStatLogger`, so analyses built in BEAUti 2.7 are not affected; hand-written and older XML is.
 
-| # | Example | Converted? | Task | Owner | Reviewer | Status | Issue / PR |
-|---|---------|:----------:|------|:-----:|:--------:|:------:|------------|
-| 1  | bitflip.xml | yes | test | P2 | P1 | ⬜ | |
-| 2  | testBSP.xml | no | convert + test | P4 | P3 | ⬜ | |
-| 3  | testCalYule_5t_2c.xml | no | convert + test | P3 | P4 | ⬜ | |
-| 4  | testCalibration.xml | no | convert + test | P3 | P4 | ⬜ | |
-| 5  | testClassicRootCalibrationPrior.xml | no | convert + test | P3 | P4 | ⬜ | |
-| 6  | testCoalescent.xml | no | convert + test | P4 | P3 | ⬜ | |
-| 7  | testConditionalRootCalibrationPrior.xml | no | convert + test | P3 | P4 | ⬜ | |
-| 8  | testDirectSimulator.xml | no | convert + run check | P6 | P5 | ⬜ | |
-| 9  | testDirectSimulator2.xml | no | convert + run check | P6 | P5 | ⬜ | |
-| 10 | testDirectSimulatorHierarchical.xml | no | convert + run check | P6 | P5 | ⬜ | |
-| 11 | testEBSP.xml | no | convert + test | P4 | P3 | ⬜ | |
-| 12 | testExponentialGrowth.xml | no | convert + test | P4 | P3 | ⬜ | |
-| 13 | testGTR.xml | yes | test | P1 | P2 | ⬜ | |
-| 14 | testHKY.json | yes | test | P1 | P2 | ⬜ | |
-| 15 | testHKY.xml | yes | test | P1 | P2 | ⬜ | |
-| 16 | testJukesCantor.xml | yes | test | P1 | P2 | ⬜ | |
-| 17 | testJukesCantorShort.xml | yes | test | P2 | P1 | ⬜ | |
-| 18 | testJukesCantorShortUncertain.xml | yes | test | P2 | P1 | ⬜ | |
-| 19 | testJukesCantorShortUncertain2.xml | yes | test | P2 | P1 | ⬜ | |
-| 20 | testJukesCantorShortUncertain2MLE.xml | yes | test | P2 | P1 | ⬜ | |
-| 21 | testMultipleAlignments_randomTaxaOrder.xml | no | convert + test | P6 | P5 | ⬜ | |
-| 22 | testOpSubSchedule.xml | yes | test | P2 | P1 | ⬜ | |
-| 23 | testPlates.xml | yes | test | P2 | P1 | ⬜ | |
-| 24 | testRNA.xml | yes | test | P1 | P2 | ⬜ | |
-| 25 | testRandomLocalClock.xml | no | convert + test | P5 | P6 | ⬜ | |
-| 26 | testRelaxedClock.xml | no | convert + test | P5 | P6 | ⬜ | |
-| 27 | testRestrictedGTR.xml | yes | test | P1 | P2 | ⬜ | |
-| 28 | testSRD06.xml | no | convert + test | P2 | P1 | ⬜ | |
-| 29 | testSYM.xml | yes | test | P1 | P2 | ⬜ | |
-| 30 | testSeqGen.xml | no | convert + run check | P6 | P5 | ⬜ | |
-| 31 | testSimulatedAlignment.xml | no | convert + test | P6 | P5 | ⬜ | |
-| 32 | testSliceHKY.xml | no | convert + test | P2 | P1 | ⬜ | |
-| 33 | testStarBeast.xml | excluded | — | — | — | — | *BEAST 1, code not migrated to BEAST 3 |
-| 34 | testStarBeastFBD.xml | excluded | — | — | — | — | *BEAST 1, code not migrated to BEAST 3 |
-| 35 | testTIM.xml | yes | test | P1 | P2 | ⬜ | |
-| 36 | testTN93.xml | yes | test | P1 | P2 | ⬜ | |
-| 37 | testTVM.xml | yes | test | P1 | P2 | ⬜ | |
-| 38 | testTipDates.xml | no | convert + test | P5 | P6 | ⬜ | |
-| 39 | testTipDates2.xml | no | convert + test | P5 | P6 | ⬜ | |
-| 40 | testTwoCalibrationsPrior.xml | no | convert + test | P3 | P4 | ⬜ | |
-| 41 | testUCLNclock.json | no | convert + test | P5 | P6 | ⬜ | |
-| 42 | testYuleCalibrated.xml | no | convert + test | P1 | P2 | ⬜ | |
-| 43 | testYuleOneSite.xml | yes | test | P2 | P1 | ⬜ | |
-| 44 | testYuleUncalibrated.xml | no | convert + test | P1 | P2 | ⬜ | |
+Still to decide:
 
-## Suggested timeline
+- Whether to restore `TreeHeightLogger` as a deprecated alias of `TreeStatLogger` before release, or list its removal in the release notes. The same question applies to the seqgen class names and the JSON sequence format.
 
-| Week | Everyone | Group jobs |
-|------|----------|------------|
-| 1 | Read the README; install BEAST 2.7.8 and BEAST 3 locally; start the step 1 model checks of already-converted examples | P4 sets up NeSI installs and `nesi/run.sl`; P3 drafts the coverage matrix |
-| 2–3 | Convert your unconverted examples, open beast3 PRs, partner reviews the model check | P3 shares the coverage gaps so everyone can plan new BEAUti XMLs |
-| 4 | Submit NeSI runs (BEAST 2 + BEAST 3, ≥ 2 replicates); BEAUti-by-hand analyses | P4 helps with failed or slow jobs |
-| 5 | Collect logs, compare posteriors, write up your section (template in README step 5) | P5 merges all sections into `reports/REPORT.md` |
-| 6 | Rerun borderline examples with longer chains; follow up open issues | Coverage gap XMLs (TODO 2) as time allows |
+- `testHKY.xml` and `testOpSubSchedule.xml` (already converted) replace the 1/X prior on kappa with a LogNormal. Fix them, or accept and document the change.
+- How conversions handle the 1/X prior, which has no exact spec replacement. Eight of the 23 use it.
+- `testSliceHKY.xml` uses `SliceOperator`, which doesn't exist in BEAST 3. Exclude it, or port the operator.
 
-## Notes
+The rest of this page is about the BEAUti track.
 
-- If someone finishes early, take an example from the person with the most units left
-  (P1), and update the Owner column.
-- Re-check the beast3 examples folder before starting a conversion — someone upstream may
-  already have done it.
+## How the BEAUti matrix is built
+
+- **Built by hand, twice.** Every combination is built from scratch in BEAUti 2.7.8 and in BEAUti 3. Nobody copies XML between versions, because the point is to test BEAUti as well as the inference engine. The one exception is C28, which deliberately loads 2.7.8 XML into BEAUti 3.
+- **Covers every BEAUti option.** Together the 30 use every substitution model, frequency option, clock model, tree prior and starting tree in the BEAST 3 BEAUti templates (`beast-fx/src/main/resources/beast.fx/fxtemplates/`), plus ORC and bModelTest as packages.
+- **Covers the workflows that break most often:** partition linking and splitting, tip dates, MRCA calibrations, sampling from the prior, prior editing, the Operators and MCMC panels, and resuming a run.
+- **Spread across areas.** Each tester's six combinations come from different areas, so a tester who falls behind doesn't leave a whole feature area untested. Nobody has more than three slow combinations.
+- **Same data in both versions.** All data are example files shipped with both versions (`examples/nexus`, `examples/fasta`).
+- **Overlap with the existing-examples track is intended.** This round was designed independently of the existing examples. If a model passes there but fails here, the problem is probably in BEAUti, not in the engine.
+
+## The 30 combinations
+
+Slow combinations (long chains, start them first) are marked 🐢.
+
+### 1 · Nucleotide substitution baselines (single partition)
+
+| ID | Tester | Data | Site model | Clock | Tree prior | Extras | What it exercises |
+|----|--------|------|------------|-------|------------|--------|-------------------|
+| C01 | Eva | anolis.nex | JC69 | Strict, rate fixed 1.0 | Yule | All defaults | Simple test. Any discrepancy here points to the core likelihood or the operators |
+| C02 | Haoyuan | anolis.nex | HKY, Empirical freqs | Strict, fixed | Yule | — | Empirical frequency subtemplate, kappa prior |
+| C03 | Sophie | anolis.nex | HKY + Γ4, Estimated freqs | Strict, fixed | Coalescent constant | — | Gamma categories, shape prior, coalescent popSize |
+| C04 | Yuan | anolis.nex | GTR + Γ4 + I (estimate pInv) | Strict, fixed | Yule | — | GTR rate priors, proportion invariant with UnitInterval domain |
+| C05 | Yao | anolis.nex | TN93, Estimated freqs | Strict, fixed | Birth-Death | — | TN93 kappas, birth-death parameterisation |
+
+### 2 · Partitions, linking and starting trees
+
+| ID | Tester | Data | Site model | Clock | Tree prior | Extras | What it exercises |
+|----|--------|------|------------|-------|------------|--------|-------------------|
+| C06 | Eva | primate-mtDNA.nex (4 charsets) | HKY + Γ4, unlinked per partition | Strict, linked | Yule, linked tree | — | Partition import, unlinked site models, per-partition log columns |
+| C07 | Haoyuan | primate-mtDNA.nex | HKY, linked across all partitions | Strict, unlinked; estimate relative rates | Yule, linked tree | — | Link/unlink buttons, clock rate estimation across partitions |
+| C24 | Yao | primate-mtDNA.nex | GTR + Γ4, unlinked | Strict, linked | Yule | “Fix mean substitution rate” on | DeltaExchange on mutation rates (typed inputs changed in BEAST 3) |
+| C25 | Yuan | primate-mtDNA.nex | HKY, unlinked | Strict, unlinked | Yule, **unlinked trees** | — | Independent trees per partition, multiple tree logs |
+| C22 | Sophie | anolis.nex | HKY | Strict, fixed | Yule | Newick starting tree from anolis.nex_phyml_tree.txt | NewickTree starting-tree subtemplate |
+| C23 🐢 | Haoyuan | anolis.nex | bModelTest + Γ4 + I (bModelTest package) | Strict, fixed | Yule | ClusterTree (UPGMA) starting tree | Site-model averaging from a third-party package, ClusterTree starting tree |
+
+### 3 · Calibrations and time-scaled trees
+
+| ID | Tester | Data | Site model | Clock | Tree prior | Extras | What it exercises |
+|----|--------|------|------------|-------|------------|--------|-------------------|
+| C08 | Sophie | primate-mtDNA.nex | HKY + Γ4, linked | Strict, estimated rate | Calibrated Yule | MRCA prior on human–chimp, monophyletic, log-normal | CalibratedYule plus MRCA prior and tMRCA logging |
+| C09 | Sophie | anolis.nex | HKY | Strict, estimated rate | Yule | Two MRCA priors: one monophyletic (uniform), one not (normal) | Taxon-set editor, monophyly constraint, bounds on calibrations |
+| C10 | Eva | RSV2.nex | HKY + Γ4 | Strict, estimated rate | Coalescent constant | Tip dates parsed from taxon names | Tip Dates panel parsing rules and date direction |
+| C11 | Haoyuan | Dengue4.env.nex | GTR + Γ4 | Strict, estimated rate | Coalescent exponential | Tip dates | Exponential growth rate prior with sampled tips |
+| C12 🐢 | Sophie | Dengue4.env.nex | HKY + Γ4 | Strict, estimated rate | Bayesian Skyline (5 groups) | Tip dates | BSP group sizes, Markov-chained popSizes |
+| C13 🐢 | Eva | RSV2.nex | HKY | Strict, estimated rate | Extended Bayesian Skyline | Tip dates | EBSP indicators and popSizes, the EBSP log file |
+
+### 4 · Clock models
+
+| ID | Tester | Data | Site model | Clock | Tree prior | Extras | What it exercises |
+|----|--------|------|------------|-------|------------|--------|-------------------|
+| C14 🐢 | Yuan | primate-mtDNA.nex | HKY, linked | Random Local Clock | Yule | — | RLC indicators and rates, rate logging in the tree log |
+| C15 🐢 | Yao | RSV2.nex | HKY | Random Local Clock | Coalescent constant | Tip dates | RLC on a time-scaled tree with sampled tips |
+| C16 🐢 | Yuan | anolis.nex | HKY + Γ4 | ORC relaxed log-normal (ORC package) | Yule | — | ORC relaxed clock in BEAUti, installing a package in BEAST 3 |
+| C17 🐢 | Yao | Dengue4.env.nex | GTR + Γ4 | ORC relaxed log-normal (ORC package) | Bayesian Skyline | Tip dates | Relaxed clock with tip dates, the typical virus analysis |
+
+### 5 · Other data types and importers
+
+| ID | Tester | Data | Site model | Clock | Tree prior | Extras | What it exercises |
+|----|--------|------|------------|-------|------------|--------|-------------------|
+| C18 | Eva | protein.nex | WAG + Γ4 | Strict, fixed | Yule | — | Amino-acid datatype, WAG |
+| C19 | Haoyuan | protein.nex | JTT, Empirical freqs | Strict, fixed | Birth-Death | — | JTT, empirical AA frequencies |
+| C20 | Sophie | aminoacid.fasta | Blosum62 + Γ4 | Strict, fixed | Coalescent constant | — | FASTA importer, datatype detection |
+| C21 | Yao | E15-binary.fasta | MutationDeathModel | Strict, fixed | Yule | — | Binary datatype and the MutationDeath subtemplate |
+
+### 6 · BEAUti mechanics
+
+| ID | Tester | Data | Site model | Clock | Tree prior | Extras | What it exercises |
+|----|--------|------|------------|-------|------------|--------|-------------------|
+| C26 | Eva | anolis.nex | HKY + Γ4 | Strict, fixed | Yule | **Sample from prior** | Every marginal must match its analytic prior, so a pass doesn't depend on 2.7.8 |
+| C27 | Haoyuan | primate-mtDNA.nex | HKY | Strict, estimated | Calibrated Yule | 2 MRCA priors, sample from prior | Calibration/tree-prior interaction, a common source of unexpected induced priors |
+| C28 | Yao | Eva's 2.7.8 XML for C06 and C10 | as built | as built | as built | Load via File › Load and by drag-and-drop, save, run in BEAST 3 | Backward compatibility of BEAUti 2.7.8 XML in BEAUti 3 |
+| C29 | Yuan | anolis.nex | HKY + Γ4 | Strict, estimated | Yule | Edit priors: kappa → Exponential(mean 5), shape → Uniform(0, 10), birthRate → Gamma(2, 1), clock → Log-normal | Priors panel parametric distribution editors |
+| C30 | Yuan | primate-mtDNA.nex | HKY, linked | Strict, fixed | Yule | Edit operator weights, chain length, log intervals and file names. Stop at 50 % and `-resume` | Operators and MCMC panels, state file and resume, compared with an uninterrupted run |
+
+## Assignments
+
+| Tester | Combinations |
+|--------|--------------|
+| Eva | C01 JC69 baseline · C06 unlinked partitions · C10 tip dates, coalescent · C13 🐢 Extended BSP · C18 WAG protein · C26 sample from prior |
+| Haoyuan | C02 HKY empirical · C07 linked sites, unlinked clocks · C11 exponential growth · C19 JTT protein · C23 🐢 bModelTest, UPGMA start · C27 calibrations from prior |
+| Sophie | C03 HKY+Γ coalescent · C08 calibrated Yule · C09 two MRCA priors · C12 🐢 Bayesian Skyline · C20 Blosum62 FASTA · C22 Newick start tree |
+| Yao | C05 TN93 birth-death · C15 🐢 RLC with tip dates · C17 🐢 relaxed clock + BSP · C21 binary data · C24 fix mean rate · C28 load 2.7.8 XML |
+| Yuan | C04 GTR+Γ+I · C14 🐢 random local clock · C16 🐢 relaxed clock · C25 unlinked trees · C29 prior editing · C30 operators and resume |
+| Alexei, Walter | Existing examples track (see above) |
+
+## Run protocol
+
+1. **Versions.** BEAST 2.7.8 and the BEAST 3 release candidate at a fixed tag or commit (see README, Software versions). Install **ORC and bModelTest** through the package manager in both versions, and record the package versions. If a package won't install or load in BEAST 3, record that as a finding.
+2. **Build.** Follow the row exactly in each version. Write down every non-default click so the two builds match, and take a screenshot of any panel that looks different between versions. Save as `beauti-C07.xml` in `beast2/xml/` and `beast3/xml/`.
+3. **Run.** Run 2 replicates per version on NeSI (README step 2), seeds 1 and 2, in `beast2/log/beauti-C07/rep1/` and so on. Size the chain so every logged parameter reaches ESS ≥ 200 in both versions. For the 🐢 combinations, start with about 50 million steps so they don't need extending later in the week.
+4. **Don't expect identical traces.** The BEAST 3 default tree operators changed (`UpDownOperator` replaces EpochFlex/TreeStretch), so only distributions are comparable, even with the same seed.
+5. **Record speed.** Record wall-clock time and ESS per hour. A large slowdown is a release finding even when the posteriors agree.
+6. **Log every BEAUti oddity** in `reports/beauti-manual.md`, even when the run succeeds: crashes, wrong defaults, IDs that differ from 2.7.8, confusing labels. Raise issues on <https://github.com/CompEvol/beast3/issues>.
+
+## Pass criteria
+
+Use README step 4, plus the following:
+
+- **Continuous parameters:** z = |mean₂ − mean₃| / √(se₂² + se₃²) < 3, with se = sd / √ESS, on the combined replicates.
+- **Trees:** for every clade with posterior ≥ 0.05 in either version, flag |Δp| > 0.1. Compare root height and every tMRCA.
+- **Sample-from-prior runs (C26, C27):** compare each marginal with its analytic prior, not only with 2.7.8.
+- **Resume (C30):** the resumed run must match an uninterrupted BEAST 3 run by the same criteria.
+- **Reruns:** a flagged result gets one rerun with new seeds before anyone opens an issue.
+- **Log column names:** these may differ between versions (e.g. spec parameter IDs). Map them before comparing, and record each renaming as a finding.
+
+Record results per combination in `reports/beauti-manual.md` and the coverage in `reports/model-coverage.md`.
+
+## Timeline
+
+| Dates | Step |
+|-------|------|
+| Wed 4 – Thu 5 Nov | Confirm the matrix, pin builds, install ORC and bModelTest in both versions, resolve open questions |
+| Fri 6 Nov | Runs start. Each tester builds their first combination in both versions as a setup check, then builds and launches their 🐢 combinations so they run over the weekend. Eva saves C06 and C10 from 2.7.8 the same day so Yao can start C28 |
+| Mon 9 – Tue 10 Nov | Build and run the remaining combinations. Comparison script ready by Tue 10 Nov |
+| Wed 11 Nov | Collate and compare. Launch reruns for anything flagged that evening |
+| Thu 12 Nov | Check reruns, write up findings |
+| **Fri 13 Nov** | **Sign-off meeting.** Anything unfinished is listed as an exception with an owner and a date |
+| 16 Nov – 2 Dec | Fix and retest blockers |
+| Thu 3 Dec | Release |
+
+Hands-on time is roughly 1.2–1.8 working days per tester. Building takes 30–50 minutes per combination for both versions together, and comparison about 10 minutes once the script exists. Most of the elapsed time is unattended MCMC.
+
+## Open questions
+
+- C21: confirm that `E15-binary.fasta` ships with 2.7.8 and is imported as binary data in both versions.
+- The relaxed exponential clock isn't in the matrix. Add ORC's exponential option to C16 or C17 as a variant if time allows.

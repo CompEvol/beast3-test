@@ -28,9 +28,11 @@ Nothing in a sub-folder is tested, in either repository.
 | beast3 `examples/` | `beast2vs1/` | long-run BEAST 2 vs BEAST 1 comparisons, not for release | ❌ No — not part of the examples |
 | beast3 `examples/` | `fasta/`, `nexus/` | alignment files only | ❌ No — data, not tests |
 
-> **Note:** beast3 `examples/legacy/` should be the same as beast2 `examples/` — copies of the
-> BEAST 2 XMLs that have **not been converted** to BEAST 3. They are not tested; always take the
-> BEAST 2 XML from the beast2 repo (tag `v2.7.8`).
+> **Note:** beast3 `examples/legacy/` holds copies of the BEAST 2 XMLs that have **not been
+> converted** to BEAST 3. They are **not** the v2.7.8 originals: as of 2026-11-04, 16 of the 23
+> copies have been edited so that they load in BEAST 3 (for example, `TreeHeightLogger` was
+> replaced by `TreeStatLogger`). They are not tested; always take the BEAST 2 XML from the beast2
+> repo (tag `v2.7.8`).
 
 In short: each test is a **pair** — a top-level BEAST 2 example and the top-level BEAST 3 file
 with the same name. A BEAST 2 example without a BEAST 3 partner is run with BEAST 2 only and
@@ -47,7 +49,7 @@ Rules:
   from `fasta/` or `nexus/`), so each XML can be copied into `beast2/xml/` on its own. New BEAST 3
   conversions must also be self-contained; if one does need an external data file, copy that
   file next to the XML in `beast3/xml/` and note it in the report.
-- New XMLs made with BEAUti (TODO 2) go in `beast2/xml/` and `beast3/xml/` here, at the top
+- New XMLs made with BEAUti (see [ASSIGNMENTS.md](ASSIGNMENTS.md)) go in `beast2/xml/` and `beast3/xml/` here, at the top
   level, with a name that does not clash with an example.
 
 Who does what: see [ASSIGNMENTS.md](ASSIGNMENTS.md).
@@ -242,35 +244,10 @@ Write `reports/REPORT.md` containing:
 - A list of problems found (model mismatches, failed runs, unmatched posteriors), each linked to a GitHub issue on beast3 where one was raised.
 - The list of examples still to be converted.
 
-## TODO
+## BEAUti by hand and core model coverage
 
-### 1. BEAUti by hand
-
-The example XMLs only test the XML → MCMC path. Real users start in BEAUti, so testers
-should also build complete analyses by hand in BEAST 3 BEAUti, from start to finish:
-
-- import data (NEXUS, FASTA, multiple partitions), set tip dates / traits, link or unlink site, clock and tree models
-- choose site, clock and tree models; add priors, MRCA calibrations and taxon sets
-- set MCMC options, save the XML, reopen it in BEAUti, and run it in BEAST 3
-- where possible, repeat the same steps in BEAST 2.7.8 BEAUti and compare the generated XMLs and posteriors (steps 1–4 above)
-
-Report anything wrong or odd: crashes, error dialogs, options that are missing or behave
-differently from BEAST 2, wrong default values, XMLs that do not reopen or do not run, and
-confusing UI. Record each analysis (data, choices made, BEAST 3 version) and any problems
-in `reports/beauti-manual.md`, and raise issues on <https://github.com/CompEvol/beast3/issues>.
-
-### 2. Core model coverage
-
-The 42 examples do not cover every core model. Build a coverage matrix of the models
-available in BEAUti (core `beast.base` only, no packages) and mark which are covered by an
-existing example:
-
-- Substitution models: JC69, HKY, TN93, GTR, … (+ frequencies: estimated / empirical / all equal)
-- Site heterogeneity: gamma categories, proportion invariant
-- Clock models: strict, relaxed log-normal, relaxed exponential, random local
-- Tree priors: Yule, birth–death, calibrated Yule, coalescent (constant, exponential, BSP, EBSP)
-- Other: tip dates, multiple partitions, calibrations / MRCA priors
-
-For uncovered models or combinations, use BEAUti to generate new XMLs in BEAST 2.7.8 and
-BEAST 3 from the same data and settings, add them to `beast2/xml/` and `beast3/xml/`, and run
-them through steps 1–5 like the examples. Track the matrix in `reports/model-coverage.md`.
+The example XMLs only test the XML → MCMC path. Real users start in BEAUti, and the examples
+don't cover every core model. Both gaps are covered by the BEAUti track in
+[ASSIGNMENTS.md](ASSIGNMENTS.md): 30 analyses built by hand in BEAUti 2.7.8 and BEAUti 3,
+covering every substitution, frequency, clock, tree-prior and starting-tree option in the
+BEAST 3 templates. Results go in `reports/beauti-manual.md` and `reports/model-coverage.md`.
