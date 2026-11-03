@@ -12,26 +12,29 @@ documented as not yet converted / not applicable.
   <https://github.com/CompEvol/beast3/tree/master/beast-base/src/test/resources/beast.base/examples> — top-level `*.xml` / `*.json`.
   (`examples/legacy/` in beast3 holds unconverted BEAST 2 copies)
 
-### Which XMLs are in scope (sub-folders)
+### What to test
 
-Only `*.xml` / `*.json` files sitting **directly** in the `examples/` folder are tested.
-Nothing from a sub-folder is in scope, in either repository.
+Test the `*.xml` / `*.json` files sitting **directly** in each `examples/` folder.
+Nothing in a sub-folder is tested, in either repository.
 
-> **Note:**
-> - `parameterised/`, `starbeastinit/` and `beast2vs1/` are **excluded**: they hold extra XMLs
->   (a parameterised RSV2 analysis, *BEAST starting-tree tests, and long-run BEAST 2 vs BEAST 1
->   comparisons), not the examples being tested here.
-> - `fasta/` and `nexus/` are **data, not tests**: they contain alignment files only, no XML
->   analyses, so there is nothing in them to run or convert.
+| Repository | Location | What it is | To test? |
+|------------|----------|------------|----------|
+| beast2 `examples/` | top-level `*.xml` / `*.json` | the BEAST 2 examples (see [Example inventory](#example-inventory)) | ✅ **Yes** — run with BEAST 2.7.8 as the reference |
+| beast2 `examples/` | `testStarBeast.xml`, `testStarBeastFBD.xml` | *BEAST 1 examples | ❌ No — *BEAST 1 code was not migrated to BEAST 3 |
+| beast2 `examples/` | `parameterised/`, `starbeastinit/`, `beast2vs1/` | extra XMLs: a parameterised RSV2 analysis, *BEAST starting-tree tests, long-run BEAST 2 vs BEAST 1 comparisons | ❌ No — not part of the examples |
+| beast2 `examples/` | `benchmark/`, `testDirichlet/` | benchmark and Dirichlet test XMLs | ❌ No — not part of the examples |
+| beast2 `examples/` | `fasta/`, `nexus/` | alignment files only | ❌ No — data, not tests |
+| beast3 `examples/` | top-level `*.xml` / `*.json` | BEAST 3 conversions of the BEAST 2 examples | ✅ **Yes** — run with BEAST 3 and compare against the BEAST 2 run of the same name |
+| beast3 `examples/` | `beast2vs1/` | long-run BEAST 2 vs BEAST 1 comparisons, not for release | ❌ No — not part of the examples |
+| beast3 `examples/` | `fasta/`, `nexus/` | alignment files only | ❌ No — data, not tests |
 
-| Repository | Sub-folder | What it is | In scope? |
-|------------|------------|------------|:---------:|
-| beast2 `examples/` | `parameterised/`, `starbeastinit/`, `beast2vs1/` | extra XMLs (see note) | excluded |
-| beast2 `examples/` | `benchmark/`, `testDirichlet/` | benchmark / Dirichlet test XMLs | no |
-| beast2 `examples/` | `fasta/`, `nexus/` | data, not tests | no |
-| beast3 `examples/` | `legacy/` (and its sub-folders) | unconverted BEAST 2 copies, not for release | no — take the BEAST 2 XML from the beast2 repo, not from here |
-| beast3 `examples/` | `beast2vs1/` | long-run BEAST 2 vs BEAST 1 comparisons, not for release | excluded |
-| beast3 `examples/` | `fasta/`, `nexus/` | data, not tests | no |
+> **Note:** beast3 `examples/legacy/` should be the same as beast2 `examples/` — copies of the
+> BEAST 2 XMLs that have **not been converted** to BEAST 3. They are not tested; always take the
+> BEAST 2 XML from the beast2 repo (tag `v2.7.8`).
+
+In short: each test is a **pair** — a top-level BEAST 2 example and the top-level BEAST 3 file
+with the same name. A BEAST 2 example without a BEAST 3 partner is run with BEAST 2 only and
+reported as "not converted" until someone converts it.
 
 Rules:
 
@@ -131,10 +134,10 @@ beast3-test/
 ├── README.md
 ├── beast2/
 │   ├── xml/                       # copies of the BEAST 2 v2.7.8 example XMLs used
-│   └── log<example>/rep<N>/      # *.log, *.trees, beast.out
+│   └── log/<example>/rep<N>/     # *.log, *.trees, beast.out
 ├── beast3/
 │   ├── xml/                       # copies of the BEAST 3 converted XMLs used
-│   └── log<example>/rep<N>/
+│   └── log/<example>/rep<N>/
 ├── nesi/                          # Slurm job scripts
 └── reports/
     ├── model-check.md     # step 1 results
@@ -145,6 +148,9 @@ beast3-test/
 Commit the exact XMLs that were run (do not rely on upstream `master`, which may change).
 Keep large `*.trees` files out of git unless needed (use Git LFS or compress them);
 `*.log` files and stdout are small enough to commit.
+
+> **Note:** if a tree log (`*.trees`) is too large to upload to the repo, leave it out — the
+> parameter log (`*.log`) from the MCMC is enough for the comparison in step 4.
 
 ## Tester instructions
 
@@ -187,7 +193,7 @@ tar xzf BEAST.v2.7.8.Linux.x86_64.tgz && mv beast beast2.7.8
 
 Rules for every run:
 
-- Run each replicate in **its own directory** (`<beast2|beast3>/log/rep<N>/<example>/`), so log files never overwrite each other.
+- Run each replicate in **its own directory** (`<beast2|beast3>/log/<example>/rep<N>/`), so log files never overwrite each other.
 - Use a different, recorded seed per replicate: e.g. rep1 `-seed 1`, rep2 `-seed 2`. Use the same seeds for BEAST 2 and BEAST 3.
 - Do not change `chainLength`; if an example's chain is too short to reach ESS ≥ 200, increase it **identically** in both versions and record it.
 - Keep stdout/stderr (`beast.out`) — it contains the start/end state and run time.
@@ -214,7 +220,7 @@ XML=${XMLS[$((SLURM_ARRAY_TASK_ID / NREP))]}
 REP=$((SLURM_ARRAY_TASK_ID % NREP + 1))
 NAME=$(basename "${XML%.*}")
 
-OUT=$REPO/$VERSION/log/rep$REP/$NAME
+OUT=$REPO/$VERSION/log/$NAME/rep$REP
 mkdir -p "$OUT" && cd "$OUT"
 "$BEAST" -seed $REP -overwrite "$XML" > beast.out 2>&1
 ```
@@ -225,6 +231,7 @@ Submit with `sbatch nesi/run.sl beast2` and `sbatch nesi/run.sl beast3`
 ### Step 3 — Collect logs
 
 - Copy back (or commit directly from NeSI) the `*.log`, `beast.out` and, if small, `*.trees` files into `beast2/log/` and `beast3/log/`.
+  If a `*.trees` file is too large to upload, skip it; the parameter `*.log` is enough.
 - Check every `beast.out` finished normally (no exception, final "End likelihood" line present). List failed runs in the report with the error message.
 - Commit and push to this repo, with the commit message naming the BEAST versions used.
 
@@ -236,12 +243,12 @@ shape, clock rate, birth rate, population size, …) using the mapping from step
 
 1. Summarise each log with 10 % burn-in, e.g. with LogAnalyser from either version:
    ```bash
-   beast2.7.8/bin/loganalyser -b 10 beast2/log/rep1/testHKY/testHKY.log
+   beast2.7.8/bin/loganalyser -b 10 beast2/log/testHKY/rep1/testHKY.log
    ```
    or load the logs into Tracer. Save the summaries to `reports/summary/`.
 2. **Convergence**: ESS ≥ 200 for every compared parameter in every replicate. If not, rerun longer (see step 2) before comparing.
 3. **Replicate agreement (baseline)**: the replicates of the same version should agree with each other; this shows the expected run-to-run noise.
-4. **BEAST 2 vs BEAST 3**: combine replicates per version (`logcombiner -b 10 -log rep1/<example>/x.log -log rep2/<example>/x.log -o combined.log`), then for each parameter:
+4. **BEAST 2 vs BEAST 3**: combine replicates per version (`logcombiner -b 10 -log <example>/rep1/x.log -log <example>/rep2/x.log -o <example>/combined.log`), then for each parameter:
    - the posterior means agree within Monte Carlo error: |mean₂ − mean₃| / √(se₂² + se₃²) < 3, where se = sd / √ESS;
    - the 95 % HPD intervals substantially overlap;
    - optionally, overlay the marginal densities in Tracer and save a screenshot.
