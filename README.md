@@ -14,7 +14,7 @@ documented as not yet converted / not applicable.
 
 ### Github issue to track
 
-Please use https://github.com/CompEvol/beast3/issues/183 as a reference to track pull requests or changes during testing. 
+Please use https://github.com/CompEvol/beast3/issues/183 as a reference to track pull requests or changes to [beast3 repo](https://github.com/CompEvol/beast3) during testing. 
 However, bug fixes will require a separate issue.
 
 ### What to test
