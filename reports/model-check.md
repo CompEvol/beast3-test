@@ -10,10 +10,31 @@ Converted on 6 Nov 2026, from the beast2 `v2.7.8` originals (not the edited `leg
 on beast3 branch `examples/convert-calibrations-treepriors`
 ([beast3#199](https://github.com/CompEvol/beast3/pull/199), stacked on the fixes in
 [beast3#198](https://github.com/CompEvol/beast3/pull/198)). Each XML was then run twice in
-BEAST 2.7.9 and twice in BEAST 3 (`v2.8.0-rc2` plus the fixes below), with seeds 1 and 2, and
-compared with `scripts/compare.py`. Those runs were local and are not the step 2 runs on NeSI.
+BEAST 2.7.9 and twice in BEAST 3, with seeds 1 and 2, and compared with `scripts/compare.py`.
 The BEAST 3 runs were repeated after the subtree slide was switched to `BactrianSubtreeSlide`
 (see Operators below); the results table is from those runs.
+
+**Runs (README steps 2–3).** The logs, `beast.out`, tree files and the XML as run are in
+`beast2/log/<example>/rep<N>/` and `beast3/log/<example>/rep<N>/`, for every example except
+testEBSP, which is being rerun (see its note below).
+- **Where:** on one Mac (Apple silicon, macOS 26.6), 6 Nov 2026.
+- **BEAST 2.7.9:** the 2.7.7 macOS app with BEAST.base 2.7.9 and BEAST.app 2.7.8 (README,
+  Installing BEAST 2.7.9), its bundled Java 17.0.5.
+- **BEAST 3:** a local build of beast3 commit `b61fd84` (`v2.8.0-rc2` plus the fixes in #198),
+  run with Java 26.0.1. The XMLs are those of #199.
+- **Chain lengths:** as in the XMLs, except testCalYule_5t_2c (700k) and
+  testConditionalRootCalibrationPrior (40M), which are longer in both versions as ASSIGNMENTS
+  says.
+- **`logEvery`:** the same in both versions, except testBSP and testCalibration (2,000 in
+  BEAST 2.7.9, 1,000 in BEAST 3). It is chain length / 5,000 except in testBSP and
+  testCalibration (BEAST 3), testClassicRootCalibrationPrior and testTwoCalibrationsPrior
+  (100 instead of 200), and testYuleCalibrated and testYuleUncalibrated (1,000 instead of
+  2,000). Every compared parameter except those of testConditionalRootCalibrationPrior has
+  ESS ≥ 279.
+- **Start sizes:** testCalibration, testCoalescent and testExponentialGrowth ran with the
+  subtree slide's earlier start sizes (0.026–0.029, against 0.0063–0.0083 in the final #199
+  files). The size is tuned during the run, so the posterior does not depend on it.
+- **Run times:** not comparable; several runs shared the machine.
 
 ### Conversion rules used throughout
 

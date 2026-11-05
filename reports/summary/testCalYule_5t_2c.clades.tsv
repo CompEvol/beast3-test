@@ -1,0 +1,6 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+test_Nt_Nc_i.N.trees	c e	2	0.338369	0.343590	0.005221	
+test_Nt_Nc_i.N.trees	c d	2	0.330593	0.327927	0.002666	
+test_Nt_Nc_i.N.trees	d e	2	0.331038	0.328483	0.002555	
+test_Nt_Nc_i.N.trees	a b	2	1.000000	1.000000	0.000000	
+test_Nt_Nc_i.N.trees	c d e	3	1.000000	1.000000	0.000000	

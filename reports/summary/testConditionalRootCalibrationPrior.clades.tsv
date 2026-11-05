@@ -1,0 +1,11 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+cond_root_prior.N.trees	1 2 4	3	0.000000	0.500000	0.500000	dp
+cond_root_prior.N.trees	1 3 4	3	0.500000	0.000000	0.500000	dp
+cond_root_prior.N.trees	2 3 4	3	0.500000	0.000000	0.500000	dp
+cond_root_prior.N.trees	1 2 3	3	0.000000	0.357587	0.357587	dp
+cond_root_prior.N.trees	1 2	2	0.000000	0.321928	0.321928	dp
+cond_root_prior.N.trees	2 3	2	0.379027	0.188403	0.190624	dp
+cond_root_prior.N.trees	1 4	2	0.404466	0.236059	0.168407	dp
+cond_root_prior.N.trees	3 4	2	0.032882	0.142413	0.109531	dp
+cond_root_prior.N.trees	2 4	2	0.109420	0.158965	0.049545	
+cond_root_prior.N.trees	1 3	2	0.062653	0.094646	0.031993	

@@ -69,7 +69,8 @@ Who does what: see [ASSIGNMENTS.md](ASSIGNMENTS.md).
 Record the exact BEAST 3 release tag **or** git commit hash in the report — results are only meaningful against a fixed version.
 
 This round of testing is on macOS: all BEAUti-track testers use Macs. Windows and Linux get a
-separate round of tests later. NeSI (Linux) is used only to run the chains.
+separate round of tests later. The chains can run on your own machine or on NeSI (Linux); see
+[Step 2](#step-2--run-beast-2-and-beast-3--2-replicates-each).
 
 ### Installing BEAST 2.7.9
 
@@ -128,7 +129,7 @@ the package server, `packagemanager -add BEAST.base -version 2.7.9` replaces the
 of step 2.
 
 On NeSI, the same steps apply with `BEAST.v2.7.7.Linux.x86.tgz` and `~/.beast/2.7` (see
-[Step 2](#step-2--run-beast-2-and-beast-3-on-nesi--2-replicates-each)).
+[Step 2](#step-2--run-beast-2-and-beast-3--2-replicates-each)).
 
 ## Example inventory
 
@@ -249,9 +250,14 @@ each example; step 4 needs it.
 For unconverted examples, only run BEAST 2 (step 2) and mark them "not converted" in the report.
 For the simulator examples (no MCMC), only check that both versions run without error.
 
-### Step 2 — Run BEAST 2 and BEAST 3 on NeSI (≥ 2 replicates each)
+### Step 2 — Run BEAST 2 and BEAST 3 (≥ 2 replicates each)
 
-Install both versions in your NeSI project directory:
+Run on your own machine or on NeSI. The posterior doesn't depend on where a chain runs, so the
+rules below are what matters, not the machine. Most examples finish in minutes on a laptop.
+NeSI helps with the long chains (testEBSP, testRandomLocalClock) and with running many replicates
+at once.
+
+On NeSI, install both versions in your project directory:
 
 ```bash
 cd /nesi/project/<project_code>/$USER
@@ -272,13 +278,19 @@ Rules for every run:
 - Use a different, recorded seed per replicate: e.g. rep1 `-seed 1`, rep2 `-seed 2`. Use the same seeds for BEAST 2 and BEAST 3.
 - Do not change `chainLength`; if an example's chain is too short to reach ESS ≥ 200, increase it **identically** in both versions and record it.
 - Keep stdout/stderr (`beast.out`) — it contains the start/end state and run time.
+- Record the exact versions: the BEAST 3 tag or commit (a local build of a branch is fine; name
+  its commit), the BEAST 2 package versions from `beast -version`, and the Java version.
+  Record also where the runs ran: your machine and OS, or NeSI.
+- Keep the XML exactly as run in each replicate directory if you changed `chainLength` or
+  `logEvery`.
+- If you report run times, time runs that did not share the machine with other runs.
 
-Example Slurm array script can be shared as request.
+On NeSI, an example Slurm array script can be shared on request.
 
 
 ### Step 3 — Collect logs
 
-- Copy back (or commit directly from NeSI) the `*.log`, `beast.out` and, if small, `*.trees` files into `beast2/log/` and `beast3/log/`.
+- Copy the `*.log`, `beast.out` and, if small, `*.trees` files into `beast2/log/` and `beast3/log/` (from NeSI, copy them back or commit directly there).
   If a `*.trees` file is too large to upload, skip it; the parameter `*.log` is enough.
 - Check every `beast.out` finished normally (no exception, final "End likelihood" line present). List failed runs in the report with the error message.
 - Commit and push to this repo, with the commit message naming the BEAST versions used.
@@ -323,7 +335,7 @@ match LogAnalyser. Columns are matched by name; for renamed columns, put
 
 Write `reports/REPORT.md` containing:
 
-- BEAST 2 and BEAST 3 versions (tag/commit), Java version, NeSI cluster, date, seeds, burn-in.
+- BEAST 2 and BEAST 3 versions (tag/commit), Java version, where the runs ran (machine and OS, or NeSI), date, seeds, burn-in.
 - One summary table covering all 42 tested examples (list the 2 excluded *BEAST 1 examples separately):
 
   | Example | Converted | Model check | BEAST 2 ran | BEAST 3 ran | Min ESS | Posterior matched | Notes |
