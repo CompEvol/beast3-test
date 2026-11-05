@@ -63,10 +63,72 @@ Who does what: see [ASSIGNMENTS.md](ASSIGNMENTS.md).
 
 | Tool    | Version | Where to get it |
 |---------|---------|-----------------|
-| BEAST 2 | 2.7.9   | Install 2.7.8 from <https://github.com/CompEvol/beast2/releases/tag/v2.7.8> (`BEAST.v2.7.8.Linux.x86_64.tgz`, bundles its own JRE), then update BEAST.base to 2.7.9: `packagemanager -add BEAST.base -version 2.7.9`. 2.7.9 fixes a wrong Hastings ratio in the AVMN operator ([beast2#1219](https://github.com/CompEvol/beast2/issues/1219)); none of the examples use AVMN, but the BEAUti track does |
-| BEAST 3 | 2.8.0 (currently `v2.8.0-rc1`) or `master` | <https://github.com/CompEvol/beast3/releases> (`BEAST.v2.8.0.Linux.x86_64.tgz`), or build from source with JDK 25 + Maven (`mvn package -Dmaven.test.skip=true`, then `bin/beast`) |
+| BEAST 2 | 2.7.9   | Install BEAST 2.7.7, then replace its packages by hand with BEAST.base 2.7.9 and BEAST.app 2.7.8: see [Installing BEAST 2.7.9](#installing-beast-279). 2.7.9 fixes a wrong Hastings ratio in the AVMN operator ([beast2#1219](https://github.com/CompEvol/beast2/issues/1219)); none of the examples use AVMN, but the BEAUti track does |
+| BEAST 3 | `v2.8.0-rc2` | macOS: `BEAST.v2.8.0-rc2.dmg` from <https://github.com/CompEvol/beast3/releases/tag/v2.8.0-rc2>. RC2 has no Linux or Windows download; there, build from source at tag `v2.8.0-rc2` with JDK 25 + Maven (`git checkout v2.8.0-rc2`, `mvn package -Dmaven.test.skip=true`, then `bin/beast`) |
 
 Record the exact BEAST 3 release tag **or** git commit hash in the report — results are only meaningful against a fixed version.
+
+This round of testing is on macOS: all BEAUti-track testers use Macs. Windows and Linux get a
+separate round of tests later. NeSI (Linux) is used only to run the chains.
+
+### Installing BEAST 2.7.9
+
+There is no 2.7.9 or 2.7.8 installer: the newest is 2.7.7, which is what
+<https://www.beast2.org> links to, and the v2.7.8 release has only package zips. BEAST.base 2.7.9
+is not on the package server yet, so `packagemanager -add BEAST.base -version 2.7.9` fails with
+"Package version 2.7.9 is not available". So build the reference by hand: the 2.7.7 installer,
+with **BEAST.base 2.7.9** from the
+[`v2.7.9pre`](https://github.com/CompEvol/beast2/releases/tag/v2.7.9pre) release and
+**BEAST.app 2.7.8** from the [`v2.7.8`](https://github.com/CompEvol/beast2/releases/tag/v2.7.8)
+release. That is BEAST 2.7.8 with BEAST.base updated to 2.7.9. The AVMN fix is entirely in
+BEAST.base; there is no BEAST.app 2.7.9.
+
+On macOS:
+
+1. Install `BEAST.v2.7.7.Mac.dmg` from <https://github.com/CompEvol/beast2/releases/tag/v2.7.7>
+   (it bundles its own Java), then run it once so that it creates the user package directory:
+
+   ```bash
+   B="/Applications/BEAST 2.7.7/bin"
+   "$B/beast" -version
+   ```
+
+2. Replace `BEAST.base` and `BEAST.app` in the user package directory:
+
+   ```bash
+   cd "$HOME/Library/Application Support/BEAST/2.7"
+   rm -rf BEAST.base BEAST.app && mkdir BEAST.base BEAST.app
+   curl -LO https://github.com/CompEvol/beast2/releases/download/v2.7.9pre/BEAST.base.package.v2.7.9.zip
+   curl -LO https://github.com/CompEvol/beast2/releases/download/v2.7.8/BEAST.app.package.v2.7.8.zip
+   unzip -q BEAST.base.package.v2.7.9.zip -d BEAST.base && unzip -q BEAST.app.package.v2.7.8.zip -d BEAST.app
+   rm BEAST.base.package.v2.7.9.zip BEAST.app.package.v2.7.8.zip
+   ```
+
+3. Check that it works:
+
+   ```bash
+   "$B/beast" -version
+   ```
+
+   It must print `BEAST.base v2.7.9` and `BEAST.app v2.7.8`. The first line still says
+   `BEAST v2.7.7`, because that is the version of the launcher; ignore it. If it stops with
+   `UnsupportedClassVersionError`, you downloaded the broken BEAST.base zip that was on
+   `v2.7.9pre` until the afternoon of 5 Nov; download it again. In `"$B/packagemanager" -list`
+   the "Latest Version" column for BEAST.base says 2.7.8. Don't upgrade BEAST.base from the
+   package manager, which would take it back to 2.7.8.
+
+4. Install ORC and bModelTest as usual (`"$B/packagemanager" -add ORC`, `-add bModelTest`, or
+   File › Manage Packages in BEAUti). ORC also installs BEASTLabs. None of them changes
+   BEAST.base or BEAST.app. Run `"$B/beast" -version` again and record the package versions it
+   lists.
+
+The user package directory is shared by every BEAST 2.7.x on the machine, so after this every
+BEAST 2.7 install you start, BEAUti included, uses these packages. Once BEAST.base 2.7.9 is on
+the package server, `packagemanager -add BEAST.base -version 2.7.9` replaces the BEAST.base part
+of step 2.
+
+On NeSI, the same steps apply with `BEAST.v2.7.7.Linux.x86.tgz` and `~/.beast/2.7` (see
+[Step 2](#step-2--run-beast-2-and-beast-3-on-nesi--2-replicates-each)).
 
 ## Example inventory
 
@@ -193,10 +255,15 @@ Install both versions in your NeSI project directory:
 
 ```bash
 cd /nesi/project/<project_code>/$USER
-wget https://github.com/CompEvol/beast2/releases/download/v2.7.8/BEAST.v2.7.8.Linux.x86_64.tgz
-tar xzf BEAST.v2.7.8.Linux.x86_64.tgz && mv beast beast2.7.9
-beast2.7.9/bin/packagemanager -add BEAST.base -version 2.7.9
-# BEAST 3: download the release tgz the same way (rename to beast3), or build from source with JDK 25
+wget https://github.com/CompEvol/beast2/releases/download/v2.7.7/BEAST.v2.7.7.Linux.x86.tgz
+tar xzf BEAST.v2.7.7.Linux.x86.tgz && mv beast beast2.7.9
+beast2.7.9/bin/beast -version     # creates ~/.beast/2.7
+# replace BEAST.base (2.7.9) and BEAST.app (2.7.8) in ~/.beast/2.7 (see "Installing BEAST 2.7.9"), then:
+beast2.7.9/bin/beast -version     # must list BEAST.base v2.7.9 and BEAST.app v2.7.8
+
+# BEAST 3: RC2 has no Linux download, so build it from source with JDK 25 + Maven
+git clone https://github.com/CompEvol/beast3.git && cd beast3 && git checkout v2.8.0-rc2
+mvn package -Dmaven.test.skip=true && bin/beast -version   # prints "BEAST v2.8.0 rc2"
 ```
 
 Rules for every run:
