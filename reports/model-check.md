@@ -132,5 +132,35 @@ still differs, check its EBSP prior on popSizes and `populationMean` against 2.7
 [beast3#191](https://github.com/CompEvol/beast3/issues/191) (BEAST 3 against BEAST 1 on this
 example).
 
+### Analytic checks
+
+Comparing BEAST 2.7.9 with BEAST 3 cannot catch a bug the two versions share, as `SampleOffValues`
+showed ([beast3#202](https://github.com/CompEvol/beast3/issues/202)). Two of these examples have an
+exact answer: they have no sequence data and use the calibrated Yule prior with `type="full"`,
+which makes the marginal distribution of each calibrated node's age equal to its calibration
+density. Both versions reproduce it:
+
+| Example | Exact | Version | Replicates × steps | ESS | Mean (z) | Quantiles 5/25/50/75/95% | KS (5% critical) |
+|---|---|---|---|---:|---|---|---|
+| testConditionalRootCalibrationPrior: root age | LogNormal(2, 0.2): mean 7.538; 5.318/6.457/7.389/8.456/10.267 | BEAST 2.7.9 | 2 × 400M | 9002 | 7.540 (+0.09) | 5.314/6.439/7.401/8.454/10.273 | 0.0077 (0.0143) |
+| | | BEAST 3 | 2 × 400M | 9002 | 7.547 (+0.51) | 5.287/6.466/7.400/8.476/10.300 | 0.0078 (0.0143) |
+| testCalYule_5t_2c: age of MRCA(a, b) | Uniform(4, 7): mean 5.5; 4.15/4.75/5.5/6.25/6.85 | BEAST 2.7.9 | 4 × 140M | 18004 | 5.500 (+0.04) | 4.153/4.747/5.503/6.244/6.844 | 0.0046 (0.0101) |
+| | | BEAST 3 | 4 × 140M | 18004 | 5.496 (−0.62) | 4.151/4.745/5.498/6.239/6.848 | 0.0060 (0.0101) |
+
+`python3 scripts/check_calibrated_marginals.py` reproduces the table from the runs in
+`beast2/log/<example>-analytic/` and `beast3/log/<example>-analytic/`.
+
+- **testConditionalRootCalibrationPrior** ran with the proper prior on the birth rate
+  (LogNormal(0, 8)) from [beast2#1225](https://github.com/CompEvol/beast2/pull/1225) and [beast3#199](https://github.com/CompEvol/beast3/pull/199). With it,
+  BEAST 3 at first stopped with "positive infinite posterior": `CalibratedYuleModel` lost all
+  precision once the birth rate fell below about 1e-17. Fixed in both versions ([beast2#1224](https://github.com/CompEvol/beast2/pull/1224),
+  [beast3#207](https://github.com/CompEvol/beast3/pull/207)). These runs use both that fix and
+  the `SampleOffValues` fix: BEAST 3 is a local build of beast3 #198, #203 and #207 merged; BEAST
+  2.7.9 has the two fixed classes (beast2#1223, #1224) patched into BEAST.base 2.7.9. The birth rate itself has no data
+  and mixes slowly (ESS about 10 per replicate), but the root age has ESS above 4,000 per
+  replicate.
+- **testCalYule_5t_2c** is unchanged from #199. With the original 700k steps, BEAST 3 was at the edge
+  (z +2.2, KS 0.034 against 0.036). The 140M-step runs above settle it.
+
 **Speed:** on the same machine, testBSP took 130 s in BEAST 3 and 79 s in BEAST 2.7.9 for the same
 10M steps (original `SubtreeSlide` runs, one at a time).
