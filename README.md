@@ -302,6 +302,23 @@ shape, clock rate, birth rate, population size, …) using the mapping from step
    - optionally, overlay the marginal densities in Tracer and save a screenshot.
 5. Classify each example as **matched**, **borderline** (one parameter just outside the threshold — rerun with longer chains to confirm) or **not matched**.
 
+#### Comparing results
+
+`scripts/compare.py` does items 1–5 in one step (Python 3, no extra packages needed). Run it from
+the repository root:
+
+```bash
+python3 scripts/compare.py testHKY            # beast2/log/testHKY vs beast3/log/testHKY
+python3 scripts/compare.py beauti-C07 -b 10   # BEAUti track; -b = burn-in %
+python3 scripts/compare.py --all              # every name logged in both versions, one summary table
+python3 scripts/compare.py --name beauti-C30-resume --a <resumed run dirs> --label-a resumed \
+        --b <uninterrupted run dirs> --label-b uninterrupted
+```
+
+It writes `reports/summary/<name>.md` (tables, findings and verdict) and `<name>.tsv`. ESS and HPD
+match LogAnalyser. Columns are matched by name; for renamed columns, put
+`<beast2 column><TAB><beast3 column>` lines in `reports/maps/<name>.tsv`. `--help` lists all options.
+
 ### Step 5 — Report
 
 Write `reports/REPORT.md` containing:
