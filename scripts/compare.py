@@ -427,7 +427,18 @@ class Side(object):
             subs = sorted(p for p in glob.glob(os.path.join(d, "rep*")) if os.path.isdir(p))
             self.rep_dirs.extend(subs if subs else [d])
         self.rep_dirs = [d for d in self.rep_dirs if os.path.isdir(d)]
-        self.outs = [OutInfo(os.path.join(d, "beast.out")) for d in self.rep_dirs]
+        self.outs = [OutInfo(self._stdout_file(d)) for d in self.rep_dirs]
+
+    @staticmethod
+    def _stdout_file(d):
+        """beast.out, or else the only *.out file in the replicate directory."""
+        p = os.path.join(d, "beast.out")
+        if os.path.exists(p):
+            return p
+        outs = glob.glob(os.path.join(d, "*.out"))
+        if len(outs) > 1:  # prefer the one named after the XML that was run
+            outs = [o for o in outs if os.path.exists(o[:-4] + ".xml")]
+        return outs[0] if len(outs) == 1 else p
 
     def files(self, ext, pattern=None):
         """OrderedDict key -> list of paths (one per replicate, None if missing)."""
@@ -512,7 +523,7 @@ def compare_columns(name, col_a, col_b, vals_a, vals_b, opts):
     r.rep_z_a = max_rep_z(r.a_reps)
     r.rep_z_b = max_rep_z(r.b_reps)
     if r.a.constant and r.b.constant:
-        if r.a.mean != r.b.mean:
+        if r.a.mean != r.b.mean and not (isnan(r.a.mean) and isnan(r.b.mean)):
             r.flags.append("const-diff")
         return r
     if not isnan(r.z) and r.z >= opts.z_flag:
