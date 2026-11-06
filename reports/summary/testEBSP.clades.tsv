@@ -1,0 +1,17 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+treeModelN.N.trees	l03_tip_000 l03_tip_001 l03_tip_003 l03_tip_004 l03_tip_005 l03_tip_007 l03_tip_009 l03_tip_010 l03_tip_011	9	0.365474	0.375028	0.009553	
+treeModelN.N.trees	l03_tip_000 l03_tip_001 l03_tip_003 l03_tip_005 l03_tip_007 l03_tip_009	6	0.424350	0.432015	0.007665	
+treeModelN.N.trees	l03_tip_002 l03_tip_004 l03_tip_006 l03_tip_008 l03_tip_010 l03_tip_011	6	0.565985	0.560209	0.005776	
+treeModelN.N.trees	l03_tip_005 l03_tip_009	2	0.080760	0.077205	0.003555	
+treeModelN.N.trees	l03_tip_000 l03_tip_001 l03_tip_002 l03_tip_003 l03_tip_004 l03_tip_006 l03_tip_008 l03_tip_010 l03_tip_011	9	0.142968	0.139858	0.003110	
+treeModelN.N.trees	l03_tip_004 l03_tip_005 l03_tip_007 l03_tip_009 l03_tip_010 l03_tip_011	6	0.073095	0.070762	0.002333	
+treeModelN.N.trees	l03_tip_007 l03_tip_009	2	0.076650	0.078760	0.002111	
+treeModelN.N.trees	l03_tip_005 l03_tip_007	2	0.842591	0.844035	0.001444	
+treeModelN.N.trees	l03_tip_002 l03_tip_004 l03_tip_005 l03_tip_006 l03_tip_007 l03_tip_008 l03_tip_009 l03_tip_010 l03_tip_011	9	0.349034	0.347812	0.001222	
+treeModelN.N.trees	l03_tip_004 l03_tip_011	2	0.996667	0.997445	0.000778	
+treeModelN.N.trees	l03_tip_000 l03_tip_001	2	0.995112	0.995334	0.000222	
+treeModelN.N.trees	l03_tip_006 l03_tip_008	2	1.000000	1.000000	0.000000	
+treeModelN.N.trees	l03_tip_000 l03_tip_001 l03_tip_003	3	1.000000	1.000000	0.000000	
+treeModelN.N.trees	l03_tip_002 l03_tip_006 l03_tip_008	3	1.000000	1.000000	0.000000	
+treeModelN.N.trees	l03_tip_004 l03_tip_010 l03_tip_011	3	1.000000	1.000000	0.000000	
+treeModelN.N.trees	l03_tip_005 l03_tip_007 l03_tip_009	3	1.000000	1.000000	0.000000	

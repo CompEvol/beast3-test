@@ -4,10 +4,7 @@
 
     <!-- for Figure 9.1 in BEAST2 book. BEAST 3 conversion of the BEAST 2.7.8 example
          testClassicRootCalibrationPrior.xml.
-         The original puts an improper OneOnX (1/x) prior on the birth rate. BEAST 3 has no spec
-         OneOnX, so it is replaced by LogUniform on [1e-8, 1e8], whose density is proportional to
-         1/x on that range. The birth-rate posterior is far inside these bounds, so the posterior
-         is the same. -->
+         The 2.7.8 original puts an improper OneOnX (1/x) prior on the birth rate. Both the BEAST 2 example and this conversion now use a proper LogNormal(0, 8) prior (M = 0 in log space, median 1, 95% from 1.6e-7 to 6.4e6). -->
 
     <taxonset spec="TaxonSet" id="taxa">
         <taxon spec="Taxon" id="1"/>
@@ -52,26 +49,26 @@
             <distribution id="yule.prior" idref="yule"/>
             <distribution idref="rootPrior"/>
 
-            <distribution id="birthRate.prior" spec="LogUniform" param="@birthRate">
-                <lower spec="RealScalarParam" domain="PositiveReal" value="1e-8" estimate="false"/>
-                <upper spec="RealScalarParam" domain="PositiveReal" value="1e8" estimate="false"/>
+            <distribution id="birthRate.prior" spec="LogNormal" param="@birthRate" meanInRealSpace="false">
+                <M spec="RealScalarParam" domain="Real" value="0.0" estimate="false"/>
+                <S spec="RealScalarParam" domain="PositiveReal" value="8.0" estimate="false"/>
             </distribution>
         </distribution>
 
-        <operator spec="beast.base.evolution.operator.kernel.BactrianSubtreeSlide" weight="4" size="2.5" tree="@tree"/>
+        <operator spec="beast.base.evolution.operator.kernel.BactrianSubtreeSlide" weight="4" size="4.1" tree="@tree"/>
         <operator spec="ScaleOperator" weight="1" scaleFactor="0.25" parameter="@birthRate"/>
 
-        <logger logEvery="100" fileName="classic_root_prior_oneOnX.$(seed).log">
+        <logger logEvery="200" fileName="classic_root_prior_oneOnX.$(seed).log">
             <model idref="posterior"/>
             <log idref="posterior"/>
             <log idref="yule"/>
             <log spec="MRCAPrior" tree="@tree" id="all.age" taxonset="@all"/>
             <log idref="birthRate"/>
         </logger>
-        <logger logEvery="100" fileName="classic_root_prior_oneOnX.$(seed).trees">
+        <logger logEvery="200" fileName="classic_root_prior_oneOnX.$(seed).trees">
             <log idref="tree"/>
         </logger>
-        <logger logEvery="100">
+        <logger logEvery="200">
             <model idref="posterior"/>
             <log idref="yule"/>
             <log idref="birthRate"/>

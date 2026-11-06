@@ -65,6 +65,10 @@
             <distribution id="yule.prior" idref='yule'/>
             <distribution idref="mrcaPrior1"/>
             <distribution idref="mrcaPrior2"/>
+            <!-- proper prior, replaces the improper flat prior of the 2.7.8 example -->
+            <distribution id="birthRate.prior" spec="beast.base.inference.distribution.Prior" x="@birthRate">
+                <distr spec="beast.base.inference.distribution.LogNormalDistributionModel" M="0.0" S="8.0" meanInRealSpace="false"/>
+            </distribution>
         </distribution>
 
         <operator spec='SubtreeSlide' weight="4" gaussian="true" size="2.5" tree="@tree"/>
@@ -72,7 +76,7 @@
             <parameter idref="birthRate"/>
         </operator>
 
-        <logger logEvery="100" fileName="test_two_calibrations.$(seed).log">
+        <logger logEvery="200" fileName="test_two_calibrations.$(seed).log">
             <model idref='posterior'/>
             <log idref="posterior"/>
             <log idref="yule"/>
@@ -80,10 +84,10 @@
             <log spec='beast.base.evolution.tree.MRCAPrior' tree='@tree' id='ingroup.age' taxonset='@ingroup' />
 
         </logger>
-        <logger logEvery="100" fileName="test_two_calibrations.$(seed).trees">
+        <logger logEvery="200" fileName="test_two_calibrations.$(seed).trees">
             <log idref="tree"/>
         </logger>
-        <logger logEvery="100">
+        <logger logEvery="200">
             <model idref='posterior'/>
             <log idref="yule"/>
         </logger>

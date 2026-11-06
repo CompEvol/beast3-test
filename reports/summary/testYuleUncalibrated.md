@@ -2,11 +2,11 @@
 
 **Verdict: matched**
 
-- beast2: `beast2/log/testYuleUncalibrated/rep1`, `beast2/log/testYuleUncalibrated/rep2`
-- beast3: `beast3/log/testYuleUncalibrated/rep1`, `beast3/log/testYuleUncalibrated/rep2`
+- beast2: `beast2/log/testYuleUncalibrated/rep1`, `beast2/log/testYuleUncalibrated/rep2`, `beast2/log/testYuleUncalibrated/rep3`, `beast2/log/testYuleUncalibrated/rep4`
+- beast3: `beast3/log/testYuleUncalibrated/rep1`, `beast3/log/testYuleUncalibrated/rep2`, `beast3/log/testYuleUncalibrated/rep3`, `beast3/log/testYuleUncalibrated/rep4`
 - burn-in 10% per replicate; replicates combined by concatenation, combined ESS = sum of replicate ESS
 - thresholds: flag z ≥ 3 (fail ≥ 4), HPD overlap < 50%, ESS < 200, clades p ≥ 0.05 with |Δp| > 0.1 (fail > 0.2); borderline = at most 1 flagged item(s), none failing
-- min ESS (any replicate): 557; max z: 1.601; max clade |Δp|: 0.001
+- min ESS (any replicate): 590; max z: 2.103; max clade |Δp|: 0.002
 
 ## Findings
 
@@ -18,10 +18,14 @@
 
 | Version | Rep | File | Samples (after burn-in) | Interval | BEAST | Finished | Run time | Error |
 |---|---|---|---:|---:|---|---|---:|---|
-| beast2 | rep1 | `beast2/log/testYuleUncalibrated/rep1/ape.yule.1.log` | 10001 (9001) | 1000 | 2.7.9 Prerelease | yes | 1m01s |  |
-| beast2 | rep2 | `beast2/log/testYuleUncalibrated/rep2/ape.yule.2.log` | 10001 (9001) | 1000 | 2.7.9 Prerelease | yes | 1m01s |  |
-| beast3 | rep1 | `beast3/log/testYuleUncalibrated/rep1/ape.yule.1.log` | 10001 (9001) | 1000 | 2.8.0 rc2 | yes | 57s |  |
-| beast3 | rep2 | `beast3/log/testYuleUncalibrated/rep2/ape.yule.2.log` | 10001 (9001) | 1000 | 2.8.0 rc2 | yes | 57s |  |
+| beast2 | rep1 | `beast2/log/testYuleUncalibrated/rep1/ape.yule.1.log` | 5001 (4501) | 2000 | 2.7.9 Prerelease | yes | 1m18s |  |
+| beast2 | rep2 | `beast2/log/testYuleUncalibrated/rep2/ape.yule.2.log` | 5001 (4501) | 2000 | 2.7.9 Prerelease | yes | 1m19s |  |
+| beast2 | rep3 | `beast2/log/testYuleUncalibrated/rep3/ape.yule.3.log` | 5001 (4501) | 2000 | 2.7.9 Prerelease | yes | 1m00s |  |
+| beast2 | rep4 | `beast2/log/testYuleUncalibrated/rep4/ape.yule.4.log` | 5001 (4501) | 2000 | 2.7.9 Prerelease | yes | 1m00s |  |
+| beast3 | rep1 | `beast3/log/testYuleUncalibrated/rep1/ape.yule.1.log` | 5001 (4501) | 2000 | 2.8.0 rc2 | yes | 1m12s |  |
+| beast3 | rep2 | `beast3/log/testYuleUncalibrated/rep2/ape.yule.2.log` | 5001 (4501) | 2000 | 2.8.0 rc2 | yes | 1m14s |  |
+| beast3 | rep3 | `beast3/log/testYuleUncalibrated/rep3/ape.yule.3.log` | 5001 (4501) | 2000 | 2.8.0 rc2 | yes | 56s |  |
+| beast3 | rep4 | `beast3/log/testYuleUncalibrated/rep4/ape.yule.4.log` | 5001 (4501) | 2000 | 2.8.0 rc2 | yes | 56s |  |
 
 ## Parameters: `ape.yule.N.log`
 
@@ -31,21 +35,21 @@ ESS column: combined ESS (minimum over replicates).
 
 | Parameter | beast2 mean | beast2 95% HPD | beast2 ESS | beast3 mean | beast3 95% HPD | beast3 ESS | z | HPD overlap | Flag |
 |---|---:|---|---:|---:|---|---:|---:|---:|---|
-| `posterior` | -1845.45 | [-1850.53, -1841.06] | 3205 (1424) | -1845.38 | [-1850.31, -1841.05] | 4909 (2184) | 1.14 | 100% | ok |
-| `likelihood` | -1816.89 | [-1821.41, -1813.17] | 2918 (1328) | -1816.86 | [-1821.19, -1813.05] | 4024 (1748) | 0.65 | 98% | ok |
-| `prior` | -28.56 | [-32.29, -25.49] | 6122 (2917) | -28.52 | [-32.03, -25.42] | 10592 (4967) | 1.09 | 99% | ok |
-| `treeLikelihood.lignment` | -1816.89 | [-1821.41, -1813.17] | 2918 (1328) | -1816.86 | [-1821.19, -1813.05] | 4024 (1748) | 0.65 | 98% | ok |
-| `TreeHeight → Tree.height` | 14.62 | [6.796, 23.78] | 16817 (8196) | 14.57 | [6.665, 23.56] | 18002 (9001) | 1.00 | 99% | ok |
-| `kappa` | 24.1 | [13.1, 37.92] | 1808 (762) | 23.89 | [13.35, 37.51] | 5269 (2537) | 1.09 | 100% | ok |
-| `logP(mrca(chimpgroup))` | -1.887 | [-3.622, -1.262] | 18002 (9001) | -1.894 | [-3.657, -1.262] | 17945 (8944) | 0.79 | 100% | ok |
-| `mrca.ge(chimpgroup)` | 4.982 | [2.673, 7.483] | 16959 (8184) | 4.96 | [2.727, 7.492] | 17161 (8160) | 1.60 | 100% | ok |
-| `clockRate` | 0.004625 | [0.002279, 0.007481] | 16720 (8173) | 0.004646 | [0.002297, 0.007506] | 18002 (9001) | 1.40 | 100% | ok |
-| `YuleModel` | -17.43 | [-20.54, -14.26] | 17372 (8640) | -17.41 | [-20.62, -14.37] | 18002 (9001) | 0.90 | 99% | ok |
-| `birthRate` | 0.1156 | [0.02709, 0.2373] | 16254 (7838) | 0.116 | [0.02287, 0.2325] | 16965 (7964) | 0.59 | 98% | ok |
-| `freqParameter.1` | 0.3263 | [0.2966, 0.3586] | 1286 (585) | 0.3254 | [0.2937, 0.3559] | 1522 (700) | 1.53 | 96% | ok |
-| `freqParameter.2` | 0.2569 | [0.2273, 0.2833] | 1221 (557) | 0.2574 | [0.2297, 0.2833] | 1936 (913) | 0.97 | 100% | ok |
-| `freqParameter.3` | 0.1552 | [0.1327, 0.1782] | 1760 (747) | 0.155 | [0.1328, 0.1771] | 2305 (1128) | 0.57 | 100% | ok |
-| `freqParameter.4` | 0.2616 | [0.2323, 0.2868] | 1299 (623) | 0.2622 | [0.2339, 0.2893] | 1740 (783) | 1.20 | 97% | ok |
+| `posterior` | -1844.13 | [-1849.13, -1839.83] | 6614 (1589) | -1844.11 | [-1849.09, -1839.65] | 8836 (2143) | 0.63 | 100% | ok |
+| `likelihood` | -1816.84 | [-1821.22, -1813.17] | 5960 (1346) | -1816.84 | [-1821.22, -1813.19] | 7572 (1804) | 0.04 | 100% | ok |
+| `prior` | -27.29 | [-30.62, -24.29] | 10170 (2276) | -27.27 | [-30.59, -24.39] | 13929 (3291) | 1.13 | 100% | ok |
+| `treeLikelihood.lignment` | -1816.84 | [-1821.22, -1813.17] | 5960 (1346) | -1816.84 | [-1821.22, -1813.19] | 7572 (1804) | 0.04 | 100% | ok |
+| `TreeHeight → Tree.height` | 17.21 | [8.184, 28.25] | 17596 (4142) | 17.16 | [7.946, 28.17] | 17825 (4368) | 0.79 | 100% | ok |
+| `kappa` | 24.01 | [12.74, 37.4] | 4876 (1074) | 24.04 | [12.43, 37] | 10219 (2417) | 0.30 | 99% | ok |
+| `logP(mrca(chimpgroup))` | -1.762 | [-3.184, -1.262] | 17440 (4227) | -1.76 | [-3.174, -1.262] | 17504 (4231) | 0.23 | 100% | ok |
+| `mrca.ge(chimpgroup)` | 5.59 | [3.055, 8.429] | 16920 (3950) | 5.569 | [3.016, 8.359] | 17872 (4396) | 1.39 | 99% | ok |
+| `clockRate` | 0.003947 | [0.001808, 0.006275] | 17726 (4223) | 0.003959 | [0.001905, 0.006372] | 17707 (4371) | 0.92 | 98% | ok |
+| `YuleModel` | -18.21 | [-21.38, -15.1] | 17720 (4217) | -18.17 | [-21.29, -15.01] | 17502 (4218) | 2.10 | 99% | ok |
+| `birthRate` | 0.08354 | [0.01379, 0.1748] | 17801 (4391) | 0.08359 | [0.01384, 0.1713] | 16860 (3823) | 0.11 | 100% | ok |
+| `freqParameter.1` | 0.326 | [0.2946, 0.3544] | 2605 (621) | 0.3262 | [0.2957, 0.3567] | 3103 (646) | 0.53 | 98% | ok |
+| `freqParameter.2` | 0.2573 | [0.2308, 0.2856] | 3052 (721) | 0.2574 | [0.2297, 0.2849] | 3520 (701) | 0.19 | 99% | ok |
+| `freqParameter.3` | 0.155 | [0.1311, 0.1765] | 3103 (672) | 0.1546 | [0.1314, 0.177] | 4451 (1019) | 1.30 | 99% | ok |
+| `freqParameter.4` | 0.2617 | [0.235, 0.2911] | 2749 (590) | 0.2618 | [0.2327, 0.2895] | 3507 (781) | 0.17 | 97% | ok |
 
 ### Replicate agreement (baseline noise): `ape.yule.N.log`
 
@@ -53,40 +57,40 @@ Largest z between two replicates of the same version (same formula as above, per
 
 | Parameter | beast2 rep means | beast2 max z | beast3 rep means | beast3 max z |
 |---|---|---:|---|---:|
-| `posterior` | -1845.42, -1845.48 | 0.74 | -1845.41, -1845.36 | 0.72 |
-| `likelihood` | -1816.87, -1816.92 | 0.65 | -1816.91, -1816.81 | 1.41 |
-| `prior` | -28.55, -28.56 | 0.30 | -28.5, -28.55 | 1.41 |
-| `treeLikelihood.lignment` | -1816.87, -1816.92 | 0.65 | -1816.91, -1816.81 | 1.41 |
-| `TreeHeight → Tree.height` | 14.62, 14.62 | 0.07 | 14.59, 14.56 | 0.40 |
-| `kappa` | 24.07, 24.13 | 0.17 | 23.7, 24.08 | 2.09 |
-| `logP(mrca(chimpgroup))` | -1.889, -1.884 | 0.34 | -1.897, -1.89 | 0.55 |
-| `mrca.ge(chimpgroup)` | 4.981, 4.984 | 0.19 | 4.962, 4.959 | 0.12 |
-| `clockRate` | 0.004628, 0.004623 | 0.25 | 0.004651, 0.004642 | 0.42 |
-| `YuleModel` | -17.42, -17.44 | 0.61 | -17.41, -17.42 | 0.28 |
-| `birthRate` | 0.116, 0.1153 | 0.71 | 0.116, 0.116 | 0.08 |
-| `freqParameter.1` | 0.3266, 0.326 | 0.65 | 0.3257, 0.3251 | 0.64 |
-| `freqParameter.2` | 0.257, 0.2567 | 0.33 | 0.2575, 0.2572 | 0.42 |
-| `freqParameter.3` | 0.1553, 0.1552 | 0.18 | 0.1548, 0.1552 | 0.90 |
-| `freqParameter.4` | 0.2611, 0.2621 | 1.20 | 0.262, 0.2624 | 0.53 |
+| `posterior` | -1844.14, -1844.11, -1844.16, -1844.12 | 0.54 | -1844.07, -1844.08, -1844.16, -1844.11 | 1.15 |
+| `likelihood` | -1816.86, -1816.79, -1816.86, -1816.86 | 0.88 | -1816.82, -1816.83, -1816.88, -1816.83 | 0.84 |
+| `prior` | -27.28, -27.32, -27.31, -27.26 | 1.23 | -27.25, -27.26, -27.28, -27.28 | 0.79 |
+| `treeLikelihood.lignment` | -1816.86, -1816.79, -1816.86, -1816.86 | 0.88 | -1816.82, -1816.83, -1816.88, -1816.83 | 0.84 |
+| `TreeHeight → Tree.height` | 17.15, 17.36, 17.19, 17.13 | 1.96 | 17.08, 17.12, 17.23, 17.23 | 1.32 |
+| `kappa` | 23.85, 23.94, 24.13, 24.12 | 1.03 | 23.95, 24.16, 24.01, 24.06 | 1.14 |
+| `logP(mrca(chimpgroup))` | -1.763, -1.772, -1.76, -1.753 | 1.24 | -1.761, -1.744, -1.768, -1.767 | 1.61 |
+| `mrca.ge(chimpgroup)` | 5.583, 5.608, 5.584, 5.584 | 0.83 | 5.545, 5.558, 5.589, 5.583 | 1.48 |
+| `clockRate` | 0.00396, 0.003914, 0.003955, 0.003959 | 1.86 | 0.003969, 0.003969, 0.003951, 0.003946 | 0.91 |
+| `YuleModel` | -18.21, -18.25, -18.21, -18.17 | 2.41 | -18.16, -18.15, -18.19, -18.19 | 1.41 |
+| `birthRate` | 0.08395, 0.08295, 0.08336, 0.08387 | 1.01 | 0.0846, 0.08417, 0.08272, 0.08287 | 1.91 |
+| `freqParameter.1` | 0.326, 0.326, 0.3266, 0.3253 | 1.51 | 0.3262, 0.3259, 0.3265, 0.3262 | 0.81 |
+| `freqParameter.2` | 0.2577, 0.2577, 0.2564, 0.2575 | 1.81 | 0.2573, 0.2574, 0.2578, 0.257 | 1.25 |
+| `freqParameter.3` | 0.155, 0.155, 0.155, 0.1549 | 0.22 | 0.1544, 0.1548, 0.1539, 0.1554 | 2.99 |
+| `freqParameter.4` | 0.2613, 0.2613, 0.262, 0.2624 | 1.45 | 0.2621, 0.2619, 0.2618, 0.2614 | 0.92 |
 
 ## Trees: `ape.yule.N.trees`
 
-18002 trees (beast2) and 18002 trees (beast3) after burn-in. Clades with p ≥ 0.05 in either version; flag |Δp| > 0.1. Largest |Δp| between replicates: beast2 0.009, beast3 0.012.
+18004 trees (beast2) and 18004 trees (beast3) after burn-in. Clades with p ≥ 0.05 in either version; flag |Δp| > 0.1. Largest |Δp| between replicates: beast2 0.014, beast3 0.018.
 
 | Clade | Size | p beast2 | p beast3 | abs Δp | Flag |
 |---|---:|---:|---:|---:|---|
-| {bonobo, chimp, gorilla, human, siamang} | 5 | 0.150 | 0.149 | 0.001 | ok |
-| {bonobo, chimp, gorilla, human, orangutan} | 5 | 0.811 | 0.811 | 0.000 | ok |
-| {bonobo, chimp, gorilla, human} | 4 | 1.000 | 1.000 | 0.000 | ok |
+| {bonobo, chimp, gorilla, human, orangutan} | 5 | 0.824 | 0.822 | 0.002 | ok |
+| {bonobo, chimp, gorilla, human, siamang} | 5 | 0.141 | 0.141 | 0.001 | ok |
 | {bonobo, chimp} | 2 | 1.000 | 1.000 | 0.000 | ok |
 | {bonobo, chimp, human} | 3 | 1.000 | 1.000 | 0.000 | ok |
+| {bonobo, chimp, gorilla, human} | 4 | 1.000 | 1.000 | 0.000 | ok |
 
 ## Speed
 
 | Version | Total run time | Combined ESS of `posterior` | ESS/hour | Min ESS/hour (any column) |
 |---|---:|---:|---:|---:|
-| beast2 | 2m02s | 3205 | 94889 | 36154 (`freqParameter.2`) |
-| beast3 | 1m55s | 4909 | 154202 | 47802 (`freqParameter.1`) |
+| beast2 | 4m36s | 6614 | 86152 | 33929 (`freqParameter.1`) |
+| beast3 | 4m17s | 8836 | 124010 | 43543 (`freqParameter.1`) |
 
-Run-time ratio beast3 / beast2: 0.94
+Run-time ratio beast3 / beast2: 0.93
 

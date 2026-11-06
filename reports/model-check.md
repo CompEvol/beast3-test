@@ -9,43 +9,55 @@ See README step 1 for the checklist. Results are **match**, **match with minor d
 Converted on 6 Nov 2026, from the beast2 `v2.7.8` originals (not the edited `legacy/` copies),
 on beast3 branch `examples/convert-calibrations-treepriors`
 ([beast3#199](https://github.com/CompEvol/beast3/pull/199), stacked on the fixes in
-[beast3#198](https://github.com/CompEvol/beast3/pull/198)). Each XML was then run twice in
-BEAST 2.7.9 and twice in BEAST 3, with seeds 1 and 2, and compared with `scripts/compare.py`.
-The BEAST 3 runs were repeated after the subtree slide was switched to `BactrianSubtreeSlide`
-(see Operators below); the results table is from those runs.
+[beast3#198](https://github.com/CompEvol/beast3/pull/198)).
+
+Ten of the eleven originals sampled with an improper prior on at least one estimated parameter
+(see Proper priors below). Both the BEAST 2 examples
+([beast2#1225](https://github.com/CompEvol/beast2/pull/1225)) and the conversions (#199) now use
+proper priors, so the comparison below is of the corrected examples, run in both versions. Each
+was run twice in BEAST 2.7.9 and twice in BEAST 3, with seeds 1 and 2, and compared with
+`scripts/compare.py`.
 
 **Runs (README steps 2–3).** The logs, `beast.out`, tree files and the XML as run are in
-`beast2/log/<example>/rep<N>/` and `beast3/log/<example>/rep<N>/`, for every example except
-testEBSP, which is being rerun (see its note below).
+`beast2/log/<example>/rep<N>/` and `beast3/log/<example>/rep<N>/`.
 - **Where:** on one Mac (Apple silicon, macOS 26.6), 6 Nov 2026.
+- **XMLs:** BEAST 2 from beast2#1225 (commit `4583c690`); BEAST 3 from #199 (commit `45cf64e`).
 - **BEAST 2.7.9:** the 2.7.7 macOS app with BEAST.base 2.7.9 and BEAST.app 2.7.8 (README,
-  Installing BEAST 2.7.9), its bundled Java 17.0.5.
-- **BEAST 3:** a local build of beast3 commit `b61fd84` (`v2.8.0-rc2` plus the fixes in #198),
-  run with Java 26.0.1. The XMLs are those of #199.
-- **Chain lengths:** as in the XMLs, except testCalYule_5t_2c (700k) and
-  testConditionalRootCalibrationPrior (40M), which are longer in both versions as ASSIGNMENTS
-  says.
-- **`logEvery`:** the same in both versions, except testBSP and testCalibration (2,000 in
-  BEAST 2.7.9, 1,000 in BEAST 3). It is chain length / 5,000 except in testBSP and
-  testCalibration (BEAST 3), testClassicRootCalibrationPrior and testTwoCalibrationsPrior
-  (100 instead of 200), and testYuleCalibrated and testYuleUncalibrated (1,000 instead of
-  2,000). Every compared parameter except those of testConditionalRootCalibrationPrior has
-  ESS ≥ 279.
-- **Start sizes:** testCalibration, testCoalescent and testExponentialGrowth ran with the
-  subtree slide's earlier start sizes (0.026–0.029, against 0.0063–0.0083 in the final #199
-  files). The size is tuned during the run, so the posterior does not depend on it.
+  Installing BEAST 2.7.9), its bundled Java 17.0.5. Patched into BEAST.base: the
+  `SampleOffValues` fix ([beast2#1223](https://github.com/CompEvol/beast2/pull/1223)), and for
+  testConditionalRootCalibrationPrior also the `CalibratedYuleModel` fix
+  ([beast2#1224](https://github.com/CompEvol/beast2/pull/1224)).
+  (Replicates 3–4 of testYuleUncalibrated also ran with it; it uses a plain Yule prior, so it
+  doesn't matter.)
+- **BEAST 3:** a local build of beast3 #198 (`b61fd84`) merged with #203 (`d46a622`, the
+  `SampleOffValues` fix); for testConditionalRootCalibrationPrior also #207 (`d9a388f`, the
+  `CalibratedYuleModel` fix). Run with Java 26.0.1.
+- **Chain lengths:** as in the XMLs, except testEBSP (200M), testCalYule_5t_2c (700k) and
+  testConditionalRootCalibrationPrior (400M), which are longer in both versions. testYuleUncalibrated
+  has four replicates (seeds 1–4): its first two flagged one column at z = 3.2, so it got one rerun
+  with new seeds as the pass criteria say.
+- **`logEvery`:** chain length / 5,000 in both versions. Every compared parameter has ESS ≥ 355,
+  except the birth rate of testConditionalRootCalibrationPrior and the columns that depend on it
+  (see its note).
+- **testCalYule_5t_2c:** its XML did not change, so these are the earlier runs (BEAST 3 at
+  `b61fd84`, BEAST 2.7.9 unpatched, `logEvery` 140); its model has no `SampleOffValues` and a
+  fixed birth rate, so neither fix applies.
 - **Run times:** not comparable; several runs shared the machine.
 
 ### Conversion rules used throughout
 
-- **1/x prior.** BEAST 3 has no spec `OneOnX`. It is replaced by `LogUniform` on [1e-8, 1e8],
-  whose density is proportional to 1/x on that range. In every example that uses it, the posterior
-  of the parameter is proper and far inside these bounds, so the posterior is the same. The
-  `prior` and `posterior` log columns are lower by the constant ln(ln(1e16)) = 3.607, so
-  `compare.py` flags those two columns; every other column must match. Affects testCalibration,
-  testClassicRootCalibrationPrior and testEBSP.
-- **Uniform(0, ∞) prior.** Its log density in BEAST 2 is 0, and spec `Uniform` rejects an infinite
-  bound, so the prior is left out. The parameter's `PositiveReal` domain keeps it positive.
+- **Proper priors.** Where the original has an improper prior, both versions now use a proper one:
+  - rates, population sizes, birth rates and the EBSP `populationMean`: LogNormal(M=0, S=8) in log
+    space (median 1, 95% from 1.6e-7 to 6.4e6). This replaces `OneOnX` (testCalibration,
+    testClassicRootCalibrationPrior, testEBSP), `Uniform(0, Infinity)` (testYuleCalibrated,
+    testYuleUncalibrated), and no prior at all (testBSP clock rate, testCoalescent and
+    testExponentialGrowth popSize, testConditionalRootCalibrationPrior and testTwoCalibrationsPrior
+    birth rate);
+  - kappa, where it had no prior (testCoalescent, testExponentialGrowth): LogNormal(1, 1.25), the
+    BEAUti default;
+  - the gamma shape in testBSP: Exponential(1);
+  - testBSP's Jeffreys (1/x) prior on the first popSize: an exponential prior with an estimated mean
+    (`skyline.popSizeInitialMean`), which has a LogNormal(0, 8) prior.
 - **Parameter bounds.** BEAST 3 parameters have a domain (`PositiveReal`, `PositiveInt`, …), not
   `lower`/`upper`. Where the original had an upper bound, the BEAST 2 runs were checked to stay
   far below it (noted per example).
@@ -68,69 +80,58 @@ testEBSP, which is being rerun (see its note below).
 
 ### Bugs found while converting
 
-Both were in BEAST 3 `v2.8.0-rc2` and are fixed on beast3 branch
-`fix/calibrated-yule-spec-mrcaprior` ([beast3#198](https://github.com/CompEvol/beast3/pull/198)),
-which the conversions need:
-
 1. Spec `CalibratedYuleModel` and `CalibratedBirthDeathModel` imported the legacy `MRCAPrior`, so
    they never found the spec MRCA priors next to them. A calibrated Yule prior set up the usual way
    (by BEAUti, or as in testYuleCalibrated) stopped with "could not find any properly configured
    calibrations" and a `NullPointerException`. **This affects the BEAUti track: C08 and C27 use a
-   calibrated Yule prior.**
+   calibrated Yule prior.** BEAST 3 only; fixed in #198. Also: after the `NullPointerException`,
+   BEAST 3 exited with status 0.
 2. Spec `CalibratedYuleInitialTree` built a legacy `CalibratedYuleModel` internally, which rejects
-   spec calibration points, so it failed for every input (testCalYule_5t_2c).
-
-Also: after the `NullPointerException` in (1), BEAST 3 exited with status 0.
+   spec calibration points, so it failed for every input (testCalYule_5t_2c). BEAST 3 only; fixed in
+   #198.
+3. `SampleOffValues`, which EBSP uses to redraw switched-off population sizes from their prior,
+   returned the wrong Hastings ratio, so EBSP did not sample the posterior
+   ([beast3#202](https://github.com/CompEvol/beast3/issues/202),
+   [beast2#1222](https://github.com/CompEvol/beast2/issues/1222)). In both versions since 2011;
+   fixed in [beast3#203](https://github.com/CompEvol/beast3/pull/203) and beast2#1223. **This
+   affects the BEAUti track: C13 uses EBSP, and both its reference and RC2 have the bug.**
+4. `CalibratedYuleModel` computed 1 − e^(−λh) directly, so its log density became +∞ once the birth
+   rate fell below about 1e-17 (root calibration), and wrong from about 1e-9 with nested
+   calibrations. The proper birth-rate prior in testConditionalRootCalibrationPrior reaches such
+   rates: BEAST 3 stopped with "positive infinite posterior". In both versions; fixed in
+   [beast3#207](https://github.com/CompEvol/beast3/pull/207) and beast2#1224.
 
 ### Results
 
-| Example | Model check | Differences | Log column mapping (BEAST 2 → BEAST 3) | Local comparison |
-|---|---|---|---|---|
-"Max z" is over every compared column except `posterior` and `prior`.
+"Max z" is over every compared column.
 
 | Example | Model check | Differences | Log column mapping (BEAST 2 → BEAST 3) | Local comparison |
 |---|---|---|---|---|
-| testYuleUncalibrated | match with minor differences | Uniform(0, ∞) priors on birthRate and clockRate left out | `TreeHeight` → `Tree.height`; new `Tree.treeLength` | matched, max z 1.60 |
-| testYuleCalibrated | match with minor differences | Uniform(0, ∞) prior on clockRate left out | `TreeHeight` → `Tree.height`; new `Tree.treeLength` | matched, max z 2.00 (needs fix 1) |
-| testCalYule_5t_2c | match | — | none | matched at 700k steps, max z 2.10 (needs fix 2) |
-| testClassicRootCalibrationPrior | match with minor differences | 1/x prior on birthRate → LogUniform | none | matched, max z 1.20, apart from the constant `posterior` offset of −3.60 |
-| testConditionalRootCalibrationPrior | match | — | `TreeHeight` → `tree.height` | calibrated root age `cal` matched (z 0.08); nothing else converges in either version, see note |
-| testTwoCalibrationsPrior | match | — | none | matched, max z 0.69 |
-| testCoalescent | match | — | none | matched, max z 0.13 |
-| testExponentialGrowth | match | — | none | matched, max z 0.85 |
-| testCalibration | match with minor differences | 1/x prior on popSize → LogUniform | none | matched, max z 1.30, apart from the constant `prior`/`posterior` offset of −3.58 |
-| testBSP | match with minor differences | popSize upper bound 38000 and clock.rate upper bound 100 dropped (BEAST 2 maxima: 4800 and 0.0016); group sizes start at 1, not 0 | `treeModel.rootHeight` → `tree.height` | matched, max z 2.00 |
-| testEBSP | match with minor differences | 1/x prior on populationMean → LogUniform; kappa upper bound 100 dropped (BEAST 2 maxima: 5.7 and 21.7) | `TreeHeight` columns → `treeModelNNN.height` | **not validated**: `populationMean` and popSizes about 2× larger in BEAST 3; see note |
+| testYuleUncalibrated | match | — | `TreeHeight` → `Tree.height`; new `Tree.treeLength` | matched (4 replicates), max z 2.10 |
+| testYuleCalibrated | match | — | `TreeHeight` → `Tree.height`; new `Tree.treeLength` | matched, max z 1.32 (needs bug fix 1) |
+| testCalYule_5t_2c | match | — | none | matched at 700k steps, max z 2.10 (needs bug fix 2); exact check passes |
+| testClassicRootCalibrationPrior | match | — | none | matched, max z 0.65 |
+| testConditionalRootCalibrationPrior | match | — | `TreeHeight` → `tree.height` | calibrated root age `cal` matched (z 0.29); exact check passes; see note |
+| testTwoCalibrationsPrior | match | — | none | matched, max z 1.63 |
+| testCoalescent | match | — | none | matched, max z 1.88 |
+| testExponentialGrowth | match | — | none | matched, max z 1.06 |
+| testCalibration | match | — | none | matched, max z 1.33 |
+| testBSP | match with minor differences | popSize upper bound 38000 and clock.rate upper bound 100 dropped (BEAST 2 maxima: 4800 and 0.0016); group sizes start at 1, not 0 | `treeModel.rootHeight` → `tree.height` | matched, max z 1.91 |
+| testEBSP | match with minor differences | kappa upper bound 100 dropped (BEAST 2 maxima: 5.7 and 21.7) | `TreeHeight` columns → `treeModelNNN.height` | matched (200M steps), max z 2.66 (needs bug fix 3) |
 
-**testConditionalRootCalibrationPrior:** the birth rate has no prior (the 1/x prior is commented
-out in the original) and there is no data, so its posterior is improper. In both versions it
-drifts towards 10⁶, which squeezes the internal nodes so the topology hardly mixes. Compare this
-example on the calibrated root age only (as ASSIGNMENTS already says); birthRate, posterior and
-the clade frequencies will not converge in either version.
+**testConditionalRootCalibrationPrior:** there is no sequence data, and the birth rate is informed
+only by its LogNormal(0, 8) prior and the 4-taxon tree, so its posterior spans about 20 orders of
+magnitude. The scale operator mixes slowly over that range: even at 400M steps the birth rate has
+ESS of only 13–63 per replicate, and `posterior` and `cyule`, which depend on it, also have ESS below
+200 and z up to 4.9. On a log scale the two versions' birth rates agree in the bulk (median log10
+about 0, 5% quantile about −5.7 in both); only the upper tail, which mixes slowest, differs. As
+ASSIGNMENTS says, this example is compared on the calibrated root age, which has ESS above 4,000 per
+replicate and matches (and follows its calibration exactly, see Analytic checks).
 
-**testEBSP:** compared over 40–50M steps per replicate. The 200M-step runs were stopped at about
-40M (2.7.9) and 47M (BEAST 3 with the original `SubtreeSlide`); the `BactrianSubtreeSlide` runs
-were 50M.
-These agree with 2.7.9:
-- the tree likelihood and the coalescent log density;
-- all four tree heights;
-- `sum(indicators)` (0.58 against 0.65, z 1.6).
-
-These don't agree:
-- `populationMean`: 9.0 in 2.7.9 against 17.6–26.5 in BEAST 3;
-- most popSizes, which are about twice as large (z 3–4.9);
-- `posterior`, which is about 51 lower.
-
-The `posterior` difference follows from the `populationMean` difference: the Exponential prior on
-each of the ~80 popSizes has mean `populationMean`, so a larger mean lowers the prior density of
-all of them. The question is therefore whether `populationMean` differs. In BEAST 3 it mixes
-poorly: the two replicates with the original `SubtreeSlide` give 12.6 and 40.4. The two 2.7.9
-replicates agree with each other (9.3 and 8.7). Several indicators have ESS below 200. The
-difference was already there with the original `SubtreeSlide`, so the operator change is not
-the cause. Next step: run both versions to the full 200M steps and compare again. If BEAST 3
-still differs, check its EBSP prior on popSizes and `populationMean` against 2.7.9's. Related:
-[beast3#191](https://github.com/CompEvol/beast3/issues/191) (BEAST 3 against BEAST 1 on this
-example).
+**testEBSP:** before bug fix 3, BEAST 2.7.9, the original XML in BEAST 3 and the conversion gave
+three different posteriors for `populationMean` (medians 2.7, 3.5 and 4.9) with the same
+data-informed population size. With the fix in both versions and the same proper prior on
+`populationMean`, the two versions match on every column.
 
 ### Analytic checks
 
@@ -150,17 +151,11 @@ density. Both versions reproduce it:
 `python3 scripts/check_calibrated_marginals.py` reproduces the table from the runs in
 `beast2/log/<example>-analytic/` and `beast3/log/<example>-analytic/`.
 
-- **testConditionalRootCalibrationPrior** ran with the proper prior on the birth rate
-  (LogNormal(0, 8)) from [beast2#1225](https://github.com/CompEvol/beast2/pull/1225) and [beast3#199](https://github.com/CompEvol/beast3/pull/199). With it,
-  BEAST 3 at first stopped with "positive infinite posterior": `CalibratedYuleModel` lost all
-  precision once the birth rate fell below about 1e-17. Fixed in both versions ([beast2#1224](https://github.com/CompEvol/beast2/pull/1224),
-  [beast3#207](https://github.com/CompEvol/beast3/pull/207)). These runs use both that fix and
-  the `SampleOffValues` fix: BEAST 3 is a local build of beast3 #198, #203 and #207 merged; BEAST
-  2.7.9 has the two fixed classes (beast2#1223, #1224) patched into BEAST.base 2.7.9. The birth rate itself has no data
-  and mixes slowly (ESS about 10 per replicate), but the root age has ESS above 4,000 per
-  replicate.
-- **testCalYule_5t_2c** is unchanged from #199. With the original 700k steps, BEAST 3 was at the edge
-  (z +2.2, KS 0.034 against 0.036). The 140M-step runs above settle it.
+- **testConditionalRootCalibrationPrior:** the same runs as in `<example>/` (proper birth-rate
+  prior; bug fixes 3 and 4 in both versions).
+- **testCalYule_5t_2c:** the XML of #199; BEAST 3 with #198, #203 and #207, BEAST 2.7.9 with
+  beast2#1223 and #1224 (neither fix changes this model). With the original 700k steps, BEAST 3 was
+  at the edge (z +2.2, KS 0.034 against 0.036); the 140M-step runs above settle it.
 
 **Speed:** on the same machine, testBSP took 130 s in BEAST 3 and 79 s in BEAST 2.7.9 for the same
-10M steps (original `SubtreeSlide` runs, one at a time).
+10M steps (earlier runs with the original `SubtreeSlide` and improper priors, one at a time).

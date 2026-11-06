@@ -37,7 +37,7 @@
         </calibrations>
     </input>
 
-    <run spec="MCMC" id="mcmc" chainLength="40000000">
+    <run spec="MCMC" id="mcmc" chainLength="400000000">
 
         <state>
             <stateNode idref='tree'/>
@@ -47,9 +47,10 @@
         <distribution spec='CompoundDistribution' id='posterior'>
             <distribution id="yule.prior" idref='cyule'/>
 
-            <!-- <distribution id="birthRate.prior" spec="beast.base.inference.distribution.Prior" x="@birthRate">
-                <distr id="OneOnX" offset="0.0" spec="beast.base.inference.distribution.OneOnX"/>
-            </distribution> -->
+            <!-- proper prior, replaces the missing prior of the 2.7.8 example (its 1/x prior was commented out, leaving the posterior improper) -->
+            <distribution id="birthRate.prior" spec="beast.base.inference.distribution.Prior" x="@birthRate">
+                <distr spec="beast.base.inference.distribution.LogNormalDistributionModel" M="0.0" S="8.0" meanInRealSpace="false"/>
+            </distribution>
 
         </distribution>
 
@@ -58,17 +59,17 @@
             <parameter idref="birthRate"/>
         </operator>
 
-        <logger logEvery="8000" fileName="cond_root_prior.$(seed).log">
+        <logger logEvery="80000" fileName="cond_root_prior.$(seed).log">
             <model idref='posterior'/>
             <log idref="posterior"/>
             <log idref="cyule"/>
             <log idref="birthRate"/>
             <log id="TreeHeight" spec="beast.base.evolution.tree.TreeHeightLogger" tree="@tree"/>
         </logger>
-        <logger logEvery="8000" fileName="cond_root_prior.$(seed).trees">
+        <logger logEvery="80000" fileName="cond_root_prior.$(seed).trees">
             <log idref="tree"/>
         </logger>
-        <logger logEvery="8000">
+        <logger logEvery="80000">
             <model idref='posterior'/>
             <log idref="cyule"/>
             <log idref="birthRate"/>

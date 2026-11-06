@@ -2,8 +2,8 @@
 <!-- BEAST 3 conversion of the BEAST 2.7.8 example testYuleUncalibrated.xml:
      HKY with estimated frequencies, strict clock, Yule tree prior, and a log-normal
      calibration on the monophyletic {bonobo, chimp, human} clade.
-     The improper Uniform(0, Infinity) prior on the clock rate in the original has log density 0,
-     so it is omitted here; the PositiveReal domain keeps the rate positive. -->
+     The 2.7.8 original puts improper Uniform(0, Infinity) priors on the clock rate and the birth
+     rate. Both the BEAST 2 example and this conversion now use LogNormal(0, 8) for both. -->
 <beast version="2.8"
        namespace="beast.base.spec.inference.parameter:beast.base.spec.inference.operator:beast.base.spec.inference.distribution:beast.base.spec.evolution.tree.coalescent:beast.base.spec.evolution.sitemodel:beast.base.spec.evolution.likelihood:beast.base.spec.evolution.operator:beast.base.spec.evolution.substitutionmodel:beast.base.spec.evolution.branchratemodel:beast.base.spec.evolution.speciation:beast.base.spec.domain:beast.base.evolution.alignment:beast.base.evolution.tree:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.inference.operator:beast.base.evolution.operator">
 
@@ -19,7 +19,14 @@
     <distribution id="posterior" spec="CompoundDistribution">
         <distribution id="prior" spec="CompoundDistribution">
             <distribution id="YuleModel.t:alignment" spec="YuleModel" birthDiffRate="@birthRate.t:alignment" conditionalOnRoot="false" tree="@Tree.t:alignment"/>
-            <!-- the original's Uniform(0, Infinity) prior on birthRate has log density 0 and is omitted -->
+            <distribution id="YuleBirthRatePrior.t:alignment" spec="LogNormal" param="@birthRate.t:alignment" meanInRealSpace="false">
+                <M spec="RealScalarParam" domain="Real" value="0.0" estimate="false"/>
+                <S spec="RealScalarParam" domain="PositiveReal" value="8.0" estimate="false"/>
+            </distribution>
+            <distribution id="ClockPrior.c:alignment" spec="LogNormal" param="@clockRate.c:alignment" meanInRealSpace="false">
+                <M spec="RealScalarParam" domain="Real" value="0.0" estimate="false"/>
+                <S spec="RealScalarParam" domain="PositiveReal" value="8.0" estimate="false"/>
+            </distribution>
             <distribution id="KappaPrior.s:alignment" spec="LogNormal" param="@kappa.s:alignment" meanInRealSpace="true">
                 <M spec="RealScalarParam" domain="Real" value="1.0" estimate="false"/>
                 <S spec="RealScalarParam" domain="PositiveReal" value="1.25" estimate="false"/>
@@ -75,7 +82,7 @@
         <operator id="treeScaler.t:alignment" spec="ScaleTreeOperator" scaleFactor="0.5" weight="3.0" tree="@Tree.t:alignment"/>
         <operator id="treeRootScaler.t:alignment" spec="ScaleTreeOperator" rootOnly="true" scaleFactor="0.5" weight="3.0" tree="@Tree.t:alignment"/>
         <operator id="UniformOperator.t:alignment" spec="beast.base.evolution.operator.Uniform" weight="30.0" tree="@Tree.t:alignment"/>
-        <operator id="SubtreeSlide.t:alignment" spec="beast.base.evolution.operator.kernel.BactrianSubtreeSlide" size="1.0" weight="15.0" tree="@Tree.t:alignment"/>
+        <operator id="SubtreeSlide.t:alignment" spec="beast.base.evolution.operator.kernel.BactrianSubtreeSlide" size="1.8" weight="15.0" tree="@Tree.t:alignment"/>
         <operator id="narrow.t:alignment" spec="Exchange" isNarrow="true" weight="15.0" tree="@Tree.t:alignment"/>
         <operator id="wide.t:alignment" spec="Exchange" isNarrow="false" weight="3.0" tree="@Tree.t:alignment"/>
         <operator id="WilsonBalding.t:alignment" spec="WilsonBalding" weight="3.0" tree="@Tree.t:alignment"/>
@@ -86,7 +93,7 @@
         <operator id="YuleBirthRateScaler.t:alignment" spec="ScaleOperator" scaleFactor="0.75" weight="3.0" parameter="@birthRate.t:alignment"/>
         <operator id="FrequenciesExchanger.s:alignment" spec="DeltaExchangeOperator" delta="0.01" weight="0.1" rvparameter="@freqParameter.s:alignment"/>
 
-        <logger id="tracelog" fileName="ape.yule.$(seed).log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <logger id="tracelog" fileName="ape.yule.$(seed).log" logEvery="2000" model="@posterior" sanitiseHeaders="true" sort="smart">
             <log idref="posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
@@ -100,14 +107,14 @@
             <log idref="freqParameter.s:alignment"/>
         </logger>
 
-        <logger id="screenlog" logEvery="1000">
+        <logger id="screenlog" logEvery="2000">
             <log idref="posterior"/>
             <log id="ESS.0" spec="beast.base.spec.inference.util.ESS" arg="@posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
         </logger>
 
-        <logger id="treelog.t:alignment" fileName="ape.yule.$(seed).trees" logEvery="1000" mode="tree">
+        <logger id="treelog.t:alignment" fileName="ape.yule.$(seed).trees" logEvery="2000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:alignment" spec="beast.base.spec.evolution.TreeWithMetaDataLogger" tree="@Tree.t:alignment"/>
         </logger>
 
