@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:protein'>((((6:0.006358690477614071,7:0.006358690477614071)14:0.06477571439144944,((2:0.024219002012969428,8:0.024219002012969428)11:0.01361325541513092,9:0.03783225742810035)10:0.033302147440963166)13:0.14274305081992894,4:0.21387745568899247)17:0.049703617256113275,(1:0.20127295610994062,(3:0.1361677807815534,(5:0.057377716004403424,0:0.057377716004403424)12:0.07879006477714998)15:0.06510517532838722)16:0.06230811683516513)18:0.0</statenode>
+<statenode id='BDBirthRate.t:protein'>BDBirthRate.t:protein: 4.66870676034649</statenode>
+<statenode id='BDDeathRate.t:protein'>BDDeathRate.t:protein: 0.4448995627631818</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"BirthDeathTreeScaler.t:protein","p":0.17578699552859267,"accept":118888,"reject":386565,"acceptFC":118568,"rejectFC":386188,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathTreeRootScaler.t:protein","p":0.12493491559569432,"accept":113752,"reject":267093,"acceptFC":113593,"rejectFC":266744,"rejectIv":65681,"rejectOp":65681},
+{"id":"BirthDeathUniformOperator.t:protein","p":1.2069848471782298,"accept":1168924,"reject":2628027,"acceptFC":1164217,"rejectFC":2627541,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathSubtreeSlide.t:protein","p":0.030243064655030693,"accept":348991,"reject":1549101,"acceptFC":348989,"rejectFC":1546544,"rejectIv":311966,"rejectOp":311966},
+{"id":"BirthDeathNarrow.t:protein","p":"NaN","accept":62831,"reject":1837907,"acceptFC":62590,"rejectFC":1835518,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathWide.t:protein","p":"NaN","accept":998,"reject":378046,"acceptFC":997,"rejectFC":377555,"rejectIv":200733,"rejectOp":200733},
+{"id":"BirthDeathWilsonBalding.t:protein","p":"NaN","accept":843,"reject":380079,"acceptFC":840,"rejectFC":379564,"rejectIv":117956,"rejectOp":117956},
+{"id":"BirthRateScaler.t:protein","p":0.9210695318996209,"accept":114498,"reject":264058,"acceptFC":114298,"rejectFC":263739,"rejectIv":0,"rejectOp":0},
+{"id":"DeathRateScaler.t:protein","p":1.1590300927239552,"accept":119794,"reject":259606,"acceptFC":119586,"rejectFC":259288,"rejectIv":108008,"rejectOp":108008}
+]}
+-->

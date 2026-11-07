@@ -1,0 +1,20 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:protein'>((((0:0.062103498703359274,5:0.062103498703359274)11:0.057687122499160755,3:0.11979062120252003)17:0.09536557406753172,1:0.21515619527005175)12:0.04180001427950086,(((6:0.014853700812350372,7:0.014853700812350372)13:0.06478305069071574,((2:0.028941675862359677,8:0.028941675862359677)14:0.004066990276769274,9:0.03300866613912895)16:0.04662808536393717)10:0.1024504379764748,4:0.18208718947954092)15:0.0748690200700117)18:0.0</statenode>
+<statenode id='BDBirthRate.t:protein'>BDBirthRate.t:protein[1 1] (0.0,Infinity): 1.6719370223754366 </statenode>
+<statenode id='BDDeathRate.t:protein'>BDDeathRate.t:protein[1 1] (0.0,1.0): 0.8556670949472513 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"BirthDeathBICEPSEpochTop.t:protein","p":0.16034161944091527,"accept":101361,"reject":145878,"acceptFC":101177,"rejectFC":145707,"rejectIv":55005,"rejectOp":55005},
+{"id":"BirthDeathBICEPSEpochAll.t:protein","p":0.1619164950789338,"accept":100514,"reject":146766,"acceptFC":100337,"rejectFC":146609,"rejectIv":55016,"rejectOp":55016},
+{"id":"BirthDeathBICEPSTreeFlex.t:protein","p":0.11574011198417639,"accept":104371,"reject":142924,"acceptFC":104071,"rejectFC":142895,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathTreeRootScaler.t:protein","p":0.12395363086552652,"accept":113538,"reject":256666,"acceptFC":113356,"rejectFC":256363,"rejectIv":62150,"rejectOp":62150},
+{"id":"BirthDeathUniformOperator.t:protein","p":1.2066608710422149,"accept":1140906,"reject":2565153,"acceptFC":1136311,"rejectFC":2564690,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathSubtreeSlide.t:protein","p":0.047719976439426784,"accept":136373,"reject":1715002,"acceptFC":136370,"rejectFC":1712534,"rejectIv":489366,"rejectOp":489366},
+{"id":"BirthDeathNarrow.t:protein","p":"NaN","accept":61452,"reject":1788037,"acceptFC":61312,"rejectFC":1785556,"rejectIv":0,"rejectOp":0},
+{"id":"BirthDeathWide.t:protein","p":"NaN","accept":949,"reject":369714,"acceptFC":945,"rejectFC":369190,"rejectIv":196228,"rejectOp":196228},
+{"id":"BirthDeathWilsonBalding.t:protein","p":"NaN","accept":819,"reject":370017,"acceptFC":818,"rejectFC":369509,"rejectIv":114348,"rejectOp":114348},
+{"id":"BirthRateScaler.t:protein","p":0.9309585886260664,"accept":110011,"reject":260219,"acceptFC":109811,"rejectFC":259931,"rejectIv":0,"rejectOp":0},
+{"id":"DeathRateScaler.t:protein","p":1.1350899369663061,"accept":115927,"reject":253404,"acceptFC":115704,"rejectFC":253146,"rejectIv":105696,"rejectOp":105696}
+]}
+-->

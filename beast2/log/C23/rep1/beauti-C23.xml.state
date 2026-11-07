@@ -1,0 +1,34 @@
+<itsabeastystatewerein version='2.0' sample='20000000'>
+<statenode id='Tree.t:anolis'>((((19:0.18748745772190123,25:0.18748745772190123)48:0.12758992401934022,((2:0.1736977697924964,28:0.1736977697924964)43:0.09053151259823478,((3:0.07026006261185247,23:0.07026006261185247)44:0.13508761879955566,17:0.20534768141140813)46:0.058881600979323045)45:0.05084809935051027)54:0.020356416525838528,((22:0.0859648691675948,24:0.0859648691675948)33:0.17145310716341813,(0:0.2197955545019715,(((12:0.0901829539900044,13:0.0901829539900044)29:0.06267889008586028,16:0.15286184407586467)30:0.004092573567373692,27:0.15695441764323836)31:0.06284113685873313)32:0.037622421829041436)34:0.07801582193606704)40:0.0010887171493338954,(((6:0.13755625554811904,10:0.13755625554811904)50:0.12516821519709306,((8:0.16253872095715977,15:0.16253872095715977)52:0.028800312661921512,26:0.19133903361908128)51:0.07138543712613082)53:0.056066646490795125,(((20:0.25375412655930624,(((1:0.15177554562606693,7:0.15177554562606693)35:0.06376324737494804,4:0.21553879300101497)37:0.02604193861603693,(11:0.031309090715202145,18:0.031309090715202145)36:0.21027164090184974)55:0.012173394942254334)38:0.03358388484011482,(14:0.24924277210095602,21:0.24924277210095602)41:0.03809523929846503)42:0.013582970921098836,(5:0.22167112615559928,9:0.22167112615559928)39:0.07924985616492061)47:0.017870134915487335)49:0.017731398180406643)56:0.0</statenode>
+<statenode id='birthRate.t:anolis'>birthRate.t:anolis[1 1] (0.0,Infinity): 5.047825302530728 </statenode>
+<statenode id='BMT_ModelIndicator.s:anolis'>BMT_ModelIndicator.s:anolis[1 1] (0,5): 10 </statenode>
+<statenode id='BMT_Rates.s:anolis'>BMT_Rates.s:anolis[6 1] (0.0,Infinity): 0.2733712090559991 2.7944143842778755 0.4682697246424156 1.5497634244152216 0.6408100485524766 0.5342515410997724 </statenode>
+<statenode id='BMT_gammaShape.s:anolis'>BMT_gammaShape.s:anolis[1 1] (0.001,1000.0): 0.7529474508216129 </statenode>
+<statenode id='BMT_ProportionInvariable.s:anolis'>BMT_ProportionInvariable.s:anolis[1 1] (0.0,1.0): 0.26615560623417106 </statenode>
+<statenode id='hasInvariableSites.s:anolis'>hasInvariableSites.s:anolis[1 1] (-2147483647,2147483646): 1 </statenode>
+<statenode id='hasGammaRates.s:anolis'>hasGammaRates.s:anolis[1 1] (-2147483647,2147483646): 1 </statenode>
+<statenode id='hasEqualFreqs.s:anolis'>hasEqualFreqs.s:anolis[1 1] (null,true): false </statenode>
+<statenode id='BMT_frequencies.s:anolis'>BMT_frequencies.s:anolis[4 1] (-Infinity,Infinity): 0.38879167945587706 0.2512585576273412 0.060627562209965756 0.29932220070681653 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:anolis","p":0.44213058763389385,"accept":217385,"reject":518003,"acceptFC":217332,"rejectFC":517543,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:anolis","p":0.030945008635640633,"accept":172465,"reject":564535,"acceptFC":172463,"rejectFC":564043,"rejectIv":264234,"rejectOp":264234},
+{"id":"YuleModelUniformOperator.t:anolis","p":0.9191143962713646,"accept":2289072,"reject":5077326,"acceptFC":2284722,"rejectFC":5076681,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:anolis","p":0.040262944514033186,"accept":268274,"reject":3410814,"acceptFC":268273,"rejectFC":3408230,"rejectIv":447583,"rejectOp":447583},
+{"id":"YuleModelNarrow.t:anolis","p":"NaN","accept":429083,"reject":3251796,"acceptFC":428776,"rejectFC":3249646,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:anolis","p":"NaN","accept":2188,"reject":733656,"acceptFC":2187,"rejectFC":733160,"rejectIv":374929,"rejectOp":374929},
+{"id":"YuleModelWilsonBalding.t:anolis","p":"NaN","accept":4299,"reject":732036,"acceptFC":4295,"rejectFC":731541,"rejectIv":97894,"rejectOp":97894},
+{"id":"YuleModelBICEPSEpochTop.t:anolis","p":0.1439174652873288,"accept":200010,"reject":289556,"acceptFC":199840,"rejectFC":289396,"rejectIv":35009,"rejectOp":35009},
+{"id":"YuleModelBICEPSEpochAll.t:anolis","p":0.14659236787365967,"accept":196243,"reject":294957,"acceptFC":196063,"rejectFC":294767,"rejectIv":35140,"rejectOp":35140},
+{"id":"YuleModelBICEPSTreeFlex.t:anolis","p":0.07038994139395958,"accept":203111,"reject":286450,"acceptFC":202831,"rejectFC":286392,"rejectIv":0,"rejectOp":0},
+{"id":"BMT_ModelTestOperator.s:anolis","p":"NaN","accept":10788,"reject":233941,"acceptFC":10776,"rejectFC":233804,"rejectIv":9597,"rejectOp":9597},
+{"id":"BMT_Ratescaler.s:anolis","p":0.20388216721414198,"accept":62695,"reject":182683,"acceptFC":62633,"rejectFC":182573,"rejectIv":178,"rejectOp":178},
+{"id":"BMT_gammaShapeScaler.s:anolis","p":0.6739251403442782,"accept":22020,"reject":100806,"acceptFC":22010,"rejectFC":100725,"rejectIv":0,"rejectOp":0},
+{"id":"BMT_ProportionInvariableScaler.s:anolis","p":0.6713050950075085,"accept":24239,"reject":98991,"acceptFC":24230,"rejectFC":98920,"rejectIv":0,"rejectOp":0},
+{"id":"BMT_hasGammaRatesFlipper.s:anolis","p":"NaN","accept":0,"reject":24404,"acceptFC":0,"rejectFC":24388,"rejectIv":12134,"rejectOp":12134},
+{"id":"BMT_hasInvariableSitesFlipper.s:anolis","p":"NaN","accept":0,"reject":24465,"acceptFC":0,"rejectFC":24449,"rejectIv":12193,"rejectOp":12193},
+{"id":"BMT_FreqsFlipOperator.s:anolis","p":"NaN","accept":2,"reject":24447,"acceptFC":0,"rejectFC":24430,"rejectIv":0,"rejectOp":0},
+{"id":"BMT_FrequenciesExchanger.s:anolis","p":0.017876444983736837,"accept":13277,"reject":35984,"acceptFC":13254,"rejectFC":35973,"rejectIv":0,"rejectOp":0}
+]}
+-->
