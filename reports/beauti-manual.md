@@ -138,6 +138,38 @@ Whichever slide start is wrong for the tree costs about 20–35 % of the ESS, no
 tree operators (UpDown, Uniform, Exchange, Wilson–Balding) do much of the work. `-scale` gives
 about the same ESS on every tree scale.
 
+#### Tuning the slide with a slower-shrinking gain
+
+The limit above comes from the tuning gain, 1/n after n proposals, so the log size can move only
+about 0.7 · ln N in a run. `OperatorSchedule` has `transform="sqrt"` (gain 1/√n). It applies to
+every operator in its schedule, but an operator is tuned by the schedule it belongs to, so the slide
+alone can be given it by moving it from the MCMC operator list into a sub-schedule of the same
+weight:
+
+```xml
+<operatorschedule id="OperatorSchedule" spec="OperatorSchedule">
+    <subschedule id="SlideSchedule" spec="OperatorSchedule" transform="sqrt" weight="15.0">
+        <operator id="YuleModelSubtreeSlide.t:anolis" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:anolis" weight="15.0"/>
+    </subschedule>
+</operatorschedule>
+```
+
+The slide must not also stay in the MCMC operator list, because MCMC assigns its operators to the
+main schedule; and `operatorPattern` does not work for this, because it does not change the
+operator's schedule. On the 1.9-million-tall tree (`C01-tall7-sqrt`, `C01-tall7-slide-sqrt`, rc2,
+seeds 1 and 2):
+
+| Slide start | Final size | Acceptance | likelihood ESS/M | Tree.height ESS/M |
+|-------------|-----------:|-----------:|-----------------:|------------------:|
+| 1.0, default tuning (stuck) | 7,226 | 95 % | 3091 | 3983 |
+| 0.01, default tuning (stuck) | 81 | 99.9 % | 2505 | 3638 |
+| 1.0, `sqrt` sub-schedule | 87,500 | 31 % | 3272 | 6462 |
+| 0.01, `sqrt` sub-schedule | 86,300 | 31 % | 3836 | 5738 |
+| `BactrianSubtreeScale` | 0.19 | 30 % | 3121 | 5681 |
+
+With the `sqrt` gain the slide tunes from both starts, to the same size (0.34 × H/√(2n−1), as on
+C01), and mixes at least as well as `BactrianSubtreeScale`. Both runs match the `-scale` posterior.
+
 ## Deviations from the run protocol
 
 - Eva's files are named `C01-b2.xml` / `C01-b3.xml` and `log/C01/`, not `beauti-C01.xml` and
