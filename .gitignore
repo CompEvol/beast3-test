@@ -1,0 +1,3 @@
+# Tree logs go to the shared Dropbox folder beast3-test, not git (see README)
+*.trees
+__pycache__/

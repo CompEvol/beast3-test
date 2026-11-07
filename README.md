@@ -216,11 +216,12 @@ beast3-test/
 ```
 
 Commit the exact XMLs that were run (do not rely on upstream `master`, which may change).
-Keep large `*.trees` files out of git unless needed (use Git LFS or compress them);
 `*.log` files and stdout are small enough to commit.
 
-> **Note:** if a tree log (`*.trees`) is too large to upload to the repo, leave it out — the
-> parameter log (`*.log`) from the MCMC is enough for the comparison in step 4.
+**Tree files (`*.trees`) don't go in git.** Upload them to the shared Dropbox folder
+`beast3-test` (<https://www.dropbox.com/home/beast3-test>), in the same layout as this repo,
+e.g. the trees of `beast2/log/C01/rep1/` go in `beast3-test/beast2/log/C01/rep1/`. The parameter log (`*.log`) is
+enough for the parameter comparison in step 4; the clade and tMRCA comparison needs the trees.
 
 ## Tester instructions
 
@@ -290,8 +291,9 @@ On NeSI, an example Slurm array script can be shared on request.
 
 ### Step 3 — Collect logs
 
-- Copy the `*.log`, `beast.out` and, if small, `*.trees` files into `beast2/log/` and `beast3/log/` (from NeSI, copy them back or commit directly there).
-  If a `*.trees` file is too large to upload, skip it; the parameter `*.log` is enough.
+- Copy the `*.log` and `beast.out` files into `beast2/log/` and `beast3/log/` (from NeSI, copy them back or commit directly there).
+  Upload the `*.trees` files to the Dropbox folder `beast3-test` at the same path (see
+  [Proposed repository layout](#proposed-repository-layout)), not to git.
 - Check every `beast.out` finished normally (no exception, final "End likelihood" line present). List failed runs in the report with the error message.
 - Commit and push to this repo, with the commit message naming the BEAST versions used.
 
