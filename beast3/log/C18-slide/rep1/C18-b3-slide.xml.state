@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:protein'>((((5:0.0638622904948175,0:0.0638622904948175)10:0.05916045943089343,3:0.12302274992571093)17:0.0749286718856234,1:0.19795142181133432)11:0.07112833953014588,(4:0.22012711724967932,((6:0.008561436558774551,7:0.008561436558774551)13:0.07621193704819743,(9:0.04808192481824294,(8:0.02782037044714149,2:0.02782037044714149)12:0.020261554371101446)16:0.036691448788729035)15:0.13535374364270736)14:0.04895264409180089)18:0.0</statenode>
+<statenode id='birthRate.t:protein'>birthRate.t:protein: 12.198156628727507</statenode>
+<statenode id='gammaShape.s:protein'>gammaShape.s:protein: 0.8574504524332484</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:protein","p":0.7805484893391044,"accept":119902,"reject":274847,"acceptFC":119721,"rejectFC":274480,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:protein","p":0.14191810706537866,"accept":115852,"reject":278561,"acceptFC":115843,"rejectFC":278042,"rejectIv":75486,"rejectOp":75486},
+{"id":"YuleModelUniformOperator.t:protein","p":1.2751235888200236,"accept":1206331,"reject":2740044,"acceptFC":1201358,"rejectFC":2739578,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:protein","p":0.02551910147501269,"accept":595060,"reject":1378459,"acceptFC":593383,"rejectFC":1377385,"rejectIv":237842,"rejectOp":237842},
+{"id":"YuleModelNarrow.t:protein","p":"NaN","accept":173564,"reject":1797615,"acceptFC":173290,"rejectFC":1795167,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:protein","p":"NaN","accept":2715,"reject":391139,"acceptFC":2710,"rejectFC":390616,"rejectIv":208779,"rejectOp":208779},
+{"id":"YuleModelWilsonBalding.t:protein","p":"NaN","accept":1734,"reject":392310,"acceptFC":1729,"rejectFC":391770,"rejectIv":121743,"rejectOp":121743},
+{"id":"YuleModelTreeScaler.t:protein","p":0.237945403019374,"accept":126322,"reject":399022,"acceptFC":125899,"rejectFC":398720,"rejectIv":0,"rejectOp":0},
+{"id":"gammaShapeScaler.s:protein","p":"NaN","accept":1897,"reject":4627,"acceptFC":1893,"rejectFC":4620,"rejectIv":0,"rejectOp":0,"nProposals":6524,"param_mean_sum":"[0.6753410141567918]","param_mean_SS":"[0.47597047018126476]","numAccepts":"[585, 1312]","numProposals":"[1025, 4500]","operator_mean_runtimes":"[1.037161951219514, 1.0256591111111344]","mean_SS":"[[0.005892298372511806], [0.07173691003462697]]","weights":"[0.13719052433006867, 0.8628094756699314]","operators":[{"id":"AVMNOperator.protein","p":0.5363230395545177,"means":"[-0.41201851336294754, -0.8629606510689809]","covariance":"[0.04223322619142564, 0.003154824174858809, 0.015821881781897456]","accept":585,"reject":942,"acceptFC":585,"rejectFC":938,"rejectIv":0,"rejectOp":0},{"id":"gammaShapeScalerX.s:protein","p":0.4892378772583492,"accept":1312,"reject":3685,"acceptFC":1308,"rejectFC":3682,"rejectIv":0,"rejectOp":0}]}
+]}
+-->

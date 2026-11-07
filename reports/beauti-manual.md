@@ -13,11 +13,12 @@ Burn-in 10 %.
 | C01 | Eva | 3M | 4113 / 3494 | matched | largest z = 2.97, just under the flag threshold |
 | C06 | Eva | 10M | 542 / 471 | matched (ESS < 200) | `freqParameter.1stpos.1` has ESS 199 in one BEAST 3 replicate; z = 0.41 |
 | C10 | Eva | 10M | 852 / 4644 | matched | |
-| C13 🐢 | Eva | 30M | 592 / 684 | matched | `EBSP.log` not compared (non-numeric `popsSize0` column); main log matches |
+| C13 🐢 | Eva | 30M | 592 / 684 | **not a valid pass** | the versions agree, but both run `SampleOffValues` with the wrong Hastings ratio, so neither samples the posterior; see [Findings](#findings). `EBSP.log` not compared (non-numeric `popsSize0` column) |
 | C18 | Eva | 10M | 2527 / 2553 | matched, constant offset in `prior` | see [Findings](#findings): script flags `prior` (z = 9.1) |
 | C26 | Eva | 20M | 985 / 1434 | matched | every marginal also matches its analytic prior, below |
 
-No `*.trees` files were committed for these runs, so clades were not compared.
+Clades and tMRCAs are not compared yet. Tree files go to the Dropbox folder `beast3-test`
+(<https://www.dropbox.com/home/beast3-test>), not git; Eva's are not there yet.
 
 ### C26: marginals against the analytic prior
 
@@ -38,6 +39,62 @@ Pooled replicates; z = |mean − analytic mean| / (sd / √ESS).
   on a parameter with `lower="0.1"`, which only enforces the bound. The offset is constant, so the
   posterior is the same. Expect it in any analysis with a gamma shape whose prior has mass below
   0.1. Not raised as an issue.
+
+- **C13, EBSP off values (all EBSP analyses).** `SampleOffValues` redraws the population sizes whose
+  indicators are off from their prior, so it should be accepted every time. In BEAST 2.7.9 and BEAST 3
+  rc2 its Hastings ratio is wrong (beast2#1222, fixed in beast3#203 after rc2, beast2#1223 still
+  open), and it is accepted only about 2 % of the time (1.9 % in BEAST 2, 2.0 % in BEAST 3 rc2). With
+  the fix (the #214 build below), acceptance is 100 % and the off values have mean ≈
+  `populationMean` (≈ 42), as their Exponential prior requires; without it they average about 21,
+  and the `prior` column is about 66 log units higher. The tree, likelihood and clock rate are
+  unaffected. Eva's BEAST 2 and BEAST 3 runs agree because both have the bug. C13 needs rerunning
+  once rc3 (or a master build) and a BEAST 2 with beast2#1223 are available. testEBSP is affected
+  the same way.
+
+## Subtree-slide variants (BEAST 3 only)
+
+Copies of each BEAST 3 analysis made with `scripts/slide_variants.py`, run by Alexei on 7 Nov,
+seeds 1 and 2, on a Mac with other chains running (so run times are not comparable):
+
+- `-slide`: `BactrianSubtreeSlide` started at size 0.01 (what BEAUti 3 writes from beast3#201). Run
+  with v2.8.0-rc2 built from source (`aa8512e`), like Eva's default runs.
+- `-scale`: `BactrianSubtreeScale` at its default size of 0.3 (beast3#214). Run with the #214 branch
+  at `1d7e680`, which is based on a later master than rc2 and includes beast3#203.
+
+Final operator size and acceptance are in `reports/summary/slide-size.md`; posterior comparisons
+with the default runs are in `reports/summary/<ID>-<variant>-vs-default.md`.
+
+| ID | Default slide: final size, acceptance | `-slide` vs default | `-scale` vs default |
+|----|---------------------------------------|---------------------|---------------------|
+| C01 | 0.023, **2.8 %** (stuck, beast3#200) | matched | matched |
+| C06 | 0.075, 28 % | borderline: `freqParameter.2ndpos.3` z = 3.16, 1 of ~35 columns | matched |
+| C10 | 1.03, 30 % | matched | matched |
+| C13 | 1.03, 30 % | matched | **not matched**: the #214 build has the `SampleOffValues` fix and the default (rc2) does not, see [Findings](#findings). Not an operator effect |
+| C18 | 0.032, 19 % | matched | matched |
+| C26 | 0.24, 30 % | matched | matched |
+
+Both variants reach 29–31 % acceptance in every analysis. The default only fails to tune on C01.
+
+### Mixing: ESS per million steps
+
+C01 and C18 logged every 1,000 steps had ESS close to the number of samples, which hides any
+difference, so they were rerun with the trace log every 100 steps (`beast3/log/<ID>-fine*/`, same
+builds and seeds; all three set-ups match each other). ESS of the two replicates summed, per million
+steps after 10 % burn-in:
+
+| ID | Parameter | default | `-slide` | `-scale` |
+|----|-----------|--------:|---------:|---------:|
+| C01 | likelihood | 2753 | 3445 | 3269 |
+| C01 | Tree.height | 4211 | 6307 | 5309 |
+| C01 | Tree.treeLength | 17720 | 17640 | 17862 |
+| C18 | likelihood | 2822 | 3091 | 2486 |
+| C18 | Tree.height | 10848 | 10530 | 9644 |
+| C18 | Tree.treeLength | 7688 | 7575 | 6820 |
+
+On C01, where the default slide is stuck, both variants mix better: `-slide` by 25 % (likelihood) and
+50 % (tree height), `-scale` by 19 % and 26 %. On C18, where the default tunes, `-slide` is about
+the same as the default and `-scale` is 6–12 % lower. `-scale` also ran 1–4 % slower per step. With
+two replicates per set-up, differences of about 10 % are within the noise of the ESS estimate.
 
 ## Deviations from the run protocol
 

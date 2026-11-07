@@ -1,0 +1,11 @@
+trees	clade	size	p_default	p_scale	abs_dp	flag
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Cow Human Mouse Rat Seal Whale	6	0.929786	0.931785	0.002000	
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Carp Chicken Cow Frog Loach Mouse Rat Seal Whale	9	0.061382	0.060160	0.001222	
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Cow Seal	2	0.605599	0.606377	0.000778	
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Carp Chicken Frog Loach	4	0.946284	0.945839	0.000444	
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Cow Seal Whale	3	0.996056	0.996334	0.000278	
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Carp Frog Loach	3	0.998556	0.998445	0.000111	
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Cow Whale	2	0.382402	0.382458	0.000056	
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Carp Loach	2	1.000000	1.000000	0.000000	
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Mouse Rat	2	1.000000	1.000000	0.000000	
+CN-fine-protein.trees / CN-fine-scale-protein.trees	Cow Mouse Rat Seal Whale	5	1.000000	1.000000	0.000000	
