@@ -96,6 +96,48 @@ On C01, where the default slide is stuck, both variants mix better: `-slide` by 
 the same as the default and `-scale` is 6–12 % lower. `-scale` also ran 1–4 % slower per step. With
 two replicates per set-up, differences of about 10 % are within the noise of the ESS estimate.
 
+### Tall trees: C01 with the clock rate fixed at 1e-4 and 1e-7
+
+Does a slide started at 0.01 tune up on a tall tree? None of our analyses has a tree taller than
+about 105, but published BEAST analyses do: on PhyloData, 29 of 110 experiments have a mean root
+age ≥ 100 and 3 have one ≥ 1000, the tallest 2.3 million (linck-2020-speciation-ncxu, a Yule tree
+with the clock fixed at 2.9e-8 per year). Their BEAST 2.5/2.6 XMLs don't load in BEAST 3, so the
+same scale was made from C01 by fixing the clock rate at 1e-4 (tree ≈ 1,900 tall) and 1e-7 (≈ 1.9
+million). Otherwise these are C01 and its `-slide` and `-scale` variants, trace log every 100 steps
+(`beast3/xml-tall/`, `beast3/log/C01-tall4*`, `C01-tall7*`).
+
+| Tree height | Set-up | Final size | Acceptance | Tuned? |
+|------------:|--------|-----------:|-----------:|--------|
+| ≈ 1,900 | default (starts at 1.0) | 82.7 | 34 % | yes |
+| ≈ 1,900 | `-slide` (starts at 0.01) | 36.9 | 73 % | **no**, BEAST suggests ≈ 74 |
+| ≈ 1,900 | `-scale` | 0.19 | 30 % | yes |
+| ≈ 1.9 M | default (starts at 1.0) | 7,226 | 95 % | **no**, BEAST suggests ≈ 14,450 |
+| ≈ 1.9 M | `-slide` (starts at 0.01) | 81 | 99.9 % | **no** |
+| ≈ 1.9 M | `-scale` | 0.19 | 30 % | yes |
+
+In 3M steps (about 590,000 slide proposals) the slide's size grew by a factor of about 8,000 at
+most, both from 1.0 and from 0.01 (8.9–9.0 in log size). That is the most auto-tuning can move it
+up in a run of this length. A slide that starts too small by more than that stays too small.
+`BactrianSubtreeScale` ends at the same size (0.19) on all three tree scales, as a scale-invariant
+operator should.
+
+All six set-ups sample the same posterior: the tree height divided by 10⁴ or 10⁷ is 0.1925 in every
+case, the same as C01, and every comparison with the default is matched. Only mixing differs. ESS
+per million steps (two replicates summed):
+
+| Tree height | Parameter | default | `-slide` | `-scale` |
+|------------:|-----------|--------:|---------:|---------:|
+| ≈ 0.19 (C01) | likelihood | 2753 | 3445 | 3269 |
+| ≈ 0.19 (C01) | Tree.height | 4211 | 6307 | 5309 |
+| ≈ 1,900 | likelihood | 3766 | 3079 | 3309 |
+| ≈ 1,900 | Tree.height | 6298 | 5039 | 5639 |
+| ≈ 1.9 M | likelihood | 3091 | 2505 | 3121 |
+| ≈ 1.9 M | Tree.height | 3983 | 3638 | 5681 |
+
+Whichever slide start is wrong for the tree costs about 20–35 % of the ESS, not more, because the other
+tree operators (UpDown, Uniform, Exchange, Wilson–Balding) do much of the work. `-scale` gives
+about the same ESS on every tree scale.
+
 ## Deviations from the run protocol
 
 - Eva's files are named `C01-b2.xml` / `C01-b3.xml` and `log/C01/`, not `beauti-C01.xml` and

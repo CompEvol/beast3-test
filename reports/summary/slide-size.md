@@ -17,6 +17,14 @@ converged (beast3#200).
 | C01 | -scale | rep2 | `YuleModelSubtreeSlide.t:anolis` | 0.0226 | 0.028 | 0.188 | 0.3 | 29 | 0.193 | – |
 | C01 | -slide | rep1 | `YuleModelSubtreeSlide.t:anolis` | 0.0226 | 0.028 | 0.00881 | 0.3 | 29 | 0.193 | 0.35 |
 | C01 | -slide | rep2 | `YuleModelSubtreeSlide.t:anolis` | 0.0226 | 0.028 | 0.00887 | 0.29 | 29 | 0.193 | 0.35 |
+| C01-tall4 | -scale | rep1 | `YuleModelSubtreeSlide.t:anolis` | 82.7 | 0.34 | 0.188 | 0.3 | 29 | 1.92e+03 | – |
+| C01-tall4 | -scale | rep2 | `YuleModelSubtreeSlide.t:anolis` | 82.4 | 0.35 | 0.193 | 0.29 | 29 | 1.92e+03 | – |
+| C01-tall4 | -slide | rep1 | `YuleModelSubtreeSlide.t:anolis` | 82.7 | 0.34 | 36.9 | 0.73 | 29 | 1.93e+03 | 0.14 |
+| C01-tall4 | -slide | rep2 | `YuleModelSubtreeSlide.t:anolis` | 82.4 | 0.35 | 36.9 | 0.73 | 29 | 1.93e+03 | 0.14 |
+| C01-tall7 | -scale | rep1 | `YuleModelSubtreeSlide.t:anolis` | 7.23e+03 | 0.95 | 0.188 | 0.3 | 29 | 1.93e+06 | – |
+| C01-tall7 | -scale | rep2 | `YuleModelSubtreeSlide.t:anolis` | 7.23e+03 | 0.95 | 0.19 | 0.3 | 29 | 1.92e+06 | – |
+| C01-tall7 | -slide | rep1 | `YuleModelSubtreeSlide.t:anolis` | 7.23e+03 | 0.95 | 81.3 | 1 | 29 | 1.92e+06 | 0.00032 |
+| C01-tall7 | -slide | rep2 | `YuleModelSubtreeSlide.t:anolis` | 7.23e+03 | 0.95 | 81.3 | 1 | 29 | 1.93e+06 | 0.00032 |
 | C06 | -scale | rep1 | `YuleModelSubtreeSlide.t:noncoding` | 0.0751 | 0.28 | 0.34 | 0.31 | 12 | 1.39 | – |
 | C06 | -scale | rep2 | `YuleModelSubtreeSlide.t:noncoding` | 0.0741 | 0.29 | 0.342 | 0.31 | 12 | 1.38 | – |
 | C06 | -slide | rep1 | `YuleModelSubtreeSlide.t:noncoding` | 0.0751 | 0.28 | 0.0539 | 0.39 | 12 | 1.38 | 0.19 |

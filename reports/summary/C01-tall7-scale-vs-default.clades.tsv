@@ -1,0 +1,34 @@
+trees	clade	size	p_default	p_scale	abs_dp	flag
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_aliniger Anolis_bahorucoensis Anolis_coelestinus Anolis_equestris Anolis_insolitus Anolis_luteogularis Anolis_occultus Anolis_olssoni	8	0.417438	0.439282	0.021844	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_barahonae Anolis_cuvieri Anolis_insolitus Anolis_olssoni	4	0.573306	0.552388	0.020918	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_aliniger Anolis_bahorucoensis Anolis_barahonae Anolis_brevirostris Anolis_coelestinus Anolis_cristatellus Anolis_cuvieri Anolis_distichus Anolis_equestris Anolis_insolitus Anolis_krugi Anolis_luteogularis Anolis_occultus Anolis_olssoni Anolis_stratulus	15	0.745094	0.732877	0.012218	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_ahli Anolis_alutaceus Anolis_angusticeps Anolis_garmani Anolis_grahami Anolis_lineatopus Anolis_loysiana Anolis_marcanoi Anolis_ophiolepis Anolis_paternus Anolis_sagrei Anolis_strahmi Anolis_valencienni Anolis_vanidicus	14	0.629397	0.620881	0.008515	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_ahli Anolis_aliniger Anolis_alutaceus Anolis_angusticeps Anolis_bahorucoensis Anolis_barahonae Anolis_coelestinus Anolis_cuvieri Anolis_equestris Anolis_garmani Anolis_grahami Anolis_insolitus Anolis_lineatopus Anolis_loysiana Anolis_luteogularis Anolis_marcanoi Anolis_occultus Anolis_olssoni Anolis_ophiolepis Anolis_paternus Anolis_sagrei Anolis_strahmi Anolis_valencienni Anolis_vanidicus	24	0.079785	0.085709	0.005924	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_alutaceus Anolis_angusticeps Anolis_loysiana Anolis_marcanoi Anolis_paternus Anolis_strahmi Anolis_vanidicus	7	0.912440	0.907071	0.005368	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_garmani Anolis_grahami Anolis_lineatopus	3	0.585709	0.581266	0.004443	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_garmani Anolis_grahami Anolis_valencienni	3	0.410033	0.414476	0.004443	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_aliniger Anolis_alutaceus Anolis_angusticeps Anolis_bahorucoensis Anolis_barahonae Anolis_brevirostris Anolis_coelestinus Anolis_cristatellus Anolis_cuvieri Anolis_distichus Anolis_equestris Anolis_insolitus Anolis_krugi Anolis_loysiana Anolis_luteogularis Anolis_marcanoi Anolis_occultus Anolis_olssoni Anolis_paternus Anolis_strahmi Anolis_stratulus Anolis_vanidicus	22	0.187153	0.190485	0.003332	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_ahli Anolis_alutaceus Anolis_angusticeps Anolis_brevirostris Anolis_cristatellus Anolis_distichus Anolis_garmani Anolis_grahami Anolis_krugi Anolis_lineatopus Anolis_loysiana Anolis_marcanoi Anolis_ophiolepis Anolis_paternus Anolis_sagrei Anolis_strahmi Anolis_stratulus Anolis_valencienni Anolis_vanidicus	19	0.087930	0.085154	0.002777	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_cristatellus Anolis_stratulus	2	0.996668	0.999260	0.002592	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_ahli Anolis_aliniger Anolis_bahorucoensis Anolis_barahonae Anolis_brevirostris Anolis_coelestinus Anolis_cristatellus Anolis_cuvieri Anolis_distichus Anolis_equestris Anolis_garmani Anolis_grahami Anolis_insolitus Anolis_krugi Anolis_lineatopus Anolis_luteogularis Anolis_occultus Anolis_olssoni Anolis_ophiolepis Anolis_sagrei Anolis_stratulus Anolis_valencienni	22	0.090707	0.092929	0.002221	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_ahli Anolis_garmani Anolis_grahami Anolis_lineatopus Anolis_valencienni	5	0.998334	0.999074	0.000740	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_insolitus Anolis_olssoni	2	0.999815	1.000000	0.000185	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_aliniger Anolis_coelestinus Anolis_equestris Anolis_luteogularis	4	0.999815	1.000000	0.000185	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_bahorucoensis Anolis_occultus	2	0.999260	0.999445	0.000185	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_aliniger Anolis_coelestinus	2	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_alutaceus Anolis_vanidicus	2	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_angusticeps Anolis_paternus	2	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_barahonae Anolis_cuvieri	2	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_brevirostris Anolis_distichus	2	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_equestris Anolis_luteogularis	2	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_garmani Anolis_grahami	2	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_marcanoi Anolis_strahmi	2	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_ophiolepis Anolis_sagrei	2	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_angusticeps Anolis_loysiana Anolis_paternus	3	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_cristatellus Anolis_krugi Anolis_stratulus	3	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_garmani Anolis_grahami Anolis_lineatopus Anolis_valencienni	4	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_alutaceus Anolis_angusticeps Anolis_loysiana Anolis_paternus Anolis_vanidicus	5	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_brevirostris Anolis_cristatellus Anolis_distichus Anolis_krugi Anolis_stratulus	5	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_aliniger Anolis_bahorucoensis Anolis_coelestinus Anolis_equestris Anolis_luteogularis Anolis_occultus	6	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_ahli Anolis_garmani Anolis_grahami Anolis_lineatopus Anolis_ophiolepis Anolis_sagrei Anolis_valencienni	7	1.000000	1.000000	0.000000	
+CN-tallN-anolis.trees / CN-tallN-scale-anolis.trees	Anolis_aliniger Anolis_bahorucoensis Anolis_barahonae Anolis_coelestinus Anolis_cuvieri Anolis_equestris Anolis_insolitus Anolis_luteogularis Anolis_occultus Anolis_olssoni	10	1.000000	1.000000	0.000000	
