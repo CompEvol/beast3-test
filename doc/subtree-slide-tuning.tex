@@ -88,6 +88,8 @@
     \item 3M steps $\approx$ \num{590000} slide proposals $\Rightarrow$ at most $\approx 9$ in
       $\log s$, i.e.\ about \alert{8,000-fold up}, 50-fold down.
     \item Observed: from 1.0 and from 0.01 alike, the size grew at most 8,000-fold. Longer runs barely help.
+    \item The asymmetry comes from the target 0.3: a size that is too small is corrected faster
+      than one that is too large.
   \end{itemize}
 \end{frame}
 
@@ -348,7 +350,8 @@
   \textbf{Proposal for 2.8.0}
   \begin{itemize}
     \item Merge \#218: \texttt{BactrianSubtreeSlide} tunes with $1/k^{0.6}$ by default.
-    \item BEAUti keeps writing the slide; the start size no longer matters (\#201 is harmless).
+    \item Keep \#201's start of 0.01: with target 0.3 the size moves up $0.7/k$ but down only
+      $0.3/k$, so it is better to start too small than too large.
     \item Merge \#214 as an extra operator; the two don't conflict.
   \end{itemize}
   \textbf{Open questions}
