@@ -1,0 +1,380 @@
+% Tuning the subtree slide: problem, evidence and fix (beast3#200, #201, #214, #218)
+% Build: latexmk -lualatex subtree-slide-tuning.tex
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme[progressbar=frametitle,numbering=fraction]{metropolis}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+
+% chart palette (validated: categorical slots 1-3) and text inks
+\definecolor{s1}{HTML}{2A78D6}  % blue:   1/n gain, start 1.0
+\definecolor{s2}{HTML}{EB6834}  % orange: 1/n gain, start 0.01
+\definecolor{s3}{HTML}{1BAF7A}  % aqua:   gain 1/n^0.6 (#218)
+\definecolor{ink2}{HTML}{52514E}
+\definecolor{grid}{HTML}{E4E3DF}
+\definecolor{good}{HTML}{0CA30C}
+\definecolor{bad}{HTML}{D03B3B}
+
+\newcommand{\stuck}{\textcolor{bad}{\textbf{stuck}}}
+\newcommand{\tuned}{\textcolor{good}{tuned}}
+\sisetup{group-separator={,},group-minimum-digits=4}
+
+\title{Tuning the subtree slide}
+\subtitle{Why it gets stuck, how often it matters, and a fix (beast3\#218)}
+\author{Alexei Drummond}
+\institute{Research group meeting}
+\date{Monday 9 November 2026}
+
+\begin{document}
+
+\maketitle
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Where this came from}
+  \begin{itemize}
+    \item BEAST 3 release testing (\texttt{beast3-test}): 30 analyses built by hand in BEAUti 2.7.9 and
+      BEAUti 3, run in both versions and compared.
+    \item Both BEAUtis start \texttt{BactrianSubtreeSlide} at \texttt{size="1.0"}.
+      On substitution-scale trees that is about 100$\times$ too large (beast3\#200).
+    \item Proposed fixes on the table:
+      \begin{itemize}
+        \item \#201: start the slide at 0.01 instead;
+        \item \#214: \texttt{BactrianSubtreeScale}, a scale-invariant variant of the slide.
+      \end{itemize}
+    \item Question for today: \alert{which start size, or which operator, should BEAUti write?}
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{The slide's size is in the tree's own units}
+  \begin{itemize}
+    \item The slide moves a node up or down by a draw of scale \texttt{size}, in units of branch length.
+    \item When it tunes, it settles at about the same \emph{relative} size every time:
+      \[
+        \text{size} \;\approx\; 0.25\text{--}0.45 \times \frac{H}{\sqrt{2n-1}}
+        \qquad (H = \text{root height},\; n = \text{taxa})
+      \]
+    \item Our analyses span 7 orders of magnitude in $H$, so the right size does too:
+  \end{itemize}
+  \centering\small
+  \begin{tabular}{lrrr}
+    \toprule
+    Analysis & $n$ & $H$ & tuned size \\
+    \midrule
+    C18 WAG protein & 10 & 0.25 & 0.025 \\
+    C01 JC69 anolis & 29 & 0.19 & 0.0089 \\
+    C10 RSV2, tip dates (years) & 129 & 56 & 0.95 \\
+    C01, clock fixed at \num{1e-4} & 29 & \num{1926} & 88 \\
+    C01, clock fixed at \num{1e-7} & 29 & \num{1926000} & \num{88000} \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Why a bad start never recovers}
+  Auto-tuning is a Robbins--Monro update on $\log(\text{size})$ after each proposal:
+  \[
+    \log s_{k+1} \;=\; \log s_k \;+\; \frac{\alpha_k - \alpha^\ast}{k}
+    \qquad (\alpha^\ast = 0.3 \text{ for the slide})
+  \]
+  \begin{itemize}
+    \item The gain $1/k$ shrinks fast: the total distance $\log s$ can travel in $N$ proposals is at
+      most about
+      \[
+        \text{up: } 0.7 \ln N \qquad\quad \text{down: } 0.3 \ln N
+      \]
+    \item 3M steps $\approx$ \num{590000} slide proposals $\Rightarrow$ at most $\approx 9$ in
+      $\log s$, i.e.\ about \alert{8,000-fold up}, 50-fold down.
+    \item Observed: from 1.0 and from 0.01 alike, the size grew at most 8,000-fold. Longer runs barely help.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Are tall trees real? PhyloData says yes}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item 110 published BEAST experiments with trees on \texttt{phylodata.com}.
+        \item Mean root age from the site's own metadata:
+          \begin{itemize}
+            \item 29 have $H \ge 100$
+            \item 3 have $H \ge 1000$
+          \end{itemize}
+        \item Tall trees come from dating in years with a fixed or calibrated clock.
+        \item Our tallest test analysis: $H \approx 105$ (testEBSP).
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \small
+      \begin{tabular}{lrr}
+        \toprule
+        Experiment & $n$ & $H$ \\
+        \midrule
+        linck-2020 (kingfishers, ND2) & 38 & \num{2331785} \\
+        auderset-2023 (Mixtecan) & 110 & \num{2041} \\
+        auderset-2023 & 110 & \num{1747} \\
+        douglas-2025 (cephalopods) & 80 & 499 \\
+        v-2016 (corals) & 579 & 472 \\
+        hara-2021 & 79 & 270 \\
+        \bottomrule
+      \end{tabular}
+
+      \vspace{0.6em}
+      \footnotesize\color{ink2} linck-2020: Yule, clock fixed at \num{2.9e-8} per year.
+      Its BEAST 2.5 XML doesn't load in BEAST 3, so we reproduce the scale with C01.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Experiment: the same analysis at three tree scales}
+  C01 (anolis, JC69, Yule, strict clock), unchanged except the fixed clock rate.
+  3M steps, seeds 1 and 2; both replicates agree in every cell.
+
+  \vspace{0.5em}
+  \centering\footnotesize
+  \begin{tabular}{rlll}
+    \toprule
+    Clock rate ($H$) & Slide from 1.0 & Slide from 0.01 & Scale operator (\#214) \\
+    \midrule
+    1 \;(0.19)       & \stuck{} large: acc.\ 1--3\,\% & \tuned{}: 30\,\% & \tuned{}: 30\,\% \\
+    \num{1e-4} \;(\num{1900})  & \tuned{}: 34\,\% & \stuck{} small: 73\,\% & \tuned{}: 30\,\% \\
+    \num{1e-7} \;(\num{1.9e6}) & \stuck{} small: 95\,\% & \stuck{} small: 99.9\,\% & \tuned{}: 30\,\% \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{0.8em}
+  \raggedright
+  \begin{itemize}
+    \item \#201 (start at 0.01) moves the failure from short trees to tall ones.
+    \item No single start size works for every analysis.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Where the slide ends up}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=0.86\textwidth, height=0.62\textheight,
+      xmode=log, ymode=log,
+      xmin=0.05, xmax=1e7, ymin=1e-4, ymax=3,
+      xlabel={root height $H$},
+      ylabel={final size $\big/\; \big(H/\sqrt{2n-1}\big)$},
+      axis lines=left, axis line style={ink2},
+      tick style={ink2}, tick label style={font=\footnotesize, color=ink2},
+      label style={font=\small, color=ink2},
+      grid=major, major grid style={grid, line width=0.3pt},
+      legend style={draw=none, fill=none, font=\footnotesize, at={(0.5,-0.34)}, anchor=north,
+        /tikz/every even column/.append style={column sep=1.2em}},
+      legend columns=3, legend cell align=left,
+    ]
+      % tuned band 0.25--0.45
+      \addplot[draw=none, name path=lo, forget plot] coordinates {(0.05,0.25) (1e7,0.25)};
+      \addplot[draw=none, name path=hi, forget plot] coordinates {(0.05,0.45) (1e7,0.45)};
+      \addplot[fill=good, fill opacity=0.12, forget plot] fill between[of=lo and hi];
+      \node[font=\footnotesize, color=ink2, anchor=south east] at (axis cs:8e6,0.45) {tuned (30\,\% acceptance)};
+
+      % 1/n gain, start 1.0
+      \addplot[only marks, mark=*, mark size=2.6pt, color=s1, mark options={draw=white, line width=0.6pt}]
+        coordinates {(0.1926,0.886302) (1.375,0.26194) (56.04,0.294649) (55.48,0.297624) (0.246,0.574099) (1926,0.324141) (1.926e+06,0.0283256)};
+      \addlegendentry{gain $1/k$, start 1.0 (current BEAUti)}
+      % 1/n gain, start 0.01
+      \addplot[only marks, mark=square*, mark size=2.4pt, color=s2, mark options={draw=white, line width=0.6pt}]
+        coordinates {(0.1926,0.345348) (1.387,0.18637) (56.02,0.272147) (55.5,0.277297) (0.2455,0.452757) (1926,0.144686) (1.926e+06,0.000318575)};
+      \addlegendentry{gain $1/k$, start 0.01 (\#201)}
+      % gain 0.6
+      \addplot[only marks, mark=triangle*, mark size=3.2pt, color=s3, mark options={draw=white, line width=0.6pt}]
+        coordinates {(0.1926,0.347308) (1926,0.344407) (1.926e+06,0.350671) (1.926e+06,0.344141) (1.38,0.249105) (56,0.299455) (55.5,0.29572) (0.2457,0.450792) (1926,0.350692)};
+      \addlegendentry{gain $1/k^{0.6}$, start 1.0 or 0.01 (\#218)}
+      % direct labels on the stuck runs
+      \node[font=\scriptsize, color=ink2, anchor=west] at (axis cs:0.26,0.95) {C01: too large};
+      \node[font=\scriptsize, color=ink2, anchor=north] at (axis cs:1926,0.13) {too small};
+      \node[font=\scriptsize, color=ink2, anchor=east] at (axis cs:1.5e6,0.028) {too small};
+      \node[font=\scriptsize, color=ink2, anchor=east] at (axis cs:1.5e6,3.2e-4) {too small};
+    \end{axis}
+  \end{tikzpicture}
+
+  \vspace{-0.3em}
+  {\scriptsize\color{ink2} One point per analysis and set-up (both replicates agree). C26 samples from the prior,
+  so its tree height varies too widely for this scaling; it is left out.}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{What a stuck slide costs}
+  \begin{itemize}
+    \item \alert{The posterior is never wrong}: every set-up matches (tall trees are exactly $10^4$ and
+      $10^7$ times C01's).
+    \item Only mixing suffers, mostly tree height. ESS per million steps (2 replicates summed, trace
+      logged every 100 steps):
+  \end{itemize}
+  \centering\small
+  \begin{tabular}{llrr}
+    \toprule
+    Tree & Set-up & likelihood & tree height \\
+    \midrule
+    $H \approx 0.19$ & slide from 1.0, stuck & 2753 & 4211 \\
+                     & slide from 0.01, tuned & 3445 & 6307 \\
+    \midrule
+    $H \approx \num{1.9e6}$ & slide from 1.0, stuck & 3091 & 3983 \\
+                     & slide from 0.01, stuck & 2505 & 3638 \\
+                     & \texttt{BactrianSubtreeScale} & 3121 & 5681 \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{0.5em}
+  \raggedright
+  \small A stuck slide loses about 20--35\,\% of the ESS. Other tree operators (up-down, uniform,
+  exchange, Wilson--Balding) carry the rest.
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Options we considered}
+  \small
+  \begin{tabular}{p{0.32\textwidth}p{0.6\textwidth}}
+    \toprule
+    Option & Outcome \\
+    \midrule
+    Start at 0.01 (\#201) & Fixes short trees, breaks trees $\gtrsim 1000$ tall. \\
+    \texttt{BactrianSubtreeScale} (\#214) & Scale-invariant: tunes to 0.19 on every tree.
+      5--15\,\% lower ESS than a well-tuned slide. \\
+    Start size from the starting tree & Fails exactly where needed: the random starting tree was a few
+      units tall, the posterior tree 1.9 million. \\
+    \texttt{transform="sqrt"} on the schedule & Gain $1/\sqrt{k}$: the slide tunes from anywhere.
+      But it changes every operator, and $1/\sqrt{k}$ is the boundary case for convergence. \\
+    Slide alone in a sub-schedule with \texttt{sqrt} & Works today in XML (tuned from both starts,
+      best ESS), but awkward for BEAUti to write. \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}[fragile]{The fix: a gain exponent (beast3\#218)}
+  Gain $1/k^{e}$ with $0 < e \le 1$; $e \in (0.5, 1]$ keeps the usual convergence conditions
+  (Andrieu \& Thoms 2008). With $e = 0.6$, $\log s$ can travel as $N^{0.4}$ instead of $\ln N$:
+  about 360 instead of 9 in our runs.
+  \begin{itemize}
+    \item \texttt{OperatorSchedule} \texttt{gainExponent}: for every operator in the schedule
+      (1 = today, 0.5 = \texttt{sqrt}).
+    \item \texttt{Operator} \texttt{gainExponent} input, plus \texttt{getDefaultGainExponent()}
+      on the pattern of \texttt{targetAcceptanceProbability}. Default: the schedule decides.
+    \item \texttt{BactrianSubtreeSlide} defaults to \alert{0.6}. No XML or BEAUti change;
+      \texttt{gainExponent="1"} restores the old behaviour.
+  \end{itemize}
+  \vspace{-0.4em}
+  {\footnotesize
+  \begin{tabular}{@{}ll@{}}
+    \texttt{<operator spec="kernel.BactrianSubtreeSlide" .../>} & now $1/k^{0.6}$ \\
+    \texttt{<operator spec="ScaleOperator" ... gainExponent="0.6"/>} & one operator \\
+    \texttt{<operatorschedule ... gainExponent="0.6"/>} & all operators \\
+  \end{tabular}}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Results with \#218: the stuck cases}
+  Unchanged XML, \#218 build, seeds 1 and 2. All tune to 30\,\% and match the reference posterior.
+
+  \vspace{0.5em}
+  \centering\small
+  \begin{tabular}{lrrrr}
+    \toprule
+    Case (stuck with $1/k$) & final size & acc. & likelihood ESS/M & tree height ESS/M \\
+    \midrule
+    $H \approx 0.19$, from 1.0 & 0.0089 & 30\,\% & 3592 \;(2753) & 6482 \;(4211) \\
+    $H \approx 1900$, from 0.01 & 88 & 30\,\% & 4672 \;(3309) & 6263 \;(5639) \\
+    $H \approx \num{1.9e6}$, from 1.0 & \num{88900} & 30\,\% & 4189 \;(3121) & 5990 \;(5681) \\
+    $H \approx \num{1.9e6}$, from 0.01 & \num{88000} & 30\,\% & 3489 \;(3121) & 5557 \;(5681) \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{0.5em}
+  \raggedright\footnotesize\color{ink2}
+  In brackets: the $1/k$ slide on the short tree, \texttt{BactrianSubtreeScale} on the tall ones.
+  From 1.0 and from 0.01 the slide ends at the same size: the start no longer matters.
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Results with \#218: analyses that already tuned}
+    Where the $1/k$ slide already tuned from 1.0: does $1/k^{0.6}$ cost anything?
+  Unchanged XML, \#218 build, seeds 1 and 2.
+
+  \vspace{0.4em}
+  \centering\footnotesize
+  \begin{tabular}{lrrrcc}
+    \toprule
+    Analysis & $H$ & size, $1/k$ $\to$ $1/k^{0.6}$ & acc.\ $1/k$ $\to$ $1/k^{0.6}$ & ESS ratio, median (range) & posterior \\
+    \midrule
+    C06 partitions & 1.4 & 0.075 $\to$ 0.072 & 28 $\to$ 30\,\% & 0.99 \;(0.71--1.37) & matched \\
+    C10 tip dates & 56 & 1.03 $\to$ 1.05 & 30 $\to$ 30\,\% & 0.98 \;(0.90--1.21) & matched \\
+    C13 EBSP$^\ast$ & 56 & 1.03 $\to$ 1.02 & 30 $\to$ 30\,\% & 0.98 \;(0.50--2.43) & matched \\
+    C18 protein & 0.25 & 0.032 $\to$ 0.025 & 19 $\to$ 30\,\% & 0.99 \;(0.88--1.10) & matched \\
+    C01, $H \approx 1900$ & \num{1926} & 83 $\to$ 89 & 34 $\to$ 30\,\% & 0.97 \;(0.83--1.00) & matched \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{0.5em}
+  \raggedright
+  \begin{itemize}\small
+    \item Same tuned size, and no systematic change in mixing: ESS ratio ($1/k^{0.6}$ over $1/k$, every
+      logged column) has median 0.97--0.99. Single columns vary by $\pm$10--30\,\% either way, which is
+      run-to-run noise with two replicates.
+  \end{itemize}
+  \vspace{-0.3em}
+  {\scriptsize\color{ink2} $^\ast$C13 is compared with the \texttt{BactrianSubtreeScale} run, whose build also has the
+  \texttt{SampleOffValues} fix; its 272 columns include 129 binary indicators, hence the wide range.}
+
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Found along the way}
+  \begin{itemize}
+    \item \textbf{EBSP doesn't sample the posterior in BEAST 2.7.9 or BEAST 3 rc2.}
+      \texttt{SampleOffValues} had the wrong Hastings ratio: it was accepted 2\,\% of the time
+      instead of 100\,\%, and the switched-off population sizes averaged 21 instead of 42.
+      Fixed in beast3\#203 (after rc2); beast2\#1223 is still open. C13's BEAST 2 vs BEAST 3
+      ``match'' compared two runs with the same bug.
+    \item \textbf{A constant 0.1 in the prior} (C18): BEAUti 3 writes the gamma-shape prior as a
+      truncated Exponential(1) above 0.1, normalised by $e^{0.1}$; BEAUti 2.7.9 only bounds the
+      parameter. The posterior is the same.
+    \item \textbf{$1/k$ can stick on other operators too.} The schedule-wide
+      \texttt{gainExponent} lets an analysis try 0.6 for every operator.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Proposal and open questions}
+  \textbf{Proposal for 2.8.0}
+  \begin{itemize}
+    \item Merge \#218: \texttt{BactrianSubtreeSlide} tunes with $1/k^{0.6}$ by default.
+    \item BEAUti keeps writing the slide; the start size no longer matters (\#201 is harmless).
+    \item Merge \#214 as an extra operator; the two don't conflict.
+  \end{itemize}
+  \textbf{Open questions}
+  \begin{itemize}
+    \item Should the schedule default become 0.6 for every operator? Needs a broader test,
+      including the relaxed and random local clock analyses (C14--C17).
+    \item Is 0.6 the right exponent? 0.5--0.7 all travel far enough; the trade-off is late-run
+      jitter in the size.
+    \item Five replicates per set-up to pin down the 5--15\,\% ESS differences.
+  \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------------------------------
+\begin{frame}{Where everything is}
+  \small
+  \begin{itemize}
+    \item Runs, comparisons and write-up: \texttt{beast3-test} repo,
+      \texttt{reports/beauti-manual.md}, \texttt{reports/summary/}, \texttt{beast3/log/}.
+      Tree files: Dropbox \texttt{beast3-test}.
+    \item Scripts: \texttt{scripts/compare.py}, \texttt{scripts/slide\_variants.py}.
+    \item Issues and PRs: beast3\#200 (problem), \#201 (start at 0.01), \#214
+      (\texttt{BactrianSubtreeScale}), \#218 (gain exponent), \#203 / beast2\#1223
+      (\texttt{SampleOffValues}).
+    \item Versions: BEAST 2.7.9 Prerelease; BEAST 3 v2.8.0-rc2 (\texttt{aa8512e}),
+      \#214 at \texttt{1d7e680}, \#218 at \texttt{c071a1e}; macOS, JDK 26.
+  \end{itemize}
+\end{frame}
+
+\end{document}

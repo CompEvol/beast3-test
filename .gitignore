@@ -1,3 +1,15 @@
 # Tree logs go to the shared Dropbox folder beast3-test, not git (see README)
 *.trees
 __pycache__/
+
+# LaTeX build files (keep .tex and .pdf)
+doc/*.aux
+doc/*.log
+doc/*.nav
+doc/*.out
+doc/*.snm
+doc/*.toc
+doc/*.vrb
+doc/*.synctex.gz
+doc/*.fls
+doc/*.fdb_latexmk

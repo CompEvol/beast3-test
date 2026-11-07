@@ -170,6 +170,32 @@ seeds 1 and 2):
 With the `sqrt` gain the slide tunes from both starts, to the same size (0.34 × H/√(2n−1), as on
 C01), and mixes at least as well as `BactrianSubtreeScale`. Both runs match the `-scale` posterior.
 
+#### beast3#218: gain 1/n^0.6 for the slide
+
+beast3#218 (draft) adds a `gainExponent` to `Operator` and `OperatorSchedule` and makes
+`BactrianSubtreeSlide` default to 0.6. Run with the #218 build at `c071a1e` (master `296b2bf` plus
+the change), unchanged XML, seeds 1 and 2 (`beast3/log/*-g06`). The build includes beast3#203, so C13
+is compared with C13-scale, whose build has it too.
+
+| Run | Start | Final size | Acceptance | Reference | Posterior | ESS ratio vs reference, median (range) |
+|-----|------:|-----------:|-----------:|-----------|-----------|-----------------------------------------|
+| C01 (H ≈ 0.19) | 1.0 | 0.0089 | 30 % | C01-fine (1/n) | matched | likelihood 1.30, tree height 1.54 |
+| C01-tall4 | 0.01 | 88 | 30 % | -scale | matched | likelihood 1.41, tree height 1.11 |
+| C01-tall7 | 1.0 | 88,900 | 30 % | -scale | matched | likelihood 1.34, tree height 1.05 |
+| C01-tall7 | 0.01 | 88,000 | 30 % | -scale | matched | likelihood 1.12, tree height 0.98 |
+| C06 | 1.0 | 0.072 | 30 % | C06 (1/n) | matched | 0.99 (0.71–1.37) |
+| C10 | 1.0 | 1.05 | 30 % | C10 (1/n) | matched | 0.98 (0.90–1.21) |
+| C13 | 1.0 | 1.02 | 30 % | C13-scale | matched | 0.98 (0.50–2.43) |
+| C18 (trace every 100) | 1.0 | 0.025 | 30 % | C18-fine (1/n) | matched | 0.99 (0.88–1.10) |
+| C01-tall4 | 1.0 | 89 | 30 % | C01-tall4 (1/n) | matched | 0.97 (0.83–1.00) |
+
+The slide tunes from both starts at every tree height, and where 1/n already tuned it reaches the
+same size with no systematic change in mixing. Across all tuned runs the size settles at
+0.25–0.45 × H/√(2n−1).
+
+Slides for the research group (9 Nov): `doc/subtree-slide-tuning.tex`
+(`latexmk -lualatex subtree-slide-tuning.tex`).
+
 ## Deviations from the run protocol
 
 - Eva's files are named `C01-b2.xml` / `C01-b3.xml` and `log/C01/`, not `beauti-C01.xml` and
