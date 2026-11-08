@@ -1,0 +1,20 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:aminoacid'>((1:0.20362545824718759,((5:0.06226395442176815,0:0.06226395442176815)10:0.07190632949475714,3:0.1341702839165253)16:0.06945517433066228)17:0.013991257118877942,(((7:0.011051646837682907,6:0.011051646837682907)12:0.06720881675307569,((2:0.041916065156759955,8:0.041916065156759955)15:0.021443790834501916,9:0.06335985599126187)13:0.014900607599496726)14:0.095047473000217,4:0.1733079365909756)11:0.04430877877508993)18:0.0</statenode>
+<statenode id='gammaShape.s:aminoacid'>gammaShape.s:aminoacid[1 1] (0.1,1000.0): 0.7562704343331531 </statenode>
+<statenode id='popSize.t:aminoacid'>popSize.t:aminoacid[1 1] (0.0,Infinity): 0.2991650792283326 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"gammaShapeScaler.s:aminoacid","p":"NaN","accept":1916,"reject":4345,"acceptFC":1915,"rejectFC":4342,"rejectIv":23,"rejectOp":23,"nProposals":6261,"param_mean_sum":"[0.6998803334254915]","param_mean_SS":"[0.5151636708398788]","numAccepts":"[227, 1689]","numProposals":"[405, 4857]","operator_mean_runtimes":"[2.345679012345679, 2.0805023677166994]","mean_SS":"[[6.522977274333649E-4], [0.07838521153336227]]","weights":"[0.011756675743954014, 0.988243324256046]","operators":[{"id":"AVMNOperator.aminoacid","p":0.13965832546269932,"means":"[-0.3761624642978833, 0.2415251343433077]","covariance":"[0.04520376279125194, 3.403770729951992E-4, 8.139020057609148E-4]","accept":227,"reject":685,"acceptFC":227,"rejectFC":684,"rejectIv":23,"rejectOp":23},{"id":"gammaShapeScalerX.s:aminoacid","p":0.48541258378114455,"accept":1689,"reject":3660,"acceptFC":1688,"rejectFC":3658,"rejectIv":0,"rejectOp":0}]},
+{"id":"CoalescentConstantBICEPSEpochTop.t:aminoacid","p":0.19949451049299757,"accept":103869,"reject":152371,"acceptFC":103699,"rejectFC":152214,"rejectIv":56989,"rejectOp":56989},
+{"id":"CoalescentConstantBICEPSEpochAll.t:aminoacid","p":0.1945902224872117,"accept":106076,"reject":150276,"acceptFC":105868,"rejectFC":150147,"rejectIv":57201,"rejectOp":57201},
+{"id":"CoalescentConstantBICEPSTreeFlex.t:aminoacid","p":0.15707011008606298,"accept":109199,"reject":146475,"acceptFC":108856,"rejectFC":146456,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentConstantTreeRootScaler.t:aminoacid","p":0.14152079551687194,"accept":116257,"reject":267780,"acceptFC":116029,"rejectFC":267418,"rejectIv":77786,"rejectOp":77786},
+{"id":"CoalescentConstantUniformOperator.t:aminoacid","p":1.2414485516322888,"accept":1184188,"reject":2659360,"acceptFC":1179436,"rejectFC":2658932,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentConstantSubtreeSlide.t:aminoacid","p":0.049700908033173063,"accept":160730,"reject":1760545,"acceptFC":160728,"rejectFC":1757913,"rejectIv":528019,"rejectOp":528019},
+{"id":"CoalescentConstantNarrow.t:aminoacid","p":"NaN","accept":126305,"reject":1796692,"acceptFC":126087,"rejectFC":1794215,"rejectIv":0,"rejectOp":0},
+{"id":"CoalescentConstantWide.t:aminoacid","p":"NaN","accept":1985,"reject":383244,"acceptFC":1983,"rejectFC":382698,"rejectIv":204044,"rejectOp":204044},
+{"id":"CoalescentConstantWilsonBalding.t:aminoacid","p":"NaN","accept":1498,"reject":382222,"acceptFC":1491,"rejectFC":381714,"rejectIv":119220,"rejectOp":119220},
+{"id":"PopSizeScaler.t:aminoacid","p":0.8084241881401607,"accept":116316,"reject":268352,"acceptFC":116124,"rejectFC":267976,"rejectIv":0,"rejectOp":0}
+]}
+-->

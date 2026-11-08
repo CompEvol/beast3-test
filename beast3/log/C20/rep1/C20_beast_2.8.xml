@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood" required="BEAST.base v2.8.0" version="2.8">
+
+    <data
+id="aminoacid"
+spec="Alignment"
+dataType="aminoacid"
+name="alignment">
+        <sequence id="seq_Carp" spec="Sequence" taxon="Carp" totalcount="20" value="MAHPTQLGFKDAAMPVMEELLHFHDHALMIVLLISTLVLYIITAMVSTKLTNKYILDSQEIEIVWTILPAVILVLIALPSLRILYLMDEINDPHLTIKAMGHQWYWSYEYTDYENLGFDSYMVPTQDLAPGQFRLLETDHRMVVPMESPVRVLVSAEDVLHSWAVPSLGVKMDAVPGRLNQAAFIASRPGVFYGQCSEICGANHSFMPIVVEAVPLEHFENWSSLMLEDASLGS"/>
+        <sequence id="seq_Chicken" spec="Sequence" taxon="Chicken" totalcount="20" value="MANHSQLGFQDASSPIMEELVEFHDHALMVALAICSLVLYLLTLMLMEKLS-SNTVDAQEVELIWTILPAIVLVLLALPSLQILYMMDEIDEPDLTLKAIGHQWYWTYEYTDFKDLSFDSYMTPTTDLPLGHFRLLEVDHRIVIPMESPIRVIITADDVLHSWAVPALGVKTDAIPGRLNQTSFITTRPGVFYGQCSEICGANHSYMPIVVESTPLKHFEAWSSL------LSS"/>
+        <sequence id="seq_Cow" spec="Sequence" taxon="Cow" totalcount="20" value="MAYPMQLGFQDATSPIMEELLHFHDHTLMIVFLISSLVLYIISLMLTTKLTHTSTMDAQEVETIWTILPAIILILIALPSLRILYMMDEINNPSLTVKTMGHQWYWSYEYTDYEDLSFDSYMIPTSELKPGELRLLEVDNRVVLPMEMTIRMLVSSEDVLHSWAVPSLGLKTDAIPGRLNQTTLMSSRPGLYYGQCSEICGSNHSFMPIVLELVPLKYFEKWSASML-------"/>
+        <sequence id="seq_Frog" spec="Sequence" taxon="Frog" totalcount="20" value="MAHPSQLGFQDAASPIMEELLHFHDHTLMAVFLISTLVLYIITIMMTTKLTNTNLMDAQEIEMVWTIMPAISLIMIALPSLRILYLMDEVNDPHLTIKAIGHQWYWSYEYTNYEDLSFDSYMIPTNDLTPGQFRLLEVDNRMVVPMESPTRLLVTAEDVLHSWAVPSLGVKTDAIPGRLHQTSFIATRPGVFYGQCSEICGANHSFMPIVVEAVPLTDFENWSSSML-EASL--"/>
+        <sequence id="seq_Human" spec="Sequence" taxon="Human" totalcount="20" value="MAHAAQVGLQDATSPIMEELITFHDHALMIIFLICFLVLYALFLTLTTKLTNTNISDAQEMETVWTILPAIILVLIALPSLRILYMTDEVNDPSLTIKSIGHQWYWTYEYTDYGGLIFNSYMLPPLFLEPGDLRLLDVDNRVVLPIEAPIRMMITSQDVLHSWAVPTLGLKTDAIPGRLNQTTFTATRPGVYYGQCSEICGANHSFMPIVLELIPLKIFEM-------GPVFTL"/>
+        <sequence id="seq_Loach" spec="Sequence" taxon="Loach" totalcount="20" value="MAHPTQLGFQDAASPVMEELLHFHDHALMIVFLISALVLYVIITTVSTKLTNMYILDSQEIEIVWTVLPALILILIALPSLRILYLMDEINDPHLTIKAMGHQWYWSYEYTDYENLSFDSYMIPTQDLTPGQFRLLETDHRMVVPMESPIRILVSAEDVLHSWALPAMGVKMDAVPGRLNQTAFIASRPGVFYGQCSEICGANHSFMPIVVEAVPLSHFENWSTLMLKDASLGS"/>
+        <sequence id="seq_Mouse" spec="Sequence" taxon="Mouse" totalcount="20" value="MAYPFQLGLQDATSPIMEELMNFHDHTLMIVFLISSLVLYIISLMLTTKLTHTSTMDAQEVETIWTILPAVILIMIALPSLRILYMMDEINNPVLTVKTMGHQWYWSYEYTDYEDLCFDSYMIPTNDLKPGELRLLEVDNRVVLPMELPIRMLISSEDVLHSWAVPSLGLKTDAIPGRLNQATVTSNRPGLFYGQCSEICGSNHSFMPIVLEMVPLKYFENWSASMI-------"/>
+        <sequence id="seq_Rat" spec="Sequence" taxon="Rat" totalcount="20" value="MAYPFQLGLQDATSPIMEELTNFHDHTLMIVFLISSLVLYIISLMLTTKLTHTSTMDAQEVETIWTILPAVILILIALPSLRILYMMDEINNPVLTVKTMGHQWYWSYEYTDYEDLCFDSYMIPTNDLKPGELRLLEVDNRVVLPMELPIRMLISSEDVLHSWAIPSLGLKTDAIPGRLNQATVTSNRPGLFYGQCSEICGSNHSFMPIVLEMVPLKYFENWSASMI-------"/>
+        <sequence id="seq_Seal" spec="Sequence" taxon="Seal" totalcount="20" value="MAYPLQMGLQDATSPIMEELLHFHDHTLMIVFLISSLVLYIISLMLTTKLTHTSTMDAQEVETVWTILPAIILILIALPSLRILYMMDEINNPSLTVKTMGHQWYWSYEYTDYEDLNFDSYMIPTQELKPGELRLLEVDNRVVLPMEMTIRMLISSEDVLHSWAVPSLGLKTDAIPGRLNQTTLMTMRPGLYYGQCSEICGSNHSFMPIVLELVPLSHFEKWSTSML-------"/>
+        <sequence id="seq_Whale" spec="Sequence" taxon="Whale" totalcount="20" value="MAYPFQLGFQDAASPIMEELLHFHDHTLMIVFLISSLVLYIITLMLTTKLTHTSTMDAQEVETVWTILPAIILILIALPSLRILYMMDEVNNPSLTVKTMGHQWYWSYEYTDYEDLSFDSYMIPTSDLKPGELRLLEVDNRVVLPMEMTIRMLVSSEDVLHSWAVPSLGLKTDAIPGRLNQTTLMSTRPGLFYGQCSEICGSNHSFMPIVLELVPLEVFEKWSVSML-------"/>
+    </data>
+
+    <map name="LogUniform" >beast.base.spec.inference.distribution.LogUniform</map>
+
+    <map name="OffsetReal" >beast.base.spec.inference.distribution.OffsetReal</map>
+
+    <map name="Exponential" >beast.base.spec.inference.distribution.Exponential</map>
+
+    <map name="Uniform" >beast.base.spec.inference.distribution.Uniform</map>
+
+    <map name="Bernoulli" >beast.base.spec.inference.distribution.Bernoulli</map>
+
+    <map name="Beta" >beast.base.spec.inference.distribution.Beta</map>
+
+    <map name="Gamma" >beast.base.spec.inference.distribution.Gamma</map>
+
+    <map name="LaplaceDistribution" >beast.base.spec.inference.distribution.Laplace</map>
+
+    <map name="TruncatedReal" >beast.base.spec.inference.distribution.TruncatedReal</map>
+
+    <map name="IntUniform" >beast.base.spec.inference.distribution.IntUniform</map>
+
+    <map name="Dirichlet" >beast.base.spec.inference.distribution.Dirichlet</map>
+
+    <map name="InverseGamma" >beast.base.spec.inference.distribution.InverseGamma</map>
+
+    <map name="ChiSquare" >beast.base.spec.inference.distribution.ChiSquare</map>
+
+    <map name="GammaMean" >beast.base.spec.inference.distribution.GammaMean</map>
+
+    <map name="IID" >beast.base.spec.inference.distribution.IID</map>
+
+    <map name="OffsetInt" >beast.base.spec.inference.distribution.OffsetInt</map>
+
+    <map name="TruncatedInt" >beast.base.spec.inference.distribution.TruncatedInt</map>
+
+    <map name="LogNormal" >beast.base.spec.inference.distribution.LogNormal</map>
+
+    <map name="Normal" >beast.base.spec.inference.distribution.Normal</map>
+
+    <map name="Poisson" >beast.base.spec.inference.distribution.Poisson</map>
+
+    <map name="Cauchy" >beast.base.spec.inference.distribution.Cauchy</map>
+
+    <run id="mcmc" spec="MCMC" chainLength="10000000">
+        <state id="state" spec="State" storeEvery="5000">
+            <tree id="Tree.t:aminoacid" spec="beast.base.evolution.tree.Tree" name="stateNode">
+                <taxonset id="TaxonSet.aminoacid" spec="TaxonSet">
+                    <alignment idref="aminoacid"/>
+                </taxonset>
+            </tree>
+            <stateNode id="gammaShape.s:aminoacid" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="popSize.t:aminoacid" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="0.3"/>
+        </state>
+        <init id="RandomTree.t:aminoacid" spec="beast.base.spec.evolution.tree.coalescent.RandomTree" estimate="false" initial="@Tree.t:aminoacid" taxa="@aminoacid">
+            <populationModel id="ConstantPopulation0.t:aminoacid" spec="beast.base.spec.evolution.tree.coalescent.ConstantPopulation">
+                <popSize id="randomPopSize.t:aminoacid" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            </populationModel>
+        </init>
+        <distribution id="posterior" spec="CompoundDistribution">
+            <distribution id="prior" spec="CompoundDistribution">
+                <distribution id="CoalescentConstant.t:aminoacid" spec="Coalescent">
+                    <populationModel id="ConstantPopulation.t:aminoacid" spec="beast.base.spec.evolution.tree.coalescent.ConstantPopulation" popSize="@popSize.t:aminoacid"/>
+                    <treeIntervals id="TreeIntervals.t:aminoacid" spec="beast.base.evolution.tree.TreeIntervals" tree="@Tree.t:aminoacid"/>
+                </distribution>
+                <Exponential id="GammaShapePrior.s:aminoacid" name="distribution" param="@gammaShape.s:aminoacid">
+                    <mean id="RealScalarParam.46" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                </Exponential>
+                <LogNormal id="PopSizePrior.t:aminoacid" name="distribution" param="@popSize.t:aminoacid">
+                    <M id="RealScalarParam.92" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
+                    <S id="RealScalarParam.93" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
+                </LogNormal>
+            </distribution>
+            <distribution id="likelihood" spec="CompoundDistribution" useThreads="true">
+                <distribution id="treeLikelihood.aminoacid" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" data="@aminoacid" tree="@Tree.t:aminoacid">
+                    <siteModel id="SiteModel.s:aminoacid" spec="beast.base.spec.evolution.sitemodel.SiteModel" gammaCategoryCount="4" shape="@gammaShape.s:aminoacid">
+                        <mutationRate id="mutationRate.s:aminoacid" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                        <proportionInvariant id="proportionInvariant.s:aminoacid" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="UnitInterval" estimate="false"/>
+                        <substModel id="Blosum62.s:aminoacid" spec="beast.base.spec.evolution.substitutionmodel.Blosum62"/>
+                    </siteModel>
+                    <branchRateModel id="StrictClock.c:aminoacid" spec="beast.base.spec.evolution.branchratemodel.StrictClockModel">
+                        <clock.rate id="clockRate.c:aminoacid" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                    </branchRateModel>
+                </distribution>
+            </distribution>
+        </distribution>
+        <operator id="gammaShapeScaler.s:aminoacid" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="gammaShape.s:aminoacid"/>
+            <operator id="AVMNOperator.aminoacid" spec="beast.base.spec.evolution.operator.AdaptableVarianceMultivariateNormalOperator" allowNonsense="true" beta="0.05" burnin="400" initial="800" weight="0.1">
+                <transformations id="AVMNSumTransform.aminoacid" spec="beast.base.spec.inference.operator.Transform$LogConstrainedSumTransform"/>
+                <transformations id="AVMNLogTransform.aminoacid" spec="beast.base.spec.inference.operator.Transform$LogTransform">
+                    <f idref="gammaShape.s:aminoacid"/>
+                </transformations>
+                <transformations id="AVMNNoTransform.aminoacid" spec="beast.base.spec.inference.operator.Transform$NoTransform"/>
+            </operator>
+            <operator id="gammaShapeScalerX.s:aminoacid" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@gammaShape.s:aminoacid" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="CoalescentConstantTreeScaler.t:aminoacid" spec="beast.base.spec.evolution.operator.UpDownOperator" scaleFactor="0.1" weight="4.0">
+            <up idref="Tree.t:aminoacid"/>
+        </operator>
+        <operator id="CoalescentConstantTreeRootScaler.t:aminoacid" spec="kernel.BactrianScaleOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:aminoacid" upper="10.0" weight="3.0"/>
+        <operator id="CoalescentConstantUniformOperator.t:aminoacid" spec="kernel.BactrianNodeOperator" tree="@Tree.t:aminoacid" weight="30.0"/>
+        <operator id="CoalescentConstantSubtreeSlide.t:aminoacid" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:aminoacid" weight="15.0"/>
+        <operator id="CoalescentConstantNarrow.t:aminoacid" spec="Exchange" tree="@Tree.t:aminoacid" weight="15.0"/>
+        <operator id="CoalescentConstantWide.t:aminoacid" spec="Exchange" isNarrow="false" tree="@Tree.t:aminoacid" weight="3.0"/>
+        <operator id="CoalescentConstantWilsonBalding.t:aminoacid" spec="WilsonBalding" tree="@Tree.t:aminoacid" weight="3.0"/>
+        <operator id="PopSizeScaler.t:aminoacid" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@popSize.t:aminoacid" weight="3.0"/>
+        <logger id="tracelog" spec="Logger" fileName="$(filebase).log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log idref="treeLikelihood.aminoacid"/>
+            <log id="TreeHeight.t:aminoacid" spec="beast.base.evolution.tree.TreeStatLogger" tree="@Tree.t:aminoacid"/>
+            <log idref="gammaShape.s:aminoacid"/>
+            <log idref="popSize.t:aminoacid"/>
+            <log idref="CoalescentConstant.t:aminoacid"/>
+        </logger>
+        <logger id="screenlog" spec="Logger" logEvery="1000">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+        </logger>
+        <logger id="treelog.t:aminoacid" spec="Logger" fileName="$(filebase)-$(tree).trees" logEvery="1000" mode="tree">
+            <log id="TreeWithMetaDataLogger.t:aminoacid" spec="beast.base.spec.evolution.TreeWithMetaDataLogger" tree="@Tree.t:aminoacid"/>
+        </logger>
+        <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>
+    </run>
+
+</beast>

@@ -1,0 +1,73 @@
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.base.inference.CompoundDistribution">
+#    <distribution id="prior" spec="beast.base.inference.CompoundDistribution">
+#        <distribution id="CalibratedYuleModel.t:coding" spec="beast.base.spec.evolution.speciation.CalibratedYuleModel">
+#            <birthRate domain="PositiveReal" id="birthRateY.t:coding" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#            <tree id="Tree.t:coding" spec="beast.base.evolution.tree.Tree">
+#                <taxonset id="TaxonSet.coding" spec="beast.base.evolution.alignment.TaxonSet">
+#                    <alignment filter="2-457,660-896" id="coding" spec="beast.base.evolution.alignment.FilteredAlignment">
+#                    </alignment>
+#                </taxonset>
+#            </tree>
+#        </distribution>
+#        <LogNormal id="CalibratedYuleBirthRatePrior.t:coding" name="distribution" param="@birthRateY.t:coding">
+#            <M domain="Real" estimate="false" id="RealScalarParam.139" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#            <S domain="PositiveReal" estimate="false" id="RealScalarParam.140" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.25"/>
+#        </LogNormal>
+#        <LogNormal id="ClockPrior.c:coding" name="distribution">
+#            <M domain="Real" estimate="false" id="RealScalarParam.141" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#            <S domain="PositiveReal" estimate="false" id="RealScalarParam.142" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.25"/>
+#            <param domain="PositiveReal" id="clockRate.c:coding" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#        </LogNormal>
+#        <Dirichlet id="FrequenciesPrior.s:coding" name="distribution">
+#            <alpha dimension="4" domain="PositiveReal" estimate="false" id="RealVectorParam.0" spec="beast.base.spec.inference.parameter.RealVectorParam">4.0 4.0 4.0 4.0</alpha>
+#            <param dimension="4" domain="UnitInterval" id="freqParameter.s:coding" spec="beast.base.spec.inference.parameter.SimplexParam">0.25 0.25 0.25 0.25</param>
+#        </Dirichlet>
+#        <Exponential id="GammaShapePrior.s:coding" name="distribution">
+#            <mean domain="PositiveReal" estimate="false" id="RealScalarParam.143" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#            <param domain="PositiveReal" id="gammaShape.s:coding" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#        </Exponential>
+#        <LogNormal id="KappaPrior.s:coding" name="distribution">
+#            <M domain="Real" estimate="false" id="RealScalarParam.75" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#            <S domain="PositiveReal" estimate="false" id="RealScalarParam.76" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.25"/>
+#            <param domain="PositiveReal" id="kappa.s:coding" spec="beast.base.spec.inference.parameter.RealScalarParam" value="2.0"/>
+#        </LogNormal>
+#        <distribution id="human–chimp.prior" monophyletic="true" spec="beast.base.spec.evolution.tree.MRCAPrior" tree="@Tree.t:coding">
+#            <taxonset id="human–chimp" spec="beast.base.evolution.alignment.TaxonSet">
+#                <taxon id="Homo_sapiens" spec="beast.base.evolution.alignment.Taxon"/>
+#                <taxon id="Pan" spec="beast.base.evolution.alignment.Taxon"/>
+#            </taxonset>
+#            <LogNormal id="LogNormal.4" name="distr">
+#                <M domain="Real" estimate="false" id="RealScalarParam.144" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#                <S domain="PositiveReal" estimate="false" id="RealScalarParam.145" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.25"/>
+#            </LogNormal>
+#        </distribution>
+#    </distribution>
+#    <distribution id="likelihood" spec="beast.base.inference.CompoundDistribution" useThreads="true">
+#        <distribution data="@coding" id="treeLikelihood.coding" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:coding">
+#            <siteModel gammaCategoryCount="4" id="SiteModel.s:coding" shape="@gammaShape.s:coding" spec="beast.base.spec.evolution.sitemodel.SiteModel">
+#                <mutationRate domain="PositiveReal" estimate="false" id="mutationRate.s:coding" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#                <proportionInvariant domain="UnitInterval" estimate="false" id="proportionInvariant.s:coding" spec="beast.base.spec.inference.parameter.RealScalarParam"/>
+#                <substModel id="hky.s:coding" kappa="@kappa.s:coding" spec="beast.base.spec.evolution.substitutionmodel.HKY">
+#                    <frequencies frequencies="@freqParameter.s:coding" id="estimatedFreqs.s:coding" spec="beast.base.spec.evolution.substitutionmodel.Frequencies"/>
+#                </substModel>
+#            </siteModel>
+#            <branchRateModel clock.rate="@clockRate.c:coding" id="StrictClock.c:coding" spec="beast.base.spec.evolution.branchratemodel.StrictClockModel"/>
+#        </distribution>
+#        <distribution branchRateModel="@StrictClock.c:coding" id="treeLikelihood.noncoding" siteModel="@SiteModel.s:coding" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:coding">
+#            <data data="@primate-mtDNA" filter="1,458-659,897-898" id="noncoding" spec="beast.base.evolution.alignment.FilteredAlignment"/>
+#        </distribution>
+#        <distribution branchRateModel="@StrictClock.c:coding" id="treeLikelihood.1stpos" siteModel="@SiteModel.s:coding" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:coding">
+#            <data data="@primate-mtDNA" filter="2-457\3,660-896\3" id="1stpos" spec="beast.base.evolution.alignment.FilteredAlignment"/>
+#        </distribution>
+#        <distribution branchRateModel="@StrictClock.c:coding" id="treeLikelihood.2ndpos" siteModel="@SiteModel.s:coding" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:coding">
+#            <data data="@primate-mtDNA" filter="3-457\3,661-896\3" id="2ndpos" spec="beast.base.evolution.alignment.FilteredAlignment"/>
+#        </distribution>
+#        <distribution branchRateModel="@StrictClock.c:coding" id="treeLikelihood.3rdpos" siteModel="@SiteModel.s:coding" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" tree="@Tree.t:coding">
+#            <data data="@primate-mtDNA" filter="4-457\3,662-.\3" id="3rdpos" spec="beast.base.evolution.alignment.FilteredAlignment"/>
+#        </distribution>
+#    </distribution>
+#</input>
+#
