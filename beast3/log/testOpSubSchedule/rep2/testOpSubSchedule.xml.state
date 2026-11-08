@@ -1,0 +1,15 @@
+<itsabeastystatewerein version='2.0' sample='1000000'>
+<statenode id='tree'>(4:0.06901261956855247,(5:0.055576322461933385,(1:0.034808834093391305,((2:0.007437775956481092,0:0.007437775956481092)7:0.013399827537538173,3:0.020837603494019266)8:0.01397123059937204)6:0.02076748836854208)9:0.013436297106619081)10:0.0</statenode>
+<statenode id='hky.kappa'>hky.kappa: 13.14185325182885</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"kappaScaler","p":0.49324792595159744,"accept":11123,"reject":24793,"acceptFC":10899,"rejectFC":24323,"rejectIv":0,"rejectOp":0},
+{"id":"uniform","p":"NaN","accept":137594,"reject":219654,"acceptFC":134983,"rejectFC":215602,"rejectIv":0,"rejectOp":0},
+{"id":"narrow","p":"NaN","accept":2069,"reject":33792,"acceptFC":2032,"rejectFC":33179,"rejectIv":0,"rejectOp":0},
+{"id":"wide","p":"NaN","accept":351,"reject":35793,"acceptFC":344,"rejectFC":35078,"rejectIv":19844,"rejectOp":19844},
+{"id":"wilsonBalding","p":"NaN","accept":163,"reject":35406,"acceptFC":160,"rejectFC":34707,"rejectIv":18165,"rejectOp":18165},
+{"id":"treeScaler","p":0.18303837620422947,"accept":23637,"reject":59791,"acceptFC":23598,"rejectFC":58272,"rejectIv":0,"rejectOp":0},
+{"id":"subtreeSlide","p":0.4658119265455976,"accept":126234,"reject":289601,"acceptFC":122700,"rejectFC":285386,"rejectIv":0,"rejectOp":0}
+]}
+-->

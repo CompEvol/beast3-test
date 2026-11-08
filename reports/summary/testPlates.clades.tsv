@@ -1,0 +1,6 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+test.N.trees	bonobo chimp gorilla human orangutan	5	0.838036	0.829482	0.008554	
+test.N.trees	bonobo chimp gorilla human siamang	5	0.126639	0.133859	0.007221	
+test.N.trees	bonobo chimp human	3	0.998778	0.998667	0.000111	
+test.N.trees	bonobo chimp	2	1.000000	1.000000	0.000000	
+test.N.trees	bonobo chimp gorilla human	4	1.000000	1.000000	0.000000	

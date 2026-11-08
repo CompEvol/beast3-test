@@ -1,0 +1,13 @@
+<itsabeastystatewerein version='2.0' sample='5000000'>
+<statenode id='tree'>(2:0.18193261070410463,((4:0.1411625187663064,0:0.1411625187663064)7:0.018066644567719864,((5:0.09802283979172587,1:0.09802283979172587)6:0.04954596280226693,3:0.1475688025939928)9:0.01166036074003346)8:0.022703447370078372)10:0.0</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"treeScaler","p":0.6781034206270876,"accept":58779,"reject":204501,"acceptFC":58581,"rejectFC":203029,"rejectIv":0,"rejectOp":0},
+{"id":"unknown","p":0.07638156543991168,"accept":141015,"reject":1174670,"acceptFC":140934,"rejectFC":1166419,"rejectIv":278993,"rejectOp":278993},
+{"id":"unknown","p":"NaN","accept":1033484,"reject":1598558,"acceptFC":1026723,"rejectFC":1588455,"rejectIv":0,"rejectOp":0},
+{"id":"narrow","p":"NaN","accept":109614,"reject":153211,"acceptFC":108913,"rejectFC":152216,"rejectIv":0,"rejectOp":0},
+{"id":"wide","p":"NaN","accept":25608,"reject":237748,"acceptFC":25450,"rejectFC":236236,"rejectIv":146476,"rejectOp":146476},
+{"id":"unknown","p":"NaN","accept":14211,"reject":248602,"acceptFC":14120,"rejectFC":247018,"rejectIv":132213,"rejectOp":132213}
+]}
+-->

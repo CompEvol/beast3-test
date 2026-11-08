@@ -1,0 +1,10 @@
+<itsabeastystatewerein version='2.0' sample='1000000'>
+<statenode id='tree'>(3:9.715691665806242,(0:8.267744262372988,(2:5.774711960276096,1:5.774711960276096)5:2.493032302096892)4:1.447947403433254)6:0.0</statenode>
+<statenode id='birthRate'>birthRate[1 1] (-Infinity,Infinity): 0.18049130338194977 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"unknown","p":3.891715767482057,"accept":243264,"reject":557520,"acceptFC":240034,"rejectFC":552751,"rejectIv":439719,"rejectOp":141156},
+{"id":"unknown","p":0.2054071092734662,"accept":62147,"reject":137070,"acceptFC":61447,"rejectFC":135767,"rejectIv":0,"rejectOp":0}
+]}
+-->

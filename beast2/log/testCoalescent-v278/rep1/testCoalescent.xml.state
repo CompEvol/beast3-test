@@ -1,0 +1,17 @@
+<itsabeastystatewerein version='2.0' sample='1000000'>
+<statenode id='hky.kappa'>hky.kappa[1 1] (0.0,Infinity): 22.603159423833937 </statenode>
+<statenode id='popSize'>popSize[1 1] (-Infinity,Infinity): 0.10439847554696356 </statenode>
+<statenode id='tree'>(5:0.07078373502639888,((((1:0.0065456076768288666,2:0.0065456076768288666)6:0.01021348438689934,0:0.016759092063728206)7:0.01351870969945914,3:0.030277801763187347)8:0.025634094643883595,4:0.05591189640707094)9:0.014871838619327941)10:0.0</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"kappaScaler","p":0.27731300393510033,"accept":13139,"reject":34840,"acceptFC":12437,"rejectFC":34233,"rejectIv":0,"rejectOp":0},
+{"id":"popSizeScaler","p":0.20492572423033723,"accept":13486,"reject":34374,"acceptFC":12756,"rejectFC":33874,"rejectIv":0,"rejectOp":0},
+{"id":"treeScaler","p":0.5724830905108493,"accept":9780,"reject":38091,"acceptFC":9578,"rejectFC":37055,"rejectIv":0,"rejectOp":0},
+{"id":"unknown","p":"NaN","accept":182031,"reject":293888,"acceptFC":177393,"rejectFC":286187,"rejectIv":0,"rejectOp":0},
+{"id":"unknown","p":0.07858283010149077,"accept":11866,"reject":225965,"acceptFC":11837,"rejectFC":219771,"rejectIv":95468,"rejectOp":95468},
+{"id":"narrow","p":"NaN","accept":2564,"reject":45134,"acceptFC":2487,"rejectFC":43881,"rejectIv":0,"rejectOp":0},
+{"id":"wide","p":"NaN","accept":408,"reject":46992,"acceptFC":392,"rejectFC":45807,"rejectIv":26367,"rejectOp":26367},
+{"id":"unknown","p":"NaN","accept":245,"reject":47198,"acceptFC":238,"rejectFC":45993,"rejectIv":24236,"rejectOp":24236}
+]}
+-->

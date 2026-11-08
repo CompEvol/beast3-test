@@ -1,0 +1,22 @@
+<itsabeastystatewerein version='2.0' sample='7000000'>
+<statenode id='Tree.t:primate'>((10:0.2142478475095556,(((8:0.044982472380194496,(7:0.01723882598848928,6:0.01723882598848928)13:0.027743646391705217)12:0.02273232150235581,9:0.0677147938825503)16:0.1142824949650946,((((2:0.04667375398631418,1:0.04667375398631418)21:0.014179343369424419,3:0.0608530973557386)20:0.04730273894955289,4:0.10815583630529149)15:0.02144633975474189,5:0.12960217606003338)17:0.052395112787611525)14:0.032250558661910705)18:0.024548122796793942,(0:0.1511311942902319,11:0.1511311942902319)19:0.08766477601611766)22:0.0</statenode>
+<statenode id='birthRate.t:primate'>birthRate.t:primate[1 1] (-Infinity,Infinity): 6.092739206920401 </statenode>
+<statenode id='rateTransversion.s:primate'>rateTransversion.s:primate[1 1] (0.0,Infinity): 0.20965536096918208 </statenode>
+<statenode id='rateAG.s:primate'>rateAG.s:primate[1 1] (0.0,Infinity): 0.9126745798274674 </statenode>
+<statenode id='freqParameter.s:primate'>freqParameter.s:primate[4 1] (0.0,1.0): 0.30825452374344514 0.283583443742014 0.11035546926651042 0.2978065632480296 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:primate","p":0.26849612189575045,"accept":77057,"reject":201907,"acceptFC":76047,"rejectFC":201633,"rejectIv":0,"rejectOp":0},
+{"id":"treeScaler.t:primate","p":0.7771245970748089,"accept":50894,"reject":228502,"acceptFC":50808,"rejectFC":227366,"rejectIv":0,"rejectOp":0},
+{"id":"treeRootScaler.t:primate","p":0.7775187431128461,"accept":52572,"reject":226696,"acceptFC":52501,"rejectFC":225519,"rejectIv":66524,"rejectOp":66524},
+{"id":"UniformOperator.t:primate","p":"NaN","accept":607509,"reject":2180393,"acceptFC":604722,"rejectFC":2170680,"rejectIv":0,"rejectOp":0},
+{"id":"SubtreeSlide.t:primate","p":0.07033457837724824,"accept":127565,"reject":1268157,"acceptFC":127507,"rejectFC":1262075,"rejectIv":341336,"rejectOp":341336},
+{"id":"narrow.t:primate","p":"NaN","accept":9208,"reject":1385219,"acceptFC":9045,"rejectFC":1379128,"rejectIv":0,"rejectOp":0},
+{"id":"wide.t:primate","p":"NaN","accept":131,"reject":278570,"acceptFC":124,"rejectFC":277323,"rejectIv":146000,"rejectOp":146000},
+{"id":"WilsonBalding.t:primate","p":"NaN","accept":84,"reject":277675,"acceptFC":82,"rejectFC":276441,"rejectIv":75225,"rejectOp":75225},
+{"id":"RateTransversionScaler.s:primate","p":0.635510228566336,"accept":1992,"reject":7358,"acceptFC":1983,"rejectFC":7327,"rejectIv":0,"rejectOp":0},
+{"id":"RateAGScaler.s:primate","p":0.5776952607302376,"accept":2052,"reject":7184,"acceptFC":2041,"rejectFC":7158,"rejectIv":0,"rejectOp":0},
+{"id":"FrequenciesExchanger.s:primate","p":0.0752488001711427,"accept":3225,"reject":6051,"acceptFC":3207,"rejectFC":6039,"rejectIv":0,"rejectOp":0}
+]}
+-->

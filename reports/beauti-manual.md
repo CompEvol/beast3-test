@@ -16,6 +16,27 @@ Burn-in 10 %.
 | C13 🐢 | Eva | 30M | 592 / 684 | **not a valid pass** | the versions agree, but both run `SampleOffValues` with the wrong Hastings ratio, so neither samples the posterior; see [Findings](#findings). `EBSP.log` not compared (non-numeric `popsSize0` column) |
 | C18 | Eva | 10M | 2527 / 2553 | matched, constant offset in `prior` | see [Findings](#findings): script flags `prior` (z = 9.1) |
 | C26 | Eva | 20M | 985 / 1434 | matched | every marginal also matches its analytic prior, below |
+| C02 | Haoyuan | 10M | 1275¹ | matched | |
+| C03 | Sophie | 10M | 146¹ | **rerun (rc1)** | BEAST 3 run with rc1, not rc2; also ESS < 200 |
+| C04 | Yuan | 30M | 220¹ | matched | 3 of 4 runs stopped before the end of the chain |
+| C07 | Haoyuan | 10M | 872¹ | matched | |
+| C08 | Sophie | 10M | – | **rc2 exception** | crashes at start in rc1 and rc2 (NPE in `CalibratedYuleModel.init`), fixed after rc2 by beast3#198; run on a post-rc2 build; see [Findings](#findings) |
+| C09 | Sophie | 10M | 273¹ | matched, **rerun (rc1)** | BEAST 3 run with rc1, not rc2 |
+| C11 | Haoyuan | 20M | 338¹ | matched | |
+| C12 🐢 | Sophie | 50M | 973¹ | **rerun (rc1)** | gammaShape z = 124: rc1 BEAUti dropped the 0.1 lower bound; see [Findings](#findings) |
+| C14 🐢 | Yuan | 76M | 268¹ | not matched (mixing) | RLC indicators flagged, but replicates disagree within each version too; needs longer chains |
+| C16 🐢 | Yuan | 100M | 206¹ | matched | all 4 runs stopped before the end of the chain |
+| C19 | Haoyuan | 10M | 1253¹ | matched | |
+| C20 | Sophie | 10M | 1182¹ | matched, **rerun (rc1)** | BEAST 3 run with rc1, not rc2 |
+| C23 🐢 | Haoyuan | 20M | 305¹ | matched | |
+| C25 | Yuan | 100M | 246¹ | matched | 3 of 4 runs stopped before the end of the chain |
+| C27 | Haoyuan | 10M | 207¹ | matched | script flags `CalibratedYuleModel` (z = 8.2): a bookkeeping difference, and both versions match the analytic calibrations; see below |
+| C29 | Yuan | 10M | 242¹ | matched | all 4 runs stopped before the end of the chain |
+| C30 | Yuan | 20M | 227¹ | matched | resumed run matches the uninterrupted BEAST 3 runs (max z 0.86, `reports/summary/C30-resume-vs-uninterrupted.md`); 3 of 4 runs stopped early |
+
+¹ Rows added on 9 Nov give the smallest ESS of any replicate in either version, not the combined
+ESS. "Stopped before the end" means beast.out has no `End likelihood` line; the samples logged so
+far are compared.
 
 Clades and tMRCAs are not compared yet. Tree files go to the Dropbox folder `beast3-test`
 (<https://www.dropbox.com/home/beast3-test>), not git; Eva's are not there yet.
@@ -31,6 +52,17 @@ Pooled replicates; z = |mean − analytic mean| / (sd / √ESS).
 | kappa | LogNormal(1, 1.25) | 5.937 | 5.826 (0.73) | 5.911 (0.17) |
 | freqParameter.1–4 | Dirichlet(4, 4, 4, 4) | 0.250 | z ≤ 1.01 | z ≤ 1.49 |
 
+### C27: calibrated node ages against the analytic prior
+
+Sample from prior, calibrated Yule (`type="full"`), so each calibrated age has its calibration as
+its marginal. `python3 scripts/check_calibrated_marginals.py`, pooled replicates, 18,002 samples per
+version:
+
+| Node | Calibration | BEAST 2 mean (z), KS | BEAST 3 mean (z), KS | 5 % KS critical |
+|------|-------------|---------------------:|---------------------:|----------------:|
+| MRCA(Homo_sapiens, Pan) | Uniform(4, 6) | 4.996 (−1.00), 0.0066 | 5.005 (+1.24), 0.0053 | 0.0101 |
+| MRCA(Gorilla, Homo_sapiens, Pan) | Uniform(8, 10) | 8.996 (−0.90), 0.0095 | 9.006 (+1.29), 0.0076 | 0.0101 |
+
 ## Findings
 
 - **C18, gamma-shape prior normalisation.** BEAST 3 `prior` = BEAST 2 `prior` + 0.1 exactly, in
@@ -39,6 +71,41 @@ Pooled replicates; z = |mean − analytic mean| / (sd / √ESS).
   on a parameter with `lower="0.1"`, which only enforces the bound. The offset is constant, so the
   posterior is the same. Expect it in any analysis with a gamma shape whose prior has mass below
   0.1. Not raised as an issue.
+
+- **Sophie's BEAST 3 runs used rc1 (C03, C08, C09, C12, C20).** Their beast.out headers say
+  `BEAST v2.8.0 rc1`; everyone else used rc2. They need rebuilding in BEAUti 3 rc2 and rerunning.
+  Two of the differences below are rc1 artefacts:
+  - **C12:** rc1 BEAUti writes the gamma-shape prior as a plain `Exponential(1)` on a
+    `PositiveReal` parameter, with no 0.1 lower bound. rc2 writes `TruncatedReal(..., lower=0.1)`
+    (C04, C11, C16, C29, and C18 above). C12's data put the shape below 0.1 (85 % of rc1 samples),
+    so BEAST 2 (bounded) and rc1 (unbounded) sample different models: gammaShape 0.120 vs 0.058.
+  - **C08:** see the next finding; rebuilding in rc2 doesn't help.
+
+- **C08, calibrated Yule prior crashes in rc2 (rc2 exception).** BEAUti 3 writes the MRCA prior
+  as a separate spec `MRCAPrior`, which `CalibratedYuleModel` in rc1 and rc2 doesn't find ("could
+  not find any properly configured calibrations"); the logger then crashes with a
+  `NullPointerException` at `CalibratedYuleModel.java:887`. Sophie's rebuild in rc2 (the
+  `BEAST 2.8.0` app, 9 Nov; `beast3/log/C08/rc2/C08_beast_2.8.out`) fails the same way. This is bug
+  1 in [model-check.md](model-check.md#bugs-found-while-converting), fixed by beast3#198
+  (`38bc512`, merged 6 Nov, after rc2). So C08 can't run on rc2: run the rc2 XML on a post-rc2 build
+  (master after `38bc512`, or rc3), which also checks that the fix covers what BEAUti writes. C27
+  ran on rc2 because its XML has the calibrations inside `CalibratedYuleModel` as
+  `CalibrationPoint`s; why the two builds differ is still to find out from Sophie's rc2 XML.
+
+- **C22, empty starting-tree file.** `examples/nexus/anolis.nex_phyml_tree.txt` (and
+  `anolis.nex_phyml_stats.txt`) are 0 bytes in beast2 v2.7.7, v2.7.8 and master and in beast3
+  master; the only beast2 commit touching them is `521ca91` (2022, "v2.7 candidate"). Not a BEAST 3
+  regression, but a broken example file in both versions. C22 now uses
+  `data/anolis-start.newick` (see `data/README.md`) in both versions.
+
+- **C27, calibration densities logged in a different place.** BEAST 3 rc2 BEAUti puts the
+  calibrations inside `CalibratedYuleModel` as `CalibrationPoint`s (logged as `HC_cal`, `HCG_cal`:
+  the node ages) and moves the monophyletic `MRCAPrior`s into the starting tree as constraints.
+  BEAST 2.7.9 keeps them as `MRCAPrior`s in the prior, logged as `mrca.age(...)` and
+  `logP(mrca(...))`. So the BEAST 3 `CalibratedYuleModel` column includes the calibration densities
+  (here −2 log 2 in every sample): BEAST 2 `CalibratedYuleModel` + both `logP(mrca)` columns matches
+  BEAST 3 `CalibratedYuleModel` (z = −0.29). The posterior is the same; the age columns are mapped in
+  `reports/maps/C27.tsv`. Record as a log column change.
 
 - **C13, EBSP off values (all EBSP analyses).** `SampleOffValues` redraws the population sizes whose
   indicators are off from their prior, so it should be accepted every time. In BEAST 2.7.9 and BEAST 3
@@ -205,4 +272,9 @@ Slides for the research group (9 Nov): `doc/subtree-slide-tuning.tex`
 
 ## BEAUti oddities
 
-None recorded yet.
+- C08 (rc2): BEAST prints "WARNING: no down item specified in UpDownOperator" and removes an
+  empty `NoTransform`, so one up/down operator BEAUti wrote has nothing to scale down. Not wrong,
+  but to check in Sophie's rc2 XML.
+- BEAUti 3 rc2 calibrations: the node-age columns are named after the calibration
+  (`HC_cal`), not `mrca.age(<taxon set>)`, and their log densities are no longer separate columns
+  (C27, see [Findings](#findings)).

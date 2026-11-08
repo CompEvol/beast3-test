@@ -1,0 +1,5 @@
+# BEAUti 2.7.9 MRCAPrior columns -> BEAUti 3 CalibrationPoint columns (same calibrated node ages)
+# CalibratedYuleModel is not mapped: in BEAST 3 it includes the calibration densities that
+# BEAST 2 logs separately as logP(mrca(HC1)) and logP(mrca(HCG)) (constant -log 2 each here).
+mrca.age(HC1)	HC_cal
+mrca.age(HCG)	HCG_cal
