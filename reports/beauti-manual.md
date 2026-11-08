@@ -88,9 +88,14 @@ version:
   `BEAST 2.8.0` app, 9 Nov; `beast3/log/C08/rc2/C08_beast_2.8.out`) fails the same way. This is bug
   1 in [model-check.md](model-check.md#bugs-found-while-converting), fixed by beast3#198
   (`38bc512`, merged 6 Nov, after rc2). So C08 can't run on rc2: run the rc2 XML on a post-rc2 build
-  (master after `38bc512`, or rc3), which also checks that the fix covers what BEAUti writes. C27
-  ran on rc2 because its XML has the calibrations inside `CalibratedYuleModel` as
-  `CalibrationPoint`s; why the two builds differ is still to find out from Sophie's rc2 XML.
+  (master after `38bc512`, or rc3). Checked on 9 Nov: Sophie's rc2 XML (`beast3/log/C08/rep1/`)
+  runs on master `8cb5fd0` (200k-step test, calibration found, no warning), so the fix covers what
+  BEAUti writes. Why C27 ran on rc2: BEAUti rc2 writes the same kind of analysis in two ways. C08's
+  XML has the calibration as a separate spec `MRCAPrior` in the prior, and `CalibratedYuleModel`
+  has no `CalibrationPoint`; C27's has the calibrations inside `CalibratedYuleModel` as
+  `CalibrationPoint`s and the `MRCAPrior`s as starting-tree constraints. Which BEAUti steps lead to
+  which form is not known yet. Both C08 builds use BEAUti's default calibration, LogNormal(1, 1.25),
+  and BEAST 2 puts the human–chimp age at 0.20.
 
 - **C22, empty starting-tree file.** `examples/nexus/anolis.nex_phyml_tree.txt` (and
   `anolis.nex_phyml_stats.txt`) are 0 bytes in beast2 v2.7.7, v2.7.8 and master and in beast3
@@ -273,8 +278,9 @@ Slides for the research group (9 Nov): `doc/subtree-slide-tuning.tex`
 ## BEAUti oddities
 
 - C08 (rc2): BEAST prints "WARNING: no down item specified in UpDownOperator" and removes an
-  empty `NoTransform`, so one up/down operator BEAUti wrote has nothing to scale down. Not wrong,
-  but to check in Sophie's rc2 XML.
+  empty `NoTransform`. It comes from `CalibratedYuleModelTreeScaler`, an `UpDownOperator` the
+  template uses as a plain tree scaler (`up` = tree, no `down`), so it's harmless noise in every
+  analysis with that operator, not a problem in C08.
 - BEAUti 3 rc2 calibrations: the node-age columns are named after the calibration
   (`HC_cal`), not `mrca.age(<taxon set>)`, and their log densities are no longer separate columns
   (C27, see [Findings](#findings)).
