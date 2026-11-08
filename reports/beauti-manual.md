@@ -20,7 +20,7 @@ Burn-in 10 %.
 | C03 | Sophie | 10M | 146¹ | **rerun (rc1)** | BEAST 3 run with rc1, not rc2; also ESS < 200 |
 | C04 | Yuan | 30M | 220¹ | matched | 3 of 4 runs stopped before the end of the chain |
 | C07 | Haoyuan | 10M | 872¹ | matched | |
-| C08 | Sophie | 10M | – | **rerun (rc1)** | BEAST 3 rc1 crashes at start (NPE in `CalibratedYuleModel.init`); see [Findings](#findings) |
+| C08 | Sophie | 10M | – | **rc2 exception** | crashes at start in rc1 and rc2 (NPE in `CalibratedYuleModel.init`), fixed after rc2 by beast3#198; run on a post-rc2 build; see [Findings](#findings) |
 | C09 | Sophie | 10M | 273¹ | matched, **rerun (rc1)** | BEAST 3 run with rc1, not rc2 |
 | C11 | Haoyuan | 20M | 338¹ | matched | |
 | C12 🐢 | Sophie | 50M | 973¹ | **rerun (rc1)** | gammaShape z = 124: rc1 BEAUti dropped the 0.1 lower bound; see [Findings](#findings) |
@@ -79,11 +79,24 @@ version:
     `PositiveReal` parameter, with no 0.1 lower bound. rc2 writes `TruncatedReal(..., lower=0.1)`
     (C04, C11, C16, C29, and C18 above). C12's data put the shape below 0.1 (85 % of rc1 samples),
     so BEAST 2 (bounded) and rc1 (unbounded) sample different models: gammaShape 0.120 vs 0.058.
-  - **C08:** rc1 BEAUti writes the MRCA prior as a separate spec `MRCAPrior`, which rc1's
-    `CalibratedYuleModel` doesn't find ("could not find any properly configured calibrations"), and
-    the logger then crashes with an NPE in `CalibratedYuleModel.init`. rc2 BEAUti puts the
-    calibrations inside `CalibratedYuleModel` as `CalibrationPoint`s (as in C27), so a rebuild in
-    rc2 should avoid it. Not raised as an issue for now.
+  - **C08:** see the next finding; rebuilding in rc2 doesn't help.
+
+- **C08, calibrated Yule prior crashes in rc2 (rc2 exception).** BEAUti 3 writes the MRCA prior
+  as a separate spec `MRCAPrior`, which `CalibratedYuleModel` in rc1 and rc2 doesn't find ("could
+  not find any properly configured calibrations"); the logger then crashes with a
+  `NullPointerException` at `CalibratedYuleModel.java:887`. Sophie's rebuild in rc2 (the
+  `BEAST 2.8.0` app, 9 Nov; `beast3/log/C08/rc2/C08_beast_2.8.out`) fails the same way. This is bug
+  1 in [model-check.md](model-check.md#bugs-found-while-converting), fixed by beast3#198
+  (`38bc512`, merged 6 Nov, after rc2). So C08 can't run on rc2: run the rc2 XML on a post-rc2 build
+  (master after `38bc512`, or rc3), which also checks that the fix covers what BEAUti writes. C27
+  ran on rc2 because its XML has the calibrations inside `CalibratedYuleModel` as
+  `CalibrationPoint`s; why the two builds differ is still to find out from Sophie's rc2 XML.
+
+- **C22, empty starting-tree file.** `examples/nexus/anolis.nex_phyml_tree.txt` (and
+  `anolis.nex_phyml_stats.txt`) are 0 bytes in beast2 v2.7.7, v2.7.8 and master and in beast3
+  master; the only beast2 commit touching them is `521ca91` (2022, "v2.7 candidate"). Not a BEAST 3
+  regression, but a broken example file in both versions. C22 now uses
+  `data/anolis-start.newick` (see `data/README.md`) in both versions.
 
 - **C27, calibration densities logged in a different place.** BEAST 3 rc2 BEAUti puts the
   calibrations inside `CalibratedYuleModel` as `CalibrationPoint`s (logged as `HC_cal`, `HCG_cal`:
@@ -259,6 +272,9 @@ Slides for the research group (9 Nov): `doc/subtree-slide-tuning.tex`
 
 ## BEAUti oddities
 
+- C08 (rc2): BEAST prints "WARNING: no down item specified in UpDownOperator" and removes an
+  empty `NoTransform`, so one up/down operator BEAUti wrote has nothing to scale down. Not wrong,
+  but to check in Sophie's rc2 XML.
 - BEAUti 3 rc2 calibrations: the node-age columns are named after the calibration
   (`HC_cal`), not `mrca.age(<taxon set>)`, and their log densities are no longer separate columns
   (C27, see [Findings](#findings)).

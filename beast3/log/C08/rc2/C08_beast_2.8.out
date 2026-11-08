@@ -1,0 +1,126 @@
+   
+                      BEAST v2.8.0 rc2, 2002-2026
+             Bayesian Evolutionary Analysis Sampling Trees
+                       Designed and developed by
+ Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
+                                    
+                   Centre for Computational Evolution
+                         University of Auckland
+                       r.bouckaert@auckland.ac.nz
+                        alexei@cs.auckland.ac.nz
+                                    
+                   Institute of Evolutionary Biology
+                        University of Edinburgh
+                           a.rambaut@ed.ac.uk
+                                    
+                    David Geffen School of Medicine
+                 University of California, Los Angeles
+                           msuchard@ucla.edu
+                                    
+                      Downloads, Help & Resources:
+                           http://beast2.org/
+                                    
+  Source code distributed under the GNU Lesser General Public License:
+                   https://github.com/CompEvol/beast3
+                                    
+                           BEAST developers:
+   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, 
+ Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
+Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
+          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie
+                                    
+                               Thanks to:
+          Roald Forsberg, Beth Shapiro and Korbinian Strimmer
+
+    
+Running file /Users/zyan598/Documents/GitHub/beast3-test/beast3/log/C08/rep1/C08_beast_2.8.xml
+File: C08_beast_2.8.xml seed: -1157249109911182452 threads: 1
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M._mulatta: 898 4
+M._fascicularis: 898 4
+M._sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Tarsius_syrichta: 898 4
+Alignment(primate-mtDNA)
+  12 taxa
+  898 sites
+  413 patterns
+
+Filter 2-457,660-896
+12 taxa
+693 sites
+361 patterns
+Filter 4-457\3,662-.\3
+12 taxa
+231 sites
+204 patterns
+WARNING: Calibrated Yule prior could not find any properly configured calibrations. Expect this to crash in a BEAST run.
+Starting frequencies: [0.25, 0.25, 0.25, 0.25]
+The quantile calculator in SiteModel fails when the shape parameter goes much below 1.0E-3.
+A TruncatedDistribution may be used to enforce this constraint.
+Lower = 0.0
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
+TreeLikelihood(treeLikelihood.coding0) uses BeerLikelihoodCore4
+  FilteredAlignment(coding): [taxa, patterns, sites] = [12, 361, 693]
+Filter 1,458-659,897-898
+12 taxa
+205 sites
+79 patterns
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
+TreeLikelihood(treeLikelihood.noncoding0) uses BeerLikelihoodCore4
+  FilteredAlignment(noncoding): [taxa, patterns, sites] = [12, 79, 205]
+Filter 2-457\3,660-896\3
+12 taxa
+231 sites
+120 patterns
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
+TreeLikelihood(treeLikelihood.1stpos0) uses BeerLikelihoodCore4
+  FilteredAlignment(1stpos): [taxa, patterns, sites] = [12, 120, 231]
+Filter 3-457\3,661-896\3
+12 taxa
+231 sites
+82 patterns
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
+TreeLikelihood(treeLikelihood.2ndpos0) uses BeerLikelihoodCore4
+  FilteredAlignment(2ndpos): [taxa, patterns, sites] = [12, 82, 231]
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
+TreeLikelihood(treeLikelihood.3rdpos0) uses BeerLikelihoodCore4
+  FilteredAlignment(3rdpos): [taxa, patterns, sites] = [12, 204, 231]
+Warning: removing transform class beast.base.spec.inference.operator.Transform$NoTransform because it should have at least 1 dimensions but it has 0
+WARNING: no down item specified in UpDownOperator
+===============================================================================
+Citations for this model:
+
+Bouckaert, Remco, Timothy G. Vaughan, Joￃﾫlle Barido-Sottani, Sebastiￃﾡn Duchￃﾪne, Mathieu Fourment, 
+Alexandra Gavryushkina, Joseph Heled, Graham Jones, Denise Kￃﾼhnert, Nicola De Maio, Michael Matschiner, 
+Fￃﾡbio K. Mendes, Nicola F. Mￃﾼller, Huw A. Ogilvie, Louis du Plessis, Alex Popinga, Andrew Rambaut, 
+David Rasmussen, Igor Siveroni, Marc A. Suchard, Chieh-Hsi Wu, Dong Xie, Chi Zhang, Tanja Stadler, 
+Alexei J. Drummond 
+  BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. 
+  PLoS computational biology 15, no. 4 (2019): e1006650.
+
+Heled J, Drummond AJ (2012) Calibrated Tree Priors for Relaxed Phylogenetics
+  and Divergence Time Estimation. Systematic Biology 61(1):138-149.
+
+Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a
+  molecular clock of mitochondrial DNA. Journal of Molecular Evolution
+  22:160-174.
+
+Douglas J, Zhang R, Bouckaert R. Adaptive dating and fast proposals: Revisiting the phylogenetic relaxed clock model. PLoS computational biology. 2021 Feb 2;17(2):e1008322.
+
+===============================================================================
+WARNING: Calibrated Yule prior could not find any properly configured calibrations. Add a calibration to make this a valid analysis.
+Start likelihood: -15239.067936376492 
+Writing file /Users/zyan598/Documents/GitHub/beast3-test/beast3/log/C08/rep1/C08_beast_2.8.log
+java.lang.NullPointerException: Cannot read the array length because "<local2>" is null
+	at beast.base@2.8.0-SNAPSHOT/beast.base.spec.evolution.speciation.CalibratedYuleModel.init(CalibratedYuleModel.java:887)
+	at beast.base@2.8.0-SNAPSHOT/beast.base.inference.Logger.init(Logger.java:255)
+	at beast.base@2.8.0-SNAPSHOT/beast.base.inference.MCMC.run(MCMC.java:386)
+	at beast.fx@2.8.0-SNAPSHOT/beastfx.app.beast.BeastMCMC.run(BeastMCMC.java:259)
+	at beast.fx@2.8.0-SNAPSHOT/beastfx.app.beast.Controller$2.run(Controller.java:167)

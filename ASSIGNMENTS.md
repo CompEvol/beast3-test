@@ -80,7 +80,7 @@ Slow combinations (long chains, start them first) are marked 🐢.
 | C07 | Haoyuan | primate-mtDNA.nex | HKY, linked across all partitions | Strict, unlinked; estimate relative rates | Yule, linked tree | — | Link/unlink buttons, clock rate estimation across partitions |
 | C24 | Yao | primate-mtDNA.nex | GTR + Γ4, unlinked | Strict, linked | Yule | “Fix mean substitution rate” on | DeltaExchange on mutation rates (typed inputs changed in BEAST 3) |
 | C25 | Yuan | primate-mtDNA.nex | HKY, unlinked | Strict, unlinked | Yule, **unlinked trees** | — | Independent trees per partition, multiple tree logs |
-| C22 | Sophie | anolis.nex | HKY | Strict, fixed | Yule | Newick starting tree from anolis.nex_phyml_tree.txt | NewickTree starting-tree subtemplate |
+| C22 | Sophie | anolis.nex | HKY | Strict, fixed | Yule | Newick starting tree from [`data/anolis-start.newick`](data/anolis-start.newick) (the shipped anolis.nex_phyml_tree.txt is empty) | NewickTree starting-tree subtemplate |
 | C23 🐢 | Haoyuan | anolis.nex | bModelTest + Γ4 + I (bModelTest package) | Strict, fixed | Yule | ClusterTree (UPGMA) starting tree | Site-model averaging from a third-party package, ClusterTree starting tree |
 
 ### 3 · Calibrations and time-scaled trees
