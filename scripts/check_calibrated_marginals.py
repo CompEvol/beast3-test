@@ -9,6 +9,13 @@ against an exact answer instead of against the other BEAST version:
 - testConditionalRootCalibrationPrior: the root age (log column `cal`) ~ LogNormal(M=2, S=0.2);
 - testCalYule_5t_2c: the age of MRCA(a, b), read from the tree files, ~ Uniform(4, 7).
 
+C27 (BEAUti track) samples from the prior with a calibrated Yule prior (default type="full") and
+two nested calibrations, so its calibrated ages have exact marginals too:
+
+- C27: age of MRCA(Homo_sapiens, Pan) ~ Uniform(4, 6) (log column `mrca.age(HC1)` in BEAST 2,
+  `HC_cal` in BEAST 3); age of MRCA(Gorilla, Homo_sapiens, Pan) ~ Uniform(8, 10)
+  (`mrca.age(HCG)` / `HCG_cal`).
+
   python3 scripts/check_calibrated_marginals.py [-b 10]
 
 reads beast2/log/<name>-analytic/rep*/ and beast3/log/<name>-analytic/rep*/ and prints, per
@@ -45,8 +52,10 @@ def ess(x):
 
 
 def log_column(path, column, burnin):
+    """Values of `column` (or of the first of a tuple of alternative names that is present)."""
     rows = [l.rstrip('\n').split('\t') for l in open(path) if not l.startswith('#')]
-    i = rows[0].index(column)
+    names = (column,) if isinstance(column, str) else column
+    i = rows[0].index(next(c for c in names if c in rows[0]))
     values = [float(r[i]) for r in rows[1:] if len(r) > i]
     return values[len(values) * burnin // 100:]
 
@@ -134,6 +143,15 @@ def main():
         if reps:
             check('testCalYule_5t_2c: MRCA(a, b) age ~ Uniform(4, 7)', version, reps,
                   lambda v: min(1.0, max(0.0, (v - 4) / 3)), 5.5, math.sqrt(0.75), lambda q: 4 + 3 * q)
+        d = os.path.join(ROOT, version, 'log', 'C27')
+        for label, cols, lo, hi in (('MRCA(Homo_sapiens, Pan)', ('mrca.age(HC1)', 'HC_cal'), 4.0, 6.0),
+                                    ('MRCA(Gorilla, Homo_sapiens, Pan)', ('mrca.age(HCG)', 'HCG_cal'), 8.0, 10.0)):
+            reps = [log_column(f, cols, b) for f in sorted(glob.glob(d + '/rep*/*.log'))]
+            if reps:
+                w = hi - lo
+                check(f'C27: {label} age ~ Uniform({lo:g}, {hi:g})', version, reps,
+                      lambda v, lo=lo, w=w: min(1.0, max(0.0, (v - lo) / w)), lo + w / 2, w / math.sqrt(12),
+                      lambda q, lo=lo, w=w: lo + w * q)
 
 
 if __name__ == '__main__':

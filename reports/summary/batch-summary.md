@@ -2,6 +2,29 @@
 
 | Name | Reps (beast2/beast3) | Min ESS | Max z | Max clade Δp | Flagged | Verdict |
 |---|---|---:|---:|---:|---:|---|
+| C01 | 2/2 | 1663 | 2.966 | – | 0 | matched |
+| C02 | 2/2 | 1275 | 1.84 | – | 0 | matched |
+| C03 | 2/2 | 146 | 1.452 | – | 0 | matched (ESS < 200) |
+| C04 | 2/2 | 220 | 1.805 | – | 0 | matched (run problems) |
+| C06 | 2/2 | 199 | 2.743 | – | 0 | matched (ESS < 200) |
+| C07 | 2/2 | 872 | 1.18 | – | 0 | matched |
+| C08 | 2/2 | – | – | – | 0 | no comparison |
+| C09 | 2/2 | 273 | 1.988 | – | 0 | matched |
+| C10 | 2/2 | 383 | 1.904 | – | 0 | matched |
+| C11 | 2/2 | 338 | 2.295 | – | 0 | matched |
+| C12 | 2/2 | 973 | 123.83 | – | 8 | not matched (run problems) |
+| C13 | 2/2 | 243 | 2.884 | – | 0 | matched |
+| C14 | 2/2 | 268 | 9.219 | – | 7 | not matched (run problems) |
+| C16 | 2/2 | 206 | 1.124 | – | 0 | matched (run problems) |
+| C18 | 2/2 | 1146 | 9.096 | – | 1 | not matched |
+| C19 | 2/2 | 1253 | 0.9438 | – | 0 | matched |
+| C20 | 2/2 | 1182 | 1.019 | – | 0 | matched (run problems) |
+| C23 | 2/2 | 305 | 2.283 | – | 0 | matched |
+| C25 | 2/2 | 246 | 2.159 | – | 0 | matched (run problems) |
+| C26 | 2/2 | 475 | 1.733 | – | 0 | matched |
+| C27 | 2/2 | 207 | 8.229 | – | 1 | not matched |
+| C29 | 2/2 | 242 | 1.692 | – | 0 | matched (run problems) |
+| C30 | 2/2 | 227 | 2.246 | – | 0 | matched (run problems) |
 | testBSP | 2/2 | 2429 | 1.911 | 0.018 | 0 | matched |
 | testCalYule_5t_2c | 2/2 | 355 | 2.098 | 0.005 | 0 | matched |
 | testCalYule_5t_2c-analytic | 4/4 | 4089 | 1.054 | 0.006 | 0 | matched |
@@ -15,3 +38,5 @@
 | testTwoCalibrationsPrior | 2/2 | 3725 | 1.625 | 0.004 | 0 | matched |
 | testYuleCalibrated | 2/2 | 566 | 1.317 | 0.006 | 0 | matched |
 | testYuleUncalibrated | 4/4 | 590 | 2.103 | 0.002 | 0 | matched |
+
+Only in one version (not compared): C01-fine, C01-fine-scale, C01-fine-slide, C01-g06, C01-scale, C01-slide, C01-tall4, C01-tall4-g06, C01-tall4-scale, C01-tall4-slide, C01-tall4-slide-g06, C01-tall7, C01-tall7-g06, C01-tall7-scale, C01-tall7-slide, C01-tall7-slide-g06, C01-tall7-slide-sqrt, C01-tall7-sqrt, C06-g06, C06-scale, C06-slide, C10-g06, C10-scale, C10-slide, C13-g06, C13-scale, C13-slide, C18-fine, C18-fine-g06, C18-fine-scale, C18-fine-slide, C18-scale, C18-slide, C26-scale, C26-slide, C30_resume
