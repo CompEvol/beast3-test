@@ -1,0 +1,8 @@
+<itsabeastystatewerein version='2.0' sample='700000'>
+<statenode id='tree'>((0:6.079445719729735,1:6.079445719729735)5:0.6532193319967234,(2:0.3312310904253831,(4:0.25535871254131626,3:0.25535871254131626)7:0.07587237788406687)6:6.401433961301075)8:0.0</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"unknown","p":0.7445371703455275,"accept":214148,"reject":485853,"acceptFC":210012,"rejectFC":479987,"rejectIv":260070,"rejectOp":143208}
+]}
+-->

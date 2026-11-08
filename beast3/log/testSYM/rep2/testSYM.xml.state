@@ -1,0 +1,27 @@
+<itsabeastystatewerein version='2.0' sample='7000000'>
+<statenode id='Tree.t:primate'>((10:0.19910447590780633,((((7:0.018022446886845372,6:0.018022446886845372)14:0.02053684735486809,8:0.03855929424171346)17:0.01992987989253566,9:0.058489174134249124)13:0.10066821380996063,(5:0.10851774302958543,(4:0.08655959516272557,((1:0.04057644033116888,2:0.04057644033116888)15:0.01235252386148044,3:0.05292896419264932)12:0.03363063097007625)18:0.02195814786685986)16:0.05063964491462432)21:0.039947087963596584)20:0.023988380329893394,(11:0.15092432941103787,0:0.15092432941103787)19:0.07216852682666186)22:0.0</statenode>
+<statenode id='birthRate.t:primate'>birthRate.t:primate: 9.679974288249923</statenode>
+<statenode id='rateAC.s:primate'>rateAC.s:primate: 0.29544414599877894</statenode>
+<statenode id='rateAG.s:primate'>rateAG.s:primate: 0.4183613513196758</statenode>
+<statenode id='rateAT.s:primate'>rateAT.s:primate: 0.15415346162229043</statenode>
+<statenode id='rateCG.s:primate'>rateCG.s:primate: 0.05302890361430314</statenode>
+<statenode id='rateGT.s:primate'>rateGT.s:primate: 0.020077430797369743</statenode>
+<statenode id='freqParameter.s:primate'>freqParameter.s:primate{4}: 0.25 0.25 0.25 0.25 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:primate","p":0.6802753840871708,"accept":82741,"reject":195177,"acceptFC":82440,"rejectFC":194257,"rejectIv":0,"rejectOp":0},
+{"id":"treeScaler.t:primate","p":0.07340233889941461,"accept":76214,"reject":202329,"acceptFC":76209,"rejectFC":201116,"rejectIv":0,"rejectOp":0},
+{"id":"treeRootScaler.t:primate","p":0.07061218983266451,"accept":76291,"reject":201602,"acceptFC":76284,"rejectFC":200329,"rejectIv":43351,"rejectOp":43351},
+{"id":"UniformOperator.t:primate","p":"NaN","accept":607779,"reject":2174096,"acceptFC":605092,"rejectFC":2164545,"rejectIv":0,"rejectOp":0},
+{"id":"SubtreeSlide.t:primate","p":0.25335312510060515,"accept":418142,"reject":972638,"acceptFC":416638,"rejectFC":968062,"rejectIv":0,"rejectOp":0},
+{"id":"narrow.t:primate","p":"NaN","accept":14895,"reject":1375856,"acceptFC":14794,"rejectFC":1369908,"rejectIv":0,"rejectOp":0},
+{"id":"wide.t:primate","p":"NaN","accept":192,"reject":278084,"acceptFC":187,"rejectFC":276860,"rejectIv":145716,"rejectOp":145716},
+{"id":"WilsonBalding.t:primate","p":"NaN","accept":136,"reject":277605,"acceptFC":132,"rejectFC":276463,"rejectIv":75323,"rejectOp":75323},
+{"id":"RateACScaler.s:primate","p":0.18608902342243439,"accept":2719,"reject":6648,"acceptFC":2714,"rejectFC":6610,"rejectIv":0,"rejectOp":0},
+{"id":"RateAGScaler.s:primate","p":0.18702805318037902,"accept":2630,"reject":6627,"acceptFC":2627,"rejectFC":6591,"rejectIv":0,"rejectOp":0},
+{"id":"RateATScaler.s:primate","p":0.28854654244746936,"accept":2647,"reject":6567,"acceptFC":2642,"rejectFC":6534,"rejectIv":0,"rejectOp":0},
+{"id":"RateCGScaler.s:primate","p":0.6726985379974048,"accept":2644,"reject":6516,"acceptFC":2623,"rejectFC":6493,"rejectIv":0,"rejectOp":0},
+{"id":"RateGTScaler.s:primate","p":0.9223540208624258,"accept":2979,"reject":6247,"acceptFC":2956,"rejectFC":6232,"rejectIv":0,"rejectOp":0}
+]}
+-->

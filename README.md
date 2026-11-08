@@ -49,7 +49,7 @@ Rules:
   [`v2.7.8`](https://github.com/CompEvol/beast2/tree/v2.7.8/examples), not from `master` and not
   from beast3 `examples/legacy/` (which may have been edited).
 - **BEAST 3 XML**: only a file at the top level of the beast3 `examples/` folder counts as
-  converted. A file with the same name in `legacy/` or `beast2vs1/` does **not** count.
+  converted (or, for testSeqGen and testSimulatedAlignment, of the beast-fx `examples/` folder). A file with the same name in `legacy/` or `beast2vs1/` does **not** count.
 - **Data**: every top-level BEAST 2 example has its alignment inline in the XML (none reads
   from `fasta/` or `nexus/`), so each XML can be copied into `beast2/xml/` on its own. New BEAST 3
   conversions must also be self-contained; if one does need an external data file, copy that
@@ -133,60 +133,63 @@ On NeSI, the same steps apply with `BEAST.v2.7.7.Linux.x86.tgz` and `~/.beast/2.
 
 ## Example inventory
 
-Status as of 2026-11-03. `*.state` and editor backup files (`testHKY.xml~`) are excluded.
-"Converted" means a file of the same name exists at the top level of the beast3 examples folder.
+Status as of 2026-11-09. `*.state` and editor backup files (`testHKY.xml~`) are excluded.
+"Converted" means a file of the same name exists at the top level of the beast3 examples folder,
+except testSeqGen and testSimulatedAlignment, which need beast-fx and moved to
+`beast-fx/src/test/resources/beast.fx/examples/` in beast3#204. "Converted in" is blank for the 18
+examples converted before this round.
 
-| # | BEAST 2 example | Converted to BEAST 3? | Notes |
-|---|-----------------|:---------------------:|-------|
-| 1  | bitflip.xml | yes | |
-| 2  | testBSP.xml | no | |
-| 3  | testCalYule_5t_2c.xml | no | |
-| 4  | testCalibration.xml | no | |
-| 5  | testClassicRootCalibrationPrior.xml | no | |
-| 6  | testCoalescent.xml | no | |
-| 7  | testConditionalRootCalibrationPrior.xml | no | |
-| 8  | testDirectSimulator.xml | no | simulator, no MCMC posterior |
-| 9  | testDirectSimulator2.xml | no | simulator, no MCMC posterior |
-| 10 | testDirectSimulatorHierarchical.xml | no | simulator, no MCMC posterior |
-| 11 | testEBSP.xml | no | |
-| 12 | testExponentialGrowth.xml | no | |
-| 13 | testGTR.xml | yes | |
-| 14 | testHKY.json | yes | JSON input |
-| 15 | testHKY.xml | yes | |
-| 16 | testJukesCantor.xml | yes | |
-| 17 | testJukesCantorShort.xml | yes | |
-| 18 | testJukesCantorShortUncertain.xml | yes | |
-| 19 | testJukesCantorShortUncertain2.xml | yes | |
-| 20 | testJukesCantorShortUncertain2MLE.xml | yes | |
-| 21 | testMultipleAlignments_randomTaxaOrder.xml | no | |
-| 22 | testOpSubSchedule.xml | yes | |
-| 23 | testPlates.xml | yes | |
-| 24 | testRNA.xml | yes | |
-| 25 | testRandomLocalClock.xml | no | |
-| 26 | testRelaxedClock.xml | no | |
-| 27 | testRestrictedGTR.xml | yes | |
-| 28 | testSRD06.xml | no | |
-| 29 | testSYM.xml | yes | |
-| 30 | testSeqGen.xml | no | simulator, no MCMC posterior |
-| 31 | testSimulatedAlignment.xml | no | simulates data, then runs MCMC |
-| 32 | testSliceHKY.xml | no | not present in beast3 `legacy/` either |
-| 33 | testStarBeast.xml | excluded | *BEAST 1, code not migrated to BEAST 3 |
-| 34 | testStarBeastFBD.xml | excluded | *BEAST 1, code not migrated to BEAST 3 |
-| 35 | testTIM.xml | yes | |
-| 36 | testTN93.xml | yes | |
-| 37 | testTVM.xml | yes | |
-| 38 | testTipDates.xml | no | |
-| 39 | testTipDates2.xml | no | |
-| 40 | testTwoCalibrationsPrior.xml | no | |
-| 41 | testUCLNclock.json | no | JSON input |
-| 42 | testYuleCalibrated.xml | no | |
-| 43 | testYuleOneSite.xml | yes | |
-| 44 | testYuleUncalibrated.xml | no | |
+| # | BEAST 2 example | Converted to BEAST 3? | Converted in | Notes |
+|---|-----------------|:---------------------:|:------------:|-------|
+| 1 | bitflip.xml | yes |  |  |
+| 2 | testBSP.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 3 | testCalYule_5t_2c.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 4 | testCalibration.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 5 | testClassicRootCalibrationPrior.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 6 | testCoalescent.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 7 | testConditionalRootCalibrationPrior.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 8 | testDirectSimulator.xml | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) | simulator, no MCMC posterior |
+| 9 | testDirectSimulator2.xml | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) | simulator, no MCMC posterior |
+| 10 | testDirectSimulatorHierarchical.xml | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) | simulator, no MCMC posterior |
+| 11 | testEBSP.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 12 | testExponentialGrowth.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 13 | testGTR.xml | yes |  |  |
+| 14 | testHKY.json | yes |  | JSON input |
+| 15 | testHKY.xml | yes |  |  |
+| 16 | testJukesCantor.xml | yes |  |  |
+| 17 | testJukesCantorShort.xml | yes |  |  |
+| 18 | testJukesCantorShortUncertain.xml | yes |  |  |
+| 19 | testJukesCantorShortUncertain2.xml | yes |  |  |
+| 20 | testJukesCantorShortUncertain2MLE.xml | yes |  |  |
+| 21 | testMultipleAlignments_randomTaxaOrder.xml | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) |  |
+| 22 | testOpSubSchedule.xml | yes |  |  |
+| 23 | testPlates.xml | yes |  |  |
+| 24 | testRNA.xml | yes |  |  |
+| 25 | testRandomLocalClock.xml | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) |  |
+| 26 | testRelaxedClock.xml | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) |  |
+| 27 | testRestrictedGTR.xml | yes |  |  |
+| 28 | testSRD06.xml | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) |  |
+| 29 | testSYM.xml | yes |  |  |
+| 30 | testSeqGen.xml | yes, in beast-fx | [beast3#204](https://github.com/CompEvol/beast3/pull/204) | simulator, no MCMC posterior |
+| 31 | testSimulatedAlignment.xml | yes, in beast-fx | [beast3#204](https://github.com/CompEvol/beast3/pull/204) | simulates data, then runs MCMC |
+| 32 | testSliceHKY.xml | **no** |  | uses `SliceOperator`, which BEAST 3 doesn't have; exclude or port (open question in ASSIGNMENTS) |
+| 33 | testStarBeast.xml | excluded |  | *BEAST 1, code not migrated to BEAST 3 |
+| 34 | testStarBeastFBD.xml | excluded |  | *BEAST 1, code not migrated to BEAST 3 |
+| 35 | testTIM.xml | yes |  |  |
+| 36 | testTN93.xml | yes |  |  |
+| 37 | testTVM.xml | yes |  |  |
+| 38 | testTipDates.xml | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) |  |
+| 39 | testTipDates2.xml | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) |  |
+| 40 | testTwoCalibrationsPrior.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 41 | testUCLNclock.json | yes | [beast3#204](https://github.com/CompEvol/beast3/pull/204) | JSON input |
+| 42 | testYuleCalibrated.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
+| 43 | testYuleOneSite.xml | yes |  |  |
+| 44 | testYuleUncalibrated.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
 
 **Excluded:** the *BEAST 1 examples (`testStarBeast.xml`, `testStarBeastFBD.xml`) are excluded because the *BEAST 1 code was not migrated to BEAST 3.
 
-Summary: 44 examples, 2 excluded, 42 to test: 18 converted, 24 not converted. Before starting, re-check both
-folders on GitHub and update this table — the beast3 conversion is ongoing.
+Summary: 44 examples, 2 excluded, 42 to test: 41 converted (18 before this round, 11 in beast3#199,
+12 in beast3#204) and 1 not converted (testSliceHKY).
 
 To regenerate the lists:
 
@@ -194,6 +197,8 @@ To regenerate the lists:
 gh api repos/CompEvol/beast2/contents/examples \
   --jq '.[] | select(.type=="file") | .name'
 gh api repos/CompEvol/beast3/contents/beast-base/src/test/resources/beast.base/examples \
+  --jq '.[] | select(.type=="file") | .name'
+gh api repos/CompEvol/beast3/contents/beast-fx/src/test/resources/beast.fx/examples \
   --jq '.[] | select(.type=="file") | .name'
 ```
 

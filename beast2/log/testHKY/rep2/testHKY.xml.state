@@ -1,0 +1,15 @@
+<itsabeastystatewerein version='2.0' sample='5000000'>
+<statenode id='hky.kappa'>hky.kappa[1 1] (0.0,Infinity): 22.22101389196376 </statenode>
+<statenode id='tree'>((5:0.06173266048331237,(1:0.035608047438605586,((2:0.007032216546978184,0:0.007032216546978184)6:0.0159190199944947,3:0.022951236541472884)9:0.012656810897132702)8:0.026124613044706785)7:0.004997577585802285,4:0.06673023806911466)10:0.0</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"kappaScaler","p":0.27950206720384935,"accept":65615,"reject":184104,"acceptFC":64966,"rejectFC":183344,"rejectIv":0,"rejectOp":0},
+{"id":"treeScaler","p":0.5796859143328251,"accept":52830,"reject":196621,"acceptFC":52570,"rejectFC":195459,"rejectIv":0,"rejectOp":0},
+{"id":"subtreeSlide","p":0.06029167878605631,"accept":85551,"reject":1165415,"acceptFC":85513,"rejectFC":1158283,"rejectIv":462684,"rejectOp":462684},
+{"id":"uniform","p":"NaN","accept":966171,"reject":1534580,"acceptFC":960555,"rejectFC":1525727,"rejectIv":0,"rejectOp":0},
+{"id":"narrow","p":"NaN","accept":13879,"reject":236135,"acceptFC":13833,"rejectFC":234743,"rejectIv":0,"rejectOp":0},
+{"id":"wide","p":"NaN","accept":2272,"reject":247607,"acceptFC":2266,"rejectFC":246125,"rejectIv":138955,"rejectOp":138955},
+{"id":"wilsonBalding","p":"NaN","accept":1197,"reject":248024,"acceptFC":1194,"rejectFC":246634,"rejectIv":127438,"rejectOp":127438}
+]}
+-->

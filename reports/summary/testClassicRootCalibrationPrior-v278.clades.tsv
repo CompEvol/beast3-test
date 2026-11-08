@@ -1,0 +1,11 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+classic_root_prior_oneOnX.N.trees	1 3 4	3	0.168851	0.159853	0.008998	
+classic_root_prior_oneOnX.N.trees	1 2 3	3	0.160520	0.168296	0.007776	
+classic_root_prior_oneOnX.N.trees	2 3 4	3	0.168185	0.173406	0.005221	
+classic_root_prior_oneOnX.N.trees	1 3	2	0.225283	0.220729	0.004555	
+classic_root_prior_oneOnX.N.trees	3 4	2	0.222395	0.220395	0.002000	
+classic_root_prior_oneOnX.N.trees	2 3	2	0.224617	0.222839	0.001777	
+classic_root_prior_oneOnX.N.trees	1 4	2	0.218729	0.220395	0.001666	
+classic_root_prior_oneOnX.N.trees	1 2 4	3	0.168629	0.170073	0.001444	
+classic_root_prior_oneOnX.N.trees	1 2	2	0.218174	0.218951	0.000778	
+classic_root_prior_oneOnX.N.trees	2 4	2	0.224617	0.225061	0.000444	

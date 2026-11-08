@@ -1,0 +1,11 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+primate.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Saimiri_sciureus	10	0.964008	0.963453	0.000555	
+primate.trees	Homo_sapiens Pan	2	0.999778	1.000000	0.000222	
+primate.trees	Lemur_catta Tarsius_syrichta	2	1.000000	1.000000	0.000000	
+primate.trees	M._mulatta Macaca_fuscata	2	1.000000	1.000000	0.000000	
+primate.trees	Gorilla Homo_sapiens Pan	3	1.000000	1.000000	0.000000	
+primate.trees	M._fascicularis M._mulatta Macaca_fuscata	3	1.000000	1.000000	0.000000	
+primate.trees	Gorilla Homo_sapiens Pan Pongo	4	1.000000	1.000000	0.000000	
+primate.trees	M._fascicularis M._mulatta M._sylvanus Macaca_fuscata	4	1.000000	1.000000	0.000000	
+primate.trees	Gorilla Homo_sapiens Hylobates Pan Pongo	5	1.000000	1.000000	0.000000	
+primate.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo	9	1.000000	1.000000	0.000000	

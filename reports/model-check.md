@@ -159,3 +159,61 @@ density. Both versions reproduce it:
 
 **Speed:** on the same machine, testBSP took 130 s in BEAST 3 and 79 s in BEAST 2.7.9 for the same
 10M steps (earlier runs with the original `SubtreeSlide` and improper priors, one at a time).
+
+## Examples converted before this round (18)
+
+Run on 9 Nov 2026 on one Mac (Apple silicon), 4 chains at a time, seeds 1 and 2:
+
+- **BEAST 2.7.9:** the v2.7.8 example XMLs from beast2 tag `v2.7.8`, unmodified apart from chain
+  length and `logEvery`; BEAST 2.7.7 launcher and bundled Java 17.0.5 with BEAST.base 2.7.9 and
+  BEAST.app 2.7.8 (the `v2.7.9pre` zips, README "Installing BEAST 2.7.9"; no patches).
+- **BEAST 3:** the converted XMLs and the code at beast3 master `8cb5fd0` (after #214), built
+  from source with Java 26.0.1. It prints `BEAST v2.8.0 rc2`.
+- **Chain lengths:** as in the XMLs, except the GTR family (testGTR, testRNA, testRestrictedGTR,
+  testSYM, testTIM, testTVM: 5M → 7M, as ASSIGNMENTS recommends) and testYuleOneSite (10 → 1M; at 10
+  steps it is a smoke test). `logEvery` = chain length / 5,000. testTN93 kept 5M.
+- **Column maps:** `TreeHeight` → `Tree.height` for the GTR family (`reports/maps/<example>.tsv`).
+
+| Example | Verdict | Notes |
+|---------|---------|-------|
+| bitflip | matched | |
+| testJukesCantor, testJukesCantorShort, testJukesCantorShortUncertain, testJukesCantorShortUncertain2, testJukesCantorShortUncertain2MLE | matched | max z 2.53; ESS ≥ 3,778 |
+| testPlates | matched | max z 0.93 |
+| testYuleOneSite | matched | at 1M steps |
+| testGTR, testRNA, testRestrictedGTR, testSYM, testTIM, testTN93, testTVM | **matched apart from a constant offset in `prior`** | every model parameter, tree height and clade matches (max clade \|Δp\| 0.004). `prior` and `posterior` are 13.79–13.82 lower in BEAST 3 = log(10⁶): the conversions give the Yule birth rate `Uniform(0, 1e6)` where the originals have `Uniform(0, Infinity)` (log density 0). The birth rate never comes near 10⁶, so the posterior is the same |
+| testHKY, testHKY.json, testOpSubSchedule | **not matched: the prior on kappa differs** | kappa 30.1 (BEAST 2) vs 17.6 (BEAST 3), with knock-on shifts in the tree likelihood and tree height. The conversions replace the original 1/X prior on kappa with LogNormal(1, 1.25). This is the open decision in ASSIGNMENTS (fix the conversions, or accept and document), not an engine difference |
+
+- **testSYM** first flagged `rateAT` at z = 3.03 (one column); per the pass criteria it got one
+  rerun with seeds 3 and 4, and with all four replicates nothing but the `prior` offset is flagged.
+- **testRNA** is testGTR with the alignment coded as RNA. With the same seed its traces are
+  identical, row for row, to testGTR's in both versions, so the RNA data type gives the same
+  likelihood as DNA. At 5M steps two BEAST 2 frequency columns had ESS < 200, so it was rerun at 7M.
+- Reports: `reports/summary/<example>.md`; runs in `beast2/log/<example>/` and
+  `beast3/log/<example>/` (testHKY.json as `testHKY-json`).
+
+## Backward compatibility: v2.7.8 XMLs in BEAST 3
+
+Every v2.7.8 example XML, unmodified (2,000-step copies), was loaded in BEAST 3 master `8cb5fd0` on
+9 Nov. The result is the same as on 4 Nov: 9 of 44 load (bitflip, testCalYule_5t_2c,
+testClassicRootCalibrationPrior, testCoalescent, testExponentialGrowth, testTwoCalibrationsPrior,
+and the three DirectSimulator files). The rest fail on `TreeHeightLogger` (31), the
+`beast.app.seqgen.*` classes (testSeqGen, testSimulatedAlignment), `SliceOperator` (testSliceHKY)
+and the JSON sequence format (testUCLNclock.json).
+
+The six that load and run MCMC were run in both versions from the same unmodified XML (BEAST 2
+settings as above; chain lengths as in the XMLs, testCalYule_5t_2c at 700k), two replicates each:
+
+| Example | Verdict | Max z | Min ESS |
+|---------|---------|------:|--------:|
+| bitflip | matched | 0 | 3,510 |
+| testCalYule_5t_2c | matched | 2.93 | 355 |
+| testClassicRootCalibrationPrior | matched | 1.46 | 3,624 |
+| testCoalescent | matched | 0.41 | 1,187 |
+| testExponentialGrowth | matched | 2.39 | 1,540 |
+| testTwoCalibrationsPrior | matched | 1.65 | 3,788 |
+
+Four of these originals have an improper prior on at least one parameter (see Proper priors above),
+so for them "matched" says the two versions behave the same over these chain lengths, not that a
+proper posterior was sampled. Reports: `reports/summary/<example>-v278.md`; runs in
+`beast2/log/<example>-v278/` and `beast3/log/<example>-v278/` (bitflip's BEAST 2 runs are those in
+`beast2/log/bitflip/`, from the same XML).

@@ -1,0 +1,14 @@
+<itsabeastystatewerein version='2.0' sample='1000000'>
+<statenode id='tree'>((3:0.04557716370499109,0:0.04557716370499109)4:0.12741832991193497,(1:0.14810329996322225,2:0.14810329996322225)5:0.02489219365370382)6:0.0</statenode>
+<statenode id='birthRate'>birthRate[1 1] (0.0,100.0): 1.0 </statenode>
+<statenode id='tree-test-single-child-parsing'>((0:1.0)2:2.0,1:3.0)3:0.0</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"unknown","p":0.8359430830507592,"accept":60190,"reject":217485,"acceptFC":58428,"rejectFC":209245,"rejectIv":108632,"rejectOp":108632},
+{"id":"unknown","p":"NaN","accept":481712,"reject":73919,"acceptFC":464305,"rejectFC":71415,"rejectIv":0,"rejectOp":0},
+{"id":"narrow","p":"NaN","accept":46215,"reject":9156,"acceptFC":44522,"rejectFC":8876,"rejectIv":0,"rejectOp":0},
+{"id":"wide","p":"NaN","accept":22444,"reject":33382,"acceptFC":21608,"rejectFC":32174,"rejectIv":33382,"rejectOp":33382},
+{"id":"unknown","p":"NaN","accept":11116,"reject":44382,"acceptFC":10721,"rejectFC":42795,"rejectIv":38507,"rejectOp":38507}
+]}
+-->

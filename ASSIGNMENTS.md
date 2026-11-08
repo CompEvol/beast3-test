@@ -28,7 +28,7 @@ Run settings, measured with BEAST 3 on 4 Nov:
 - One replicate of every example takes about 40 CPU-minutes in total. Two replicates in both versions take about 2.5 CPU-hours.
 - testConditionalRootCalibrationPrior has no prior on birthRate (the 1/X is commented out). Compare it on the calibrated node age, not on birthRate.
 
-Backward compatibility, checked on 4 Nov: only 9 of the 44 v2.7.8 examples load in BEAST 3. The beast3 `examples/legacy/` copies were edited to work around this, so they are not the v2.7.8 originals.
+Backward compatibility, checked on 4 Nov and again on 9 Nov (master `8cb5fd0`): only 9 of the 44 v2.7.8 examples load in BEAST 3, and the 6 of those that run MCMC match BEAST 2.7.9 ([model-check.md](reports/model-check.md#backward-compatibility-v278-xmls-in-beast-3)). The beast3 `examples/legacy/` copies were edited to work around this, so they are not the v2.7.8 originals.
 
 | Cause | Examples affected |
 |---|---|
