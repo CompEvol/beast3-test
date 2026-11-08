@@ -74,22 +74,22 @@ spec="Alignment">
             <stateNode id="clockRate.c:coding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
             <stateNode id="birthRateY.t:coding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
         </state>
-        <init id="RandomTree.t:1stpos" spec="beast.base.spec.evolution.tree.coalescent.RandomTree" estimate="false" initial="@Tree.t:coding">
-            <taxa id="1stpos" spec="FilteredAlignment" data="@primate-mtDNA" filter="2-457\3,660-896\3"/>
-            <populationModel id="ConstantPopulation0.t:1stpos" spec="beast.base.spec.evolution.tree.coalescent.ConstantPopulation">
-                <popSize id="randomPopSize.t:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+        <init id="RandomTree.t:3rdpos" spec="beast.base.spec.evolution.tree.coalescent.RandomTree" estimate="false" initial="@Tree.t:coding">
+            <taxa id="3rdpos" spec="FilteredAlignment" data="@primate-mtDNA" filter="4-457\3,662-.\3"/>
+            <populationModel id="ConstantPopulation0.t:3rdpos" spec="beast.base.spec.evolution.tree.coalescent.ConstantPopulation">
+                <popSize id="randomPopSize.t:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
             </populationModel>
         </init>
         <distribution id="posterior" spec="CompoundDistribution">
             <distribution id="prior" spec="CompoundDistribution">
                 <distribution id="CalibratedYuleModel.t:coding" spec="beast.base.spec.evolution.speciation.CalibratedYuleModel" birthRate="@birthRateY.t:coding" tree="@Tree.t:coding"/>
                 <LogNormal id="CalibratedYuleBirthRatePrior.t:coding" name="distribution" param="@birthRateY.t:coding">
-                    <M id="RealScalarParam.139" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
-                    <S id="RealScalarParam.140" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
-                </LogNormal>
-                <LogNormal id="ClockPrior.c:coding" name="distribution" param="@clockRate.c:coding">
                     <M id="RealScalarParam.141" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
                     <S id="RealScalarParam.142" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
+                </LogNormal>
+                <LogNormal id="ClockPrior.c:coding" name="distribution" param="@clockRate.c:coding">
+                    <M id="RealScalarParam.139" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
+                    <S id="RealScalarParam.140" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
                 </LogNormal>
                 <Dirichlet id="FrequenciesPrior.s:coding" name="distribution" param="@freqParameter.s:coding">
                     <alpha id="RealVectorParam.0" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
@@ -130,7 +130,13 @@ spec="FilteredAlignment"
 data="@primate-mtDNA"
 filter="1,458-659,897-898"/>
                 </distribution>
-                <distribution id="treeLikelihood.1stpos" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:coding" data="@1stpos" siteModel="@SiteModel.s:coding" tree="@Tree.t:coding"/>
+                <distribution id="treeLikelihood.1stpos" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:coding" siteModel="@SiteModel.s:coding" tree="@Tree.t:coding">
+                    <data
+id="1stpos"
+spec="FilteredAlignment"
+data="@primate-mtDNA"
+filter="2-457\3,660-896\3"/>
+                </distribution>
                 <distribution id="treeLikelihood.2ndpos" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:coding" siteModel="@SiteModel.s:coding" tree="@Tree.t:coding">
                     <data
 id="2ndpos"
@@ -138,13 +144,7 @@ spec="FilteredAlignment"
 data="@primate-mtDNA"
 filter="3-457\3,661-896\3"/>
                 </distribution>
-                <distribution id="treeLikelihood.3rdpos" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:coding" siteModel="@SiteModel.s:coding" tree="@Tree.t:coding">
-                    <data
-id="3rdpos"
-spec="FilteredAlignment"
-data="@primate-mtDNA"
-filter="4-457\3,662-.\3"/>
-                </distribution>
+                <distribution id="treeLikelihood.3rdpos" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:coding" data="@3rdpos" siteModel="@SiteModel.s:coding" tree="@Tree.t:coding"/>
             </distribution>
         </distribution>
         <operator id="KappaScaler.s:coding" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
@@ -154,6 +154,7 @@ filter="4-457\3,662-.\3"/>
                     <f idref="freqParameter.s:coding"/>
                 </transformations>
                 <transformations id="AVMNLogTransform.coding" spec="beast.base.spec.inference.operator.Transform$LogTransform">
+                    <scalable idref="Tree.t:coding"/>
                     <f idref="kappa.s:coding"/>
                     <f idref="gammaShape.s:coding"/>
                     <f idref="clockRate.c:coding"/>
@@ -191,7 +192,7 @@ filter="4-457\3,662-.\3"/>
         <operator id="CalibratedYuleModelTreeScaler.t:coding" spec="beast.base.spec.evolution.operator.UpDownOperator" scaleFactor="0.1" weight="4.0">
             <up idref="Tree.t:coding"/>
         </operator>
-        <operator id="CalibratedYuleModelTreeRootScaler.t:coding" spec="kernel.BactrianScaleOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:coding" upper="10.0" weight="3.0"/>
+        <operator id="CalibratedYuleModelTreeRootScaler.t:coding" spec="beast.base.spec.evolution.operator.ScaleTreeOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:coding" weight="3.0"/>
         <operator id="CalibratedYuleModelUniformOperator.t:coding" spec="kernel.BactrianNodeOperator" tree="@Tree.t:coding" weight="30.0"/>
         <operator id="CalibratedYuleModelSubtreeSlide.t:coding" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:coding" weight="15.0"/>
         <operator id="CalibratedYuleModelNarrow.t:coding" spec="Exchange" tree="@Tree.t:coding" weight="15.0"/>
@@ -202,12 +203,12 @@ filter="4-457\3,662-.\3"/>
             <log idref="posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
-            <log idref="treeLikelihood.1stpos"/>
-            <log idref="treeLikelihood.2ndpos"/>
             <log idref="treeLikelihood.3rdpos"/>
-            <log idref="treeLikelihood.noncoding"/>
+            <log idref="treeLikelihood.2ndpos"/>
             <log idref="treeLikelihood.coding"/>
             <log id="TreeHeight.t:coding" spec="beast.base.evolution.tree.TreeStatLogger" tree="@Tree.t:coding"/>
+            <log idref="treeLikelihood.1stpos"/>
+            <log idref="treeLikelihood.noncoding"/>
             <log idref="kappa.s:coding"/>
             <log idref="freqParameter.s:coding"/>
             <log idref="gammaShape.s:coding"/>

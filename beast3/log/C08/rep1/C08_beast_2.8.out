@@ -1,5 +1,5 @@
    
-                      BEAST v2.8.0 rc1, 2002-2026
+                      BEAST v2.8.0 rc2, 2002-2026
              Bayesian Evolutionary Analysis Sampling Trees
                        Designed and developed by
  Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
@@ -34,7 +34,7 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
 
     
 Running file /Users/zyan598/Documents/GitHub/beast3-test/beast3/log/C08/rep1/C08_beast_2.8.xml
-File: C08_beast_2.8.xml seed: -7675003375494849294 threads: 1
+File: C08_beast_2.8.xml seed: -1157249109911182452 threads: 1
 Lemur_catta: 898 4
 Homo_sapiens: 898 4
 Pan: 898 4
@@ -56,40 +56,40 @@ Filter 2-457,660-896
 12 taxa
 693 sites
 361 patterns
-Filter 2-457\3,660-896\3
+Filter 4-457\3,662-.\3
 12 taxa
 231 sites
-120 patterns
+204 patterns
 WARNING: Calibrated Yule prior could not find any properly configured calibrations. Expect this to crash in a BEAST run.
 Starting frequencies: [0.25, 0.25, 0.25, 0.25]
 The quantile calculator in SiteModel fails when the shape parameter goes much below 1.0E-3.
 A TruncatedDistribution may be used to enforce this constraint.
 Lower = 0.0
-Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: :/Applications/BEAST 2.8.0/BEAST.app/Contents/app:/Users/zyan598/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
 TreeLikelihood(treeLikelihood.coding0) uses BeerLikelihoodCore4
   FilteredAlignment(coding): [taxa, patterns, sites] = [12, 361, 693]
 Filter 1,458-659,897-898
 12 taxa
 205 sites
 79 patterns
-Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: :/Applications/BEAST 2.8.0/BEAST.app/Contents/app:/Users/zyan598/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
 TreeLikelihood(treeLikelihood.noncoding0) uses BeerLikelihoodCore4
   FilteredAlignment(noncoding): [taxa, patterns, sites] = [12, 79, 205]
-Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: :/Applications/BEAST 2.8.0/BEAST.app/Contents/app:/Users/zyan598/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+Filter 2-457\3,660-896\3
+12 taxa
+231 sites
+120 patterns
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
 TreeLikelihood(treeLikelihood.1stpos0) uses BeerLikelihoodCore4
   FilteredAlignment(1stpos): [taxa, patterns, sites] = [12, 120, 231]
 Filter 3-457\3,661-896\3
 12 taxa
 231 sites
 82 patterns
-Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: :/Applications/BEAST 2.8.0/BEAST.app/Contents/app:/Users/zyan598/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
 TreeLikelihood(treeLikelihood.2ndpos0) uses BeerLikelihoodCore4
   FilteredAlignment(2ndpos): [taxa, patterns, sites] = [12, 82, 231]
-Filter 4-457\3,662-.\3
-12 taxa
-231 sites
-204 patterns
-Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: :/Applications/BEAST 2.8.0/BEAST.app/Contents/app:/Users/zyan598/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+Failed to load BEAGLE library: no hmsbeagle-jni in java.library.path: /Applications/BEAST 2.8.0/BEAST.app/Contents/app:/usr/local/lib:/opt/homebrew/lib
 TreeLikelihood(treeLikelihood.3rdpos0) uses BeerLikelihoodCore4
   FilteredAlignment(3rdpos): [taxa, patterns, sites] = [12, 204, 231]
 Warning: removing transform class beast.base.spec.inference.operator.Transform$NoTransform because it should have at least 1 dimensions but it has 0
@@ -116,11 +116,11 @@ Douglas J, Zhang R, Bouckaert R. Adaptive dating and fast proposals: Revisiting 
 
 ===============================================================================
 WARNING: Calibrated Yule prior could not find any properly configured calibrations. Add a calibration to make this a valid analysis.
-Start likelihood: -15969.482589270094 
+Start likelihood: -15239.067936376492 
 Writing file /Users/zyan598/Documents/GitHub/beast3-test/beast3/log/C08/rep1/C08_beast_2.8.log
 java.lang.NullPointerException: Cannot read the array length because "<local2>" is null
-	at beast.base@2.8.0/beast.base.spec.evolution.speciation.CalibratedYuleModel.init(CalibratedYuleModel.java:887)
-	at beast.base@2.8.0/beast.base.inference.Logger.init(Logger.java:255)
-	at beast.base@2.8.0/beast.base.inference.MCMC.run(MCMC.java:386)
-	at beast.fx@2.8.0/beastfx.app.beast.BeastMCMC.run(BeastMCMC.java:259)
-	at beast.fx@2.8.0/beastfx.app.beast.Controller$2.run(Controller.java:167)
+	at beast.base@2.8.0-SNAPSHOT/beast.base.spec.evolution.speciation.CalibratedYuleModel.init(CalibratedYuleModel.java:887)
+	at beast.base@2.8.0-SNAPSHOT/beast.base.inference.Logger.init(Logger.java:255)
+	at beast.base@2.8.0-SNAPSHOT/beast.base.inference.MCMC.run(MCMC.java:386)
+	at beast.fx@2.8.0-SNAPSHOT/beastfx.app.beast.BeastMCMC.run(BeastMCMC.java:259)
+	at beast.fx@2.8.0-SNAPSHOT/beastfx.app.beast.Controller$2.run(Controller.java:167)

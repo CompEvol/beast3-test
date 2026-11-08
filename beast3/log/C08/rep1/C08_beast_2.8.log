@@ -13,12 +13,12 @@
 #            </tree>
 #        </distribution>
 #        <LogNormal id="CalibratedYuleBirthRatePrior.t:coding" name="distribution" param="@birthRateY.t:coding">
-#            <M domain="Real" estimate="false" id="RealScalarParam.139" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
-#            <S domain="PositiveReal" estimate="false" id="RealScalarParam.140" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.25"/>
-#        </LogNormal>
-#        <LogNormal id="ClockPrior.c:coding" name="distribution">
 #            <M domain="Real" estimate="false" id="RealScalarParam.141" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
 #            <S domain="PositiveReal" estimate="false" id="RealScalarParam.142" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.25"/>
+#        </LogNormal>
+#        <LogNormal id="ClockPrior.c:coding" name="distribution">
+#            <M domain="Real" estimate="false" id="RealScalarParam.139" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#            <S domain="PositiveReal" estimate="false" id="RealScalarParam.140" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.25"/>
 #            <param domain="PositiveReal" id="clockRate.c:coding" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
 #        </LogNormal>
 #        <Dirichlet id="FrequenciesPrior.s:coding" name="distribution">
