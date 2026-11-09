@@ -15,7 +15,7 @@ C02	pass
 C03	rerun	BEAST 3 side ran on **rc1**. Rebuild in BEAUti 3 rc2 and rerun. ESS also below 200.
 C04	partial	3 of 4 runs stopped before the end of the 30M chain.
 C05	none	Can start on rc2 now.
-C06	rerun	Rerun at 15M. `prior` offset is mostly the known 0.1 per gamma shape. **gammaShape.2ndpos z = 3.15** still flagged; seeds 3 and 4 next.
+C06	explained	Four replicates. `prior` offset is the known 0.1 per gamma shape. `gammaShape.2ndpos` z = 3.2 pooled, within the replicate-to-replicate noise; seeds 3–4 alone pass.
 C07	pass
 C08	blocked	Crashes at start in rc1 and rc2 (NPE in `CalibratedYuleModel`). Fixed by beast3#198. Sophie's rc2 XML runs on master.
 C09	rerun	Matched, but the BEAST 3 side ran on **rc1**. Rerun on rc2.
@@ -23,7 +23,7 @@ C10	pass
 C11	pass
 C12	rerun	gammaShape z = 124: rc1 BEAUti dropped the 0.1 lower bound. Rebuild in rc2 and rerun.
 C13	blocked	Versions agree, but both have the `SampleOffValues` Hastings bug. Needs rc3 and a BEAST.base 2.7.9 refresh.
-C14	fail	RLC indicators flagged, but replicates disagree within each version too. Needs longer chains.
+C14	partial	Compared by clade from the trees (`Indicators.N` is indexed by node number, not clade): all branch rates match. 3 of 4 runs stopped early.
 C15	none	Slow. Can start on rc2 now.
 C16	partial	All 4 runs stopped before the end of the 100M chain.
 C17	none	Slow. Can start on rc2 now.

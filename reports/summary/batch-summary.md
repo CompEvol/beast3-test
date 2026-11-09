@@ -6,7 +6,7 @@
 | C02 | 2/2 | 1275 | 1.84 | – | 0 | matched |
 | C03 | 2/2 | 146 | 1.452 | – | 0 | matched (ESS < 200) |
 | C04 | 2/2 | 220 | 1.805 | – | 0 | matched (run problems) |
-| C06 | 2/2 | 297 | 6.843 | – | 3 | not matched (constant `prior` offset, see beauti-manual) |
+| C06 | 4/4 | 288 | 9.109 | – | 3 | not matched (constant `prior` offset, see beauti-manual) |
 | C07 | 2/2 | 872 | 1.18 | – | 0 | matched |
 | C08 | 2/2 | – | – | – | 0 | no comparison |
 | C09 | 2/2 | 273 | 1.988 | – | 0 | matched |
@@ -14,7 +14,7 @@
 | C11 | 2/2 | 338 | 2.295 | – | 0 | matched |
 | C12 | 2/2 | 973 | 123.83 | – | 8 | not matched (run problems) |
 | C13 | 2/2 | 243 | 2.884 | – | 0 | matched |
-| C14 | 2/2 | 268 | 9.219 | – | 7 | not matched (run problems) |
+| C14 | 2/2 | 264 | 2.724 | 0.010 | 0 | matched (run problems) |
 | C16 | 2/2 | 206 | 1.124 | – | 0 | matched (run problems) |
 | C18 | 2/2 | 1146 | 9.096 | – | 1 | not matched |
 | C19 | 2/2 | 1253 | 0.9438 | – | 0 | matched |

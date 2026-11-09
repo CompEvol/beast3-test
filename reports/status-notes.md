@@ -6,8 +6,7 @@
 
 1. **Yao:** C05, C15, C17, C21, C24, C28 on rc2 now. C15 and C17 are slow.
 1. **Sophie:** rebuild C03, C09, C12, C20 in BEAUti 3 rc2 and rerun. Run C22 with `data/anolis-start.newick`.
-1. **Eva:** C06 seeds 3 and 4 at 15M, logEvery 3000.
-1. **Yuan:** C14 with longer chains, and let C04, C16, C25, C29, C30 run to the end of the chain.
+1. **Yuan:** let C04, C14, C16, C25, C29, C30 run to the end of the chain.
 1. **After rc3:** run the existing C08 and C13 XMLs (C13 also needs a BEAST.base 2.7.9 refresh).
 
 ## Is rc3 needed first?
@@ -19,4 +18,5 @@ rc3 also changes BEAUti 3's default priors (#208, e.g. Gamma → LogNormal(0, 8)
 ## Known differences, not bugs
 
 - **Gamma-shape `prior` offset** (C06, C18). BEAST 3 normalises the Exponential(1) prior on a shape bounded at 0.1, so the log prior is 0.1 higher per shape. The posterior is the same.
+- **RLC indicators** (C14) are indexed by node number, which isn't tied to a clade, so they are compared by clade from the trees instead.
 - **C27 calibration densities** are logged differently. Both versions match the analytic calibrations, U(4, 6) and U(8, 10).

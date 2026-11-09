@@ -34,9 +34,11 @@ import operator
 import os
 import re
 import sys
+from array import array
 from collections import Counter, OrderedDict
 
 MAX_LAG = 2000
+DEFAULT_TREES_ROOT = os.path.expanduser("~/Library/CloudStorage/Dropbox/beast3-test")
 NAN = float("nan")
 
 _sumprod = getattr(math, "sumprod", None)  # Python >= 3.12
@@ -238,6 +240,7 @@ class TraceLog(object):
 
 _COMMENT = re.compile(r"\[[^\]]*\]")
 _TOKEN = re.compile(r"'[^']*'|\"[^\"]*\"|[(),;]|:[^,();]*|[^,();:]+")
+_BTOKEN = re.compile(r"\[[^\]]*\]|'[^']*'|\"[^\"]*\"|[(),;]|:[^,();\[]*|[^,();:\[]+")
 
 
 def _unquote(s):
@@ -371,6 +374,136 @@ class TreeLog(object):
         return clades, root[1]
 
 
+class BranchLog(object):
+    """Per-clade branch metadata (e.g. the RLC `rate`) from a NEXUS tree file, post burn-in.
+
+    A branch is identified by the clade below it, so the comparison does not depend on node
+    numbers (internal node numbers are not tied to a clade and differ between runs). For each
+    clade, `data[clade]` holds three arrays over the trees in which the clade is present:
+    tree index, whether the branch's value differs from its parent's (a change on that branch),
+    and the value itself."""
+
+    def __init__(self, path, burnin_pct, key):
+        self.path = path
+        self.key = key
+        meta_re = re.compile(r"(?:^|,)\s*" + re.escape(key) + r"=([^,\]]+)")
+        total = 0
+        with open(path, "r", errors="replace") as fh:
+            for line in fh:
+                if line.lstrip()[:5].lower() == "tree ":
+                    total += 1
+        self.n_burn = total * burnin_pct // 100
+        self.n = 0
+        translate, index, names = {}, {}, []
+        acc = {}            # mask -> (tree idx array, changed array, value array)
+        in_trans, trans_buf, seen = False, "", 0
+        self.missing = 0    # branches without the metadata key
+        with open(path, "r", errors="replace") as fh:
+            for line in fh:
+                s = line.strip()
+                low = s.lower()
+                if in_trans or low.startswith("translate"):
+                    if not in_trans:
+                        s = s[len("translate"):]
+                        in_trans = True
+                    trans_buf += " " + s
+                    if ";" in s:
+                        in_trans = False
+                        for entry in trans_buf.split(";")[0].split(","):
+                            parts = entry.strip().split(None, 1)
+                            if len(parts) == 2:
+                                translate[parts[0]] = _unquote(parts[1])
+                        trans_buf = ""
+                    continue
+                if low[:5] != "tree ":
+                    continue
+                seen += 1
+                if seen <= self.n_burn:
+                    continue
+                eq = s.find("=")
+                if eq < 0:
+                    continue
+                root = self._parse(s[eq + 1:], translate, index, names, meta_re)
+                t = self.n
+                todo = [root]
+                while todo:
+                    node = todo.pop()
+                    for kid in node[2]:
+                        todo.append(kid)
+                        if kid[1] is None or node[1] is None:
+                            self.missing += 1
+                            continue
+                        a = acc.get(kid[0])
+                        if a is None:
+                            a = acc[kid[0]] = (array("i"), array("b"), array("d"))
+                        a[0].append(t)
+                        a[1].append(1 if kid[1] != node[1] else 0)
+                        try:
+                            a[2].append(float(kid[1]))
+                        except ValueError:
+                            a[2].append(NAN)
+                self.n += 1
+        self.taxa = set(names)
+        self.data = {frozenset(names[i] for i in range(len(names)) if m >> i & 1): v for m, v in acc.items()}
+
+    @staticmethod
+    def _parse(newick, translate, index, names, meta_re):
+        """Return the root as [mask, meta string, children]."""
+        stack, root, last, after_close = [], None, None, False
+        for tok in _BTOKEN.findall(newick):
+            c = tok[0]
+            if c == "[":
+                if last is not None and tok.startswith("[&"):
+                    m = meta_re.search(tok[2:-1])
+                    if m:
+                        last[1] = m.group(1).strip()
+                continue
+            if c == "(":
+                stack.append([0, None, []])
+                last, after_close = None, False
+            elif c == ")":
+                node = stack.pop()
+                for kid in node[2]:
+                    node[0] |= kid[0]
+                if stack:
+                    stack[-1][2].append(node)
+                else:
+                    root = node
+                last, after_close = node, True
+            elif c == ",":
+                after_close = False
+            elif c == ";":
+                break
+            elif c == ":":
+                continue
+            else:
+                if after_close:
+                    continue            # internal node label
+                lab = tok.strip()
+                if not lab:
+                    continue
+                lab = translate.get(lab, _unquote(lab))
+                i = index.get(lab)
+                if i is None:
+                    i = index[lab] = len(names)
+                    names.append(lab)
+                leaf = [1 << i, None, []]
+                if stack:
+                    stack[-1][2].append(leaf)
+                else:
+                    root = leaf
+                last = leaf
+        return root
+
+    def series(self, clade):
+        """(change indicator over all trees, values where the clade is present)."""
+        idx, chg, val = self.data.get(clade, ((), (), ()))
+        s = [0.0] * self.n
+        for i, c in zip(idx, chg):
+            s[i] = float(c)
+        return s, [v for v in val if not isnan(v)]
+
+
 # --------------------------------------------------------------------------------------
 # beast.out
 # --------------------------------------------------------------------------------------
@@ -440,10 +573,11 @@ class Side(object):
             outs = [o for o in outs if os.path.exists(o[:-4] + ".xml")]
         return outs[0] if len(outs) == 1 else p
 
-    def files(self, ext, pattern=None):
-        """OrderedDict key -> list of paths (one per replicate, None if missing)."""
+    def files(self, ext, pattern=None, dirs=None):
+        """OrderedDict key -> list of paths (one per replicate, None if missing).
+        dirs: look in these directories instead (one per replicate), e.g. the tree root."""
         res = OrderedDict()
-        for i, d in enumerate(self.rep_dirs):
+        for i, d in enumerate(dirs or self.rep_dirs):
             for p in sorted(glob.glob(os.path.join(d, "*" + ext))):
                 fn = os.path.basename(p)
                 if pattern and not fnmatch.fnmatch(fn, pattern):
@@ -475,17 +609,38 @@ def pair_files(fa, fb, findings, kind, la, lb):
     return pairs
 
 
+class ColumnMap(OrderedDict):
+    """A column map: A column -> B column, plus directives (lines starting with '!'):
+
+        !exclude<TAB>REGEX<TAB>reason    do not compare columns matching REGEX (full match)
+        !branch-meta<TAB>KEY             compare the tree-log branch metadata KEY (e.g. rate) by clade"""
+
+    def __init__(self):
+        OrderedDict.__init__(self)
+        self.exclude = []
+        self.branch_meta = None
+
+
 def read_map(path):
-    m = OrderedDict()
+    m = ColumnMap()
     if not path:
         return m
     with open(path) as fh:
-        for line in fh:
+        for n, line in enumerate(fh, 1):
             if not line.strip() or line.lstrip().startswith("#"):
                 continue
-            f = line.rstrip("\n").split("\t")
-            if len(f) >= 2 and f[0].strip() and f[1].strip():
-                m[f[0].strip()] = f[1].strip()
+            f = [x.strip() for x in line.rstrip("\n").split("\t")]
+            if f[0].startswith("!"):
+                d = f[0][1:]
+                if d == "exclude" and len(f) >= 2:
+                    m.exclude.append((re.compile(f[1]), f[2] if len(f) > 2 else ""))
+                elif d == "branch-meta" and len(f) >= 2:
+                    m.branch_meta = f[1]
+                else:
+                    raise ValueError("%s line %d: unknown or incomplete directive %r" % (path, n, line.strip()))
+                continue
+            if len(f) >= 2 and f[0] and f[1]:
+                m[f[0]] = f[1]
     return m
 
 
@@ -549,6 +704,59 @@ class Result(object):
         self.n_flagged = 0
 
 
+def branch_section(res, ka, kb, ta_files, tb_files, side_a, side_b, key, opts):
+    """Compare branch metadata `key` by clade: P(change on the branch) and the mean value."""
+    F = res.findings
+    la, lb = side_a.label, side_b.label
+    logs = {}
+    for side, files, k in ((side_a, ta_files, ka), (side_b, tb_files, kb)):
+        lst = []
+        for p in files[k]:
+            if p is None:
+                continue
+            try:
+                lst.append(BranchLog(p, opts.burnin, key))
+            except (OSError, ValueError, IndexError) as e:
+                F.append(("FAIL", "%s: cannot read branch `%s` from %s: %s" % (side.label, key, p, e)))
+        logs[side.label] = lst
+    A, B = logs[la], logs[lb]
+    if not A or not B or not all(t.n for t in A + B):
+        return
+    for t in A + B:
+        if t.missing:
+            F.append(("WARN", "%s: %d branch(es) without `%s` metadata" % (os.path.basename(t.path), t.missing, key)))
+
+    def pres(lst):
+        n = sum(t.n for t in lst)
+        tot = Counter()
+        for t in lst:
+            for c, v in t.data.items():
+                tot[c] += len(v[0])
+        return {c: x / float(n) for c, x in tot.items()}
+
+    pa, pb = pres(A), pres(B)
+    clades = [c for c in set(pa) & set(pb) if pa[c] >= opts.branch_min and pb[c] >= opts.branch_min]
+    clades.sort(key=lambda c: (len(c), sorted(c)))
+    rows, consts = [], []
+    for c in clades:
+        sa = [t.series(c) for t in A]
+        sb = [t.series(c) for t in B]
+        cs = clade_str(c)
+        r = compare_columns("P(%s change) above %s" % (key, cs), "", "", [x[0] for x in sa], [x[0] for x in sb], opts)
+        if "hpd" in r.flags:
+            r.flags.remove("hpd")       # 0/1 series: HPD overlap is not informative
+        r.overlap = NAN
+        (consts if (r.a.constant and r.b.constant) else rows).append(r)
+        if all(len(x[1]) > 1 for x in sa + sb):
+            r = compare_columns("mean %s above %s" % (key, cs), "", "", [x[1] for x in sa], [x[1] for x in sb], opts)
+            (consts if (r.a.constant and r.b.constant) else rows).append(r)
+    title = "branch %s by clade (%s)" % (key, ka.replace("#", "N") if ka == kb else "%s / %s" % (ka.replace("#", "N"), kb.replace("#", "N")))
+    F.append(("NOTE", "branch `%s` compared by clade for %d clades with p ≥ %g in both versions: "
+              "P(change) = how often the branch's %s differs from its parent's; mean = %s on that branch when "
+              "the clade is present" % (key, len(clades), opts.branch_min, key, key)))
+    res.sections.append((title, rows, consts, [], [], []))
+
+
 def run_comparison(name, side_a, side_b, opts, mapping):
     res = Result(name)
     F = res.findings
@@ -607,8 +815,16 @@ def run_comparison(name, side_a, side_b, opts, mapping):
         ta, tb = logs[la], logs[lb]
         if not ta or not tb:
             continue
-        cols_a = [c for c in ta[0].columns if all(c in t.columns for t in ta)]
-        cols_b = [c for c in tb[0].columns if all(c in t.columns for t in tb)]
+        def excluded(c):
+            return any(rx.fullmatch(c) for rx, _ in mapping.exclude)
+
+        for rx, why in mapping.exclude:
+            hits = sorted(set(c for t in ta + tb for c in t.columns if rx.fullmatch(c)))
+            if hits:
+                F.append(("NOTE", "%d column(s) matching `%s` not compared%s (column map)"
+                          % (len(hits), rx.pattern, ": " + why if why else "")))
+        cols_a = [c for c in ta[0].columns if all(c in t.columns for t in ta) and not excluded(c)]
+        cols_b = [c for c in tb[0].columns if all(c in t.columns for t in tb) and not excluded(c)]
         set_b = set(cols_b)
         matched = []
         taken_b = set()
@@ -656,6 +872,16 @@ def run_comparison(name, side_a, side_b, opts, mapping):
     if not opts.no_trees:
         ta_files = side_a.files(".trees", opts.trees)
         tb_files = side_b.files(".trees", opts.trees_b or opts.trees)
+        troot = opts.trees_root or (DEFAULT_TREES_ROOT if mapping.branch_meta else None)
+        if troot and os.path.isdir(troot):
+            def elsewhere(side):
+                return [os.path.join(troot, os.path.relpath(d, opts.root)) for d in side.rep_dirs]
+            if not ta_files:
+                ta_files = side_a.files(".trees", opts.trees, elsewhere(side_a))
+            if not tb_files:
+                tb_files = side_b.files(".trees", opts.trees_b or opts.trees, elsewhere(side_b))
+            if ta_files or tb_files:
+                F.append(("NOTE", "tree files read from `%s`" % troot))
         if ta_files and tb_files:
             for ka, kb in pair_files(ta_files, tb_files, F, "Tree", la, lb):
                 trees = {}
@@ -669,7 +895,13 @@ def run_comparison(name, side_a, side_b, opts, mapping):
                         except (OSError, ValueError, IndexError) as e:
                             F.append(("FAIL", "%s: cannot parse %s: %s" % (side.label, p, e)))
                     trees[side.label] = lst
+                for side, files, k in ((side_a, ta_files, ka), (side_b, tb_files, kb)):
+                    for i, p in enumerate(files[k]):
+                        if p is None:
+                            F.append(("WARN", "%s %s: no tree file `%s`" % (side.label, side.rep_name(i), k.replace("#", "N"))))
                 A, B = trees[la], trees[lb]
+                if mapping.branch_meta and A and B:
+                    branch_section(res, ka, kb, ta_files, tb_files, side_a, side_b, mapping.branch_meta, opts)
                 if not A or not B or not all(t.n for t in A + B):
                     F.append(("WARN", "tree file `%s`: no trees after burn-in in one version" % ka.replace("#", "N")))
                     continue
@@ -1083,7 +1315,9 @@ def compare_one(name, side_a, side_b, opts, mapfile):
     mapping = read_map(mapfile)
     res = run_comparison(name, side_a, side_b, opts, mapping)
     if mapfile:
-        res.findings.append(("NOTE", "column map used: `%s` (%d entries)" % (os.path.relpath(mapfile, opts.relto), len(mapping))))
+        extra = len(mapping.exclude) + (1 if mapping.branch_meta else 0)
+        res.findings.append(("NOTE", "column map used: `%s` (%d entries%s)" % (os.path.relpath(mapfile, opts.relto), len(mapping),
+                                                                               ", %d directive(s)" % extra if extra else "")))
     text = render(res, side_a, side_b, opts)
     if not opts.no_write:
         os.makedirs(opts.out, exist_ok=True)
@@ -1129,6 +1363,11 @@ def main(argv=None):
     ap.add_argument("--trees", help="glob selecting tree files")
     ap.add_argument("--trees-b", help="glob for set B tree files if it differs from --trees")
     ap.add_argument("--no-trees", action="store_true", help="skip the tree comparison")
+    ap.add_argument("--trees-root", default=None,
+                    help="also look for tree files under this directory, same layout as the repo "
+                         "(default with a !branch-meta map: %s)" % DEFAULT_TREES_ROOT)
+    ap.add_argument("--branch-min", type=float, default=0.5,
+                    help="!branch-meta: compare clades with p >= this in both versions (default 0.5)")
     ap.add_argument("--tree-height", action="store_true", help="also compare root height computed from the tree files")
     ap.add_argument("--z-flag", type=float, default=3.0, help="flag a parameter with z >= this (default 3)")
     ap.add_argument("--z-fail", type=float, default=4.0, help="z >= this makes the result 'not matched' (default 4)")
