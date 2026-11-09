@@ -18,29 +18,32 @@ Burn-in 10 %.
 | C26 | Eva | 20M | 985 / 1434 | matched | every marginal also matches its analytic prior, below |
 | C02 | Haoyuan | 10M | 1275¹ | matched | |
 | C03 | Sophie | 10M | 146¹ | matched (ESS < 200) | rerun on rc2 (9 Nov); `freqParameter.1` ESS 146 in one BEAST 2 replicate |
-| C04 | Yuan | 30M | 220¹ | matched | 3 of 4 runs stopped before the end of the chain |
+| C04 | Yuan | 30M | 594¹ | matched | full chains (9 Nov); clades match (max Δp 0.010) |
 | C07 | Haoyuan | 10M | 872¹ | matched | |
 | C08 | Sophie | 10M | – | **rc2 exception** | crashes at start in rc1 and rc2 (NPE in `CalibratedYuleModel.init`), fixed after rc2 by beast3#198; run on a post-rc2 build; see [Findings](#findings) |
 | C09 | Sophie | 10M | 282¹ | matched | rerun on rc2 (9 Nov) |
 | C11 | Haoyuan | 20M | 338¹ | matched | |
 | C12 🐢 | Sophie | 50M | 1180¹ | **not matched** | rerun on rc2 (9 Nov): gammaShape z = 167, mean 0.120 (BEAST 2) vs 0.057 (BEAST 3), so the BEAST 3 XML still lets the shape go below 0.1; BEAST 2 runs stopped before the end of the chain |
 | C14 🐢 | Yuan | 100M | 253¹ | matched | compared by clade from the trees, not by `Indicators.N` (node numbers aren't tied to clades); extended to 100M, BEAST 2 rep2 stopped at 76.7M; branch-rate comparison still on the shorter tree files; see [Findings](#findings) |
-| C16 🐢 | Yuan | 100M | 206¹ | matched | all 4 runs stopped before the end of the chain |
+| C16 🐢 | Yuan | 35M | 522¹ | matched | full chains (9 Nov); ORC relaxed clock matches, `ORCsigma` z = 1.18; clades match (max Δp 0.017) |
 | C19 | Haoyuan | 10M | 1253¹ | matched | |
 | C20 | Sophie | 10M | 1182¹ | matched, **rerun (rc1)** | BEAST 3 run with rc1, not rc2 |
 | C22 | Sophie | — | 149¹ | matched (ESS < 200) | rc2, starting tree `data/anolis-start.newick`; `freqParameter.2` ESS 149 in one BEAST 2 replicate |
 | C23 🐢 | Haoyuan | 20M | 305¹ | matched | |
-| C25 | Yuan | 100M | 246¹ | matched | 3 of 4 runs stopped before the end of the chain |
+| C25 | Yuan | 100M | 274¹ | matched | full chains (9 Nov); all four unlinked trees match (heights, lengths, clades, max Δp 0.004) |
 | C27 | Haoyuan | 10M | 207¹ | matched | script flags `CalibratedYuleModel` (z = 8.2): a bookkeeping difference, and both versions match the analytic calibrations; see below |
-| C29 | Yuan | 10M | 242¹ | matched | all 4 runs stopped before the end of the chain |
-| C30 | Yuan | 20M | 227¹ | matched | resumed run matches the uninterrupted BEAST 3 runs (max z 0.86, `reports/summary/C30-resume-vs-uninterrupted.md`); 3 of 4 runs stopped early |
+| C29 | Yuan | 10M | 854¹ | matched | full chains (9 Nov); edited priors give the same posterior; clades match (max Δp 0.034) |
+| C30 | Yuan | 20M | 348¹ | matched | full chains (9 Nov); resumed run matches the uninterrupted BEAST 3 runs (max z 1.55, clade Δp ≤ 0.006, `reports/summary/C30-resume-vs-uninterrupted.md`); only one resumed replicate |
 
 ¹ Rows added on 9 Nov give the smallest ESS of any replicate in either version, not the combined
 ESS. "Stopped before the end" means beast.out has no `End likelihood` line; the samples logged so
 far are compared.
 
-Clades and tMRCAs are not compared yet. Tree files go to the Dropbox folder `beast3-test`
-(<https://www.dropbox.com/home/beast3-test>), not git; Eva's are not there yet.
+Tree files go to the Dropbox folder `beast3-test` (<https://www.dropbox.com/home/beast3-test>),
+not git; Eva's are not there yet. Clades are compared where the tree files are there
+(`compare.py --trees-root`). For C04, C16, C25, C29 and C30 the Dropbox tree files are from 8 Nov
+and most end before the end of the chain, so their clades are compared on fewer samples than
+the traces.
 
 ### C26: marginals against the analytic prior
 

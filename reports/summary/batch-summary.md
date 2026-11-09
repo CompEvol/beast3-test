@@ -5,7 +5,7 @@
 | C01 | 2/2 | 1663 | 2.966 | – | 0 | matched |
 | C02 | 2/2 | 1275 | 1.84 | – | 0 | matched |
 | C03 | 2/2 | 146 | 1.683 | – | 0 | matched (ESS < 200) |
-| C04 | 2/2 | 220 | 1.805 | – | 0 | matched (run problems) |
+| C04 | 2/2 | 594 | 2.767 | 0.010 | 0 | matched |
 | C05 | 2/2 | 223 | 1.359 | 0.007 | 0 | matched |
 | C06 | 4/4 | 288 | 9.109 | – | 3 | not matched (constant `prior` offset, see beauti-manual) |
 | C07 | 2/2 | 872 | 1.18 | – | 0 | matched |
@@ -17,7 +17,7 @@
 | C13 | 2/2 | 243 | 2.884 | – | 0 | matched |
 | C14 | 2/2 | 253 | 2.724 | 0.010 | 0 | matched (run problems) |
 | C15 | 2/2 | 427 | 5.295 | 0.052 | 222 | not matched |
-| C16 | 2/2 | 206 | 1.124 | – | 0 | matched (run problems) |
+| C16 | 2/2 | 522 | 2.035 | 0.017 | 0 | matched |
 | C17 | 2/2 | 286 | 2.104 | 0.008 | 0 | matched |
 | C18 | 2/2 | 1146 | 9.096 | – | 1 | not matched |
 | C19 | 2/2 | 1253 | 0.9438 | – | 0 | matched |
@@ -26,11 +26,11 @@
 | C22 | 2/2 | 149 | 2.401 | – | 0 | matched (ESS < 200) |
 | C23 | 2/2 | 305 | 2.283 | – | 0 | matched |
 | C24 | 2/2 | 246 | 2.286 | 0.001 | 0 | matched |
-| C25 | 2/2 | 246 | 2.159 | – | 0 | matched (run problems) |
+| C25 | 2/2 | 274 | 2.276 | 0.004 | 0 | matched |
 | C26 | 2/2 | 475 | 1.733 | – | 0 | matched |
 | C27 | 2/2 | 207 | 8.229 | – | 1 | not matched |
-| C29 | 2/2 | 242 | 1.692 | – | 0 | matched (run problems) |
-| C30 | 2/2 | 227 | 2.246 | – | 0 | matched (run problems) |
+| C29 | 2/2 | 854 | 1.701 | 0.034 | 0 | matched |
+| C30 | 2/2 | 348 | 2.337 | 0.003 | 0 | matched |
 | bitflip | 2/2 | 3510 | 0 | – | 0 | matched |
 | testBSP | 2/2 | 2429 | 1.911 | 0.018 | 0 | matched |
 | testCalYule_5t_2c | 2/2 | 355 | 2.098 | 0.005 | 0 | matched |

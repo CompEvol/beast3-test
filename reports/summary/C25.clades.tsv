@@ -1,0 +1,62 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+CN_bN_rN-Nstpos.trees	Hylobates Pongo	2	0.764597	0.768274	0.003677	
+CN_bN_rN-Nstpos.trees	Gorilla Pan	2	0.384343	0.381838	0.002505	
+CN_bN_rN-Nstpos.trees	Gorilla Homo_sapiens	2	0.604324	0.606815	0.002492	
+CN_bN_rN-Nstpos.trees	Gorilla Homo_sapiens Pan Pongo	4	0.197195	0.195174	0.002021	
+CN_bN_rN-Nstpos.trees	Gorilla Homo_sapiens Hylobates Lemur_catta M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Tarsius_syrichta	11	0.264365	0.266092	0.001727	
+CN_bN_rN-Nstpos.trees	M._fascicularis M._mulatta	2	0.132637	0.130914	0.001723	
+CN_bN_rN-Nstpos.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Saimiri_sciureus	10	0.517961	0.516474	0.001487	
+CN_bN_rN-Nstpos.trees	M._fascicularis Macaca_fuscata	2	0.075143	0.076122	0.000979	
+CN_bN_rN-Nstpos.trees	M._fascicularis M._mulatta Macaca_fuscata	3	0.967174	0.966474	0.000700	
+CN_bN_rN-Nstpos.trees	Lemur_catta Saimiri_sciureus Tarsius_syrichta	3	0.213333	0.212791	0.000543	
+CN_bN_rN-Nstpos.trees	Lemur_catta Tarsius_syrichta	2	0.990350	0.989837	0.000514	
+CN_bN_rN-Nstpos.trees	M._mulatta Macaca_fuscata	2	0.786740	0.787191	0.000452	
+CN_bN_rN-Nstpos.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo	9	0.997051	0.996946	0.000104	
+CN_bN_rN-Nstpos.trees	Gorilla Homo_sapiens Hylobates Pan Pongo	5	0.999344	0.999413	0.000069	
+CN_bN_rN-Nstpos.trees	Gorilla Homo_sapiens Pan	3	1.000000	1.000000	0.000000	
+CN_bN_rN-Nstpos.trees	M._fascicularis M._mulatta M._sylvanus Macaca_fuscata	4	1.000000	1.000000	0.000000	
+CN_bN_rN-Nndpos.trees	Gorilla Homo_sapiens Hylobates Pan Pongo Saimiri_sciureus	6	0.062478	0.061107	0.001371	
+CN_bN_rN-Nndpos.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Saimiri_sciureus	10	0.606020	0.604792	0.001229	
+CN_bN_rN-Nndpos.trees	M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Saimiri_sciureus	5	0.095834	0.096765	0.000931	
+CN_bN_rN-Nndpos.trees	Gorilla Pan	2	0.059469	0.060393	0.000925	
+CN_bN_rN-Nndpos.trees	Lemur_catta Saimiri_sciureus Tarsius_syrichta	3	0.246325	0.247211	0.000886	
+CN_bN_rN-Nndpos.trees	M._mulatta Macaca_fuscata	2	0.989303	0.990180	0.000877	
+CN_bN_rN-Nndpos.trees	Homo_sapiens Pan	2	0.924029	0.923174	0.000855	
+CN_bN_rN-Nndpos.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo	9	0.780304	0.781030	0.000726	
+CN_bN_rN-Nndpos.trees	Gorilla Homo_sapiens Pan	3	0.994705	0.995347	0.000643	
+CN_bN_rN-Nndpos.trees	Gorilla Homo_sapiens Hylobates Lemur_catta M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Tarsius_syrichta	11	0.113046	0.113614	0.000568	
+CN_bN_rN-Nndpos.trees	Gorilla Homo_sapiens Pan Pongo	4	0.992776	0.992466	0.000310	
+CN_bN_rN-Nndpos.trees	M._fascicularis M._mulatta Macaca_fuscata	3	0.994638	0.994769	0.000131	
+CN_bN_rN-Nndpos.trees	Lemur_catta Tarsius_syrichta	2	0.999808	0.999919	0.000111	
+CN_bN_rN-Nndpos.trees	M._fascicularis M._mulatta M._sylvanus Macaca_fuscata	4	1.000000	1.000000	0.000000	
+CN_bN_rN-Nndpos.trees	Gorilla Homo_sapiens Hylobates Pan Pongo	5	1.000000	1.000000	0.000000	
+CN_bN_rN-Nrdpos.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo	9	0.972357	0.971289	0.001067	
+CN_bN_rN-Nrdpos.trees	Gorilla Homo_sapiens Pan Pongo	4	0.997873	0.997678	0.000194	
+CN_bN_rN-Nrdpos.trees	Gorilla Homo_sapiens Hylobates Lemur_catta M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Saimiri_sciureus	11	0.186671	0.186863	0.000192	
+CN_bN_rN-Nrdpos.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Saimiri_sciureus Tarsius_syrichta	11	0.151843	0.151702	0.000142	
+CN_bN_rN-Nrdpos.trees	Homo_sapiens Pan	2	0.990562	0.990695	0.000132	
+CN_bN_rN-Nrdpos.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Saimiri_sciureus	10	0.999364	0.999458	0.000094	
+CN_bN_rN-Nrdpos.trees	Gorilla Homo_sapiens Hylobates Pan Pongo	5	0.999642	0.999575	0.000067	
+CN_bN_rN-Nrdpos.trees	Lemur_catta Tarsius_syrichta	2	0.661380	0.661427	0.000047	
+CN_bN_rN-Nrdpos.trees	M._mulatta Macaca_fuscata	2	0.999987	1.000000	0.000013	
+CN_bN_rN-Nrdpos.trees	M._fascicularis M._mulatta Macaca_fuscata	3	0.998900	0.998907	0.000007	
+CN_bN_rN-Nrdpos.trees	Gorilla Homo_sapiens Pan	3	0.999940	0.999937	0.000004	
+CN_bN_rN-Nrdpos.trees	M._fascicularis M._mulatta M._sylvanus Macaca_fuscata	4	1.000000	1.000000	0.000000	
+CN_bN_rN-noncoding.trees	Homo_sapiens Pan	2	0.931306	0.934710	0.003404	
+CN_bN_rN-noncoding.trees	Gorilla Pan	2	0.064930	0.061694	0.003236	
+CN_bN_rN-noncoding.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo	9	0.445568	0.444191	0.001377	
+CN_bN_rN-noncoding.trees	Lemur_catta M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Saimiri_sciureus Tarsius_syrichta	7	0.110580	0.111762	0.001181	
+CN_bN_rN-noncoding.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Saimiri_sciureus	10	0.119759	0.120714	0.000955	
+CN_bN_rN-noncoding.trees	Hylobates Pongo	2	0.910290	0.911176	0.000886	
+CN_bN_rN-noncoding.trees	M._fascicularis M._mulatta Macaca_fuscata	3	0.070179	0.070891	0.000712	
+CN_bN_rN-noncoding.trees	Gorilla Homo_sapiens Pan Pongo	4	0.062922	0.062272	0.000649	
+CN_bN_rN-noncoding.trees	Gorilla Homo_sapiens Hylobates Lemur_catta Pan Pongo Saimiri_sciureus Tarsius_syrichta	8	0.296277	0.296619	0.000342	
+CN_bN_rN-noncoding.trees	Gorilla Homo_sapiens Hylobates Pan Pongo Saimiri_sciureus	6	0.189308	0.189582	0.000273	
+CN_bN_rN-noncoding.trees	Lemur_catta Saimiri_sciureus Tarsius_syrichta	3	0.698541	0.698295	0.000245	
+CN_bN_rN-noncoding.trees	M._fascicularis M._sylvanus	2	0.918216	0.918015	0.000201	
+CN_bN_rN-noncoding.trees	Gorilla Homo_sapiens Pan	3	0.998747	0.998654	0.000093	
+CN_bN_rN-noncoding.trees	Lemur_catta M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Tarsius_syrichta	6	0.084965	0.084930	0.000035	
+CN_bN_rN-noncoding.trees	Lemur_catta Tarsius_syrichta	2	0.999980	0.999991	0.000011	
+CN_bN_rN-noncoding.trees	M._mulatta Macaca_fuscata	2	1.000000	1.000000	0.000000	
+CN_bN_rN-noncoding.trees	M._fascicularis M._mulatta M._sylvanus Macaca_fuscata	4	1.000000	1.000000	0.000000	
+CN_bN_rN-noncoding.trees	Gorilla Homo_sapiens Hylobates Pan Pongo	5	1.000000	1.000000	0.000000	
