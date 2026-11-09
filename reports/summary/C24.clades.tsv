@@ -1,0 +1,11 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+CN-bN-noncoding.trees	Gorilla Homo_sapiens Pan Pongo	4	0.998945	0.998389	0.000555	
+CN-bN-noncoding.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo Saimiri_sciureus	10	0.999111	0.999278	0.000167	
+CN-bN-noncoding.trees	Lemur_catta Tarsius_syrichta	2	0.998056	0.998222	0.000167	
+CN-bN-noncoding.trees	Homo_sapiens Pan	2	0.999000	0.998945	0.000056	
+CN-bN-noncoding.trees	M._mulatta Macaca_fuscata	2	1.000000	1.000000	0.000000	
+CN-bN-noncoding.trees	Gorilla Homo_sapiens Pan	3	1.000000	1.000000	0.000000	
+CN-bN-noncoding.trees	M._fascicularis M._mulatta Macaca_fuscata	3	1.000000	1.000000	0.000000	
+CN-bN-noncoding.trees	M._fascicularis M._mulatta M._sylvanus Macaca_fuscata	4	1.000000	1.000000	0.000000	
+CN-bN-noncoding.trees	Gorilla Homo_sapiens Hylobates Pan Pongo	5	1.000000	1.000000	0.000000	
+CN-bN-noncoding.trees	Gorilla Homo_sapiens Hylobates M._fascicularis M._mulatta M._sylvanus Macaca_fuscata Pan Pongo	9	0.999889	0.999889	0.000000	

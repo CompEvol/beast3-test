@@ -4,7 +4,7 @@
 
 ## Next steps
 
-1. **Yao:** commit the trace logs, XMLs and beast.out for C05, C15, C17, C21, C24 (the trees are in Dropbox), and run C28.
+1. **Yao:** rerun C15 and C21 with the same priors in both versions (clock rate in C15, birth rate in C21); rebuild C17 without changing the ORC rate prior in the Priors panel; run C28.
 1. **Sophie:** rerun C20 on rc2 (still rc1). Check C12's BEAST 3 XML for the gammaShape lower bound. Run the BEAST 2 side of C03 and C22 a little longer.
 1. **Yuan:** let C04, C14, C16, C25, C29, C30 run to the end of the chain.
 1. **After rc3:** run the existing C08 and C13 XMLs (C13 also needs a BEAST.base 2.7.9 refresh).

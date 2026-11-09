@@ -1,0 +1,8 @@
+# C15: random local clock (as C14). Indicators.N and clockrates.N are indexed by node number, and an
+# internal node number is not tied to a clade (topology moves change which clade it sits above),
+# so these columns are not comparable index by index between runs. The log's own
+# sum(Indicators.) (the number of rate changes) is still compared, and the branch rates are
+# compared by clade from the tree log (in Dropbox).
+!exclude	Indicators\.\d+	indexed by node number, not by clade
+!exclude	clockrates\.\d+	indexed by node number, not by clade
+!branch-meta	rate

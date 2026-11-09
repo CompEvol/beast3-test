@@ -1,0 +1,51 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-47 E16-HEALTHY-HEART	2	0.000000	0.052161	0.052161	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-5 1465-cerebral-cortex-neuron-8	6	0.027108	0.052716	0.025608	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-2 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-24 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-30 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-46 1465-cerebral-cortex-neuron-47 1465-cerebral-cortex-neuron-5 1465-cerebral-cortex-neuron-6 1465-cerebral-cortex-neuron-77 1465-cerebral-cortex-neuron-8	14	0.207033	0.215087	0.008055	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-8	2	0.120653	0.126153	0.005499	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-30 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-5 1465-cerebral-cortex-neuron-8	8	0.142595	0.147261	0.004666	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-5 1465-cerebral-cortex-neuron-8	7	0.209310	0.204811	0.004500	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-25	2	0.107488	0.111654	0.004166	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-5 1465-cerebral-cortex-neuron-8	2	0.063271	0.067270	0.004000	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-3 1465-cerebral-cortex-neuron-46	2	0.060771	0.056771	0.004000	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-2 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-24 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-3 1465-cerebral-cortex-neuron-30 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-46 1465-cerebral-cortex-neuron-47 1465-cerebral-cortex-neuron-5 1465-cerebral-cortex-neuron-6 1465-cerebral-cortex-neuron-77 1465-cerebral-cortex-neuron-8	15	0.303022	0.306744	0.003722	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-8	2	0.057660	0.053994	0.003666	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-30	2	0.105322	0.108821	0.003500	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-5	2	0.058827	0.055494	0.003333	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-3 1465-cerebral-cortex-neuron-6	2	0.115432	0.118709	0.003277	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-20	2	0.140040	0.143095	0.003055	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-39	3	0.068992	0.071825	0.002833	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-30 1465-cerebral-cortex-neuron-77	2	0.067048	0.064215	0.002833	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-30	3	0.068992	0.066437	0.002555	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-3 E16-HEALTHY-HEART	2	0.204477	0.206921	0.002444	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-39	2	0.180258	0.177980	0.002278	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-2 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-5 1465-cerebral-cortex-neuron-8	8	0.071659	0.069381	0.002278	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-46 E16-HEALTHY-HEART	2	0.056438	0.054216	0.002222	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-24 1465-cerebral-cortex-neuron-46 1465-cerebral-cortex-neuron-6	3	0.051883	0.054105	0.002222	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-2 1465-cerebral-cortex-neuron-77	2	0.126208	0.124042	0.002166	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-3 1465-cerebral-cortex-neuron-47	2	0.135152	0.132985	0.002166	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-3 1465-cerebral-cortex-neuron-77	2	0.079991	0.077936	0.002055	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-8	2	0.067715	0.065659	0.002055	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-39	2	0.053716	0.055660	0.001944	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-25	3	0.065437	0.063548	0.001889	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-8	4	0.098378	0.096545	0.001833	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-25	2	0.357682	0.355960	0.001722	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-2 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-24 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-30 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-46 1465-cerebral-cortex-neuron-5 1465-cerebral-cortex-neuron-6 1465-cerebral-cortex-neuron-77 1465-cerebral-cortex-neuron-8	13	0.064993	0.066548	0.001555	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-24 1465-cerebral-cortex-neuron-3	2	0.053827	0.055383	0.001555	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-8	6	0.156038	0.157427	0.001389	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-2 1465-cerebral-cortex-neuron-6	2	0.210532	0.209143	0.001389	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-5 E16-HEALTHY-HEART	2	0.064048	0.063160	0.000889	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-3 1465-cerebral-cortex-neuron-47 1465-cerebral-cortex-neuron-6	3	0.060882	0.061771	0.000889	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25	3	0.154150	0.154983	0.000833	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-39	4	0.068826	0.069659	0.000833	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-39	2	0.125930	0.126708	0.000778	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-2 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-24 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-30 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-46 1465-cerebral-cortex-neuron-47 1465-cerebral-cortex-neuron-5 1465-cerebral-cortex-neuron-6 1465-cerebral-cortex-neuron-8	13	0.074881	0.075603	0.000722	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-47 1465-cerebral-cortex-neuron-6	2	0.066770	0.066215	0.000555	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-39 1465-cerebral-cortex-neuron-8	5	0.057994	0.057438	0.000555	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-30 1465-cerebral-cortex-neuron-5	2	0.274858	0.275414	0.000555	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-46 1465-cerebral-cortex-neuron-6	2	0.073714	0.073270	0.000444	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-8	2	0.120653	0.120264	0.000389	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-12 1465-cerebral-cortex-neuron-18 1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25 1465-cerebral-cortex-neuron-8	5	0.083602	0.083824	0.000222	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-24 1465-cerebral-cortex-neuron-46	2	0.268304	0.268415	0.000111	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-2 1465-cerebral-cortex-neuron-24	2	0.092823	0.092823	0.000000	
+CN-bN-EN-binary.trees	1465-cerebral-cortex-neuron-20 1465-cerebral-cortex-neuron-25	2	0.072381	0.072381	0.000000	
