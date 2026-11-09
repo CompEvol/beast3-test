@@ -11,7 +11,7 @@ Burn-in 10 %.
 | ID | Tester | Chain | Min ESS (b2 / b3, combined) | Verdict | Notes |
 |----|--------|------:|----------------------------:|---------|-------|
 | C01 | Eva | 3M | 4113 / 3494 | matched | largest z = 2.97, just under the flag threshold |
-| C06 | Eva | 10M | 542 / 471 | matched (ESS < 200) | `freqParameter.1stpos.1` has ESS 199 in one BEAST 3 replicate; z = 0.41 |
+| C06 | Eva | 15M | 684 / 861 | matched, constant offset in `prior` | rerun at 15M. Script flags `prior` (z = 6.8, shift 0.64): the C18 offset, 0.1 per gamma shape, so 0.4 here with four (z ≈ 2.6 after removing it; `posterior` shift 0.45). Also flags `gammaShape.2ndpos` (z = 3.15, mean 0.144 vs 0.146, near the 0.1 bound); see [Findings](#findings) |
 | C10 | Eva | 10M | 852 / 4644 | matched | |
 | C13 🐢 | Eva | 30M | 592 / 684 | **not a valid pass** | the versions agree, but both run `SampleOffValues` with the wrong Hastings ratio, so neither samples the posterior; see [Findings](#findings). `EBSP.log` not compared (non-numeric `popsSize0` column) |
 | C18 | Eva | 10M | 2527 / 2553 | matched, constant offset in `prior` | see [Findings](#findings): script flags `prior` (z = 9.1) |
@@ -70,7 +70,7 @@ version:
   which normalises the density by 1/P(X > 0.1) = e^0.1. BEAUti 2.7.9 writes `Prior(Exponential(1))`
   on a parameter with `lower="0.1"`, which only enforces the bound. The offset is constant, so the
   posterior is the same. Expect it in any analysis with a gamma shape whose prior has mass below
-  0.1. Not raised as an issue.
+  0.1, 0.1 per gamma shape: C06 has four, so its offset is 0.4. Not raised as an issue.
 
 - **Sophie's BEAST 3 runs used rc1 (C03, C08, C09, C12, C20).** Their beast.out headers say
   `BEAST v2.8.0 rc1`; everyone else used rc2. They need rebuilding in BEAUti 3 rc2 and rerunning.
@@ -270,10 +270,10 @@ Slides for the research group (9 Nov): `doc/subtree-slide-tuning.tex`
 
 ## Deviations from the run protocol
 
-- Eva's files are named `C01-b2.xml` / `C01-b3.xml` and `log/C01/`, not `beauti-C01.xml` and
-  `log/beauti-C01/`, and stdout is `<name>.out`, not `beast.out`. `compare.py` handles both.
+- Eva's files are named `C01.xml` and `log/C01/`, not `beauti-C01.xml` and `log/beauti-C01/`. The
+  XMLs and logs inside `log/` still carry the original `-b2` / `-b3` suffix (`C01-b2.log`).
 - `beast3/log/C18/rep1/` and `rep2/` also hold `18-b3.out`, from a second seed-1 run whose log is
-  not in the repo. `C18-b3.out` is the one that matches the committed log.
+  not in the repo. `beast.out` is the one that matches the committed log.
 
 ## BEAUti oddities
 
