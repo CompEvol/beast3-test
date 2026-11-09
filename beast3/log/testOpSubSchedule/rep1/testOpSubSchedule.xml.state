@@ -1,15 +1,15 @@
 <itsabeastystatewerein version='2.0' sample='1000000'>
-<statenode id='tree'>(((4:0.03241415007969918,(0:0.028308985072687337,(3:0.008117080687434166,2:0.008117080687434166)6:0.020191904385253173)8:0.004105165007011843)9:0.020802728194481118,5:0.0532168782741803)7:0.0117113540832708,1:0.0649282323574511)10:0.0</statenode>
-<statenode id='hky.kappa'>hky.kappa: 15.014548163525554</statenode>
+<statenode id='tree'>(1:0.07611474436818871,(5:0.05969450758319418,(4:0.042953812445080036,((3:0.013593432952530802,2:0.013593432952530802)6:0.008510953523737734,0:0.022104386476268535)9:0.0208494259688115)8:0.016740695138114145)7:0.016420236784994532)10:0.0</statenode>
+<statenode id='hky.kappa'>hky.kappa: 40.37791958574609</statenode>
 </itsabeastystatewerein>
 <!--
 {"operators":[
-{"id":"kappaScaler","p":0.4984880506650521,"accept":10913,"reject":24867,"acceptFC":10725,"rejectFC":24397,"rejectIv":0,"rejectOp":0},
-{"id":"uniform","p":"NaN","accept":137095,"reject":219426,"acceptFC":134549,"rejectFC":215252,"rejectIv":0,"rejectOp":0},
-{"id":"narrow","p":"NaN","accept":2078,"reject":33247,"acceptFC":2042,"rejectFC":32602,"rejectIv":0,"rejectOp":0},
-{"id":"wide","p":"NaN","accept":390,"reject":35887,"acceptFC":385,"rejectFC":35215,"rejectIv":20259,"rejectOp":20259},
-{"id":"wilsonBalding","p":"NaN","accept":168,"reject":35424,"acceptFC":164,"rejectFC":34749,"rejectIv":18268,"rejectOp":18268},
-{"id":"treeScaler","p":0.1825822967018371,"accept":24191,"reject":59480,"acceptFC":24141,"rejectFC":58015,"rejectIv":0,"rejectOp":0},
-{"id":"subtreeSlide","p":0.46945191082962645,"accept":126090,"reject":290745,"acceptFC":122571,"rejectFC":286437,"rejectIv":0,"rejectOp":0}
+{"id":"kappaScaler","p":0.672750235101767,"accept":11241,"reject":24674,"acceptFC":10902,"rejectFC":24289,"rejectIv":0,"rejectOp":0},
+{"id":"uniform","p":"NaN","accept":138453,"reject":218252,"acceptFC":135792,"rejectFC":214137,"rejectIv":0,"rejectOp":0},
+{"id":"narrow","p":"NaN","accept":1969,"reject":33436,"acceptFC":1934,"rejectFC":32790,"rejectIv":0,"rejectOp":0},
+{"id":"wide","p":"NaN","accept":327,"reject":35641,"acceptFC":320,"rejectFC":34878,"rejectIv":20022,"rejectOp":20022},
+{"id":"wilsonBalding","p":"NaN","accept":165,"reject":35627,"acceptFC":161,"rejectFC":34954,"rejectIv":18260,"rejectOp":18260},
+{"id":"treeScaler","p":0.1835747181765781,"accept":23577,"reject":60031,"acceptFC":23534,"rejectFC":58504,"rejectIv":0,"rejectOp":0},
+{"id":"subtreeSlide","p":0.4742894847158675,"accept":124131,"reject":292477,"acceptFC":120661,"rejectFC":288240,"rejectIv":0,"rejectOp":0}
 ]}
 -->

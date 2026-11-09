@@ -21,15 +21,15 @@ testDirectSimulatorHierarchical.xml	Walter	none	Simulator, no MCMC posterior.
 testEBSP.xml	Alexei	pass	Run at 200M. Matches with the `SampleOffValues` fix (beast3#203, beast2#1223) in both versions; rc2 doesn't have it.
 testExponentialGrowth.xml	Alexei	pass
 testGTR.xml	shared	explained	Constant offset in `prior` (log 1e6). Every parameter, the tree height and every clade match.
-testHKY.json	shared	open	The conversion changed the prior on kappa: posterior mean 30.1 (BEAST 2) vs 17.6 (BEAST 3). Fix the conversion or accept the new prior.
-testHKY.xml	shared	open	The conversion changed the prior on kappa: posterior mean 30.1 (BEAST 2) vs 17.6 (BEAST 3). Fix the conversion or accept the new prior.
+testHKY.json	shared	pass	Kappa prior changed to LogNormal(0, 8) in both versions (was 1/X in BEAST 2, LogNormal(1, 0.5) in the conversion).
+testHKY.xml	shared	pass	Kappa prior changed to LogNormal(0, 8) in both versions (was 1/X in BEAST 2, LogNormal(1, 0.5) in the conversion).
 testJukesCantor.xml	shared	pass
 testJukesCantorShort.xml	shared	pass
 testJukesCantorShortUncertain.xml	shared	pass
 testJukesCantorShortUncertain2.xml	shared	pass
 testJukesCantorShortUncertain2MLE.xml	shared	pass
 testMultipleAlignments_randomTaxaOrder.xml	Walter	none
-testOpSubSchedule.xml	shared	open	Same kappa prior change as testHKY.
+testOpSubSchedule.xml	shared	pass	Same kappa prior change as testHKY.
 testPlates.xml	shared	pass
 testRNA.xml	shared	explained	Same model as testGTR with RNA coding; identical traces, same `prior` offset.
 testRandomLocalClock.xml	Walter	none	Run at 100M. Compare the RLC indicators by clade from the trees, as for C14.

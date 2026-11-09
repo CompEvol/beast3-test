@@ -4,21 +4,22 @@
 |---|---|---:|---:|---:|---:|---|
 | C01 | 2/2 | 1663 | 2.966 | – | 0 | matched |
 | C02 | 2/2 | 1275 | 1.84 | – | 0 | matched |
-| C03 | 2/2 | 146 | 1.452 | – | 0 | matched (ESS < 200) |
+| C03 | 2/2 | 146 | 1.683 | – | 0 | matched (ESS < 200) |
 | C04 | 2/2 | 220 | 1.805 | – | 0 | matched (run problems) |
 | C06 | 4/4 | 288 | 9.109 | – | 3 | not matched (constant `prior` offset, see beauti-manual) |
 | C07 | 2/2 | 872 | 1.18 | – | 0 | matched |
 | C08 | 2/2 | – | – | – | 0 | no comparison |
-| C09 | 2/2 | 273 | 1.988 | – | 0 | matched |
+| C09 | 2/2 | 282 | 2.583 | – | 0 | matched |
 | C10 | 2/2 | 383 | 1.904 | – | 0 | matched |
 | C11 | 2/2 | 338 | 2.295 | – | 0 | matched |
-| C12 | 2/2 | 973 | 123.83 | – | 8 | not matched (run problems) |
+| C12 | 2/2 | 1180 | 167.3 | – | 9 | not matched (run problems) |
 | C13 | 2/2 | 243 | 2.884 | – | 0 | matched |
 | C14 | 2/2 | 264 | 2.724 | 0.010 | 0 | matched (run problems) |
 | C16 | 2/2 | 206 | 1.124 | – | 0 | matched (run problems) |
 | C18 | 2/2 | 1146 | 9.096 | – | 1 | not matched |
 | C19 | 2/2 | 1253 | 0.9438 | – | 0 | matched |
 | C20 | 2/2 | 1182 | 1.019 | – | 0 | matched (run problems) |
+| C22 | 2/2 | 149 | 2.401 | – | 0 | matched (ESS < 200) |
 | C23 | 2/2 | 305 | 2.283 | – | 0 | matched |
 | C25 | 2/2 | 246 | 2.159 | – | 0 | matched (run problems) |
 | C26 | 2/2 | 475 | 1.733 | – | 0 | matched |
@@ -41,14 +42,14 @@
 | testExponentialGrowth | 2/2 | 1898 | 1.058 | 0.010 | 0 | matched |
 | testExponentialGrowth-v278 | 2/2 | 1540 | 2.386 | 0.010 | 0 | matched |
 | testGTR | 2/2 | 264 | 678.18 | 0.002 | 2 | not matched |
-| testHKY | 2/2 | 3946 | 116.39 | 0.006 | 3 | not matched |
-| testHKY-json | 2/2 | 3946 | 116.39 | 0.006 | 3 | not matched |
+| testHKY | 2/2 | 4060 | 1.466 | 0.005 | 0 | matched |
+| testHKY-json | 2/2 | 4060 | 1.466 | 0.005 | 0 | matched |
 | testJukesCantor | 2/2 | 3962 | 1.944 | 0.030 | 0 | matched |
 | testJukesCantorShort | 2/2 | 3778 | 0.5126 | 0.005 | 0 | matched |
 | testJukesCantorShortUncertain | 2/2 | 3955 | 2.531 | 0.014 | 0 | matched |
 | testJukesCantorShortUncertain2 | 2/2 | 3970 | 0.1711 | 0.009 | 0 | matched |
 | testJukesCantorShortUncertain2MLE | 2/2 | 4220 | 1.365 | 0.053 | 0 | matched |
-| testOpSubSchedule | 2/2 | 2795 | 95.44 | 0.005 | 3 | not matched |
+| testOpSubSchedule | 2/2 | 2676 | 1.286 | 0.002 | 0 | matched |
 | testPlates | 2/2 | 224 | 0.9307 | 0.009 | 0 | matched |
 | testRNA | 2/2 | 264 | 678.18 | 0.002 | 2 | not matched |
 | testRestrictedGTR | 2/2 | 221 | 1056.12 | 0.001 | 2 | not matched |

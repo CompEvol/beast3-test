@@ -5,7 +5,7 @@
 ## Next steps
 
 1. **Yao:** C05, C15, C17, C21, C24, C28 on rc2 now. C15 and C17 are slow.
-1. **Sophie:** rebuild C03, C09, C12, C20 in BEAUti 3 rc2 and rerun. Run C22 with `data/anolis-start.newick`.
+1. **Sophie:** rerun C20 on rc2 (still rc1). Check C12's BEAST 3 XML for the gammaShape lower bound. Run the BEAST 2 side of C03 and C22 a little longer.
 1. **Yuan:** let C04, C14, C16, C25, C29, C30 run to the end of the chain.
 1. **After rc3:** run the existing C08 and C13 XMLs (C13 also needs a BEAST.base 2.7.9 refresh).
 

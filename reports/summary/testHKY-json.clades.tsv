@@ -1,6 +1,6 @@
 trees	clade	size	p_beast2	p_beast3	abs_dp	flag
-test.$(seed).trees	bonobo chimp gorilla human orangutan	5	0.830704	0.825039	0.005665	
-test.$(seed).trees	bonobo chimp gorilla human siamang	5	0.132748	0.136858	0.004110	
-test.$(seed).trees	bonobo chimp human	3	0.999111	0.999445	0.000333	
+test.$(seed).trees	bonobo chimp gorilla human orangutan	5	0.826372	0.830926	0.004555	
+test.$(seed).trees	bonobo chimp gorilla human siamang	5	0.136970	0.134859	0.002111	
+test.$(seed).trees	bonobo chimp human	3	0.999445	0.999111	0.000333	
 test.$(seed).trees	bonobo chimp	2	1.000000	1.000000	0.000000	
 test.$(seed).trees	bonobo chimp gorilla human	4	1.000000	1.000000	0.000000	

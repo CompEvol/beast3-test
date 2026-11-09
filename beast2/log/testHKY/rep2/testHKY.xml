@@ -68,7 +68,7 @@
         <init idref='coalescentSimulator'/>
         <distribution spec='CompoundDistribution' id='posterior'>
             <distribution spec='beast.base.inference.distribution.Prior' x='@hky.kappa'>
-                <distr spec='beast.base.inference.distribution.OneOnX'/>
+                <distr spec='beast.base.inference.distribution.LogNormalDistributionModel' M='0.0' S='8.0'/>
             </distribution>
             <distribution id='likelihood' idref="treeLikelihood"/>
         </distribution>

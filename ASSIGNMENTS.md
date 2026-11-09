@@ -43,7 +43,7 @@ Still to decide:
 
 - Whether to restore `TreeHeightLogger` as a deprecated alias of `TreeStatLogger` before release, or list its removal in the release notes. The same question applies to the seqgen class names and the JSON sequence format.
 
-- `testHKY.xml` and `testOpSubSchedule.xml` (already converted) replace the 1/X prior on kappa with a LogNormal. Fix them, or accept and document the change.
+- ~~`testHKY.xml` and `testOpSubSchedule.xml` (already converted) replace the 1/X prior on kappa with a LogNormal.~~ Done 9 Nov: both versions now use LogNormal(0, 8) on kappa (also in `testHKY.json`), and they match ([model-check.md](reports/model-check.md)).
 - How conversions handle the 1/X prior, which has no exact spec replacement. Eight of the 23 use it.
 - `testSliceHKY.xml` uses `SliceOperator`, which doesn't exist in BEAST 3. Exclude it, or port the operator.
 

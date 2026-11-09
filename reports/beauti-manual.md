@@ -17,17 +17,18 @@ Burn-in 10 %.
 | C18 | Eva | 10M | 2527 / 2553 | matched, constant offset in `prior` | see [Findings](#findings): script flags `prior` (z = 9.1) |
 | C26 | Eva | 20M | 985 / 1434 | matched | every marginal also matches its analytic prior, below |
 | C02 | Haoyuan | 10M | 1275¹ | matched | |
-| C03 | Sophie | 10M | 146¹ | **rerun (rc1)** | BEAST 3 run with rc1, not rc2; also ESS < 200 |
+| C03 | Sophie | 10M | 146¹ | matched (ESS < 200) | rerun on rc2 (9 Nov); `freqParameter.1` ESS 146 in one BEAST 2 replicate |
 | C04 | Yuan | 30M | 220¹ | matched | 3 of 4 runs stopped before the end of the chain |
 | C07 | Haoyuan | 10M | 872¹ | matched | |
 | C08 | Sophie | 10M | – | **rc2 exception** | crashes at start in rc1 and rc2 (NPE in `CalibratedYuleModel.init`), fixed after rc2 by beast3#198; run on a post-rc2 build; see [Findings](#findings) |
-| C09 | Sophie | 10M | 273¹ | matched, **rerun (rc1)** | BEAST 3 run with rc1, not rc2 |
+| C09 | Sophie | 10M | 282¹ | matched | rerun on rc2 (9 Nov) |
 | C11 | Haoyuan | 20M | 338¹ | matched | |
-| C12 🐢 | Sophie | 50M | 973¹ | **rerun (rc1)** | gammaShape z = 124: rc1 BEAUti dropped the 0.1 lower bound; see [Findings](#findings) |
+| C12 🐢 | Sophie | 50M | 1180¹ | **not matched** | rerun on rc2 (9 Nov): gammaShape z = 167, mean 0.120 (BEAST 2) vs 0.057 (BEAST 3), so the BEAST 3 XML still lets the shape go below 0.1; BEAST 2 runs stopped before the end of the chain |
 | C14 🐢 | Yuan | 76M | 264¹ | matched | compared by clade from the trees, not by `Indicators.N` (node numbers aren't tied to clades); 3 of 4 runs stopped before the end of the chain; see [Findings](#findings) |
 | C16 🐢 | Yuan | 100M | 206¹ | matched | all 4 runs stopped before the end of the chain |
 | C19 | Haoyuan | 10M | 1253¹ | matched | |
 | C20 | Sophie | 10M | 1182¹ | matched, **rerun (rc1)** | BEAST 3 run with rc1, not rc2 |
+| C22 | Sophie | — | 149¹ | matched (ESS < 200) | rc2, starting tree `data/anolis-start.newick`; `freqParameter.2` ESS 149 in one BEAST 2 replicate |
 | C23 🐢 | Haoyuan | 20M | 305¹ | matched | |
 | C25 | Yuan | 100M | 246¹ | matched | 3 of 4 runs stopped before the end of the chain |
 | C27 | Haoyuan | 10M | 207¹ | matched | script flags `CalibratedYuleModel` (z = 8.2): a bookkeeping difference, and both versions match the analytic calibrations; see below |

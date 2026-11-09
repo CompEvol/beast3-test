@@ -36,7 +36,7 @@ beast: [
 		 distribution: [
 			{spec: "beast.base.inference.distribution.Prior",
 				 x: {id: "hky.kappa", spec: "parameter.RealParameter", lower: 0.0, value: [ 1.0 ] },
-				 distr: {spec: "beast.base.inference.distribution.OneOnX" }
+				 distr: {spec: "beast.base.inference.distribution.LogNormalDistributionModel", M: "0.0", S: "8.0" }
 			},
 			{id: "treeLikelihood",
 			 spec: "TreeLikelihood", data: "@alignment", tree: "@tree",
