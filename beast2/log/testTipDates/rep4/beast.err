@@ -1,0 +1,33 @@
+File: testTipDates.xml seed: 894497562 threads: 1
+Loading package feast v10.6.1 bModelTest v1.3.3 starbeast3 v1.2.1 CCD v1.0.3 SA v2.1.1 BEAST.base v2.7.9 BEASTLabs v2.0.3 BEAST.app v2.7.8 ORC v1.2.1    
+    D4Brazi82  = 1982
+    D4ElSal83  = 1983
+    D4ElSal94  = 1994
+    D4Indon76  = 1976
+    D4Indon77  = 1977
+    D4Mexico84 = 1984
+    D4NewCal81 = 1981
+    D4Philip64 = 1964
+    D4Philip56 = 1956
+    D4Philip84 = 1984
+    D4PRico86  = 1986
+    D4SLanka78 = 1978
+    D4Tahiti79 = 1979
+    D4Tahiti85 = 1985
+    D4Thai63   = 1963
+    D4Thai78   = 1978
+    D4Thai84   = 1984    
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by beagle.BeagleJNIWrapper in an unnamed module (file:~/Library/Application%20Support/BEAST/2.7/BEAST.base/lib/BEAST.base.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 138 unique site patterns.
+  Using rescaling scheme : dynamic
+WARNING: Loggers appear to have different log frequency.
+WARNING: This may cause problems in post-processing based on more than one log files.
+WARNING: Therefore, it is recommended to use the same log frequency
+Hint: note that TreeWithMetaDataLogger with dp="X" prints out trees with decimal places, potentially reducing tree file sizes substantially.
+End likelihood: -4062.1513097850598

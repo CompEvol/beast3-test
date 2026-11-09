@@ -1,0 +1,7 @@
+File: testUCLNclock.json seed: 181696971 threads: 1
+Loading package feast v10.6.1 bModelTest v1.3.3 starbeast3 v1.2.1 CCD v1.0.3 SA v2.1.1 BEAST.base v2.7.9 BEASTLabs v2.0.3 BEAST.app v2.7.8 ORC v1.2.1    
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 358 unique site patterns.
+  Using rescaling scheme : dynamic
+End likelihood: -5064.041451495497

@@ -1,0 +1,5 @@
+beast3_branch	master
+beast3_commit	8cb5fd0+edited
+beast_base	2.7.9
+java	25.0.2
+run_date	2026-11-10

@@ -1,0 +1,215 @@
+
+                   BEAST v2.7.9 Prerelease, 2002-2026
+             Bayesian Evolutionary Analysis Sampling Trees
+                       Designed and developed by
+ Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
+                                    
+                   Centre for Computational Evolution
+                         University of Auckland
+                       r.bouckaert@auckland.ac.nz
+                        alexei@cs.auckland.ac.nz
+                                    
+                   Institute of Evolutionary Biology
+                        University of Edinburgh
+                           a.rambaut@ed.ac.uk
+                                    
+                    David Geffen School of Medicine
+                 University of California, Los Angeles
+                           msuchard@ucla.edu
+                                    
+                      Downloads, Help & Resources:
+                           http://beast2.org/
+                                    
+  Source code distributed under the GNU Lesser General Public License:
+                   http://github.com/CompEvol/beast2
+                                    
+                           BEAST developers:
+   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, 
+ Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
+Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
+          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie
+                                    
+                               Thanks to:
+          Roald Forsberg, Beth Shapiro and Korbinian Strimmer
+
+Random number seed: 894497562
+
+D4Brazi82: 1485 4
+D4ElSal83: 1485 4
+D4ElSal94: 1485 4
+D4Indon76: 1485 4
+D4Indon77: 1485 4
+D4Mexico84: 1485 4
+D4NewCal81: 1485 4
+D4Philip64: 1485 4
+D4Philip56: 1485 4
+D4Philip84: 1485 4
+D4PRico86: 1485 4
+D4SLanka78: 1485 4
+D4Tahiti79: 1485 4
+D4Tahiti85: 1485 4
+D4Thai63: 1485 4
+D4Thai78: 1485 4
+D4Thai84: 1485 4
+Alignment(alignment)
+  17 taxa
+  1485 sites
+  138 patterns
+
+D4Brazi82 = 1982 (12.0)
+D4ElSal83 = 1983 (11.0)
+D4ElSal94 = 1994 (0.0)
+D4Indon76 = 1976 (18.0)
+D4Indon77 = 1977 (17.0)
+D4Mexico84 = 1984 (10.0)
+D4NewCal81 = 1981 (13.0)
+D4Philip64 = 1964 (30.0)
+D4Philip56 = 1956 (38.0)
+D4Philip84 = 1984 (10.0)
+7 more...
+Starting frequencies: [0.3075064369182016, 0.18768072885719944, 0.2724499900970489, 0.23236284412755]
+  Using BEAGLE version: 4.0.0 (PRE-RELEASE) resource 0: CPU (x86_64)
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_SSE THREADING_NONE PROCESSOR_CPU FRAMEWORK_CPU
+===============================================================================
+Citations for this model:
+
+Bouckaert, Remco, Timothy G. Vaughan, Joëlle Barido-Sottani, Sebastián Duchêne, Mathieu Fourment, 
+Alexandra Gavryushkina, Joseph Heled, Graham Jones, Denise Kühnert, Nicola De Maio, Michael Matschiner, 
+Fábio K. Mendes, Nicola F. Müller, Huw A. Ogilvie, Louis du Plessis, Alex Popinga, Andrew Rambaut, 
+David Rasmussen, Igor Siveroni, Marc A. Suchard, Chieh-Hsi Wu, Dong Xie, Chi Zhang, Tanja Stadler, 
+Alexei J. Drummond 
+  BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. 
+  PLoS computational biology 15, no. 4 (2019): e1006650.
+
+Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a
+  molecular clock of mitochondrial DNA. Journal of Molecular Evolution
+  22:160-174.
+
+===============================================================================
+Start likelihood: -31204.48754592617 
+Writing file ~/WorkSpace/beast3-test/beast2/log/testTipDates/rep4/test.894497562.log
+Writing file ~/WorkSpace/beast3-test/beast2/log/testTipDates/rep4/test.894497562.trees
+         Sample     likelihood
+              0    -30954.4151 --
+          10000     -3945.0724 --
+          20000     -3944.6215 --
+          30000     -3943.5873 --
+          40000     -3946.2184 --
+          50000     -3944.5843 --
+          60000     -3951.1988 7s/Msamples
+          70000     -3954.8210 10s/Msamples
+          80000     -3930.2417 9s/Msamples
+          90000     -3938.8392 8s/Msamples
+         100000     -3937.5757 8s/Msamples
+         110000     -3945.5141 8s/Msamples
+         120000     -3934.8238 8s/Msamples
+         130000     -3951.1235 8s/Msamples
+         140000     -3949.4764 7s/Msamples
+         150000     -3936.9772 7s/Msamples
+         160000     -3948.6906 7s/Msamples
+         170000     -3950.8421 7s/Msamples
+         180000     -3956.8518 7s/Msamples
+         190000     -3951.7632 7s/Msamples
+         200000     -3950.9063 7s/Msamples
+         210000     -3943.7590 7s/Msamples
+         220000     -3950.7921 7s/Msamples
+         230000     -3942.0566 7s/Msamples
+         240000     -3947.5618 7s/Msamples
+         250000     -3952.6374 7s/Msamples
+         260000     -3942.9665 7s/Msamples
+         270000     -3948.7539 7s/Msamples
+         280000     -3961.0405 7s/Msamples
+         290000     -3952.7111 7s/Msamples
+         300000     -3956.1285 7s/Msamples
+         310000     -3945.6574 7s/Msamples
+         320000     -3943.1838 7s/Msamples
+         330000     -3946.4344 7s/Msamples
+         340000     -3943.2053 7s/Msamples
+         350000     -3958.2394 7s/Msamples
+         360000     -3946.8805 7s/Msamples
+         370000     -3948.8270 7s/Msamples
+         380000     -3943.5536 7s/Msamples
+         390000     -3973.1077 7s/Msamples
+         400000     -3960.3043 7s/Msamples
+         410000     -3939.8645 7s/Msamples
+         420000     -3945.0858 7s/Msamples
+         430000     -3950.3611 7s/Msamples
+         440000     -3949.3369 7s/Msamples
+         450000     -3932.2023 7s/Msamples
+         460000     -3943.6184 7s/Msamples
+         470000     -3958.3435 7s/Msamples
+         480000     -3958.1467 7s/Msamples
+         490000     -3953.9893 7s/Msamples
+         500000     -3944.3368 6s/Msamples
+         510000     -3952.0835 6s/Msamples
+         520000     -3949.5283 6s/Msamples
+         530000     -3967.0735 6s/Msamples
+         540000     -3950.1766 6s/Msamples
+         550000     -3952.0331 6s/Msamples
+         560000     -3948.2834 6s/Msamples
+         570000     -3945.0737 6s/Msamples
+         580000     -3949.9020 6s/Msamples
+         590000     -3924.7346 6s/Msamples
+         600000     -3953.8137 6s/Msamples
+         610000     -3944.4644 6s/Msamples
+         620000     -3945.8781 6s/Msamples
+         630000     -3948.2053 6s/Msamples
+         640000     -3951.3888 6s/Msamples
+         650000     -3948.9474 6s/Msamples
+         660000     -3947.4613 6s/Msamples
+         670000     -3943.2744 6s/Msamples
+         680000     -3943.7248 6s/Msamples
+         690000     -3946.9109 6s/Msamples
+         700000     -3954.5418 6s/Msamples
+         710000     -3938.2941 6s/Msamples
+         720000     -3939.3224 6s/Msamples
+         730000     -3941.0344 6s/Msamples
+         740000     -3940.7825 6s/Msamples
+         750000     -3953.1227 6s/Msamples
+         760000     -3951.9918 6s/Msamples
+         770000     -3947.3652 6s/Msamples
+         780000     -3948.1765 6s/Msamples
+         790000     -3967.6679 6s/Msamples
+         800000     -3947.5401 6s/Msamples
+         810000     -3952.6804 6s/Msamples
+         820000     -3943.4538 6s/Msamples
+         830000     -3947.6448 6s/Msamples
+         840000     -3955.8326 6s/Msamples
+         850000     -3953.0903 6s/Msamples
+         860000     -3961.8763 6s/Msamples
+         870000     -3938.1301 6s/Msamples
+         880000     -3959.3720 6s/Msamples
+         890000     -3958.4211 6s/Msamples
+         900000     -3946.2915 6s/Msamples
+         910000     -3947.4200 6s/Msamples
+         920000     -3952.6563 6s/Msamples
+         930000     -3944.6859 6s/Msamples
+         940000     -3941.7363 6s/Msamples
+         950000     -3940.7862 6s/Msamples
+         960000     -3942.5473 6s/Msamples
+         970000     -3953.4100 6s/Msamples
+         980000     -3944.1223 6s/Msamples
+         990000     -3944.7601 6s/Msamples
+        1000000     -3945.3382 6s/Msamples
+
+Operator                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+TipDatesRandomWalker(TipDatesRandomWalker)     3.32643      11619      31688    0.04348    0.26829 
+TipDatesRandomWalker(TipDatesRandomWalker2)    5.69656      11963      31247    0.04348    0.27686 
+ScaleOperator(kappaScaler)                     0.37683      10638      32241    0.04348    0.24809 
+ScaleOperator(clockRateScaler)                 0.64657       8351      35282    0.04348    0.19139 
+ScaleOperator(treeScaler)                      0.90336       1512      42132    0.04348    0.03464 Try setting scaleFactor to about 0.95
+Uniform(unknown)                                     -     147189     287826    0.43478    0.33835 
+SubtreeSlide(unknown)                          1.59225      57417     160000    0.21739    0.26409 
+Exchange(narrow)                                     -       2940      41000    0.04348    0.06691 
+Exchange(wide)                                       -        140      43365    0.04348    0.00322 
+WilsonBalding(unknown)                               -        195      43256    0.04348    0.00449 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 7.143 seconds
+Done!

@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='freqParameter'>freqParameter[4 1] (-Infinity,Infinity): 0.3227463093169208 0.2928411504902102 0.10229827775575888 0.2821142624371096 </statenode>
+<statenode id='tree'>((4:0.2395879317398514,(((6:0.1157980744869046,((1:0.04519227729779043,0:0.04519227729779043)16:0.012085468433576843,2:0.05727774573136727)20:0.05852032875553733)12:0.018230551832895125,7:0.13402862631979973)21:0.06223801080197053,(9:0.06371112679214744,((10:0.014002334142772287,11:0.014002334142772287)17:0.03576525063457904,5:0.0396523751895116)18:0.013943542014796112)13:0.13255551032962282)19:0.04332129461808115)15:0.04155913393376773,(8:0.15369626202084438,3:0.22281729560363386)14:0.05832977006998527)22:0.0</statenode>
+<statenode id='hky.kappa'>hky.kappa[1 1] (0.0,Infinity): 5.3460579371338754 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"TipDatesRandomWalker","p":0.2807235738929903,"accept":65858,"reject":406752,"acceptFC":65709,"rejectFC":405647,"rejectIv":212838,"rejectOp":0},
+{"id":"treeScaler","p":0.7916074346975217,"accept":90498,"reject":383750,"acceptFC":90424,"rejectFC":382595,"rejectIv":0,"rejectOp":0},
+{"id":"Uniform2","p":"NaN","accept":1010049,"reject":3727766,"acceptFC":1007302,"rejectFC":3717766,"rejectIv":0,"rejectOp":0},
+{"id":"kappaScaler","p":0.6423110663125803,"accept":106250,"reject":368557,"acceptFC":106066,"rejectFC":367457,"rejectIv":0,"rejectOp":0},
+{"id":"SubtreeSlide0","p":0.06396606466674111,"accept":241381,"reject":2128023,"acceptFC":241329,"rejectFC":2121968,"rejectIv":538167,"rejectOp":538167},
+{"id":"wide","p":"NaN","accept":29,"reject":474177,"acceptFC":28,"rejectFC":472868,"rejectIv":259813,"rejectOp":259813},
+{"id":"WilsonBalding0","p":"NaN","accept":27,"reject":474459,"acceptFC":26,"rejectFC":473242,"rejectIv":127310,"rejectOp":127310},
+{"id":"FrequenciesExchanger","p":0.08517355823170718,"accept":13648,"reject":33978,"acceptFC":13552,"rejectFC":33946,"rejectIv":0,"rejectOp":0},
+{"id":"narrow","p":"NaN","accept":478,"reject":474321,"acceptFC":458,"rejectFC":473063,"rejectIv":2462,"rejectOp":2462}
+]}
+-->

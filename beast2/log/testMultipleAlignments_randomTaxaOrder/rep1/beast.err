@@ -1,0 +1,38 @@
+File: testMultipleAlignments_randomTaxaOrder.xml seed: 1016715609 threads: 1
+Loading package feast v10.6.1 bModelTest v1.3.3 starbeast3 v1.2.1 CCD v1.0.3 SA v2.1.1 BEAST.base v2.7.9 BEASTLabs v2.0.3 BEAST.app v2.7.8 ORC v1.2.1    
+Element trait found with idref='dateTrait.t:gene1'. All other attributes are ignored.
+
+Element trait found with idref='dateTrait.t:gene1'. All other attributes are ignored.
+
+
+				CA1.T401_1=0
+CA3.T415_1=0
+CB121212.12_1=5388
+CB070117.03_1=6220
+CB070121.08_1=25600
+CB070121.16_1=30000
+					
+				
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by beagle.BeagleJNIWrapper in an unnamed module (file:~/Library/Application%20Support/BEAST/2.7/BEAST.base/lib/BEAST.base.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 48 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 45 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 48 unique site patterns.
+  Using rescaling scheme : dynamic
+Warning: state contains a node popSize.t:gene1 for which there is no operator.
+WARNING: Loggers appear to have different log frequency.
+WARNING: This may cause problems in post-processing based on more than one log files.
+WARNING: Therefore, it is recommended to use the same log frequency
+Hint: note that TreeWithMetaDataLogger with dp="X" prints out trees with decimal places, potentially reducing tree file sizes substantially.
+End likelihood: -44228.33278769501

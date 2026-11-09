@@ -1,0 +1,22 @@
+<itsabeastystatewerein version='2.0' sample='1000000'>
+<statenode id='hky.kappa'>hky.kappa[1 1] (0.0,Infinity): 27.58692245377347 </statenode>
+<statenode id='popSize'>popSize[1 1] (-Infinity,Infinity): 0.11682088000331492 </statenode>
+<statenode id='ucld.mean'>ucld.mean[1 1] (-Infinity,Infinity): 1.0 </statenode>
+<statenode id='ucld.stdev'>ucld.stdev[1 1] (0.0,5.0): 0.00182224410668565 </statenode>
+<statenode id='tree'>((((0:0.02155501615896884,(1:0.012265947107409698,2:0.012265947107409698)6:0.009289069051559143)8:0.007638778007223387,3:0.02919379416619223)7:0.017186362841808613,4:0.04638015700800084)9:0.009070018041153878,5:0.05545017504915472)10:0.0</statenode>
+<statenode id='rateCategories'>rateCategories[10 1] (0,9): 1 7 2 0 3 0 5 1 5 6 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"categoriesRandomWalk","p":"NaN","accept":41852,"reject":1719,"acceptFC":40793,"rejectFC":1711,"rejectIv":0,"rejectOp":0},
+{"id":"SScaler","p":0.15878024232035218,"accept":13119,"reject":30435,"acceptFC":12330,"rejectFC":30097,"rejectIv":0,"rejectOp":0},
+{"id":"kappaScaler","p":0.28878467248236056,"accept":11277,"reject":32258,"acceptFC":10736,"rejectFC":31708,"rejectIv":0,"rejectOp":0},
+{"id":"popSizeScaler","p":0.21452242036150745,"accept":11805,"reject":31855,"acceptFC":11155,"rejectFC":31388,"rejectIv":0,"rejectOp":0},
+{"id":"treeScaler","p":0.6120785402037593,"accept":10758,"reject":32873,"acceptFC":10568,"rejectFC":31919,"rejectIv":0,"rejectOp":0},
+{"id":"unknown","p":"NaN","accept":165810,"reject":269544,"acceptFC":161548,"rejectFC":262800,"rejectIv":0,"rejectOp":0},
+{"id":"unknown","p":0.07875298543224454,"accept":10772,"reject":206313,"acceptFC":10741,"rejectFC":200822,"rejectIv":87609,"rejectOp":87609},
+{"id":"narrow","p":"NaN","accept":2279,"reject":41284,"acceptFC":2207,"rejectFC":40256,"rejectIv":0,"rejectOp":0},
+{"id":"wide","p":"NaN","accept":385,"reject":42718,"acceptFC":374,"rejectFC":41614,"rejectIv":23935,"rejectOp":23935},
+{"id":"unknown","p":"NaN","accept":208,"reject":42737,"acceptFC":204,"rejectFC":41640,"rejectIv":21840,"rejectOp":21840}
+]}
+-->

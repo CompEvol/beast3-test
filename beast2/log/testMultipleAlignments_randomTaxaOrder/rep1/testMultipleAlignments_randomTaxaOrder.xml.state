@@ -1,0 +1,41 @@
+<itsabeastystatewerein version='2.0' sample='100000000'>
+<statenode id='Tree.t:gene1'>(((4:10887.005499328101,3:30267.0054993281)7:157680.0118131804,((1:10186.377837863802,0:34798.3778378638)6:21180.26403350153,2:61366.64187136533)9:132800.37544114317)8:102313.01262255697,5:296480.0299350655)10:0.0</statenode>
+<statenode id='Tree.t:gene2'>(((0:15423.294965302113,5:20811.294965302113)6:212189.810016683,((4:9987.598856570672,3:29367.598856570672)7:31590.021042920962,1:37177.619899491634)8:165823.48508249348)9:46989.861584401806,2:279990.9665663869)10:0.0</statenode>
+<statenode id='Tree.t:gene3'>((((3:9418.484859218683,5:15638.484859218683)8:92307.49428046757,1:77945.97913968624)7:16435.359564664992,0:118993.33870435123)9:46038.37033312248,(2:82791.4757114065,4:57191.4757114065)6:87628.23332606722)10:0.0</statenode>
+<statenode id='clockRate.c:gene1'>clockRate.c:gene1[1 1] (0.0,Infinity): 1.3970310047336593E-8 </statenode>
+<statenode id='kappa.s:gene1'>kappa.s:gene1[1 1] (0.0,Infinity): 4.861111971365127 </statenode>
+<statenode id='gammaShape.s:gene1'>gammaShape.s:gene1[1 1] (0.001,1000.0): 0.08937465825324457 </statenode>
+<statenode id='popSize.t:gene1'>popSize.t:gene1[1 1] (-Infinity,Infinity): 137550.0 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"treeScaler.t:gene1","p":0.8,"accept":505507,"reject":570260,"acceptFC":505239,"rejectFC":569963,"rejectIv":43624,"rejectOp":43624},
+{"id":"treeRootScaler.t:gene1","p":0.7,"accept":414967,"reject":658822,"acceptFC":414706,"rejectFC":658458,"rejectIv":255,"rejectOp":255},
+{"id":"UniformOperator.t:gene1","p":"NaN","accept":3063095,"reject":7679867,"acceptFC":3061275,"rejectFC":7675499,"rejectIv":0,"rejectOp":0},
+{"id":"SubtreeSlide.t:gene1","p":22939.571989534772,"accept":3094187,"reject":2274826,"acceptFC":3091082,"rejectFC":2274826,"rejectIv":481074,"rejectOp":481074},
+{"id":"narrow.t:gene1","p":"NaN","accept":8,"reject":5375754,"acceptFC":2,"rejectFC":5372735,"rejectIv":0,"rejectOp":0},
+{"id":"wide.t:gene1","p":"NaN","accept":0,"reject":1073983,"acceptFC":0,"rejectFC":1073385,"rejectIv":596957,"rejectOp":596957},
+{"id":"WilsonBalding.t:gene1","p":"NaN","accept":0,"reject":1075535,"acceptFC":0,"rejectFC":1074962,"rejectIv":552061,"rejectOp":552061},
+{"id":"treeScaler.t:gene2","p":0.8,"accept":562403,"reject":512223,"acceptFC":562079,"rejectFC":511939,"rejectIv":9869,"rejectOp":9869},
+{"id":"treeRootScaler.t:gene2","p":0.7,"accept":381572,"reject":691649,"acceptFC":381341,"rejectFC":691229,"rejectIv":113871,"rejectOp":113871},
+{"id":"UniformOperator.t:gene2","p":"NaN","accept":2751758,"reject":7995084,"acceptFC":2750111,"rejectFC":7990436,"rejectIv":0,"rejectOp":0},
+{"id":"SubtreeSlide.t:gene2","p":22018.190788555617,"accept":3040591,"reject":2334816,"acceptFC":3037408,"rejectFC":2334816,"rejectIv":511075,"rejectOp":511075},
+{"id":"narrow.t:gene2","p":"NaN","accept":68654,"reject":5304688,"acceptFC":68603,"rejectFC":5301569,"rejectIv":55286,"rejectOp":55286},
+{"id":"wide.t:gene2","p":"NaN","accept":1813,"reject":1072711,"acceptFC":1812,"rejectFC":1072106,"rejectIv":668998,"rejectOp":668998},
+{"id":"WilsonBalding.t:gene2","p":"NaN","accept":540,"reject":1074292,"acceptFC":539,"rejectFC":1073661,"rejectIv":515355,"rejectOp":515355},
+{"id":"treeScaler.t:gene3","p":0.8,"accept":615477,"reject":461344,"acceptFC":615133,"rejectFC":461060,"rejectIv":2955,"rejectOp":2955},
+{"id":"treeRootScaler.t:gene3","p":0.7,"accept":330540,"reject":743137,"acceptFC":330363,"rejectFC":742736,"rejectIv":261299,"rejectOp":261299},
+{"id":"UniformOperator.t:gene3","p":"NaN","accept":3934561,"reject":6810822,"acceptFC":3932222,"rejectFC":6806921,"rejectIv":0,"rejectOp":0},
+{"id":"SubtreeSlide.t:gene3","p":20239.23394931981,"accept":2934624,"reject":2438631,"acceptFC":2931540,"rejectFC":2438631,"rejectIv":505021,"rejectOp":505021},
+{"id":"narrow.t:gene3","p":"NaN","accept":887939,"reject":4480755,"acceptFC":887428,"rejectFC":4478111,"rejectIv":1655431,"rejectOp":1655431},
+{"id":"wide.t:gene3","p":"NaN","accept":23377,"reject":1050568,"acceptFC":23364,"rejectFC":1049994,"rejectIv":683892,"rejectOp":683892},
+{"id":"WilsonBalding.t:gene3","p":"NaN","accept":16821,"reject":1057622,"acceptFC":16809,"rejectFC":1056978,"rejectIv":550542,"rejectOp":550542},
+{"id":"strictClockUpDownOperator.c:gene1","p":0.9,"accept":3753809,"reject":1615646,"acceptFC":3751694,"rejectFC":1614672,"rejectIv":44887,"rejectOp":44887},
+{"id":"strictClockUpDownOperator.c:gene2","p":0.9,"accept":3754236,"reject":1618619,"acceptFC":3752006,"rejectFC":1617643,"rejectIv":4405,"rejectOp":4405},
+{"id":"strictClockUpDownOperator.c:gene3","p":0.9,"accept":3698988,"reject":1671689,"acceptFC":3696868,"rejectFC":1670783,"rejectIv":3797,"rejectOp":3797},
+{"id":"strictClockUpDownOperator.all","p":0.95,"accept":4823512,"reject":550342,"acceptFC":4820716,"rejectFC":550011,"rejectIv":6866,"rejectOp":6866},
+{"id":"StrictClockRateScaler.c:gene1","p":0.6823021125380778,"accept":258157,"reject":817550,"acceptFC":257953,"rejectFC":817175,"rejectIv":0,"rejectOp":0},
+{"id":"KappaScaler.s:gene1","p":0.46332178625057047,"accept":8231,"reject":27552,"acceptFC":8225,"rejectFC":27529,"rejectIv":0,"rejectOp":0},
+{"id":"gammaShapeScaler.s:gene1","p":0.14439215108445894,"accept":9379,"reject":26468,"acceptFC":9365,"rejectFC":26461,"rejectIv":23,"rejectOp":23}
+]}
+-->

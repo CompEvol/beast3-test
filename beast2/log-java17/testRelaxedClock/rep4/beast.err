@@ -1,0 +1,9 @@
+File: testRelaxedClock.xml seed: 913274257 threads: 1
+Loading package feast v10.6.1 bModelTest v1.3.3 starbeast3 v1.2.1 CCD v1.0.3 SA v2.1.1 BEAST.base v2.7.9 BEASTLabs v2.0.3 BEAST.app v2.7.8 ORC v1.2.1    
+WARNING: mean of distribution for relaxed clock model is not 1.0.
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 69 unique site patterns.
+  Using rescaling scheme : dynamic
+Warning: state contains a node ucld.mean for which there is no operator.
+End likelihood: -1815.4620365516864

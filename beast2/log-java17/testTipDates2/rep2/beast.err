@@ -1,0 +1,23 @@
+File: testTipDates2.xml seed: 618627302 threads: 1
+Loading package feast v10.6.1 bModelTest v1.3.3 starbeast3 v1.2.1 CCD v1.0.3 SA v2.1.1 BEAST.base v2.7.9 BEASTLabs v2.0.3 BEAST.app v2.7.8 ORC v1.2.1    
+
+Lemur_catta=1
+
+M_fascicularis=1
+					
+                
+WARNING: no trait specified for Tarsius_syrichta: Assumed to be 1.0
+WARNING: no trait specified for Homo_sapiens: Assumed to be 1.0
+WARNING: no trait specified for Pan: Assumed to be 1.0
+WARNING: no trait specified for Gorilla: Assumed to be 1.0
+WARNING: no trait specified for Pongo: Assumed to be 1.0
+WARNING: no trait specified for Hylobates: Assumed to be 1.0
+WARNING: no trait specified for Macaca_fuscata: Assumed to be 1.0
+WARNING: no trait specified for M_mulatta: Assumed to be 1.0
+WARNING: no trait specified for M_sylvanus: Assumed to be 1.0
+WARNING: no trait specified for Saimiri_sciureus: Assumed to be 1.0
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 413 unique site patterns.
+  Using rescaling scheme : dynamic
+End likelihood: -6000.945525285436
