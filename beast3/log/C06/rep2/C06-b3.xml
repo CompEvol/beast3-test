@@ -59,7 +59,7 @@ spec="Alignment">
 
     <map name="Cauchy" >beast.base.spec.inference.distribution.Cauchy</map>
 
-    <run id="mcmc" spec="MCMC" chainLength="10000000">
+    <run id="mcmc" spec="MCMC" chainLength="15000000">
         <state id="state" spec="State" storeEvery="5000">
             <tree id="Tree.t:noncoding" spec="beast.base.evolution.tree.Tree" name="stateNode">
                 <taxonset id="TaxonSet.noncoding" spec="TaxonSet">
