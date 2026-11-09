@@ -272,8 +272,8 @@ Slides for the research group (9 Nov): `doc/subtree-slide-tuning.tex`
 
 - Eva's files are named `C01.xml` and `log/C01/`, not `beauti-C01.xml` and `log/beauti-C01/`. The
   XMLs and logs inside `log/` still carry the original `-b2` / `-b3` suffix (`C01-b2.log`).
-- `beast3/log/C18/rep1/` and `rep2/` also hold `18-b3.out`, from a second seed-1 run whose log is
-  not in the repo. `beast.out` is the one that matches the committed log.
+- Eva's 15M C06 runs log every 1000 states (15,000 samples), not chain/5000 = 3000. This only
+  makes the files larger.
 
 ## BEAUti oddities
 

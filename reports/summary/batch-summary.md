@@ -6,7 +6,7 @@
 | C02 | 2/2 | 1275 | 1.84 | – | 0 | matched |
 | C03 | 2/2 | 146 | 1.452 | – | 0 | matched (ESS < 200) |
 | C04 | 2/2 | 220 | 1.805 | – | 0 | matched (run problems) |
-| C06 | 2/2 | 199 | 2.743 | – | 0 | matched (ESS < 200) |
+| C06 | 2/2 | 297 | 6.843 | – | 3 | not matched (constant `prior` offset, see beauti-manual) |
 | C07 | 2/2 | 872 | 1.18 | – | 0 | matched |
 | C08 | 2/2 | – | – | – | 0 | no comparison |
 | C09 | 2/2 | 273 | 1.988 | – | 0 | matched |
