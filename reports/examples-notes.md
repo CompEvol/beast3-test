@@ -5,7 +5,7 @@
 
 1. **Walter:** run and compare the 8 converted MCMC examples (testRandomLocalClock, testRelaxedClock, testUCLNclock.json, testTipDates, testTipDates2, testSRD06, testMultipleAlignments_randomTaxaOrder, testSimulatedAlignment), and check the 4 simulators run.
 1. **Decide:** whether testSliceHKY is excluded or `SliceOperator` is ported.
-1. **Merge:** the beast3 PR that changes the kappa prior in testHKY, testHKY.json and testOpSubSchedule to LogNormal(0, 8).
+1. **Merge:** [beast3#220](https://github.com/CompEvol/beast3/pull/220), which changes the kappa prior in testHKY, testHKY.json and testOpSubSchedule to LogNormal(0, 8).
 1. **Decide:** whether the BEAST 2 names that stop old XMLs loading (below) come back as aliases, or go in the release notes.
 
 ## Backward compatibility
