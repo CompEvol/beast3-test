@@ -152,7 +152,7 @@ name="alignment">
             </distribution>
         </distribution>
         <operator id="YuleBirthRateScaler.t:anolis" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@birthRate.t:anolis" weight="3.0"/>
-        <operator id="YuleModelTreeRootScaler.t:anolis" spec="kernel.BactrianScaleOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:anolis" upper="10.0" weight="3.0"/>
+        <operator id="YuleModelTreeRootScaler.t:anolis" spec="beast.base.spec.evolution.operator.ScaleTreeOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:anolis" weight="3.0"/>
         <operator id="YuleModelUniformOperator.t:anolis" spec="kernel.BactrianNodeOperator" tree="@Tree.t:anolis" weight="30.0"/>
         <operator id="YuleModelSubtreeSlide.t:anolis" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:anolis" weight="15.0"/>
         <operator id="YuleModelNarrow.t:anolis" spec="Exchange" tree="@Tree.t:anolis" weight="15.0"/>
@@ -168,6 +168,7 @@ name="alignment">
                     <f idref="freqParameter.s:anolis"/>
                 </transformations>
                 <transformations id="AVMNLogTransform.anolis" spec="beast.base.spec.inference.operator.Transform$LogTransform">
+                    <scalable idref="Tree.t:anolis"/>
                     <f idref="kappa.s:anolis"/>
                     <f idref="clockRate.c:anolis"/>
                 </transformations>

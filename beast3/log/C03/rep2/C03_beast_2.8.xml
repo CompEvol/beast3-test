@@ -84,9 +84,9 @@ name="alignment">
                     <alignment idref="anolis"/>
                 </taxonset>
             </tree>
-            <stateNode id="gammaShape.s:anolis" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
             <stateNode id="kappa.s:anolis" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="2.0"/>
             <stateNode id="freqParameter.s:anolis" spec="beast.base.spec.inference.parameter.SimplexParam" dimension="4" domain="UnitInterval">0.25 0.25 0.25 0.25</stateNode>
+            <stateNode id="gammaShape.s:anolis" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
             <stateNode id="popSize.t:anolis" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="0.3"/>
         </state>
         <init id="RandomTree.t:anolis" spec="beast.base.spec.evolution.tree.coalescent.RandomTree" estimate="false" initial="@Tree.t:anolis" taxa="@anolis">
@@ -104,15 +104,15 @@ name="alignment">
                     <alpha id="RealVectorParam.0" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
                 </Dirichlet>
                 <Exponential id="GammaShapePrior.s:anolis" name="distribution" param="@gammaShape.s:anolis">
-                    <mean id="RealScalarParam.79" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                    <mean id="RealScalarParam.81" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
                 </Exponential>
                 <LogNormal id="KappaPrior.s:anolis" name="distribution" param="@kappa.s:anolis">
                     <M id="RealScalarParam.15" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
                     <S id="RealScalarParam.16" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
                 </LogNormal>
                 <LogNormal id="PopSizePrior.t:anolis" name="distribution" param="@popSize.t:anolis">
-                    <M id="RealScalarParam.80" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
-                    <S id="RealScalarParam.81" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
+                    <M id="RealScalarParam.79" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
+                    <S id="RealScalarParam.80" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
                 </LogNormal>
             </distribution>
             <distribution id="likelihood" spec="CompoundDistribution" useThreads="true">
@@ -130,23 +130,19 @@ name="alignment">
                 </distribution>
             </distribution>
         </distribution>
-        <operator id="gammaShapeScaler.s:anolis" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
-            <parameter idref="gammaShape.s:anolis"/>
+        <operator id="KappaScaler.s:anolis" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="kappa.s:anolis"/>
             <operator id="AVMNOperator.anolis" spec="beast.base.spec.evolution.operator.AdaptableVarianceMultivariateNormalOperator" allowNonsense="true" beta="0.05" burnin="400" initial="800" weight="0.1">
                 <transformations id="AVMNSumTransform.anolis" spec="beast.base.spec.inference.operator.Transform$LogConstrainedSumTransform">
                     <f idref="freqParameter.s:anolis"/>
                 </transformations>
                 <transformations id="AVMNLogTransform.anolis" spec="beast.base.spec.inference.operator.Transform$LogTransform">
-                    <f idref="gammaShape.s:anolis"/>
+                    <scalable idref="Tree.t:anolis"/>
                     <f idref="kappa.s:anolis"/>
+                    <f idref="gammaShape.s:anolis"/>
                 </transformations>
                 <transformations id="AVMNNoTransform.anolis" spec="beast.base.spec.inference.operator.Transform$NoTransform"/>
             </operator>
-            <operator id="gammaShapeScalerX.s:anolis" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@gammaShape.s:anolis" scaleFactor="0.5" weight="0.1"/>
-        </operator>
-        <operator id="KappaScaler.s:anolis" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
-            <parameter idref="kappa.s:anolis"/>
-            <operator idref="AVMNOperator.anolis"/>
             <operator id="KappaScalerX.s:anolis" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@kappa.s:anolis" scaleFactor="0.1" weight="0.1"/>
         </operator>
         <operator id="FrequenciesExchanger.s:anolis" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
@@ -156,10 +152,15 @@ name="alignment">
                 <parameter idref="freqParameter.s:anolis"/>
             </operator>
         </operator>
+        <operator id="gammaShapeScaler.s:anolis" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="gammaShape.s:anolis"/>
+            <operator idref="AVMNOperator.anolis"/>
+            <operator id="gammaShapeScalerX.s:anolis" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@gammaShape.s:anolis" scaleFactor="0.5" weight="0.1"/>
+        </operator>
         <operator id="CoalescentConstantTreeScaler.t:anolis" spec="beast.base.spec.evolution.operator.UpDownOperator" scaleFactor="0.1" weight="4.0">
             <up idref="Tree.t:anolis"/>
         </operator>
-        <operator id="CoalescentConstantTreeRootScaler.t:anolis" spec="kernel.BactrianScaleOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:anolis" upper="10.0" weight="3.0"/>
+        <operator id="CoalescentConstantTreeRootScaler.t:anolis" spec="beast.base.spec.evolution.operator.ScaleTreeOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:anolis" weight="3.0"/>
         <operator id="CoalescentConstantUniformOperator.t:anolis" spec="kernel.BactrianNodeOperator" tree="@Tree.t:anolis" weight="30.0"/>
         <operator id="CoalescentConstantSubtreeSlide.t:anolis" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:anolis" weight="15.0"/>
         <operator id="CoalescentConstantNarrow.t:anolis" spec="Exchange" tree="@Tree.t:anolis" weight="15.0"/>
@@ -172,9 +173,9 @@ name="alignment">
             <log idref="prior"/>
             <log idref="treeLikelihood.anolis"/>
             <log id="TreeHeight.t:anolis" spec="beast.base.evolution.tree.TreeStatLogger" tree="@Tree.t:anolis"/>
-            <log idref="gammaShape.s:anolis"/>
             <log idref="kappa.s:anolis"/>
             <log idref="freqParameter.s:anolis"/>
+            <log idref="gammaShape.s:anolis"/>
             <log idref="popSize.t:anolis"/>
             <log idref="CoalescentConstant.t:anolis"/>
         </logger>

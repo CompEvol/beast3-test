@@ -93,14 +93,14 @@ name="alignment">
                     <treeIntervals id="BSPTreeIntervals.t:Dengue4" spec="beast.base.evolution.tree.TreeIntervals" tree="@Tree.t:Dengue4"/>
                 </distribution>
                 <LogNormal id="ClockPrior.c:Dengue4" name="distribution" param="@clockRate.c:Dengue4">
-                    <M id="RealScalarParam.84" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
-                    <S id="RealScalarParam.85" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
+                    <M id="RealScalarParam.77" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
+                    <S id="RealScalarParam.78" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
                 </LogNormal>
                 <Dirichlet id="FrequenciesPrior.s:Dengue4" name="distribution" param="@freqParameter.s:Dengue4">
                     <alpha id="RealVectorParam.0" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
                 </Dirichlet>
                 <Exponential id="GammaShapePrior.s:Dengue4" name="distribution" param="@gammaShape.s:Dengue4">
-                    <mean id="RealScalarParam.86" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                    <mean id="RealScalarParam.79" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
                 </Exponential>
                 <LogNormal id="KappaPrior.s:Dengue4" name="distribution" param="@kappa.s:Dengue4">
                     <M id="RealScalarParam.15" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
@@ -128,6 +128,7 @@ name="alignment">
                     <f idref="freqParameter.s:Dengue4"/>
                 </transformations>
                 <transformations id="AVMNLogTransform.Dengue4" spec="beast.base.spec.inference.operator.Transform$LogTransform">
+                    <scalable idref="Tree.t:Dengue4"/>
                     <f idref="clockRate.c:Dengue4"/>
                     <f idref="gammaShape.s:Dengue4"/>
                     <f idref="kappa.s:Dengue4"/>
@@ -165,7 +166,7 @@ name="alignment">
         <operator id="BayesianSkylineTreeScaler.t:Dengue4" spec="beast.base.spec.evolution.operator.UpDownOperator" scaleFactor="0.1" weight="4.0">
             <up idref="Tree.t:Dengue4"/>
         </operator>
-        <operator id="BayesianSkylineTreeRootScaler.t:Dengue4" spec="kernel.BactrianScaleOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:Dengue4" upper="10.0" weight="3.0"/>
+        <operator id="BayesianSkylineTreeRootScaler.t:Dengue4" spec="beast.base.spec.evolution.operator.ScaleTreeOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:Dengue4" weight="3.0"/>
         <operator id="BayesianSkylineUniformOperator.t:Dengue4" spec="kernel.BactrianNodeOperator" tree="@Tree.t:Dengue4" weight="30.0"/>
         <operator id="BayesianSkylineSubtreeSlide.t:Dengue4" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:Dengue4" weight="15.0"/>
         <operator id="BayesianSkylineNarrow.t:Dengue4" spec="Exchange" tree="@Tree.t:Dengue4" weight="15.0"/>
