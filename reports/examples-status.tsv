@@ -1,0 +1,52 @@
+# Status of each BEAST 2 example XML, for the status page (scripts/build_status_page.py).
+# Columns: example (as in the README inventory) <TAB> tester <TAB> status <TAB> note.
+# Notes may use `code`, **bold** and [links](url). Status is one of:
+#   pass       matched, no flags
+#   explained  flagged only because of a known, explained difference
+#   open       needs a decision (conversion differs, or not converted)
+#   blocked    needs a build with a fix made after rc2 (rc3)
+#   none       no results in the repo yet
+# Min ESS and max z come from the row for <example> (".json" -> "-json") in
+# reports/summary/batch-summary.md; "Converted" and "Converted in" from the README inventory.
+bitflip.xml	shared	pass
+testBSP.xml	Alexei	pass	Two upper bounds dropped in the conversion; BEAST 2 never comes near them.
+testCalYule_5t_2c.xml	Alexei	pass	Run at 700k. Both versions also match the calibration exactly.
+testCalibration.xml	Alexei	pass
+testClassicRootCalibrationPrior.xml	Alexei	pass
+testCoalescent.xml	Alexei	pass
+testConditionalRootCalibrationPrior.xml	Alexei	explained	The original has no prior on birthRate, so only the calibrated root age is comparable. It matches (z = 0.29) and follows its calibration exactly.
+testDirectSimulator.xml	Walter	none	Simulator, no MCMC posterior.
+testDirectSimulator2.xml	Walter	none	Simulator, no MCMC posterior.
+testDirectSimulatorHierarchical.xml	Walter	none	Simulator, no MCMC posterior.
+testEBSP.xml	Alexei	pass	Run at 200M. Matches with the `SampleOffValues` fix (beast3#203, beast2#1223) in both versions; rc2 doesn't have it.
+testExponentialGrowth.xml	Alexei	pass
+testGTR.xml	shared	explained	Constant offset in `prior` (log 1e6). Every parameter, the tree height and every clade match.
+testHKY.json	shared	open	The conversion changed the prior on kappa: posterior mean 30.1 (BEAST 2) vs 17.6 (BEAST 3). Fix the conversion or accept the new prior.
+testHKY.xml	shared	open	The conversion changed the prior on kappa: posterior mean 30.1 (BEAST 2) vs 17.6 (BEAST 3). Fix the conversion or accept the new prior.
+testJukesCantor.xml	shared	pass
+testJukesCantorShort.xml	shared	pass
+testJukesCantorShortUncertain.xml	shared	pass
+testJukesCantorShortUncertain2.xml	shared	pass
+testJukesCantorShortUncertain2MLE.xml	shared	pass
+testMultipleAlignments_randomTaxaOrder.xml	Walter	none
+testOpSubSchedule.xml	shared	open	Same kappa prior change as testHKY.
+testPlates.xml	shared	pass
+testRNA.xml	shared	explained	Same model as testGTR with RNA coding; identical traces, same `prior` offset.
+testRandomLocalClock.xml	Walter	none	Run at 100M. Compare the RLC indicators by clade from the trees, as for C14.
+testRelaxedClock.xml	Walter	none
+testRestrictedGTR.xml	shared	explained	Constant offset in `prior`, as for testGTR.
+testSRD06.xml	Walter	none
+testSYM.xml	shared	explained	Constant offset in `prior`, as for testGTR (4 replicates).
+testSeqGen.xml	Walter	none	Simulator, no MCMC posterior. In beast-fx.
+testSimulatedAlignment.xml	Walter	none	Simulates data, then runs MCMC. In beast-fx.
+testSliceHKY.xml	–	open	Not converted: uses `SliceOperator`, which BEAST 3 doesn't have. Exclude it or port the operator.
+testTIM.xml	shared	explained	Constant offset in `prior`, as for testGTR.
+testTN93.xml	shared	explained	Constant offset in `prior`, as for testGTR.
+testTVM.xml	shared	explained	Constant offset in `prior`, as for testGTR.
+testTipDates.xml	Walter	none
+testTipDates2.xml	Walter	none
+testTwoCalibrationsPrior.xml	Alexei	pass
+testUCLNclock.json	Walter	none
+testYuleCalibrated.xml	Alexei	pass
+testYuleOneSite.xml	shared	pass	Run at 1M.
+testYuleUncalibrated.xml	Alexei	pass	4 replicates.

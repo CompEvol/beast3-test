@@ -361,10 +361,13 @@ don't cover every core model. Both gaps are covered by the BEAUti track in
 covering every substitution, frequency, clock, tree-prior and starting-tree option in the
 BEAST 3 templates. Results go in `reports/beauti-manual.md` and `reports/model-coverage.md`.
 
-The status of all 30 is on the [status page](https://compevol.github.io/beast3-test/), rebuilt
-by `.github/workflows/status-page.yml` on every push to `main`. The numbers come from
-`reports/summary/batch-summary.md` and the tester and model from `ASSIGNMENTS.md`. The status
-and one-line note for each combination are set by hand in `reports/status.tsv`, and the panels
-under the table in `reports/status-notes.md`. The page lists any combination whose status
-disagrees with the latest numbers. To preview it locally, run
-`python3 scripts/build_status_page.py` and open `_site/index.html`.
+The [status site](https://compevol.github.io/beast3-test/) has an overview page stating the goal,
+and one page per track: [example XMLs](https://compevol.github.io/beast3-test/examples.html) and
+[BEAUti by hand](https://compevol.github.io/beast3-test/beauti.html). `.github/workflows/status-page.yml`
+rebuilds it on every push to `main`. The numbers come from `reports/summary/batch-summary.md`, the
+BEAUti tester and model from `ASSIGNMENTS.md`, and the example inventory from this README. The
+status and one-line note of each entry are set by hand, in `reports/status.tsv` (BEAUti) and
+`reports/examples-status.tsv` (examples), and the panels under each table in
+`reports/status-notes.md` and `reports/examples-notes.md`. Each page lists any entry whose status
+disagrees with the latest numbers. To preview locally, run `python3 scripts/build_status_page.py`
+and open `_site/index.html`.
