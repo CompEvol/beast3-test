@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood" required="BEAST.base v2.8.0" version="2.8">
+
+    <data
+id="primate-mtDNA"
+spec="Alignment">
+        <sequence id="seq_Lemur_catta" spec="Sequence" taxon="Lemur_catta" totalcount="4" value="AAGCTTCATAGGAGCAACCATTCTAATAATCGCACATGGCCTTACATCATCCATATTATTCTGTCTAGCCAACTCTAACTACGAACGAATCCATAGCCGTACAATACTACTAGCACGAGGGATCCAAACCATTCTCCCTCTTATAGCCACCTGATGACTACTCGCCAGCCTAACTAACCTAGCCCTACCCACCTCTATCAATTTAATTGGCGAACTATTCGTCACTATAGCATCCTTCTCATGATCAAACATTACAATTATCTTAATAGGCTTAAATATGCTCATCACCGCTCTCTATTCCCTCTATATATTAACTACTACACAACGAGGAAAACTCACATATCATTCGCACAACCTAAACCCATCCTTTACACGAGAAAACACCCTTATATCCATACACATACTCCCCCTTCTCCTATTTACCTTAAACCCCAAAATTATTCTAGGACCCACGTACTGTAAATATAGTTTAAA-AAAACACTAGATTGTGAATCCAGAAATAGAAGCTCAAAC-CTTCTTATTTACCGAGAAAGTAATGTATGAACTGCTAACTCTGCACTCCGTATATAAAAATACGGCTATCTCAACTTTTAAAGGATAGAAGTAATCCATTGGCCTTAGGAGCCAAAAA-ATTGGTGCAACTCCAAATAAAAGTAATAAATCTATTATCCTCTTTCACCCTTGTCACACTGATTATCCTAACTTTACCTATCATTATAAACGTTACAAACATATACAAAAACTACCCCTATGCACCATACGTAAAATCTTCTATTGCATGTGCCTTCATCACTAGCCTCATCCCAACTATATTATTTATCTCCTCAGGACAAGAAACAATCATTTCCAACTGACATTGAATAACAATCCAAACCCTAAAACTATCTATTAGCTT"/>
+        <sequence id="seq_Homo_sapiens" spec="Sequence" taxon="Homo_sapiens" totalcount="4" value="AAGCTTCACCGGCGCAGTCATTCTCATAATCGCCCACGGGCTTACATCCTCATTACTATTCTGCCTAGCAAACTCAAACTACGAACGCACTCACAGTCGCATCATAATCCTCTCTCAAGGACTTCAAACTCTACTCCCACTAATAGCTTTTTGATGACTTCTAGCAAGCCTCGCTAACCTCGCCTTACCCCCCACTATTAACCTACTGGGAGAACTCTCTGTGCTAGTAACCACGTTCTCCTGATCAAATATCACTCTCCTACTTACAGGACTCAACATACTAGTCACAGCCCTATACTCCCTCTACATATTTACCACAACACAATGGGGCTCACTCACCCACCACATTAACAACATAAAACCCTCATTCACACGAGAAAACACCCTCATGTTCATACACCTATCCCCCATTCTCCTCCTATCCCTCAACCCCGACATCATTACCGGGTTTTCCTCTTGTAAATATAGTTTAACCAAAACATCAGATTGTGAATCTGACAACAGAGGCTTA-CGACCCCTTATTTACCGAGAAAGCT-CACAAGAACTGCTAACTCATGCCCCCATGTCTAACAACATGGCTTTCTCAACTTTTAAAGGATAACAGCTATCCATTGGTCTTAGGCCCCAAAAATTTTGGTGCAACTCCAAATAAAAGTAATAACCATGCACACTACTATAACCACCCTAACCCTGACTTCCCTAATTCCCCCCATCCTTACCACCCTCGTTAACCCTAACAAAAAAAACTCATACCCCCATTATGTAAAATCCATTGTCGCATCCACCTTTATTATCAGTCTCTTCCCCACAACAATATTCATGTGCCTAGACCAAGAAGTTATTATCTCGAACTGACACTGAGCCACAACCCAAACAACCCAGCTCTCCCTAAGCTT"/>
+        <sequence id="seq_Pan" spec="Sequence" taxon="Pan" totalcount="4" value="AAGCTTCACCGGCGCAATTATCCTCATAATCGCCCACGGACTTACATCCTCATTATTATTCTGCCTAGCAAACTCAAATTATGAACGCACCCACAGTCGCATCATAATTCTCTCCCAAGGACTTCAAACTCTACTCCCACTAATAGCCTTTTGATGACTCCTAGCAAGCCTCGCTAACCTCGCCCTACCCCCTACCATTAATCTCCTAGGGGAACTCTCCGTGCTAGTAACCTCATTCTCCTGATCAAATACCACTCTCCTACTCACAGGATTCAACATACTAATCACAGCCCTGTACTCCCTCTACATGTTTACCACAACACAATGAGGCTCACTCACCCACCACATTAATAACATAAAGCCCTCATTCACACGAGAAAATACTCTCATATTTTTACACCTATCCCCCATCCTCCTTCTATCCCTCAATCCTGATATCATCACTGGATTCACCTCCTGTAAATATAGTTTAACCAAAACATCAGATTGTGAATCTGACAACAGAGGCTCA-CGACCCCTTATTTACCGAGAAAGCT-TATAAGAACTGCTAATTCATATCCCCATGCCTGACAACATGGCTTTCTCAACTTTTAAAGGATAACAGCCATCCGTTGGTCTTAGGCCCCAAAAATTTTGGTGCAACTCCAAATAAAAGTAATAACCATGTATACTACCATAACCACCTTAACCCTAACTCCCTTAATTCTCCCCATCCTCACCACCCTCATTAACCCTAACAAAAAAAACTCATATCCCCATTATGTGAAATCCATTATCGCGTCCACCTTTATCATTAGCCTTTTCCCCACAACAATATTCATATGCCTAGACCAAGAAGCTATTATCTCAAACTGGCACTGAGCAACAACCCAAACAACCCAGCTCTCCCTAAGCTT"/>
+        <sequence id="seq_Gorilla" spec="Sequence" taxon="Gorilla" totalcount="4" value="AAGCTTCACCGGCGCAGTTGTTCTTATAATTGCCCACGGACTTACATCATCATTATTATTCTGCCTAGCAAACTCAAACTACGAACGAACCCACAGCCGCATCATAATTCTCTCTCAAGGACTCCAAACCCTACTCCCACTAATAGCCCTTTGATGACTTCTGGCAAGCCTCGCCAACCTCGCCTTACCCCCCACCATTAACCTACTAGGAGAGCTCTCCGTACTAGTAACCACATTCTCCTGATCAAACACCACCCTTTTACTTACAGGATCTAACATACTAATTACAGCCCTGTACTCCCTTTATATATTTACCACAACACAATGAGGCCCACTCACACACCACATCACCAACATAAAACCCTCATTTACACGAGAAAACATCCTCATATTCATGCACCTATCCCCCATCCTCCTCCTATCCCTCAACCCCGATATTATCACCGGGTTCACCTCCTGTAAATATAGTTTAACCAAAACATCAGATTGTGAATCTGATAACAGAGGCTCA-CAACCCCTTATTTACCGAGAAAGCT-CGTAAGAGCTGCTAACTCATACCCCCGTGCTTGACAACATGGCTTTCTCAACTTTTAAAGGATAACAGCTATCCATTGGTCTTAGGACCCAAAAATTTTGGTGCAACTCCAAATAAAAGTAATAACTATGTACGCTACCATAACCACCTTAGCCCTAACTTCCTTAATTCCCCCTATCCTTACCACCTTCATCAATCCTAACAAAAAAAGCTCATACCCCCATTACGTAAAATCTATCGTCGCATCCACCTTTATCATCAGCCTCTTCCCCACAACAATATTTCTATGCCTAGACCAAGAAGCTATTATCTCAAGCTGACACTGAGCAACAACCCAAACAATTCAACTCTCCCTAAGCTT"/>
+        <sequence id="seq_Pongo" spec="Sequence" taxon="Pongo" totalcount="4" value="AAGCTTCACCGGCGCAACCACCCTCATGATTGCCCATGGACTCACATCCTCCCTACTGTTCTGCCTAGCAAACTCAAACTACGAACGAACCCACAGCCGCATCATAATCCTCTCTCAAGGCCTTCAAACTCTACTCCCCCTAATAGCCCTCTGATGACTTCTAGCAAGCCTCACTAACCTTGCCCTACCACCCACCATCAACCTTCTAGGAGAACTCTCCGTACTAATAGCCATATTCTCTTGATCTAACATCACCATCCTACTAACAGGACTCAACATACTAATCACAACCCTATACTCTCTCTATATATTCACCACAACACAACGAGGTACACCCACACACCACATCAACAACATAAAACCTTCTTTCACACGCGAAAATACCCTCATGCTCATACACCTATCCCCCATCCTCCTCTTATCCCTCAACCCCAGCATCATCGCTGGGTTCGCCTACTGTAAATATAGTTTAACCAAAACATTAGATTGTGAATCTAATAATAGGGCCCCA-CAACCCCTTATTTACCGAGAAAGCT-CACAAGAACTGCTAACTCTCACT-CCATGTGTGACAACATGGCTTTCTCAGCTTTTAAAGGATAACAGCTATCCCTTGGTCTTAGGATCCAAAAATTTTGGTGCAACTCCAAATAAAAGTAACAGCCATGTTTACCACCATAACTGCCCTCACCTTAACTTCCCTAATCCCCCCCATTACCGCTACCCTCATTAACCCCAACAAAAAAAACCCATACCCCCACTATGTAAAAACGGCCATCGCATCCGCCTTTACTATCAGCCTTATCCCAACAACAATATTTATCTGCCTAGGACAAGAAACCATCGTCACAAACTGATGCTGAACAACCACCCAGACACTACAACTCTCACTAAGCTT"/>
+        <sequence id="seq_Hylobates" spec="Sequence" taxon="Hylobates" totalcount="4" value="AAGCTTTACAGGTGCAACCGTCCTCATAATCGCCCACGGACTAACCTCTTCCCTGCTATTCTGCCTTGCAAACTCAAACTACGAACGAACTCACAGCCGCATCATAATCCTATCTCGAGGGCTCCAAGCCTTACTCCCACTGATAGCCTTCTGATGACTCGCAGCAAGCCTCGCTAACCTCGCCCTACCCCCCACTATTAACCTCCTAGGTGAACTCTTCGTACTAATGGCCTCCTTCTCCTGGGCAAACACTACTATTACACTCACCGGGCTCAACGTACTAATCACGGCCCTATACTCCCTTTACATATTTATCATAACACAACGAGGCACACTTACACACCACATTAAAAACATAAAACCCTCACTCACACGAGAAAACATATTAATACTTATGCACCTCTTCCCCCTCCTCCTCCTAACCCTCAACCCTAACATCATTACTGGCTTTACTCCCTGTAAACATAGTTTAATCAAAACATTAGATTGTGAATCTAACAATAGAGGCTCG-AAACCTCTTGCTTACCGAGAAAGCC-CACAAGAACTGCTAACTCACTATCCCATGTATGACAACATGGCTTTCTCAACTTTTAAAGGATAACAGCTATCCATTGGTCTTAGGACCCAAAAATTTTGGTGCAACTCCAAATAAAAGTAATAGCAATGTACACCACCATAGCCATTCTAACGCTAACCTCCCTAATTCCCCCCATTACAGCCACCCTTATTAACCCCAATAAAAAGAACTTATACCCGCACTACGTAAAAATGACCATTGCCTCTACCTTTATAATCAGCCTATTTCCCACAATAATATTCATGTGCACAGACCAAGAAACCATTATTTCAAACTGACACTGAACTGCAACCCAAACGCTAGAACTCTCCCTAAGCTT"/>
+        <sequence id="seq_Macaca_fuscata" spec="Sequence" taxon="Macaca_fuscata" totalcount="4" value="AAGCTTTTCCGGCGCAACCATCCTTATGATCGCTCACGGACTCACCTCTTCCATATATTTCTGCCTAGCCAATTCAAACTATGAACGCACTCACAACCGTACCATACTACTGTCCCGAGGACTTCAAATCCTACTTCCACTAACAGCCTTTTGATGATTAACAGCAAGCCTTACTAACCTTGCCCTACCCCCCACTATCAATCTACTAGGTGAACTCTTTGTAATCGCAACCTCATTCTCCTGATCCCATATCACCATTATGCTAACAGGACTTAACATATTAATTACGGCCCTCTACTCTCTCCACATATTCACTACAACACAACGAGGAACACTCACACATCACATAATCAACATAAAGCCCCCCTTCACACGAGAAAACACATTAATATTCATACACCTCGCTCCAATTATCCTTCTATCCCTCAACCCCAACATCATCCTGGGGTTTACCTCCTGTAGATATAGTTTAACTAAAACACTAGATTGTGAATCTAACCATAGAGACTCA-CCACCTCTTATTTACCGAGAAAACT-CGCAAGGACTGCTAACCCATGTACCCGTACCTAAAATTACGGTTTTCTCAACTTTTAAAGGATAACAGCTATCCATTGACCTTAGGAGTCAAAAACATTGGTGCAACTCCAAATAAAAGTAATAATCATGCACACCCCCATCATTATAACAACCCTTATCTCCCTAACTCTCCCAATTTTTGCCACCCTCATCAACCCTTACAAAAAACGTCCATACCCAGATTACGTAAAAACAACCGTAATATATGCTTTCATCATCAGCCTCCCCTCAACAACTTTATTCATCTTCTCAAACCAAGAAACAACCATTTGGAGCTGACATTGAATAATGACCCAAACACTAGACCTAACGCTAAGCTT"/>
+        <sequence id="seq_M._mulatta" spec="Sequence" taxon="M._mulatta" totalcount="4" value="AAGCTTTTCTGGCGCAACCATCCTCATGATTGCTCACGGACTCACCTCTTCCATATATTTCTGCCTAGCCAATTCAAACTATGAACGCACTCACAACCGTACCATACTACTGTCCCGGGGACTTCAAATCCTACTTCCACTAACAGCTTTCTGATGATTAACAGCAAGCCTTACTAACCTTGCCCTACCCCCCACTATCAACCTACTAGGTGAACTCTTTGTAATCGCGACCTCATTCTCCTGGTCCCATATCACCATTATATTAACAGGATTTAACATACTAATTACGGCCCTCTACTCCCTCCACATATTCACCACAACACAACGAGGAGCACTCACACATCACATAATCAACATAAAACCCCCCTTCACACGAGAAAACATATTAATATTCATACACCTCGCTCCAATCATCCTCCTATCTCTCAACCCCAACATCATCCTGGGGTTTACTTCCTGTAGATATAGTTTAACTAAAACATTAGATTGTGAATCTAACCATAGAGACTTA-CCACCTCTTATTTACCGAGAAAACT-CGCGAGGACTGCTAACCCATGTATCCGTACCTAAAATTACGGTTTTCTCAACTTTTAAAGGATAACAGCTATCCATTGACCTTAGGAGTCAAAAATATTGGTGCAACTCCAAATAAAAGTAATAATCATGCACACCCCTATCATAATAACAACCCTTATCTCCCTAACTCTCCCAATTTTTGCCACCCTCATCAACCCTTACAAAAAACGTCCATACCCAGATTACGTAAAAACAACCGTAATATATGCTTTCATCATCAGCCTCCCCTCAACAACTTTATTCATCTTCTCAAACCAAGAAACAACCATTTGAAGCTGACATTGAATAATAACCCAAACACTAGACCTAACACTAAGCTT"/>
+        <sequence id="seq_M._fascicularis" spec="Sequence" taxon="M._fascicularis" totalcount="4" value="AAGCTTCTCCGGCGCAACCACCCTTATAATCGCCCACGGGCTCACCTCTTCCATGTATTTCTGCTTGGCCAATTCAAACTATGAGCGCACTCATAACCGTACCATACTACTATCCCGAGGACTTCAAATTCTACTTCCATTGACAGCCTTCTGATGACTCACAGCAAGCCTTACTAACCTTGCCCTACCCCCCACTATTAATCTACTAGGCGAACTCTTTGTAATCACAACTTCATTTTCCTGATCCCATATCACCATTGTGTTAACGGGCCTTAATATACTAATCACAGCCCTCTACTCTCTCCACATGTTCATTACAGTACAACGAGGAACACTCACACACCACATAATCAATATAAAACCCCCCTTCACACGAGAAAACATATTAATATTCATACACCTCGCTCCAATTATCCTTCTATCTCTCAACCCCAACATCATCCTGGGGTTTACCTCCTGTAAATATAGTTTAACTAAAACATTAGATTGTGAATCTAACTATAGAGGCCTA-CCACTTCTTATTTACCGAGAAAACT-CGCAAGGACTGCTAATCCATGCCTCCGTACTTAAAACTACGGTTTCCTCAACTTTTAAAGGATAACAGCTATCCATTGACCTTAGGAGTCAAAAACATTGGTGCAACTCCAAATAAAAGTAATAATCATGCACACCCCCATCATAATAACAACCCTCATCTCCCTGACCCTTCCAATTTTTGCCACCCTCACCAACCCCTATAAAAAACGTTCATACCCAGACTACGTAAAAACAACCGTAATATATGCTTTTATTACCAGTCTCCCCTCAACAACCCTATTCATCCTCTCAAACCAAGAAACAACCATTTGGAGTTGACATTGAATAACAACCCAAACATTAGACCTAACACTAAGCTT"/>
+        <sequence id="seq_M._sylvanus" spec="Sequence" taxon="M._sylvanus" totalcount="4" value="AAGCTTCTCCGGTGCAACTATCCTTATAGTTGCCCATGGACTCACCTCTTCCATATACTTCTGCTTGGCCAACTCAAACTACGAACGCACCCACAGCCGCATCATACTACTATCCCGAGGACTCCAAATCCTACTCCCACTAACAGCCTTCTGATGATTCACAGCAAGCCTTACTAATCTTGCTCTACCCTCCACTATTAATCTACTGGGCGAACTCTTCGTAATCGCAACCTCATTTTCCTGATCCCACATCACCATCATACTAACAGGACTGAACATACTAATTACAGCCCTCTACTCTCTTCACATATTCACCACAACACAACGAGGAGCGCTCACACACCACATAATTAACATAAAACCACCTTTCACACGAGAAAACATATTAATACTCATACACCTCGCTCCAATTATTCTTCTATCTCTTAACCCCAACATCATTCTAGGATTTACTTCCTGTAAATATAGTTTAATTAAAACATTAGACTGTGAATCTAACTATAGAAGCTTA-CCACTTCTTATTTACCGAGAAAACT-TGCAAGGACCGCTAATCCACACCTCCGTACTTAAAACTACGGTTTTCTCAACTTTTAAAGGATAACAGCTATCCATTGGCCTTAGGAGTCAAAAATATTGGTGCAACTCCAAATAAAAGTAATAATCATGTATACCCCCATCATAATAACAACTCTCATCTCCCTAACTCTTCCAATTTTCGCTACCCTTATCAACCCCAACAAAAAACACCTATATCCAAACTACGTAAAAACAGCCGTAATATATGCTTTCATTACCAGCCTCTCTTCAACAACTTTATATATATTCTTAAACCAAGAAACAATCATCTGAAGCTGGCACTGAATAATAACCCAAACACTAAGCCTAACATTAAGCTT"/>
+        <sequence id="seq_Saimiri_sciureus" spec="Sequence" taxon="Saimiri_sciureus" totalcount="4" value="AAGCTTCACCGGCGCAATGATCCTAATAATCGCTCACGGGTTTACTTCGTCTATGCTATTCTGCCTAGCAAACTCAAATTACGAACGAATTCACAGCCGAACAATAACATTTACTCGAGGGCTCCAAACACTATTCCCGCTTATAGGCCTCTGATGACTCCTAGCAAATCTCGCTAACCTCGCCCTACCCACAGCTATTAATCTAGTAGGAGAATTACTCACAATCGTATCTTCCTTCTCTTGATCCAACTTTACTATTATATTCACAGGACTTAATATACTAATTACAGCACTCTACTCACTTCATATGTATGCCTCTACACAGCGAGGTCCACTTACATACAGCACCAGCAATATAAAACCAATATTTACACGAGAAAATACGCTAATATTTATACATATAACACCAATCCTCCTCCTTACCTTGAGCCCCAAGGTAATTATAGGACCCTCACCTTGTAATTATAGTTTAGCTAAAACATTAGATTGTGAATCTAATAATAGAAGAATA-TAACTTCTTAATTACCGAGAAAGTG-CGCAAGAACTGCTAATTCATGCTCCCAAGACTAACAACTTGGCTTCCTCAACTTTTAAAGGATAGTAGTTATCCATTGGTCTTAGGAGCCAAAAACATTGGTGCAACTCCAAATAAAAGTAATA---ATACACTTCTCCATCACTCTAATAACACTAATTAGCCTACTAGCGCCAATCCTAGCTACCCTCATTAACCCTAACAAAAGCACACTATACCCGTACTACGTAAAACTAGCCATCATCTACGCCCTCATTACCAGTACCTTATCTATAATATTCTTTATCCTTACAGGCCAAGAATCAATAATTTCAAACTGACACTGAATAACTATCCAAACCATCAAACTATCCCTAAGCTT"/>
+        <sequence id="seq_Tarsius_syrichta" spec="Sequence" taxon="Tarsius_syrichta" totalcount="4" value="AAGTTTCATTGGAGCCACCACTCTTATAATTGCCCATGGCCTCACCTCCTCCCTATTATTTTGCCTAGCAAATACAAACTACGAACGAGTCCACAGTCGAACAATAGCACTAGCCCGTGGCCTTCAAACCCTATTACCTCTTGCAGCAACATGATGACTCCTCGCCAGCTTAACCAACCTGGCCCTTCCCCCAACAATTAATTTAATCGGTGAACTGTCCGTAATAATAGCAGCATTTTCATGGTCACACCTAACTATTATCTTAGTAGGCCTTAACACCCTTATCACCGCCCTATATTCCCTATATATACTAATCATAACTCAACGAGGAAAATACACATATCATATCAACAATATCATGCCCCCTTTCACCCGAGAAAATACATTAATAATCATACACCTATTTCCCTTAATCCTACTATCTACCAACCCCAAAGTAATTATAGGAACCATGTACTGTAAATATAGTTTAAACAAAACATTAGATTGTGAGTCTAATAATAGAAGCCCAAAGATTTCTTATTTACCAAGAAAGTA-TGCAAGAACTGCTAACTCATGCCTCCATATATAACAATGTGGCTTTCTT-ACTTTTAAAGGATAGAAGTAATCCATCGGTCTTAGGAACCGAAAA-ATTGGTGCAACTCCAAATAAAAGTAATAAATTTATTTTCATCCTCCATTTTACTATCACTTACACTCTTAATTACCCCATTTATTATTACAACAACTAAAAAATATGAAACACATGCATACCCTTACTACGTAAAAAACTCTATCGCCTGCGCATTTATAACAAGCCTAGTCCCAATGCTCATATTTCTATACACAAATCAAGAAATAATCATTTCCAACTGACATTGAATAACGATTCATACTATCAAATTATGCCTAAGCTT"/>
+    </data>
+
+    <map name="LogUniform" >beast.base.spec.inference.distribution.LogUniform</map>
+
+    <map name="OffsetReal" >beast.base.spec.inference.distribution.OffsetReal</map>
+
+    <map name="Exponential" >beast.base.spec.inference.distribution.Exponential</map>
+
+    <map name="Uniform" >beast.base.spec.inference.distribution.Uniform</map>
+
+    <map name="Bernoulli" >beast.base.spec.inference.distribution.Bernoulli</map>
+
+    <map name="Beta" >beast.base.spec.inference.distribution.Beta</map>
+
+    <map name="Gamma" >beast.base.spec.inference.distribution.Gamma</map>
+
+    <map name="LaplaceDistribution" >beast.base.spec.inference.distribution.Laplace</map>
+
+    <map name="TruncatedReal" >beast.base.spec.inference.distribution.TruncatedReal</map>
+
+    <map name="IntUniform" >beast.base.spec.inference.distribution.IntUniform</map>
+
+    <map name="Dirichlet" >beast.base.spec.inference.distribution.Dirichlet</map>
+
+    <map name="InverseGamma" >beast.base.spec.inference.distribution.InverseGamma</map>
+
+    <map name="ChiSquare" >beast.base.spec.inference.distribution.ChiSquare</map>
+
+    <map name="GammaMean" >beast.base.spec.inference.distribution.GammaMean</map>
+
+    <map name="IID" >beast.base.spec.inference.distribution.IID</map>
+
+    <map name="OffsetInt" >beast.base.spec.inference.distribution.OffsetInt</map>
+
+    <map name="TruncatedInt" >beast.base.spec.inference.distribution.TruncatedInt</map>
+
+    <map name="LogNormal" >beast.base.spec.inference.distribution.LogNormal</map>
+
+    <map name="Normal" >beast.base.spec.inference.distribution.Normal</map>
+
+    <map name="Poisson" >beast.base.spec.inference.distribution.Poisson</map>
+
+    <map name="Cauchy" >beast.base.spec.inference.distribution.Cauchy</map>
+
+    <run id="mcmc" spec="MCMC" chainLength="100000000">
+        <state id="state" spec="State" storeEvery="5000">
+            <tree id="Tree.t:noncoding" spec="beast.base.evolution.tree.Tree" name="stateNode">
+                <taxonset id="TaxonSet.noncoding" spec="TaxonSet">
+                    <alignment id="noncoding" spec="FilteredAlignment" filter="1,458-659,897-898">
+                        <data idref="primate-mtDNA"/>
+                    </alignment>
+                </taxonset>
+            </tree>
+            <stateNode id="birthRate.t:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="gammaShape.s:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAC.s:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAG.s:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAT.s:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateCG.s:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateGT.s:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="freqParameter.s:noncoding" spec="beast.base.spec.inference.parameter.SimplexParam" dimension="4" domain="UnitInterval">0.25 0.25 0.25 0.25</stateNode>
+            <stateNode id="gammaShape.s:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAC.s:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAG.s:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAT.s:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateCG.s:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateGT.s:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="freqParameter.s:1stpos" spec="beast.base.spec.inference.parameter.SimplexParam" dimension="4" domain="UnitInterval">0.25 0.25 0.25 0.25</stateNode>
+            <stateNode id="gammaShape.s:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAC.s:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAG.s:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAT.s:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateCG.s:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateGT.s:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="freqParameter.s:2ndpos" spec="beast.base.spec.inference.parameter.SimplexParam" dimension="4" domain="UnitInterval">0.25 0.25 0.25 0.25</stateNode>
+            <stateNode id="gammaShape.s:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAC.s:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAG.s:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateAT.s:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateCG.s:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="rateGT.s:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="freqParameter.s:3rdpos" spec="beast.base.spec.inference.parameter.SimplexParam" dimension="4" domain="UnitInterval">0.25 0.25 0.25 0.25</stateNode>
+            <stateNode id="mutationRate.s:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="mutationRate.s:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="mutationRate.s:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            <stateNode id="mutationRate.s:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+        </state>
+        <init id="RandomTree.t:2ndpos" spec="beast.base.spec.evolution.tree.coalescent.RandomTree" estimate="false" initial="@Tree.t:noncoding">
+            <taxa id="2ndpos" spec="FilteredAlignment" data="@primate-mtDNA" filter="3-457\3,661-896\3"/>
+            <populationModel id="ConstantPopulation0.t:2ndpos" spec="beast.base.spec.evolution.tree.coalescent.ConstantPopulation">
+                <popSize id="randomPopSize.t:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
+            </populationModel>
+        </init>
+        <distribution id="posterior" spec="CompoundDistribution">
+            <distribution id="prior" spec="CompoundDistribution">
+                <distribution id="YuleModel.t:noncoding" spec="beast.base.spec.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:noncoding" tree="@Tree.t:noncoding"/>
+                <Dirichlet id="FrequenciesPrior.s:1stpos" name="distribution" param="@freqParameter.s:1stpos">
+                    <alpha id="RealVectorParam.1" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
+                </Dirichlet>
+                <Dirichlet id="FrequenciesPrior.s:2ndpos" name="distribution" param="@freqParameter.s:2ndpos">
+                    <alpha id="RealVectorParam.2" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
+                </Dirichlet>
+                <Dirichlet id="FrequenciesPrior.s:3rdpos" name="distribution" param="@freqParameter.s:3rdpos">
+                    <alpha id="RealVectorParam.3" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
+                </Dirichlet>
+                <Dirichlet id="FrequenciesPrior.s:noncoding" name="distribution" param="@freqParameter.s:noncoding">
+                    <alpha id="RealVectorParam.0" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
+                </Dirichlet>
+                <Exponential id="GammaShapePrior.s:1stpos" name="distribution" param="@gammaShape.s:1stpos">
+                    <mean id="RealScalarParam.183" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                </Exponential>
+                <Exponential id="GammaShapePrior.s:2ndpos" name="distribution" param="@gammaShape.s:2ndpos">
+                    <mean id="RealScalarParam.184" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                </Exponential>
+                <Exponential id="GammaShapePrior.s:3rdpos" name="distribution" param="@gammaShape.s:3rdpos">
+                    <mean id="RealScalarParam.185" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                </Exponential>
+                <Exponential id="GammaShapePrior.s:noncoding" name="distribution" param="@gammaShape.s:noncoding">
+                    <mean id="RealScalarParam.186" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                </Exponential>
+                <Gamma id="RateACPrior.s:1stpos" name="distribution" param="@rateAC.s:1stpos">
+                    <alpha id="RealScalarParam.87" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.88" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateACPrior.s:2ndpos" name="distribution" param="@rateAC.s:2ndpos">
+                    <alpha id="RealScalarParam.99" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.100" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateACPrior.s:3rdpos" name="distribution" param="@rateAC.s:3rdpos">
+                    <alpha id="RealScalarParam.111" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.112" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateACPrior.s:noncoding" name="distribution" param="@rateAC.s:noncoding">
+                    <alpha id="RealScalarParam.75" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.76" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateAGPrior.s:1stpos" name="distribution" param="@rateAG.s:1stpos">
+                    <alpha id="RealScalarParam.89" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.90" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="20.0"/>
+                </Gamma>
+                <Gamma id="RateAGPrior.s:2ndpos" name="distribution" param="@rateAG.s:2ndpos">
+                    <alpha id="RealScalarParam.101" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.102" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="20.0"/>
+                </Gamma>
+                <Gamma id="RateAGPrior.s:3rdpos" name="distribution" param="@rateAG.s:3rdpos">
+                    <alpha id="RealScalarParam.113" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.114" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="20.0"/>
+                </Gamma>
+                <Gamma id="RateAGPrior.s:noncoding" name="distribution" param="@rateAG.s:noncoding">
+                    <alpha id="RealScalarParam.77" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.78" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="20.0"/>
+                </Gamma>
+                <Gamma id="RateATPrior.s:1stpos" name="distribution" param="@rateAT.s:1stpos">
+                    <alpha id="RealScalarParam.91" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.92" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateATPrior.s:2ndpos" name="distribution" param="@rateAT.s:2ndpos">
+                    <alpha id="RealScalarParam.103" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.104" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateATPrior.s:3rdpos" name="distribution" param="@rateAT.s:3rdpos">
+                    <alpha id="RealScalarParam.115" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.116" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateATPrior.s:noncoding" name="distribution" param="@rateAT.s:noncoding">
+                    <alpha id="RealScalarParam.79" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.80" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateCGPrior.s:1stpos" name="distribution" param="@rateCG.s:1stpos">
+                    <alpha id="RealScalarParam.93" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.94" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateCGPrior.s:2ndpos" name="distribution" param="@rateCG.s:2ndpos">
+                    <alpha id="RealScalarParam.105" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.106" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateCGPrior.s:3rdpos" name="distribution" param="@rateCG.s:3rdpos">
+                    <alpha id="RealScalarParam.117" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.118" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateCGPrior.s:noncoding" name="distribution" param="@rateCG.s:noncoding">
+                    <alpha id="RealScalarParam.81" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.82" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateGTPrior.s:1stpos" name="distribution" param="@rateGT.s:1stpos">
+                    <alpha id="RealScalarParam.97" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.98" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateGTPrior.s:2ndpos" name="distribution" param="@rateGT.s:2ndpos">
+                    <alpha id="RealScalarParam.109" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.110" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateGTPrior.s:3rdpos" name="distribution" param="@rateGT.s:3rdpos">
+                    <alpha id="RealScalarParam.121" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.122" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="RateGTPrior.s:noncoding" name="distribution" param="@rateGT.s:noncoding">
+                    <alpha id="RealScalarParam.85" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.05"/>
+                    <theta id="RealScalarParam.86" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="10.0"/>
+                </Gamma>
+                <Gamma id="YuleBirthRatePrior.t:noncoding" name="distribution" param="@birthRate.t:noncoding">
+                    <alpha id="RealScalarParam.12" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.01"/>
+                    <theta id="RealScalarParam.13" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="100.0"/>
+                </Gamma>
+            </distribution>
+            <distribution id="likelihood" spec="CompoundDistribution" useThreads="true">
+                <distribution id="treeLikelihood.noncoding" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" data="@noncoding" tree="@Tree.t:noncoding">
+                    <siteModel id="SiteModel.s:noncoding" spec="beast.base.spec.evolution.sitemodel.SiteModel" gammaCategoryCount="4" mutationRate="@mutationRate.s:noncoding" shape="@gammaShape.s:noncoding">
+                        <proportionInvariant id="proportionInvariant.s:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="UnitInterval" estimate="false"/>
+                        <substModel id="gtr.s:noncoding" spec="beast.base.spec.evolution.substitutionmodel.GTR" rateAC="@rateAC.s:noncoding" rateAG="@rateAG.s:noncoding" rateAT="@rateAT.s:noncoding" rateCG="@rateCG.s:noncoding" rateGT="@rateGT.s:noncoding">
+                            <rateCT id="rateCT.s:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                            <frequencies id="estimatedFreqs.s:noncoding" spec="beast.base.spec.evolution.substitutionmodel.Frequencies" frequencies="@freqParameter.s:noncoding"/>
+                        </substModel>
+                    </siteModel>
+                    <branchRateModel id="StrictClock.c:noncoding" spec="beast.base.spec.evolution.branchratemodel.StrictClockModel">
+                        <clock.rate id="clockRate.c:noncoding" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                    </branchRateModel>
+                </distribution>
+                <distribution id="treeLikelihood.1stpos" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:noncoding" tree="@Tree.t:noncoding">
+                    <data
+id="1stpos"
+spec="FilteredAlignment"
+data="@primate-mtDNA"
+filter="2-457\3,660-896\3"/>
+                    <siteModel id="SiteModel.s:1stpos" spec="beast.base.spec.evolution.sitemodel.SiteModel" gammaCategoryCount="4" mutationRate="@mutationRate.s:1stpos" shape="@gammaShape.s:1stpos">
+                        <proportionInvariant id="proportionInvariant.s:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="UnitInterval" estimate="false"/>
+                        <substModel id="gtr.s:1stpos" spec="beast.base.spec.evolution.substitutionmodel.GTR" rateAC="@rateAC.s:1stpos" rateAG="@rateAG.s:1stpos" rateAT="@rateAT.s:1stpos" rateCG="@rateCG.s:1stpos" rateGT="@rateGT.s:1stpos">
+                            <rateCT id="rateCT.s:1stpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                            <frequencies id="estimatedFreqs.s:1stpos" spec="beast.base.spec.evolution.substitutionmodel.Frequencies" frequencies="@freqParameter.s:1stpos"/>
+                        </substModel>
+                    </siteModel>
+                </distribution>
+                <distribution id="treeLikelihood.2ndpos" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:noncoding" data="@2ndpos" tree="@Tree.t:noncoding">
+                    <siteModel id="SiteModel.s:2ndpos" spec="beast.base.spec.evolution.sitemodel.SiteModel" gammaCategoryCount="4" mutationRate="@mutationRate.s:2ndpos" shape="@gammaShape.s:2ndpos">
+                        <proportionInvariant id="proportionInvariant.s:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="UnitInterval" estimate="false"/>
+                        <substModel id="gtr.s:2ndpos" spec="beast.base.spec.evolution.substitutionmodel.GTR" rateAC="@rateAC.s:2ndpos" rateAG="@rateAG.s:2ndpos" rateAT="@rateAT.s:2ndpos" rateCG="@rateCG.s:2ndpos" rateGT="@rateGT.s:2ndpos">
+                            <rateCT id="rateCT.s:2ndpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                            <frequencies id="estimatedFreqs.s:2ndpos" spec="beast.base.spec.evolution.substitutionmodel.Frequencies" frequencies="@freqParameter.s:2ndpos"/>
+                        </substModel>
+                    </siteModel>
+                </distribution>
+                <distribution id="treeLikelihood.3rdpos" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" branchRateModel="@StrictClock.c:noncoding" tree="@Tree.t:noncoding">
+                    <data
+id="3rdpos"
+spec="FilteredAlignment"
+data="@primate-mtDNA"
+filter="4-457\3,662-.\3"/>
+                    <siteModel id="SiteModel.s:3rdpos" spec="beast.base.spec.evolution.sitemodel.SiteModel" gammaCategoryCount="4" mutationRate="@mutationRate.s:3rdpos" shape="@gammaShape.s:3rdpos">
+                        <proportionInvariant id="proportionInvariant.s:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="UnitInterval" estimate="false"/>
+                        <substModel id="gtr.s:3rdpos" spec="beast.base.spec.evolution.substitutionmodel.GTR" rateAC="@rateAC.s:3rdpos" rateAG="@rateAG.s:3rdpos" rateAT="@rateAT.s:3rdpos" rateCG="@rateCG.s:3rdpos" rateGT="@rateGT.s:3rdpos">
+                            <rateCT id="rateCT.s:3rdpos" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                            <frequencies id="estimatedFreqs.s:3rdpos" spec="beast.base.spec.evolution.substitutionmodel.Frequencies" frequencies="@freqParameter.s:3rdpos"/>
+                        </substModel>
+                    </siteModel>
+                </distribution>
+            </distribution>
+        </distribution>
+        <operator id="YuleBirthRateScaler.t:noncoding" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@birthRate.t:noncoding" weight="3.0"/>
+        <operator id="YuleModelTreeRootScaler.t:noncoding" spec="beast.base.spec.evolution.operator.ScaleTreeOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:noncoding" weight="3.0"/>
+        <operator id="YuleModelUniformOperator.t:noncoding" spec="kernel.BactrianNodeOperator" tree="@Tree.t:noncoding" weight="30.0"/>
+        <operator id="YuleModelSubtreeSlide.t:noncoding" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:noncoding" weight="15.0"/>
+        <operator id="YuleModelNarrow.t:noncoding" spec="Exchange" tree="@Tree.t:noncoding" weight="15.0"/>
+        <operator id="YuleModelWide.t:noncoding" spec="Exchange" isNarrow="false" tree="@Tree.t:noncoding" weight="3.0"/>
+        <operator id="YuleModelWilsonBalding.t:noncoding" spec="WilsonBalding" tree="@Tree.t:noncoding" weight="3.0"/>
+        <operator id="YuleModelTreeScaler.t:noncoding" spec="beast.base.spec.evolution.operator.UpDownOperator" scaleFactor="0.1" weight="4.0">
+            <up idref="Tree.t:noncoding"/>
+        </operator>
+        <operator id="gammaShapeScaler.s:noncoding" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="gammaShape.s:noncoding"/>
+            <operator id="AVMNOperator.noncoding" spec="beast.base.spec.evolution.operator.AdaptableVarianceMultivariateNormalOperator" allowNonsense="true" beta="0.05" burnin="400" initial="800" weight="0.1">
+                <transformations id="AVMNSumTransform.noncoding" spec="beast.base.spec.inference.operator.Transform$LogConstrainedSumTransform">
+                    <f idref="freqParameter.s:noncoding"/>
+                </transformations>
+                <transformations id="AVMNLogTransform.noncoding" spec="beast.base.spec.inference.operator.Transform$LogTransform">
+                    <scalable idref="Tree.t:noncoding"/>
+                    <f idref="gammaShape.s:noncoding"/>
+                    <f idref="rateAC.s:noncoding"/>
+                    <f idref="rateAG.s:noncoding"/>
+                    <f idref="rateAT.s:noncoding"/>
+                    <f idref="rateCG.s:noncoding"/>
+                    <f idref="rateGT.s:noncoding"/>
+                </transformations>
+                <transformations id="AVMNNoTransform.noncoding" spec="beast.base.spec.inference.operator.Transform$NoTransform"/>
+            </operator>
+            <operator id="gammaShapeScalerX.s:noncoding" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@gammaShape.s:noncoding" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateACScaler.s:noncoding" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAC.s:noncoding"/>
+            <operator idref="AVMNOperator.noncoding"/>
+            <operator id="RateACScalerX.s:noncoding" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAC.s:noncoding" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateAGScaler.s:noncoding" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAG.s:noncoding"/>
+            <operator idref="AVMNOperator.noncoding"/>
+            <operator id="RateAGScalerX.s:noncoding" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAG.s:noncoding" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateATScaler.s:noncoding" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAT.s:noncoding"/>
+            <operator idref="AVMNOperator.noncoding"/>
+            <operator id="RateATScalerX.s:noncoding" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAT.s:noncoding" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateCGScaler.s:noncoding" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateCG.s:noncoding"/>
+            <operator idref="AVMNOperator.noncoding"/>
+            <operator id="RateCGScalerX.s:noncoding" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateCG.s:noncoding" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateGTScaler.s:noncoding" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateGT.s:noncoding"/>
+            <operator idref="AVMNOperator.noncoding"/>
+            <operator id="RateGTScalerX.s:noncoding" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateGT.s:noncoding" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="FrequenciesExchanger.s:noncoding" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="freqParameter.s:noncoding"/>
+            <operator idref="AVMNOperator.noncoding"/>
+            <operator id="FrequenciesExchangerX.s:noncoding" spec="beast.base.spec.inference.operator.DeltaExchangeOperator" delta="0.01" weight="0.1">
+                <parameter idref="freqParameter.s:noncoding"/>
+            </operator>
+        </operator>
+        <operator id="gammaShapeScaler.s:1stpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="gammaShape.s:1stpos"/>
+            <operator id="AVMNOperator.1stpos" spec="beast.base.spec.evolution.operator.AdaptableVarianceMultivariateNormalOperator" allowNonsense="true" beta="0.05" burnin="400" initial="800" weight="0.1">
+                <transformations id="AVMNSumTransform.1stpos" spec="beast.base.spec.inference.operator.Transform$LogConstrainedSumTransform">
+                    <f idref="freqParameter.s:1stpos"/>
+                </transformations>
+                <transformations id="AVMNLogTransform.1stpos" spec="beast.base.spec.inference.operator.Transform$LogTransform">
+                    <scalable idref="Tree.t:noncoding"/>
+                    <f idref="gammaShape.s:1stpos"/>
+                    <f idref="rateAC.s:1stpos"/>
+                    <f idref="rateAG.s:1stpos"/>
+                    <f idref="rateAT.s:1stpos"/>
+                    <f idref="rateCG.s:1stpos"/>
+                    <f idref="rateGT.s:1stpos"/>
+                </transformations>
+                <transformations id="AVMNNoTransform.1stpos" spec="beast.base.spec.inference.operator.Transform$NoTransform"/>
+            </operator>
+            <operator id="gammaShapeScalerX.s:1stpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@gammaShape.s:1stpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateACScaler.s:1stpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAC.s:1stpos"/>
+            <operator idref="AVMNOperator.1stpos"/>
+            <operator id="RateACScalerX.s:1stpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAC.s:1stpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateAGScaler.s:1stpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAG.s:1stpos"/>
+            <operator idref="AVMNOperator.1stpos"/>
+            <operator id="RateAGScalerX.s:1stpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAG.s:1stpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateATScaler.s:1stpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAT.s:1stpos"/>
+            <operator idref="AVMNOperator.1stpos"/>
+            <operator id="RateATScalerX.s:1stpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAT.s:1stpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateCGScaler.s:1stpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateCG.s:1stpos"/>
+            <operator idref="AVMNOperator.1stpos"/>
+            <operator id="RateCGScalerX.s:1stpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateCG.s:1stpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateGTScaler.s:1stpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateGT.s:1stpos"/>
+            <operator idref="AVMNOperator.1stpos"/>
+            <operator id="RateGTScalerX.s:1stpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateGT.s:1stpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="FrequenciesExchanger.s:1stpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="freqParameter.s:1stpos"/>
+            <operator idref="AVMNOperator.1stpos"/>
+            <operator id="FrequenciesExchangerX.s:1stpos" spec="beast.base.spec.inference.operator.DeltaExchangeOperator" delta="0.01" weight="0.1">
+                <parameter idref="freqParameter.s:1stpos"/>
+            </operator>
+        </operator>
+        <operator id="gammaShapeScaler.s:2ndpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="gammaShape.s:2ndpos"/>
+            <operator id="AVMNOperator.2ndpos" spec="beast.base.spec.evolution.operator.AdaptableVarianceMultivariateNormalOperator" allowNonsense="true" beta="0.05" burnin="400" initial="800" weight="0.1">
+                <transformations id="AVMNSumTransform.2ndpos" spec="beast.base.spec.inference.operator.Transform$LogConstrainedSumTransform">
+                    <f idref="freqParameter.s:2ndpos"/>
+                </transformations>
+                <transformations id="AVMNLogTransform.2ndpos" spec="beast.base.spec.inference.operator.Transform$LogTransform">
+                    <scalable idref="Tree.t:noncoding"/>
+                    <f idref="gammaShape.s:2ndpos"/>
+                    <f idref="rateAC.s:2ndpos"/>
+                    <f idref="rateAG.s:2ndpos"/>
+                    <f idref="rateAT.s:2ndpos"/>
+                    <f idref="rateCG.s:2ndpos"/>
+                    <f idref="rateGT.s:2ndpos"/>
+                </transformations>
+                <transformations id="AVMNNoTransform.2ndpos" spec="beast.base.spec.inference.operator.Transform$NoTransform"/>
+            </operator>
+            <operator id="gammaShapeScalerX.s:2ndpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@gammaShape.s:2ndpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateACScaler.s:2ndpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAC.s:2ndpos"/>
+            <operator idref="AVMNOperator.2ndpos"/>
+            <operator id="RateACScalerX.s:2ndpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAC.s:2ndpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateAGScaler.s:2ndpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAG.s:2ndpos"/>
+            <operator idref="AVMNOperator.2ndpos"/>
+            <operator id="RateAGScalerX.s:2ndpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAG.s:2ndpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateATScaler.s:2ndpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAT.s:2ndpos"/>
+            <operator idref="AVMNOperator.2ndpos"/>
+            <operator id="RateATScalerX.s:2ndpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAT.s:2ndpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateCGScaler.s:2ndpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateCG.s:2ndpos"/>
+            <operator idref="AVMNOperator.2ndpos"/>
+            <operator id="RateCGScalerX.s:2ndpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateCG.s:2ndpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateGTScaler.s:2ndpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateGT.s:2ndpos"/>
+            <operator idref="AVMNOperator.2ndpos"/>
+            <operator id="RateGTScalerX.s:2ndpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateGT.s:2ndpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="FrequenciesExchanger.s:2ndpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="freqParameter.s:2ndpos"/>
+            <operator idref="AVMNOperator.2ndpos"/>
+            <operator id="FrequenciesExchangerX.s:2ndpos" spec="beast.base.spec.inference.operator.DeltaExchangeOperator" delta="0.01" weight="0.1">
+                <parameter idref="freqParameter.s:2ndpos"/>
+            </operator>
+        </operator>
+        <operator id="gammaShapeScaler.s:3rdpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="gammaShape.s:3rdpos"/>
+            <operator id="AVMNOperator.3rdpos" spec="beast.base.spec.evolution.operator.AdaptableVarianceMultivariateNormalOperator" allowNonsense="true" beta="0.05" burnin="400" initial="800" weight="0.1">
+                <transformations id="AVMNSumTransform.3rdpos" spec="beast.base.spec.inference.operator.Transform$LogConstrainedSumTransform">
+                    <f idref="freqParameter.s:3rdpos"/>
+                </transformations>
+                <transformations id="AVMNLogTransform.3rdpos" spec="beast.base.spec.inference.operator.Transform$LogTransform">
+                    <scalable idref="Tree.t:noncoding"/>
+                    <f idref="gammaShape.s:3rdpos"/>
+                    <f idref="rateAC.s:3rdpos"/>
+                    <f idref="rateAG.s:3rdpos"/>
+                    <f idref="rateAT.s:3rdpos"/>
+                    <f idref="rateCG.s:3rdpos"/>
+                    <f idref="rateGT.s:3rdpos"/>
+                </transformations>
+                <transformations id="AVMNNoTransform.3rdpos" spec="beast.base.spec.inference.operator.Transform$NoTransform"/>
+            </operator>
+            <operator id="gammaShapeScalerX.s:3rdpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@gammaShape.s:3rdpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateACScaler.s:3rdpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAC.s:3rdpos"/>
+            <operator idref="AVMNOperator.3rdpos"/>
+            <operator id="RateACScalerX.s:3rdpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAC.s:3rdpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateAGScaler.s:3rdpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAG.s:3rdpos"/>
+            <operator idref="AVMNOperator.3rdpos"/>
+            <operator id="RateAGScalerX.s:3rdpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAG.s:3rdpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateATScaler.s:3rdpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateAT.s:3rdpos"/>
+            <operator idref="AVMNOperator.3rdpos"/>
+            <operator id="RateATScalerX.s:3rdpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateAT.s:3rdpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateCGScaler.s:3rdpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateCG.s:3rdpos"/>
+            <operator idref="AVMNOperator.3rdpos"/>
+            <operator id="RateCGScalerX.s:3rdpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateCG.s:3rdpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="RateGTScaler.s:3rdpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="rateGT.s:3rdpos"/>
+            <operator idref="AVMNOperator.3rdpos"/>
+            <operator id="RateGTScalerX.s:3rdpos" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@rateGT.s:3rdpos" scaleFactor="0.5" weight="0.1"/>
+        </operator>
+        <operator id="FrequenciesExchanger.s:3rdpos" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="0.05">
+            <parameter idref="freqParameter.s:3rdpos"/>
+            <operator idref="AVMNOperator.3rdpos"/>
+            <operator id="FrequenciesExchangerX.s:3rdpos" spec="beast.base.spec.inference.operator.DeltaExchangeOperator" delta="0.01" weight="0.1">
+                <parameter idref="freqParameter.s:3rdpos"/>
+            </operator>
+        </operator>
+        <operator id="FixMeanMutationRatesOperator" spec="beast.base.spec.inference.operator.DeltaExchangeOperator" delta="0.75" weight="2.0">
+            <parameter idref="mutationRate.s:noncoding"/>
+            <parameter idref="mutationRate.s:1stpos"/>
+            <parameter idref="mutationRate.s:2ndpos"/>
+            <parameter idref="mutationRate.s:3rdpos"/>
+            <weightvector id="weightparameter" spec="beast.base.spec.inference.parameter.IntVectorParam" dimension="4" domain="PositiveInt" estimate="false">205 231 231 231</weightvector>
+        </operator>
+        <logger id="tracelog" spec="Logger" fileName="$(filebase).log" logEvery="10000" model="@posterior" sanitiseHeaders="true" sort="smart">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log idref="treeLikelihood.2ndpos"/>
+            <log idref="treeLikelihood.noncoding"/>
+            <log id="TreeHeight.t:noncoding" spec="beast.base.evolution.tree.TreeStatLogger" tree="@Tree.t:noncoding"/>
+            <log idref="YuleModel.t:noncoding"/>
+            <log idref="birthRate.t:noncoding"/>
+            <log idref="treeLikelihood.1stpos"/>
+            <log idref="treeLikelihood.3rdpos"/>
+            <log idref="gammaShape.s:noncoding"/>
+            <log idref="rateAC.s:noncoding"/>
+            <log idref="rateAG.s:noncoding"/>
+            <log idref="rateAT.s:noncoding"/>
+            <log idref="rateCG.s:noncoding"/>
+            <log idref="rateGT.s:noncoding"/>
+            <log idref="freqParameter.s:noncoding"/>
+            <log idref="gammaShape.s:1stpos"/>
+            <log idref="rateAC.s:1stpos"/>
+            <log idref="rateAG.s:1stpos"/>
+            <log idref="rateAT.s:1stpos"/>
+            <log idref="rateCG.s:1stpos"/>
+            <log idref="rateGT.s:1stpos"/>
+            <log idref="freqParameter.s:1stpos"/>
+            <log idref="gammaShape.s:2ndpos"/>
+            <log idref="rateAC.s:2ndpos"/>
+            <log idref="rateAG.s:2ndpos"/>
+            <log idref="rateAT.s:2ndpos"/>
+            <log idref="rateCG.s:2ndpos"/>
+            <log idref="rateGT.s:2ndpos"/>
+            <log idref="freqParameter.s:2ndpos"/>
+            <log idref="gammaShape.s:3rdpos"/>
+            <log idref="rateAC.s:3rdpos"/>
+            <log idref="rateAG.s:3rdpos"/>
+            <log idref="rateAT.s:3rdpos"/>
+            <log idref="rateCG.s:3rdpos"/>
+            <log idref="rateGT.s:3rdpos"/>
+            <log idref="freqParameter.s:3rdpos"/>
+            <log idref="mutationRate.s:3rdpos"/>
+            <log idref="mutationRate.s:2ndpos"/>
+            <log idref="mutationRate.s:1stpos"/>
+            <log idref="mutationRate.s:noncoding"/>
+        </logger>
+        <logger id="screenlog" spec="Logger" logEvery="10000">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+        </logger>
+        <logger id="treelog.t:noncoding" spec="Logger" fileName="$(filebase)-$(tree).trees" logEvery="10000" mode="tree">
+            <log id="TreeWithMetaDataLogger.t:noncoding" spec="beast.base.spec.evolution.TreeWithMetaDataLogger" tree="@Tree.t:noncoding"/>
+        </logger>
+        <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>
+    </run>
+
+</beast>

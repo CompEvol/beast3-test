@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:E15-binary'>((6:1.9609229860656812,(15:1.1518047018747435,8:1.1518047018747435)27:0.8091182841909377)25:0.007286848478317287,(9:1.9280714642423835,((12:1.8767094438443992,1:1.8767094438443992)20:0.03287711948626537,(((10:1.6438628743754768,4:1.6438628743754768)17:0.1414512121306788,(11:1.2934320403029416,7:1.2934320403029416)19:0.4918820462032141)29:0.05504659652276245,(((((0:0.9930212675137853,5:0.9930212675137853)21:0.5018266186820735,13:1.4948478861958587)23:0.052489313019828066,3:1.5473371992156868)18:0.15502863500889408,14:1.7023658342245809)16:0.07480483659449866,2:1.7771706708190795)26:0.06319001220983855)24:0.06922588030174648)28:0.01848490091171895)22:0.040138370301614934)30:0.0</statenode>
+<statenode id='birthRate.t:E15-binary'>birthRate.t:E15-binary[1 1] (0.0,Infinity): 0.8296697465359195 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:E15-binary","p":0.5839846945734077,"accept":115459,"reject":269674,"acceptFC":115358,"rejectFC":269239,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:E15-binary","p":0.03598614336561609,"accept":90268,"reject":294237,"acceptFC":90265,"rejectFC":293715,"rejectIv":141140,"rejectOp":141140},
+{"id":"YuleModelUniformOperator.t:E15-binary","p":2.9104763098631645,"accept":1204244,"reject":2642617,"acceptFC":1199143,"rejectFC":2642412,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:E15-binary","p":0.26273906807813213,"accept":416212,"reject":1506844,"acceptFC":416150,"rejectFC":1504287,"rejectIv":381128,"rejectOp":381128},
+{"id":"YuleModelNarrow.t:E15-binary","p":"NaN","accept":1227836,"reject":694454,"acceptFC":1226172,"rejectFC":693522,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:E15-binary","p":"NaN","accept":37093,"reject":346854,"acceptFC":37052,"rejectFC":346367,"rejectIv":198472,"rejectOp":198472},
+{"id":"YuleModelWilsonBalding.t:E15-binary","p":"NaN","accept":41342,"reject":343556,"acceptFC":41287,"rejectFC":343081,"rejectIv":85900,"rejectOp":85900},
+{"id":"YuleModelBICEPSEpochTop.t:E15-binary","p":0.41591059089629956,"accept":110724,"reject":145406,"acceptFC":110481,"rejectFC":145289,"rejectIv":33874,"rejectOp":33874},
+{"id":"YuleModelBICEPSEpochAll.t:E15-binary","p":0.42020928733960655,"accept":109578,"reject":147405,"acceptFC":109337,"rejectFC":147321,"rejectIv":33948,"rejectOp":33948},
+{"id":"YuleModelBICEPSTreeFlex.t:E15-binary","p":0.08276258396433131,"accept":106945,"reject":149253,"acceptFC":106643,"rejectFC":149226,"rejectIv":0,"rejectOp":0}
+]}
+-->
