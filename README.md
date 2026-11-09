@@ -360,3 +360,11 @@ don't cover every core model. Both gaps are covered by the BEAUti track in
 [ASSIGNMENTS.md](ASSIGNMENTS.md): 30 analyses built by hand in BEAUti 2.7.9 and BEAUti 3,
 covering every substitution, frequency, clock, tree-prior and starting-tree option in the
 BEAST 3 templates. Results go in `reports/beauti-manual.md` and `reports/model-coverage.md`.
+
+The status of all 30 is on the [status page](https://compevol.github.io/beast3-test/), rebuilt
+by `.github/workflows/status-page.yml` on every push to `main`. The numbers come from
+`reports/summary/batch-summary.md` and the tester and model from `ASSIGNMENTS.md`. The status
+and one-line note for each combination are set by hand in `reports/status.tsv`, and the panels
+under the table in `reports/status-notes.md`. The page lists any combination whose status
+disagrees with the latest numbers. To preview it locally, run
+`python3 scripts/build_status_page.py` and open `_site/index.html`.

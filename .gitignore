@@ -16,3 +16,6 @@ doc/*.fdb_latexmk
 
 # macOS Finder files
 .DS_Store
+
+# Status page build output (scripts/build_status_page.py)
+_site/

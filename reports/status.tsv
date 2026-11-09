@@ -1,0 +1,42 @@
+# Status of each BEAUti combination, for the status page (scripts/build_status_page.py).
+# Columns: ID <TAB> status <TAB> note. Notes may use `code` and **bold**.
+# Status is one of:
+#   pass       matched, no flags, full chains
+#   explained  flagged only because of a known, explained difference
+#   partial    matched, but most runs stopped before the end of the chain
+#   rerun      needs rerunning (rc1 build, or a flag to recheck with new seeds)
+#   blocked    needs a build with a fix made after rc2 (rc3)
+#   fail       not matched, difference not explained yet
+#   none       no results in the repo yet
+# Min ESS, max z and the script's verdict come from reports/summary/batch-summary.md;
+# tester and model come from ASSIGNMENTS.md.
+C01	pass	All defaults. Largest z just under the flag.
+C02	pass
+C03	rerun	BEAST 3 side ran on **rc1**. Rebuild in BEAUti 3 rc2 and rerun. ESS also below 200.
+C04	partial	3 of 4 runs stopped before the end of the 30M chain.
+C05	none	Can start on rc2 now.
+C06	rerun	Rerun at 15M. `prior` offset is mostly the known 0.1 per gamma shape. **gammaShape.2ndpos z = 3.15** still flagged; seeds 3 and 4 next.
+C07	pass
+C08	blocked	Crashes at start in rc1 and rc2 (NPE in `CalibratedYuleModel`). Fixed by beast3#198. Sophie's rc2 XML runs on master.
+C09	rerun	Matched, but the BEAST 3 side ran on **rc1**. Rerun on rc2.
+C10	pass
+C11	pass
+C12	rerun	gammaShape z = 124: rc1 BEAUti dropped the 0.1 lower bound. Rebuild in rc2 and rerun.
+C13	blocked	Versions agree, but both have the `SampleOffValues` Hastings bug. Needs rc3 and a BEAST.base 2.7.9 refresh.
+C14	fail	RLC indicators flagged, but replicates disagree within each version too. Needs longer chains.
+C15	none	Slow. Can start on rc2 now.
+C16	partial	All 4 runs stopped before the end of the 100M chain.
+C17	none	Slow. Can start on rc2 now.
+C18	explained	`prior` z = 9.1: the gamma-shape normalisation offset (0.1). Posterior unaffected.
+C19	pass
+C20	rerun	Matched, but the BEAST 3 side ran on **rc1**. Rerun on rc2.
+C21	none	Can start on rc2 now.
+C22	none	The shipped starting-tree file was empty. Use `data/anolis-start.newick`.
+C23	pass
+C24	none	Can start on rc2 now.
+C25	partial	3 of 4 runs stopped before the end of the 100M chain.
+C26	pass	Every marginal also matches its analytic prior.
+C27	explained	`CalibratedYuleModel` z = 8.2 is a logging difference. Both match U(4, 6) and U(8, 10).
+C28	none	Can start on rc2 now.
+C29	partial	All 4 runs stopped before the end of the chain.
+C30	partial	Resumed run matches the uninterrupted runs (max z 0.86). 3 of 4 runs stopped early.
