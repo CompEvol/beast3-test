@@ -14,7 +14,7 @@
 | C11 | 2/2 | 338 | 2.295 | – | 0 | matched |
 | C12 | 2/2 | 1180 | 167.3 | – | 9 | not matched (run problems) |
 | C13 | 2/2 | 243 | 2.884 | – | 0 | matched |
-| C14 | 2/2 | 264 | 2.724 | 0.010 | 0 | matched (run problems) |
+| C14 | 2/2 | 253 | 2.724 | 0.010 | 0 | matched (run problems) |
 | C16 | 2/2 | 206 | 1.124 | – | 0 | matched (run problems) |
 | C18 | 2/2 | 1146 | 9.096 | – | 1 | not matched |
 | C19 | 2/2 | 1253 | 0.9438 | – | 0 | matched |

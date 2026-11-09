@@ -24,7 +24,7 @@ Burn-in 10 %.
 | C09 | Sophie | 10M | 282¹ | matched | rerun on rc2 (9 Nov) |
 | C11 | Haoyuan | 20M | 338¹ | matched | |
 | C12 🐢 | Sophie | 50M | 1180¹ | **not matched** | rerun on rc2 (9 Nov): gammaShape z = 167, mean 0.120 (BEAST 2) vs 0.057 (BEAST 3), so the BEAST 3 XML still lets the shape go below 0.1; BEAST 2 runs stopped before the end of the chain |
-| C14 🐢 | Yuan | 76M | 264¹ | matched | compared by clade from the trees, not by `Indicators.N` (node numbers aren't tied to clades); 3 of 4 runs stopped before the end of the chain; see [Findings](#findings) |
+| C14 🐢 | Yuan | 100M | 253¹ | matched | compared by clade from the trees, not by `Indicators.N` (node numbers aren't tied to clades); extended to 100M, BEAST 2 rep2 stopped at 76.7M; branch-rate comparison still on the shorter tree files; see [Findings](#findings) |
 | C16 🐢 | Yuan | 100M | 206¹ | matched | all 4 runs stopped before the end of the chain |
 | C19 | Haoyuan | 10M | 1253¹ | matched | |
 | C20 | Sophie | 10M | 1182¹ | matched, **rerun (rc1)** | BEAST 3 run with rc1, not rc2 |

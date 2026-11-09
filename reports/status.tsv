@@ -23,7 +23,7 @@ C10	pass
 C11	pass
 C12	fail	Rerun on rc2: gammaShape z = 167 (0.120 vs 0.057). The BEAST 3 XML still lets the shape go below 0.1, unlike C06 and C18. Check how it was built.
 C13	blocked	Versions agree, but both have the `SampleOffValues` Hastings bug. Needs rc3 and a BEAST.base 2.7.9 refresh.
-C14	partial	Compared by clade from the trees (`Indicators.N` is indexed by node number, not clade): all branch rates match. 3 of 4 runs stopped early.
+C14	partial	Compared by clade from the trees (`Indicators.N` is indexed by node number, not clade): all branch rates match. Runs extended to 100M; BEAST 2 rep2 stopped at 76.7M. Branch-rate rows still use the shorter tree files until Yuan's new ones are in Dropbox.
 C15	none	Slow. Can start on rc2 now.
 C16	partial	All 4 runs stopped before the end of the 100M chain.
 C17	none	Slow. Can start on rc2 now.
