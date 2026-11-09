@@ -65,7 +65,7 @@ name="alignment">
 
     <map name="Cauchy" >beast.base.spec.inference.distribution.Cauchy</map>
 
-    <run id="mcmc" spec="MCMC" chainLength="50000000">
+    <run id="mcmc" spec="MCMC" chainLength="10000000">
         <state id="state" spec="State" storeEvery="5000">
             <tree id="Tree.t:Dengue4" spec="beast.base.evolution.tree.Tree" name="stateNode">
                 <trait id="dateTrait.t:Dengue4" spec="beast.base.evolution.tree.TraitSet" traitname="date" value="D4Brazi82=1982.0,D4ElSal83=1983.0,D4ElSal94=1994.0,D4Indon76=1976.0,D4Indon77=1977.0,D4Mexico84=1984.0,D4NewCal81=1981.0,D4Philip64=1964.0,D4Philip56=1956.0,D4Philip84=1984.0,D4PRico86=1986.0,D4SLanka78=1978.0,D4Tahiti79=1979.0,D4Tahiti85=1985.0,D4Thai63=1963.0,D4Thai78=1978.0,D4Thai84=1984.0">
@@ -92,16 +92,21 @@ name="alignment">
                 <distribution id="BayesianSkyline.t:Dengue4" spec="beast.base.spec.evolution.tree.coalescent.BayesianSkyline" groupSizes="@bGroupSizes.t:Dengue4" popSizes="@bPopSizes.t:Dengue4">
                     <treeIntervals id="BSPTreeIntervals.t:Dengue4" spec="beast.base.evolution.tree.TreeIntervals" tree="@Tree.t:Dengue4"/>
                 </distribution>
-                <LogNormal id="ClockPrior.c:Dengue4" name="distribution" param="@clockRate.c:Dengue4">
-                    <M id="RealScalarParam.77" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
-                    <S id="RealScalarParam.78" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
-                </LogNormal>
+                <Gamma id="ClockPrior.c:Dengue4" name="distribution" param="@clockRate.c:Dengue4">
+                    <alpha id="RealScalarParam.0" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.01"/>
+                    <theta id="RealScalarParam.1" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="100.0"/>
+                </Gamma>
                 <Dirichlet id="FrequenciesPrior.s:Dengue4" name="distribution" param="@freqParameter.s:Dengue4">
                     <alpha id="RealVectorParam.0" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
                 </Dirichlet>
-                <Exponential id="GammaShapePrior.s:Dengue4" name="distribution" param="@gammaShape.s:Dengue4">
-                    <mean id="RealScalarParam.79" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
-                </Exponential>
+                <TruncatedReal id="GammaShapePrior.s:Dengue4" name="distribution" param="@gammaShape.s:Dengue4">
+                    <Normal id="Normal.8" name="distribution">
+                        <mean id="RealScalarParam.97" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
+                        <sigma id="RealScalarParam.98" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                    </Normal>
+                    <lower id="RealScalarParam.99" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.1"/>
+                    <upper id="RealScalarParam.100" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="Infinity"/>
+                </TruncatedReal>
                 <LogNormal id="KappaPrior.s:Dengue4" name="distribution" param="@kappa.s:Dengue4">
                     <M id="RealScalarParam.15" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
                     <S id="RealScalarParam.16" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
@@ -174,7 +179,7 @@ name="alignment">
         <operator id="BayesianSkylineWilsonBalding.t:Dengue4" spec="WilsonBalding" tree="@Tree.t:Dengue4" weight="3.0"/>
         <operator id="popSizesScaler.t:Dengue4" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@bPopSizes.t:Dengue4" weight="15.0"/>
         <operator id="groupSizesDelta.t:Dengue4" spec="beast.base.spec.inference.operator.DeltaExchangeOperator" integer="true" ivparameter="@bGroupSizes.t:Dengue4" weight="6.0"/>
-        <logger id="tracelog" spec="Logger" fileName="$(filebase).log" logEvery="5000" model="@posterior" sanitiseHeaders="true" sort="smart">
+        <logger id="tracelog" spec="Logger" fileName="$(filebase).log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
             <log idref="posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
@@ -188,12 +193,12 @@ name="alignment">
             <log idref="bPopSizes.t:Dengue4"/>
             <log idref="bGroupSizes.t:Dengue4"/>
         </logger>
-        <logger id="screenlog" spec="Logger" logEvery="5000">
+        <logger id="screenlog" spec="Logger" logEvery="1000">
             <log idref="posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
         </logger>
-        <logger id="treelog.t:Dengue4" spec="Logger" fileName="$(filebase)-$(tree).trees" logEvery="5000" mode="tree">
+        <logger id="treelog.t:Dengue4" spec="Logger" fileName="$(filebase)-$(tree).trees" logEvery="1000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:Dengue4" spec="beast.base.spec.evolution.TreeWithMetaDataLogger" tree="@Tree.t:Dengue4"/>
         </logger>
         <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>

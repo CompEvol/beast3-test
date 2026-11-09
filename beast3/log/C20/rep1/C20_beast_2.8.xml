@@ -84,8 +84,8 @@ name="alignment">
                     <mean id="RealScalarParam.46" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
                 </Exponential>
                 <LogNormal id="PopSizePrior.t:aminoacid" name="distribution" param="@popSize.t:aminoacid">
-                    <M id="RealScalarParam.92" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
-                    <S id="RealScalarParam.93" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
+                    <M id="RealScalarParam.47" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
+                    <S id="RealScalarParam.48" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
                 </LogNormal>
             </distribution>
             <distribution id="likelihood" spec="CompoundDistribution" useThreads="true">
@@ -106,6 +106,7 @@ name="alignment">
             <operator id="AVMNOperator.aminoacid" spec="beast.base.spec.evolution.operator.AdaptableVarianceMultivariateNormalOperator" allowNonsense="true" beta="0.05" burnin="400" initial="800" weight="0.1">
                 <transformations id="AVMNSumTransform.aminoacid" spec="beast.base.spec.inference.operator.Transform$LogConstrainedSumTransform"/>
                 <transformations id="AVMNLogTransform.aminoacid" spec="beast.base.spec.inference.operator.Transform$LogTransform">
+                    <scalable idref="Tree.t:aminoacid"/>
                     <f idref="gammaShape.s:aminoacid"/>
                 </transformations>
                 <transformations id="AVMNNoTransform.aminoacid" spec="beast.base.spec.inference.operator.Transform$NoTransform"/>
@@ -115,7 +116,7 @@ name="alignment">
         <operator id="CoalescentConstantTreeScaler.t:aminoacid" spec="beast.base.spec.evolution.operator.UpDownOperator" scaleFactor="0.1" weight="4.0">
             <up idref="Tree.t:aminoacid"/>
         </operator>
-        <operator id="CoalescentConstantTreeRootScaler.t:aminoacid" spec="kernel.BactrianScaleOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:aminoacid" upper="10.0" weight="3.0"/>
+        <operator id="CoalescentConstantTreeRootScaler.t:aminoacid" spec="beast.base.spec.evolution.operator.ScaleTreeOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:aminoacid" weight="3.0"/>
         <operator id="CoalescentConstantUniformOperator.t:aminoacid" spec="kernel.BactrianNodeOperator" tree="@Tree.t:aminoacid" weight="30.0"/>
         <operator id="CoalescentConstantSubtreeSlide.t:aminoacid" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:aminoacid" weight="15.0"/>
         <operator id="CoalescentConstantNarrow.t:aminoacid" spec="Exchange" tree="@Tree.t:aminoacid" weight="15.0"/>
