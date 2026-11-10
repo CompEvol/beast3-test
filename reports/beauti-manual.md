@@ -19,19 +19,23 @@ Burn-in 10 %.
 | C02 | Haoyuan | 10M | 1275¹ | matched | |
 | C03 | Sophie | 10M | 146¹ | matched (ESS < 200) | rerun on rc2 (9 Nov); `freqParameter.1` ESS 146 in one BEAST 2 replicate |
 | C04 | Yuan | 30M | 594¹ | matched | full chains (9 Nov); clades match (max Δp 0.010) |
+| C05 | Yao | 15M | 223¹ | matched | TN93, birth–death; clades match (max Δp 0.007) |
 | C07 | Haoyuan | 10M | 872¹ | matched | |
 | C08 | Sophie | 10M | – | **rc2 exception** | crashes at start in rc1 and rc2 (NPE in `CalibratedYuleModel.init`), fixed after rc2 by beast3#198; run on a post-rc2 build; see [Findings](#findings) |
 | C09 | Sophie | 10M | 282¹ | matched | rerun on rc2 (9 Nov) |
 | C11 | Haoyuan | 20M | 338¹ | matched | |
 | C12 🐢 | Sophie | 50M / 10M | 1180¹ | **not matched** | rerun on rc2 (10 Nov): gammaShape now bounded at 0.1 and matches (0.120 vs 0.118); the clock-rate priors differ (BEAST 2 LogNormal(1, 1.25), BEAST 3 Gamma(0.01, 100)), so the clock rate (z = 61), tree height and `prior` differ. BEAST 2 side to be rebuilt with the default prior; its runs stopped before the end of the chain |
 | C14 🐢 | Yuan | 100M | 253¹ | matched | compared by clade from the trees, not by `Indicators.N` (node numbers aren't tied to clades); extended to 100M, BEAST 2 rep2 stopped at 76.7M; branch-rate comparison still on the shorter tree files; see [Findings](#findings) |
+| C15 🐢 | Yao | 50M | 427¹ | **not matched** | the priors differ: BEAST 3 has Gamma(0.01, 100) on the mean clock rate, BEAST 2 none, because BEAUti 2.7 never connects the random local clock's mean-rate prior (BeastFX#114). Clock rate and every branch rate are 0.4% lower in BEAST 3 (z ≈ 3–5); clades match. To be rebuilt on rc3 with NonNegativeUniform(0, 10) on the mean rate (beast3#224) |
 | C16 🐢 | Yuan | 35M | 522¹ | matched | full chains (9 Nov); ORC relaxed clock matches, `ORCsigma` z = 1.18; clades match (max Δp 0.017) |
 | C17 🐢 | Yao | 100M | 286¹ | matched | rebuilt on rc2 (10 Nov) with ORC's `BranchRatePrior` linked to `ORCsigma`, as in C16; `ORCsigma` z = 2.17; clades match (max Δp 0.026) |
 | C28 | Yao | as built | 297 (C06), 107 (C10)¹ | matched | Eva's 2.7.9 XMLs for C06 and C10 run directly in BEAST 3 rc2 (`reports/summary/C28-C06.md`, `C28-C10.md`); BEAUti 3 can't open 2.7 XML (beast3#229). In C10 the frequencies mix about 4× worse in BEAST 3 with the legacy classes than in 2.7.9 (per-replicate ESS 107–123 vs about 420); BEAST 3's own C10 XML reaches 2803 |
 | C19 | Haoyuan | 10M | 1253¹ | matched | |
 | C20 | Sophie | 10M | 1118¹ | matched | rerun on rc2 (10 Nov); clades match (max Δp 0.005) |
+| C21 | Yao | 10M | 6040¹ | **not matched** | the priors differ: Uniform(0, ∞) on the Yule birth rate in BEAST 2, the default Gamma(0.01, 100) in BEAST 3, so `prior`, `birthRate` and the tree height differ. To be rebuilt with the same birth-rate prior |
 | C22 | Sophie | — | 149¹ | matched (ESS < 200) | rc2, starting tree `data/anolis-start.newick`; `freqParameter.2` ESS 149 in one BEAST 2 replicate |
 | C23 🐢 | Haoyuan | 20M | 305¹ | matched | |
+| C24 | Yao | 100M | 246¹ | matched | GTR + Γ4 unlinked, fixed mean substitution rate (DeltaExchange on the mutation rates); clades match (max Δp 0.001) |
 | C25 | Yuan | 100M | 274¹ | matched | full chains (9 Nov); all four unlinked trees match (heights, lengths, clades, max Δp 0.004) |
 | C27 | Haoyuan | 10M | 207¹ | matched | script flags `CalibratedYuleModel` (z = 8.2): a bookkeeping difference, and both versions match the analytic calibrations; see below |
 | C29 | Yuan | 10M | 854¹ | matched | full chains (9 Nov); edited priors give the same posterior; clades match (max Δp 0.034) |
@@ -42,7 +46,7 @@ ESS. "Stopped before the end" means beast.out has no `End likelihood` line; the 
 far are compared.
 
 Tree files go to the Dropbox folder `beast3-test` (<https://www.dropbox.com/home/beast3-test>),
-not git; Eva's are not there yet. Clades are compared where the tree files are there
+not git. Clades are compared where the tree files are there
 (`compare.py --trees-root`). For C04, C16, C25, C29 and C30 the Dropbox tree files are from 8 Nov
 and most end before the end of the chain, so their clades are compared on fewer samples than
 the traces.
