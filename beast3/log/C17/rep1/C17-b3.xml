@@ -85,7 +85,6 @@ name="alignment">
             <stateNode id="ORCucldMean.c:Dengue4" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
             <stateNode id="ORCsigma.c:Dengue4" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="0.2"/>
             <stateNode id="ORCRates.c:Dengue4" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="32" domain="PositiveReal">0.5</stateNode>
-            <stateNode id="parameter.hyperLogNormal-S-LogNormal.3" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="0.2"/>
             <stateNode id="bPopSizes.t:Dengue4" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="5" domain="PositiveReal">380.0</stateNode>
             <stateNode id="bGroupSizes.t:Dengue4" spec="beast.base.spec.inference.parameter.IntSimplexParam" dimension="5" domain="PositiveInt">1</stateNode>
         </state>
@@ -103,18 +102,10 @@ name="alignment">
                     <alpha id="RealVectorParam.0" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
                 </Dirichlet>
                 <Exponential id="GammaShapePrior.s:Dengue4" name="distribution" param="@gammaShape.s:Dengue4">
-                    <mean id="RealScalarParam.120" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                    <mean id="RealScalarParam.87" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
                 </Exponential>
-                <Gamma id="HyperPrior.hyperLogNormal-S-LogNormal.3" name="distribution" param="@parameter.hyperLogNormal-S-LogNormal.3">
-                    <alpha id="RealScalarParam.125" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="5.0"/>
-                    <theta id="parameter.hyperGamma-theta-HyperPrior.hyperLogNormal-S-LogNormal.3" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="0.05"/>
-                </Gamma>
                 <distribution id="MarkovChainedPopSizes.t:Dengue4" spec="beast.base.spec.inference.distribution.MarkovChainDistribution" jeffreys="true" param="@bPopSizes.t:Dengue4"/>
-                <IID id="ORCRatePriorDistribution.c:Dengue4" name="distribution" param="@ORCRates.c:Dengue4">
-                    <LogNormal id="LogNormal.3" S="@parameter.hyperLogNormal-S-LogNormal.3" meanInRealSpace="true" name="distr">
-                        <M id="RealScalarParam.121" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
-                    </LogNormal>
-                </IID>
+                <distribution id="ORCRatePriorDistribution.c:Dengue4" spec="orc.distribution.BranchRatePrior" param="@ORCRates.c:Dengue4" sigma="@ORCsigma.c:Dengue4" tree="@Tree.t:Dengue4"/>
                 <Gamma id="ORCsigmaPrior.c:Dengue4" name="distribution" param="@ORCsigma.c:Dengue4">
                     <alpha id="RealScalarParam.13" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="5.0"/>
                     <theta id="RealScalarParam.14" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="0.05"/>
@@ -244,12 +235,9 @@ name="alignment">
             <operator id="ORCRatesScale.c:Dengue4" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@ORCRates.c:Dengue4" scaleFactor="0.5" weight="1.0">
                 <kernelDistribution id="KernelDistribution$Bactrian.17" spec="operator.kernel.KernelDistribution$Bactrian"/>
             </operator>
-            <operator id="ORCSampleFromPriorOperator.rates.c:Dengue4" spec="orc.operators.SampleFromPriorOperator" parameter="@ORCRates.c:Dengue4" weight="1.0">
-                <prior id="ORCRatePriorDistribution.c:Dengue41" spec="orc.distribution.BranchRatePrior" param="@ORCRates.c:Dengue4" sigma="@ORCsigma.c:Dengue4" tree="@Tree.t:Dengue4"/>
-            </operator>
+            <operator id="ORCSampleFromPriorOperator.rates.c:Dengue4" spec="orc.operators.SampleFromPriorOperator" parameter="@ORCRates.c:Dengue4" prior="@ORCRatePriorDistribution.c:Dengue4" weight="1.0"/>
         </operator>
         <operator id="ORCNER_dAE_dBE_dCE.c:Dengue4" spec="orc.ner.NEROperator_dAE_dBE_dCE" rates="@ORCRates.c:Dengue4" tree="@Tree.t:Dengue4" weight="5.0"/>
-        <operator id="hyperScaler.hyperLogNormal-S-LogNormal.3" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@parameter.hyperLogNormal-S-LogNormal.3" scaleFactor="0.5" weight="0.1"/>
         <operator id="BayesianSkylineTreeScaler.t:Dengue4" spec="beast.base.spec.evolution.operator.UpDownOperator" scaleFactor="0.1" weight="4.0">
             <up idref="Tree.t:Dengue4"/>
         </operator>
@@ -277,15 +265,9 @@ name="alignment">
             <log idref="ORCucldMean.c:Dengue4"/>
             <log idref="ORCsigma.c:Dengue4"/>
             <log id="ORCRatesStat.c:Dengue4" spec="beast.base.evolution.RateStatistic" branchratemodel="@OptimisedRelaxedClock.c:Dengue4" tree="@Tree.t:Dengue4"/>
-            <log idref="parameter.hyperLogNormal-S-LogNormal.3"/>
-            <LogUniform id="HyperPrior.hyperLogNormal-S-LogNormal.31" name="log" param="@parameter.hyperLogNormal-S-LogNormal.3">
-                <lower id="RealScalarParam.123" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0E-8"/>
-                <upper id="RealScalarParam.124" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0E8"/>
-            </LogUniform>
             <log idref="BayesianSkyline.t:Dengue4"/>
             <log idref="bPopSizes.t:Dengue4"/>
             <log idref="bGroupSizes.t:Dengue4"/>
-            <log idref="HyperPrior.hyperLogNormal-S-LogNormal.3"/>
         </logger>
         <logger id="screenlog" spec="Logger" logEvery="10000">
             <log idref="posterior"/>
