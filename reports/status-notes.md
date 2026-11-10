@@ -5,7 +5,7 @@
 ## Next steps
 
 1. **Yao:** on rc3, rebuild C15's BEAST 3 side with NonNegativeUniform(0, 10) on the mean clock rate (beast3#224; BEAUti 2.7 can't add one) and every other prior set to match the 2.7.9 XML, then rerun both; rerun C21 with the same birth-rate prior in both versions.
-1. **Sophie:** rebuild C12's BEAST 2 side with the default Gamma(0.01, 100) clock-rate prior (it has LogNormal(1, 1.25)) and rerun it to the end of the chain. Run the BEAST 2 side of C03 and C22 a little longer.
+1. **Sophie:** rebuild C12's BEAST 2 side with the default Gamma(0.01, 100) clock-rate prior (it has LogNormal(1, 1.25)) and rerun it to the end of the chain.
 1. **Yuan:** put C14's 100M tree files in Dropbox.
 1. **After rc3:** run the existing C08 and C13 XMLs (C13 also needs a BEAST.base 2.7.9 refresh).
 

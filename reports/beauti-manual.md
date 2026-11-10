@@ -17,7 +17,7 @@ Burn-in 10 %.
 | C18 | Eva | 10M | 2527 / 2553 | matched, constant offset in `prior` | see [Findings](#findings): script flags `prior` (z = 9.1) |
 | C26 | Eva | 20M | 985 / 1434 | matched | every marginal also matches its analytic prior, below |
 | C02 | Haoyuan | 10M | 1275¹ | matched | |
-| C03 | Sophie | 10M | 146¹ | matched (ESS < 200) | rerun on rc2 (9 Nov); `freqParameter.1` ESS 146 in one BEAST 2 replicate |
+| C03 | Sophie | 10M | 296¹ | matched | rerun on rc2 (9 Nov); BEAST 2 replicate 2 extended (10 Nov) |
 | C04 | Yuan | 30M | 594¹ | matched | full chains (9 Nov); clades match (max Δp 0.010) |
 | C05 | Yao | 15M | 223¹ | matched | TN93, birth–death; clades match (max Δp 0.007) |
 | C07 | Haoyuan | 10M | 872¹ | matched | |
@@ -33,7 +33,7 @@ Burn-in 10 %.
 | C19 | Haoyuan | 10M | 1253¹ | matched | |
 | C20 | Sophie | 10M | 1118¹ | matched | rerun on rc2 (10 Nov); clades match (max Δp 0.005) |
 | C21 | Yao | 10M | 6040¹ | **not matched** | the priors differ: Uniform(0, ∞) on the Yule birth rate in BEAST 2, the default Gamma(0.01, 100) in BEAST 3, so `prior`, `birthRate` and the tree height differ. To be rebuilt with the same birth-rate prior |
-| C22 | Sophie | — | 149¹ | matched (ESS < 200) | rc2, starting tree `data/anolis-start.newick`; `freqParameter.2` ESS 149 in one BEAST 2 replicate |
+| C22 | Sophie | — | 273¹ | matched | rc2, starting tree `data/anolis-start.newick`; BEAST 2 replicate 1 extended (10 Nov) |
 | C23 🐢 | Haoyuan | 20M | 305¹ | matched | |
 | C24 | Yao | 100M | 246¹ | matched | GTR + Γ4 unlinked, fixed mean substitution rate (DeltaExchange on the mutation rates); clades match (max Δp 0.001) |
 | C25 | Yuan | 100M | 274¹ | matched | full chains (9 Nov); all four unlinked trees match (heights, lengths, clades, max Δp 0.004) |

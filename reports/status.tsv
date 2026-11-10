@@ -12,7 +12,7 @@
 # tester and model come from ASSIGNMENTS.md.
 C01	pass	All defaults. Largest z just under the flag.
 C02	pass
-C03	rerun	Rerun on rc2: matched. One BEAST 2 column has ESS 146 (`freqParameter.1`); a longer BEAST 2 run would clear it.
+C03	pass	Rerun on rc2; BEAST 2 replicate 2 extended (10 Nov): matched, smallest ESS 296.
 C04	pass	Full 30M chains (Yuan, 9 Nov). Clades from the 8 Nov tree files, some of which end before 30M.
 C05	pass
 C06	explained	Four replicates. `prior` offset is the known 0.1 per gamma shape. `gammaShape.2ndpos` z = 3.2 pooled, within the replicate-to-replicate noise; seeds 3–4 alone pass.
@@ -31,7 +31,7 @@ C18	explained	`prior` z = 9.1: the gamma-shape normalisation offset (0.1). Poste
 C19	pass
 C20	pass	Rerun on rc2 (10 Nov): matched (max z 1.14, clades match, max Δp 0.005).
 C21	rerun	The priors differ: BEAST 2 has Uniform(0, ∞) on the Yule birth rate, BEAST 3 Gamma(0.01, 100), so `prior`, `birthRate` and the tree height differ. Rebuild with the same birth-rate prior and rerun.
-C22	rerun	Run on rc2 with `data/anolis-start.newick`: matched. One BEAST 2 column has ESS 149 (`freqParameter.2`).
+C22	pass	Run on rc2 with `data/anolis-start.newick`; BEAST 2 replicate 1 extended (10 Nov): matched, smallest ESS 273.
 C23	pass
 C24	pass
 C25	pass	Full 100M chains (Yuan, 9 Nov). All four unlinked trees match. Clades from the 8 Nov tree files, some of which end before 100M.
