@@ -75,12 +75,11 @@ name="alignment">
                 </trait>
                 <taxonset idref="TaxonSet.Dengue4"/>
             </tree>
+            <stateNode id="birthRate.t:Dengue4" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
             <stateNode id="clockRate.c:Dengue4" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
             <stateNode id="gammaShape.s:Dengue4" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="1.0"/>
             <stateNode id="kappa.s:Dengue4" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" value="2.0"/>
             <stateNode id="freqParameter.s:Dengue4" spec="beast.base.spec.inference.parameter.SimplexParam" dimension="4" domain="UnitInterval">0.25 0.25 0.25 0.25</stateNode>
-            <stateNode id="bPopSizes.t:Dengue4" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="5" domain="PositiveReal">380.0</stateNode>
-            <stateNode id="bGroupSizes.t:Dengue4" spec="beast.base.spec.inference.parameter.IntSimplexParam" dimension="5" domain="PositiveInt">1</stateNode>
         </state>
         <init id="RandomTree.t:Dengue4" spec="beast.base.spec.evolution.tree.coalescent.RandomTree" estimate="false" initial="@Tree.t:Dengue4" taxa="@Dengue4">
             <populationModel id="ConstantPopulation0.t:Dengue4" spec="beast.base.spec.evolution.tree.coalescent.ConstantPopulation">
@@ -89,9 +88,7 @@ name="alignment">
         </init>
         <distribution id="posterior" spec="CompoundDistribution">
             <distribution id="prior" spec="CompoundDistribution">
-                <distribution id="BayesianSkyline.t:Dengue4" spec="beast.base.spec.evolution.tree.coalescent.BayesianSkyline" groupSizes="@bGroupSizes.t:Dengue4" popSizes="@bPopSizes.t:Dengue4">
-                    <treeIntervals id="BSPTreeIntervals.t:Dengue4" spec="beast.base.evolution.tree.TreeIntervals" tree="@Tree.t:Dengue4"/>
-                </distribution>
+                <distribution id="YuleModel.t:Dengue4" spec="beast.base.spec.evolution.speciation.YuleModel" birthDiffRate="@birthRate.t:Dengue4" tree="@Tree.t:Dengue4"/>
                 <Gamma id="ClockPrior.c:Dengue4" name="distribution" param="@clockRate.c:Dengue4">
                     <alpha id="RealScalarParam.0" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.01"/>
                     <theta id="RealScalarParam.1" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="100.0"/>
@@ -100,18 +97,20 @@ name="alignment">
                     <alpha id="RealVectorParam.0" spec="beast.base.spec.inference.parameter.RealVectorParam" dimension="4" domain="PositiveReal" estimate="false">4.0 4.0 4.0 4.0</alpha>
                 </Dirichlet>
                 <TruncatedReal id="GammaShapePrior.s:Dengue4" name="distribution" param="@gammaShape.s:Dengue4">
-                    <Normal id="Normal.8" name="distribution">
-                        <mean id="RealScalarParam.97" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
-                        <sigma id="RealScalarParam.98" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
-                    </Normal>
-                    <lower id="RealScalarParam.99" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.1"/>
-                    <upper id="RealScalarParam.100" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="Infinity"/>
+                    <Exponential id="Exponential.3" name="distribution">
+                        <mean id="RealScalarParam.101" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.0"/>
+                    </Exponential>
+                    <lower id="RealScalarParam.98" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.1"/>
+                    <upper id="RealScalarParam.99" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="Infinity"/>
                 </TruncatedReal>
                 <LogNormal id="KappaPrior.s:Dengue4" name="distribution" param="@kappa.s:Dengue4">
                     <M id="RealScalarParam.15" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="1.0"/>
                     <S id="RealScalarParam.16" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="1.25"/>
                 </LogNormal>
-                <distribution id="MarkovChainedPopSizes.t:Dengue4" spec="beast.base.spec.inference.distribution.MarkovChainDistribution" jeffreys="true" param="@bPopSizes.t:Dengue4"/>
+                <Gamma id="YuleBirthRatePrior.t:Dengue4" name="distribution" param="@birthRate.t:Dengue4">
+                    <alpha id="RealScalarParam.2" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="Real" estimate="false" value="0.01"/>
+                    <theta id="RealScalarParam.3" spec="beast.base.spec.inference.parameter.RealScalarParam" domain="PositiveReal" estimate="false" value="100.0"/>
+                </Gamma>
             </distribution>
             <distribution id="likelihood" spec="CompoundDistribution" useThreads="true">
                 <distribution id="treeLikelihood.Dengue4" spec="beast.base.spec.evolution.likelihood.ThreadedTreeLikelihood" data="@Dengue4" tree="@Tree.t:Dengue4">
@@ -126,6 +125,16 @@ name="alignment">
                 </distribution>
             </distribution>
         </distribution>
+        <operator id="YuleBirthRateScaler.t:Dengue4" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@birthRate.t:Dengue4" weight="3.0"/>
+        <operator id="YuleModelTreeRootScaler.t:Dengue4" spec="beast.base.spec.evolution.operator.ScaleTreeOperator" rootOnly="true" scaleFactor="0.5" tree="@Tree.t:Dengue4" weight="3.0"/>
+        <operator id="YuleModelUniformOperator.t:Dengue4" spec="kernel.BactrianNodeOperator" tree="@Tree.t:Dengue4" weight="30.0"/>
+        <operator id="YuleModelSubtreeSlide.t:Dengue4" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:Dengue4" weight="15.0"/>
+        <operator id="YuleModelNarrow.t:Dengue4" spec="Exchange" tree="@Tree.t:Dengue4" weight="15.0"/>
+        <operator id="YuleModelWide.t:Dengue4" spec="Exchange" isNarrow="false" tree="@Tree.t:Dengue4" weight="3.0"/>
+        <operator id="YuleModelWilsonBalding.t:Dengue4" spec="WilsonBalding" tree="@Tree.t:Dengue4" weight="3.0"/>
+        <operator id="YuleModelTreeScaler.t:Dengue4" spec="beast.base.spec.evolution.operator.UpDownOperator" scaleFactor="0.1" weight="4.0">
+            <up idref="Tree.t:Dengue4"/>
+        </operator>
         <operator id="StrictClockRateScaler.c:Dengue4" spec="beast.base.spec.evolution.operator.AdaptableOperatorSampler" weight="1.5">
             <parameter idref="clockRate.c:Dengue4"/>
             <operator id="AVMNOperator.Dengue4" spec="beast.base.spec.evolution.operator.AdaptableVarianceMultivariateNormalOperator" allowNonsense="true" beta="0.05" burnin="400" initial="800" weight="0.1">
@@ -168,30 +177,18 @@ name="alignment">
                 <parameter idref="freqParameter.s:Dengue4"/>
             </operator>
         </operator>
-        <operator id="BayesianSkylineTreeScaler.t:Dengue4" spec="beast.base.spec.evolution.operator.UpDownOperator" scaleFactor="0.1" weight="4.0">
-            <up idref="Tree.t:Dengue4"/>
-        </operator>
-        <operator id="BayesianSkylineTreeRootScaler.t:Dengue4" spec="beast.base.spec.evolution.operator.ScaleTreeOperator" rootOnly="true" scaleFactor="0.1" tree="@Tree.t:Dengue4" weight="3.0"/>
-        <operator id="BayesianSkylineUniformOperator.t:Dengue4" spec="kernel.BactrianNodeOperator" tree="@Tree.t:Dengue4" weight="30.0"/>
-        <operator id="BayesianSkylineSubtreeSlide.t:Dengue4" spec="kernel.BactrianSubtreeSlide" tree="@Tree.t:Dengue4" weight="15.0"/>
-        <operator id="BayesianSkylineNarrow.t:Dengue4" spec="Exchange" tree="@Tree.t:Dengue4" weight="15.0"/>
-        <operator id="BayesianSkylineWide.t:Dengue4" spec="Exchange" isNarrow="false" tree="@Tree.t:Dengue4" weight="3.0"/>
-        <operator id="BayesianSkylineWilsonBalding.t:Dengue4" spec="WilsonBalding" tree="@Tree.t:Dengue4" weight="3.0"/>
-        <operator id="popSizesScaler.t:Dengue4" spec="beast.base.spec.inference.operator.ScaleOperator" parameter="@bPopSizes.t:Dengue4" weight="15.0"/>
-        <operator id="groupSizesDelta.t:Dengue4" spec="beast.base.spec.inference.operator.DeltaExchangeOperator" integer="true" ivparameter="@bGroupSizes.t:Dengue4" weight="6.0"/>
         <logger id="tracelog" spec="Logger" fileName="$(filebase).log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
             <log idref="posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
             <log idref="treeLikelihood.Dengue4"/>
             <log id="TreeHeight.t:Dengue4" spec="beast.base.evolution.tree.TreeStatLogger" tree="@Tree.t:Dengue4"/>
+            <log idref="YuleModel.t:Dengue4"/>
+            <log idref="birthRate.t:Dengue4"/>
             <log idref="clockRate.c:Dengue4"/>
             <log idref="gammaShape.s:Dengue4"/>
             <log idref="kappa.s:Dengue4"/>
             <log idref="freqParameter.s:Dengue4"/>
-            <log idref="BayesianSkyline.t:Dengue4"/>
-            <log idref="bPopSizes.t:Dengue4"/>
-            <log idref="bGroupSizes.t:Dengue4"/>
         </logger>
         <logger id="screenlog" spec="Logger" logEvery="1000">
             <log idref="posterior"/>
