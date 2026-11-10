@@ -37,8 +37,8 @@ testRelaxedClock.xml	Walter	none
 testRestrictedGTR.xml	shared	explained	Constant offset in `prior`, as for testGTR.
 testSRD06.xml	Walter	none
 testSYM.xml	shared	explained	Constant offset in `prior`, as for testGTR (4 replicates).
-testSeqGen.xml	Walter	none	Simulator, no MCMC posterior. In beast-fx.
-testSimulatedAlignment.xml	Walter	none	Simulates data, then runs MCMC. In beast-fx.
+testSeqGen.xml	Walter	none	Simulator, no MCMC posterior. In beast-fx. The v2.7.8 original doesn't load in BEAST 2.7 either (stale class names); use the copy fixed in [beast2#1227](https://github.com/CompEvol/beast2/pull/1227).
+testSimulatedAlignment.xml	Walter	none	Simulates data, then runs MCMC. In beast-fx. The v2.7.8 original doesn't load in BEAST 2.7 either (stale class names); use the copy fixed in [beast2#1227](https://github.com/CompEvol/beast2/pull/1227).
 testSliceHKY.xml	–	open	Not converted: uses `SliceOperator`, which BEAST 3 doesn't have. Exclude it or port the operator.
 testTIM.xml	shared	explained	Constant offset in `prior`, as for testGTR.
 testTN93.xml	shared	explained	Constant offset in `prior`, as for testGTR.

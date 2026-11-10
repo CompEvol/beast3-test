@@ -205,6 +205,18 @@ and the three DirectSimulator files). The rest fail on `TreeHeightLogger` (31), 
 `beast.app.seqgen.*` classes (testSeqGen, testSimulatedAlignment), `SliceOperator` (testSliceHKY)
 and the JSON sequence format (testUCLNclock.json).
 
+Update, 10 Nov:
+
+- **The target is 44.** BEAST 2.7.7 itself loads only 42 of the v2.7.8 examples: testSeqGen and
+  testSimulatedAlignment name `beast.app.seqgen.*`, which moved to `beastfx.app.seqgen` in 2.7.0
+  ("Class could not be found. Did you mean beastfx.app.seqgen.SequenceSimulator?").
+  [beast2#1227](https://github.com/CompEvol/beast2/pull/1227) fixes the two names; with it all 44
+  load and run in BEAST 2.7.7, and the two also run in BEAST 3 with beast-fx on the module path.
+- **`TreeHeightLogger`** is restored as a deprecated class in
+  [beast3#235](https://github.com/CompEvol/beast3/pull/235). With it, 40 of the 44 v2.7.8 examples
+  load in BEAST 3 (`-validate`), 42 with the beast2#1227 copies of the two seqgen examples. The
+  remaining two are testSliceHKY (`SliceOperator`) and testUCLNclock.json (JSON sequences).
+
 The six that load and run MCMC were run in both versions from the same unmodified XML (BEAST 2
 settings as above; chain lengths as in the XMLs, testCalYule_5t_2c at 700k), two replicates each:
 
