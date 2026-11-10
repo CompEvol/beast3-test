@@ -1,0 +1,12 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Carp Chicken Frog Loach	4	0.905122	0.910010	0.004888	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Carp Cow Frog Human Loach Mouse Rat Seal Whale	9	0.073881	0.069326	0.004555	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Cow Human Mouse Rat Seal Whale	6	0.930619	0.927230	0.003389	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Carp Chicken Cow Frog Loach Mouse Rat Seal Whale	9	0.059993	0.063326	0.003333	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Cow Whale	2	0.207310	0.204200	0.003111	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Cow Seal	2	0.786524	0.788468	0.001944	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Carp Frog Loach	3	0.997834	0.998778	0.000944	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Cow Seal Whale	3	0.998833	0.998778	0.000056	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Carp Loach	2	1.000000	1.000000	0.000000	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Mouse Rat	2	1.000000	1.000000	0.000000	
+CN_beast_N.N.N-aminoacid_repN.trees / CN_beast_N.N-aminoacid.trees	Cow Mouse Rat Seal Whale	5	1.000000	1.000000	0.000000	

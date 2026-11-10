@@ -13,7 +13,7 @@
 | C09 | 2/2 | 282 | 2.583 | – | 0 | matched |
 | C10 | 2/2 | 383 | 1.904 | – | 0 | matched |
 | C11 | 2/2 | 338 | 2.295 | – | 0 | matched |
-| C12 | 2/2 | 1180 | 167.3 | – | 9 | not matched (run problems) |
+| C12 | 2/2 | 1180 | 279 | 0.054 | 14 | not matched (run problems) |
 | C13 | 2/2 | 243 | 2.884 | – | 0 | matched |
 | C14 | 2/2 | 253 | 2.724 | 0.010 | 0 | matched (run problems) |
 | C15 | 2/2 | 427 | 5.295 | 0.052 | 222 | not matched |
@@ -21,7 +21,7 @@
 | C17 | 2/2 | 286 | 2.534 | 0.026 | 0 | matched |
 | C18 | 2/2 | 1146 | 9.096 | – | 1 | not matched |
 | C19 | 2/2 | 1253 | 0.9438 | – | 0 | matched |
-| C20 | 2/2 | 1182 | 1.019 | – | 0 | matched (run problems) |
+| C20 | 2/2 | 1118 | 1.135 | 0.005 | 0 | matched (run problems) |
 | C21 | 2/2 | 6040 | 377.96 | 0.052 | 7 | not matched |
 | C22 | 2/2 | 149 | 2.401 | – | 0 | matched (ESS < 200) |
 | C23 | 2/2 | 305 | 2.283 | – | 0 | matched |
