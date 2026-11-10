@@ -26,7 +26,7 @@ C13	blocked	Versions agree, but both have the `SampleOffValues` Hastings bug. Ne
 C14	partial	Compared by clade from the trees (`Indicators.N` is indexed by node number, not clade): all branch rates match. Runs extended to 100M; BEAST 2 rep2 stopped at 76.7M. Branch-rate rows still use the shorter tree files until Yuan's new ones are in Dropbox.
 C15	rerun	The priors differ: BEAST 3 has Gamma(0.01, 100) on the mean clock rate, BEAST 2 none (improper flat). Clock rate and every branch rate are 0.4% lower in BEAST 3 (z ≈ 3–5); clades match. BEAUti 2.7 can't add the prior (template bug, [BeastFX#114](https://github.com/CompEvol/BeastFX/pull/114)), and BEAUti 3 rc2 doesn't offer a Uniform for a positive parameter ([beast3#217](https://github.com/CompEvol/beast3/issues/217)). Once Walter's PositiveUniform is in, rebuild the BEAST 3 side with **PositiveUniform(0, 10)** on the mean clock rate, keep the BEAST 2 XML as it is, and rerun both. Trace logs are in Dropbox (58–68 MB).
 C16	pass	Full 35M chains (Yuan, 9 Nov). ORC relaxed clock matches. Clades from the 8 Nov tree files, some of which end before 35M.
-C17	rerun	The BEAST 3 rate prior is a generic IID LogNormal with its own hyper-parameter for S, not ORC's `BranchRatePrior` linked to `ORCsigma` (as in C16, same template), so it looks edited in the Priors panel and `ORCsigma` only samples its prior. Compared on the hyper-parameter it matches. Rebuild without that edit and rerun.
+C17	pass	Rebuilt on rc2 with ORC's `BranchRatePrior` linked to `ORCsigma` (10 Nov): matches, `ORCsigma` z = 2.2, clades match (max Δp 0.026).
 C18	explained	`prior` z = 9.1: the gamma-shape normalisation offset (0.1). Posterior unaffected.
 C19	pass
 C20	rerun	Matched, but the BEAST 3 side ran on **rc1**. Rerun on rc2.
@@ -37,6 +37,6 @@ C24	pass
 C25	pass	Full 100M chains (Yuan, 9 Nov). All four unlinked trees match. Clades from the 8 Nov tree files, some of which end before 100M.
 C26	pass	Every marginal also matches its analytic prior.
 C27	explained	`CalibratedYuleModel` z = 8.2 is a logging difference. Both match U(4, 6) and U(8, 10).
-C28	none	BEAUti 3 isn't designed to open BEAUti 2.7 XML, so the load step is expected to fail; after [beast3#229](https://github.com/CompEvol/beast3/pull/229) it should fail with a clear message. Run Eva's 2.7.9 XMLs for C06 and C10 directly in BEAST 3 and compare them with Eva's 2.7.9 runs.
+C28	pass	Eva's 2.7.9 XMLs run in BEAST 3 rc2 match her 2.7.9 runs (C06 max z 2.3; C10 max z 2.4). In C10 the frequencies mix about 4× worse in BEAST 3 than in 2.7.9 (ESS 107 vs about 420 per replicate) with the legacy classes; BEAST 3's own C10 XML reaches 2803. BEAUti 3 can't open 2.7 XML; [beast3#229](https://github.com/CompEvol/beast3/pull/229) makes it say so.
 C29	pass	Full 10M chains (Yuan, 9 Nov). Clades from the 8 Nov tree files, some of which end before 10M.
 C30	pass	Full 20M chains (Yuan, 9 Nov). Resumed run matches the uninterrupted runs (max z 1.55).

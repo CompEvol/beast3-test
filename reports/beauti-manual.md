@@ -26,6 +26,8 @@ Burn-in 10 %.
 | C12 🐢 | Sophie | 50M | 1180¹ | **not matched** | rerun on rc2 (9 Nov): gammaShape z = 167, mean 0.120 (BEAST 2) vs 0.057 (BEAST 3), so the BEAST 3 XML still lets the shape go below 0.1; BEAST 2 runs stopped before the end of the chain |
 | C14 🐢 | Yuan | 100M | 253¹ | matched | compared by clade from the trees, not by `Indicators.N` (node numbers aren't tied to clades); extended to 100M, BEAST 2 rep2 stopped at 76.7M; branch-rate comparison still on the shorter tree files; see [Findings](#findings) |
 | C16 🐢 | Yuan | 35M | 522¹ | matched | full chains (9 Nov); ORC relaxed clock matches, `ORCsigma` z = 1.18; clades match (max Δp 0.017) |
+| C17 🐢 | Yao | 100M | 286¹ | matched | rebuilt on rc2 (10 Nov) with ORC's `BranchRatePrior` linked to `ORCsigma`, as in C16; `ORCsigma` z = 2.17; clades match (max Δp 0.026) |
+| C28 | Yao | as built | 297 (C06), 107 (C10)¹ | matched | Eva's 2.7.9 XMLs for C06 and C10 run directly in BEAST 3 rc2 (`reports/summary/C28-C06.md`, `C28-C10.md`); BEAUti 3 can't open 2.7 XML (beast3#229). In C10 the frequencies mix about 4× worse in BEAST 3 with the legacy classes than in 2.7.9 (per-replicate ESS 107–123 vs about 420); BEAST 3's own C10 XML reaches 2803 |
 | C19 | Haoyuan | 10M | 1253¹ | matched | |
 | C20 | Sophie | 10M | 1182¹ | matched, **rerun (rc1)** | BEAST 3 run with rc1, not rc2 |
 | C22 | Sophie | — | 149¹ | matched (ESS < 200) | rc2, starting tree `data/anolis-start.newick`; `freqParameter.2` ESS 149 in one BEAST 2 replicate |

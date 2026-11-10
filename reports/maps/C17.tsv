@@ -1,6 +1,0 @@
-# C17: in the BEAST 3 XML the ORC rate prior's S is a separate hyper-parameter with the same
-# Gamma(5, 0.05) prior, and ORCsigma is not connected to the rates (it samples its prior only).
-# The BEAST 2 ORCsigma corresponds to that hyper-parameter. C16, from the same template, has ORC's
-# BranchRatePrior with sigma=@ORCsigma, so this looks like a Priors-panel edit; C17 is to be rebuilt.
-ORCsigma	parameter.hyperLogNormal-S-LogNormal.3
-treeLikelihood	treeLikelihood.Dengue4
