@@ -37,6 +37,6 @@ C24	pass
 C25	pass	Full 100M chains (Yuan, 9 Nov). All four unlinked trees match. Clades from the 8 Nov tree files, some of which end before 100M.
 C26	pass	Every marginal also matches its analytic prior.
 C27	explained	`CalibratedYuleModel` z = 8.2 is a logging difference. Both match U(4, 6) and U(8, 10).
-C28	none	Can start on rc2 now.
+C28	none	BEAUti 3 isn't designed to open BEAUti 2.7 XML, so the load step is expected to fail; after [beast3#229](https://github.com/CompEvol/beast3/pull/229) it should fail with a clear message. Run Eva's 2.7.9 XMLs for C06 and C10 directly in BEAST 3 and compare them with Eva's 2.7.9 runs.
 C29	pass	Full 10M chains (Yuan, 9 Nov). Clades from the 8 Nov tree files, some of which end before 10M.
 C30	pass	Full 20M chains (Yuan, 9 Nov). Resumed run matches the uninterrupted runs (max z 1.55).

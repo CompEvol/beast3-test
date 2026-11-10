@@ -118,7 +118,7 @@ Slow combinations (long chains, start them first) are marked 🐢.
 |----|--------|------|------------|-------|------------|--------|-------------------|
 | C26 | Eva | anolis.nex | HKY + Γ4 | Strict, fixed | Yule | **Sample from prior** | Every marginal must match its analytic prior, so a pass doesn't depend on 2.7.9 |
 | C27 | Haoyuan | primate-mtDNA.nex | HKY | Strict, estimated | Calibrated Yule | 2 MRCA priors, sample from prior | Calibration/tree-prior interaction, a common source of unexpected induced priors |
-| C28 | Yao | Eva's 2.7.9 XML for C06 and C10 | as built | as built | as built | Load via File › Load and by drag-and-drop, save, run in BEAST 3 | Backward compatibility of BEAUti 2.7.9 XML in BEAUti 3 |
+| C28 | Yao | Eva's 2.7.9 XML for C06 and C10 | as built | as built | as built | Run in BEAST 3. BEAUti 3 isn't designed to open 2.7 XML: check that File › Load and drag-and-drop refuse it with a clear message ([beast3#229](https://github.com/CompEvol/beast3/pull/229)) | Backward compatibility of BEAUti 2.7.9 XML in BEAST 3 |
 | C29 | Yuan | anolis.nex | HKY + Γ4 | Strict, estimated | Yule | Edit priors: kappa → Exponential(mean 5), shape → Uniform(0, 10), birthRate → Gamma(2, 1), clock → Log-normal | Priors panel parametric distribution editors |
 | C30 | Yuan | primate-mtDNA.nex | HKY, linked | Strict, fixed | Yule | Edit operator weights, chain length, log intervals and file names. Stop at 50 % and `-resume` | Operators and MCMC panels, state file and resume, compared with an uninterrupted run |
 
