@@ -36,7 +36,7 @@ The target is the 44 that BEAST 2.7 itself loads. On 10 Nov BEAST 2.7.7 loaded 4
 |---|---|---|
 | `TreeHeightLogger` was removed (beast3 commit `5ed52d0`) | 31, including all converted examples except bitflip | restored as a deprecated class in [beast3#235](https://github.com/CompEvol/beast3/pull/235): with it, 40 of 44 load (42 with beast2#1227) |
 | `beast.app.seqgen.*` class names | testSeqGen, testSimulatedAlignment | stale since 2.7.0, BEAST 2.7 fails too; fixed in the XML by beast2#1227 |
-| `SliceOperator` doesn't exist in BEAST 3 | testSliceHKY | open |
+| `SliceOperator` doesn't exist in BEAST 3 | testSliceHKY | excluded: removed on purpose (beast3 `b74755d`); release note |
 | JSON sequence format no longer accepted | testUCLNclock.json | open |
 
 BEAUti 2.7 writes `TreeStatLogger`, so analyses built in BEAUti 2.7 are not affected; hand-written and older XML is.
@@ -47,7 +47,7 @@ Still to decide:
 
 - ~~`testHKY.xml` and `testOpSubSchedule.xml` (already converted) replace the 1/X prior on kappa with a LogNormal.~~ Done 9 Nov: both versions now use LogNormal(0, 8) on kappa (also in `testHKY.json`), and they match ([model-check.md](reports/model-check.md)).
 - ~~How conversions handle the 1/X prior, which has no exact spec replacement.~~ The conversions use LogNormal(0, 8) in both versions ([model-check.md](reports/model-check.md)). BEAST 2 XML with `OneOnX` still runs in BEAST 3 through the deprecated legacy class; BEAUti 3 doesn't offer it, and for 2.8 XML LogUniform or a wide LogNormal replaces it.
-- `testSliceHKY.xml` uses `SliceOperator`, which doesn't exist in BEAST 3. Exclude it, or port the operator.
+- ~~`testSliceHKY.xml` uses `SliceOperator`, which doesn't exist in BEAST 3. Exclude it, or port the operator.~~ Excluded (10 Nov): `SliceOperator` was removed on purpose, was used only by this example (no BEAUti template, not in BeastFX), and costs several posterior evaluations per move. The release notes should list it as removed. That makes the backward-compatibility target 43 of the 44 examples.
 
 The rest of this page is about the BEAUti track.
 
