@@ -216,6 +216,13 @@ Update, 10 Nov:
   [beast3#235](https://github.com/CompEvol/beast3/pull/235). With it, 40 of the 44 v2.7.8 examples
   load in BEAST 3 (`-validate`), 42 with the beast2#1227 copies of the two seqgen examples. The
   remaining two are testSliceHKY (`SliceOperator`) and testUCLNclock.json (JSON sequences).
+- **testSliceHKY is excluded:** `SliceOperator` was removed from BEAST 3 on purpose (`b74755d`).
+- **testUCLNclock.json** used the alignment `taxon=sequence` shorthand, removed with `Map` and
+  `TreeTipData` (`a37b3b2`). [beast2#1228](https://github.com/CompEvol/beast2/pull/1228) lists the
+  sequences explicitly (identical traces in BEAST 2.7.7), and that copy runs in BEAST 3.
+  [beast3#236](https://github.com/CompEvol/beast3/pull/236) adds both removals to the CHANGELOG.
+- **So the BEAST 3 target is 43 of 44, and with beast3#235, beast2#1227 and beast2#1228 BEAST 3
+  loads all 43.**
 
 The six that load and run MCMC were run in both versions from the same unmodified XML (BEAST 2
 settings as above; chain lengths as in the XMLs, testCalYule_5t_2c at 700k), two replicates each:

@@ -46,7 +46,7 @@ testTVM.xml	shared	explained	Constant offset in `prior`, as for testGTR.
 testTipDates.xml	Walter	none
 testTipDates2.xml	Walter	none
 testTwoCalibrationsPrior.xml	Alexei	pass
-testUCLNclock.json	Walter	none
+testUCLNclock.json	Walter	none	Use the copy with explicit sequences from [beast2#1228](https://github.com/CompEvol/beast2/pull/1228): BEAST 3 dropped the alignment taxon=sequence shorthand the original uses.
 testYuleCalibrated.xml	Alexei	pass
 testYuleOneSite.xml	shared	pass	Run at 1M.
 testYuleUncalibrated.xml	Alexei	pass	4 replicates.

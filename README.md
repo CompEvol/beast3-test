@@ -47,9 +47,11 @@ Rules:
 
 - **BEAST 2 XML**: download it from the beast2 repo at tag
   [`v2.7.8`](https://github.com/CompEvol/beast2/tree/v2.7.8/examples), not from `master` and not
-  from beast3 `examples/legacy/` (which may have been edited). Exception: testSeqGen and
+  from beast3 `examples/legacy/` (which may have been edited). Exceptions: testSeqGen and
   testSimulatedAlignment at v2.7.8 don't load in BEAST 2.7 (stale `beast.app.seqgen` class names);
-  use the copies fixed in [beast2#1227](https://github.com/CompEvol/beast2/pull/1227).
+  use the copies fixed in [beast2#1227](https://github.com/CompEvol/beast2/pull/1227). For
+  testUCLNclock.json use the copy with explicit sequences from
+  [beast2#1228](https://github.com/CompEvol/beast2/pull/1228) (same data, identical traces in 2.7.7).
 - **BEAST 3 XML**: only a file at the top level of the beast3 `examples/` folder counts as
   converted (or, for testSeqGen and testSimulatedAlignment, of the beast-fx `examples/` folder). A file with the same name in `legacy/` or `beast2vs1/` does **not** count.
 - **Data**: every top-level BEAST 2 example has its alignment inline in the XML (none reads

@@ -30,14 +30,14 @@ Run settings, measured with BEAST 3 on 4 Nov:
 
 Backward compatibility, checked on 4 Nov and again on 9 Nov (master `8cb5fd0`): only 9 of the 44 v2.7.8 examples load in BEAST 3, and the 6 of those that run MCMC match BEAST 2.7.9 ([model-check.md](reports/model-check.md#backward-compatibility-v278-xmls-in-beast-3)). The beast3 `examples/legacy/` copies were edited to work around this, so they are not the v2.7.8 originals.
 
-The target is the 44 that BEAST 2.7 itself loads. On 10 Nov BEAST 2.7.7 loaded 42: testSeqGen and testSimulatedAlignment still name `beast.app.seqgen.*`, which moved to `beastfx.app.seqgen` in 2.7.0. [beast2#1227](https://github.com/CompEvol/beast2/pull/1227) fixes the two names; with it all 44 load and run in BEAST 2.7.7, and both also run in BEAST 3 (with beast-fx).
+The target is the 44 that BEAST 2.7 itself loads. On 10 Nov BEAST 2.7.7 loaded 42: testSeqGen and testSimulatedAlignment still name `beast.app.seqgen.*`, which moved to `beastfx.app.seqgen` in 2.7.0. [beast2#1227](https://github.com/CompEvol/beast2/pull/1227) fixes the two names; with it all 44 load and run in BEAST 2.7.7, and both also run in BEAST 3 (with beast-fx). testSliceHKY is excluded (`SliceOperator` was removed on purpose), so the BEAST 3 target is **43**. With beast3#235 and the fixed copies from beast2#1227 and beast2#1228, BEAST 3 loads all 43.
 
 | Cause | Examples affected | Status (10 Nov) |
 |---|---|---|
 | `TreeHeightLogger` was removed (beast3 commit `5ed52d0`) | 31, including all converted examples except bitflip | restored as a deprecated class in [beast3#235](https://github.com/CompEvol/beast3/pull/235): with it, 40 of 44 load (42 with beast2#1227) |
 | `beast.app.seqgen.*` class names | testSeqGen, testSimulatedAlignment | stale since 2.7.0, BEAST 2.7 fails too; fixed in the XML by beast2#1227 |
-| `SliceOperator` doesn't exist in BEAST 3 | testSliceHKY | excluded: removed on purpose (beast3 `b74755d`); release note |
-| JSON sequence format no longer accepted | testUCLNclock.json | open |
+| `SliceOperator` doesn't exist in BEAST 3 | testSliceHKY | excluded: removed on purpose (beast3 `b74755d`); CHANGELOG ([beast3#236](https://github.com/CompEvol/beast3/pull/236)) |
+| Alignment `taxon=sequence` shorthand (the JSON example's sequences) removed with `Map`/`TreeTipData` (beast3 `a37b3b2`) | testUCLNclock.json | removed on purpose; the example is rewritten with explicit sequences in [beast2#1228](https://github.com/CompEvol/beast2/pull/1228) (identical traces in 2.7.7), and the removal is in the CHANGELOG ([beast3#236](https://github.com/CompEvol/beast3/pull/236)) |
 
 BEAUti 2.7 writes `TreeStatLogger`, so analyses built in BEAUti 2.7 are not affected; hand-written and older XML is.
 
