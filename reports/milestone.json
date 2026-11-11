@@ -1,13 +1,13 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T21:39:06Z",
- "closed": 8,
+ "fetched": "2026-11-11T21:45:21Z",
+ "closed": 9,
  "issues": [
   {
-   "number": 264,
-   "title": "BEAUti hangs on the splash screen when a command-line argument fails",
-   "url": "https://github.com/CompEvol/beast3/issues/264",
+   "number": 271,
+   "title": "BEAUti: -xml FILE -exitaction usexml fails at start-up with a NullPointerException",
+   "url": "https://github.com/CompEvol/beast3/issues/271",
    "author": "alexeid",
    "created": "2026-11-11",
    "updated": "2026-11-11",
@@ -16,9 +16,9 @@
    "comments": 0
   },
   {
-   "number": 258,
-   "title": "SiteModel casts its shape input to RealScalarParam only to read the lower bound",
-   "url": "https://github.com/CompEvol/beast3/issues/258",
+   "number": 264,
+   "title": "BEAUti hangs on the splash screen when a command-line argument fails",
+   "url": "https://github.com/CompEvol/beast3/issues/264",
    "author": "alexeid",
    "created": "2026-11-11",
    "updated": "2026-11-11",
@@ -226,32 +226,6 @@
  ],
  "prs": [
   {
-   "number": 270,
-   "title": "Run the type and domain tests: JUnit 4 annotations to JUnit 5",
-   "url": "https://github.com/CompEvol/beast3/pull/270",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [],
-   "checks": "pass",
-   "review": "none yet",
-   "updated": "2026-11-11"
-  },
-  {
-   "number": 268,
-   "title": "SiteModel: read the lower bound of the shape through the RealScalar interface (#258)",
-   "url": "https://github.com/CompEvol/beast3/pull/268",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [
-    258
-   ],
-   "checks": "pass",
-   "review": "none yet",
-   "updated": "2026-11-11"
-  },
-  {
    "number": 267,
    "title": "BEAUti reports a command-line argument it cannot process and exits (#264)",
    "url": "https://github.com/CompEvol/beast3/pull/267",
@@ -261,7 +235,7 @@
    "closes": [
     264
    ],
-   "checks": "pass",
+   "checks": "running",
    "review": "none yet",
    "updated": "2026-11-11"
   },

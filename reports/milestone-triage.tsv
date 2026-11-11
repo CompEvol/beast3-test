@@ -24,3 +24,4 @@
 254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
 268	pr	Fixes the cast in `SiteModel`. Needs a reviewer. Touches `beast-base`, outside the MCMC loop.
 270	pr	Test sources only: two import lines in each of sixteen test classes, so that their 77 tests run. All pass. Needs a reviewer.
+271	todo	A documented option (`-xml FILE -exitaction usexml`) that fails at start-up with a null pointer, also for an XML BEAUti wrote. Cause is clear and the fix looks small. Low priority: File > Load works. Seen off-screen only.
