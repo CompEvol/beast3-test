@@ -21,7 +21,7 @@
 
 - [substmodels#8](https://github.com/BEAST2-Dev/substmodels/issues/8): every SSM model with rates crashes at the first posterior calculation, in 2.8.0-rc1 and in master. SSM is no longer to be bundled (#248).
 - [starbeast3#19](https://github.com/rbouckaert/starbeast3/issues/19): StarBeast3 does not start with `mvn exec:exec` from its own project. It works as an installed package.
-- **Package check** ([report](https://github.com/CompEvol/beast3-test/blob/main/reports/packages-check.md)): master against 2.8.0-rc1 shows no regressions in ORC, SA, MM, SSM, bModelTest and StarBeast3. One StarBeast3 parameter of 60 is borderline (z = 3.2) and not explained; see the [notes](https://github.com/CompEvol/beast3-test/blob/main/reports/packages-notes.md).
+- **Package check** ([report](https://github.com/CompEvol/beast3-test/blob/main/reports/packages-check.md)): master against 2.8.0-rc1 shows no regressions in ORC, SA, MM, SSM, bModelTest and StarBeast3. A StarBeast3 parameter that was borderline with 8 replicates (z = 3.2) matches with 16 (z = 1.9); see the [notes](https://github.com/CompEvol/beast3-test/blob/main/reports/packages-notes.md).
 - The released package zips that users install have not been tested, only the default branches built from source.
 
 ## How to read this page

@@ -16,11 +16,11 @@ Known problems (fail with both versions, so not caused by changes since 2.8.0-rc
 | | |
 |---|---|
 | Date | 2026-11-12 |
-| New | BEAST 2.8.0-SNAPSHOT, beast3 branch `master`, commit `c8744a3` |
+| New | BEAST 2.8.0-SNAPSHOT, beast3 branch `master`, commit `b3427c2` |
 | Baseline | BEAST 2.8.0-rc1 from Maven Central |
 | Java | openjdk version "26.0.1" 2026-04-21 |
 | Machine | Darwin arm64 |
-| Example runs | 4 replicate(s) per version, 4 at a time |
+| Example runs | 4 replicate(s) per version in the last run, 4 at a time; an example run with `-e` may have more (column Finished) |
 
 ## Build and unit tests against BEAST 2.8.0-SNAPSHOT
 
@@ -33,7 +33,8 @@ Each package's default branch, built from source.
 | MM | [CompEvol/morph-models](https://github.com/CompEvol/morph-models) | `39e34c1` | 1.3.1 | yes | Tests run: 8, Failures: 0, Errors: 0, Skipped: 0 |
 | SSM | [BEAST2-Dev/substmodels](https://github.com/BEAST2-Dev/substmodels) | `41c4107` | 1.3.2 | yes | Tests run: 22, Failures: 0, Errors: 0, Skipped: 0 |
 | bModelTest | [BEAST2-Dev/bModelTest](https://github.com/BEAST2-Dev/bModelTest) | `106a45f` | 1.4.0 | yes | Tests run: 37, Failures: 0, Errors: 0, Skipped: 0 |
-| starbeast3 | [rbouckaert/starbeast3](https://github.com/rbouckaert/starbeast3) | `0f5304d` | 1.3.0 | yes | no unit tests |
+| starbeast3 | [rbouckaert/starbeast3](https://github.com/rbouckaert/starbeast3) | `0003b37` | 1.3.0 | yes | no unit tests |
+| CCD | [CompEvol/CCD](https://github.com/CompEvol/CCD) | `7e93fb5` | 1.2.2 | yes | Tests run: 110, Failures: 0, Errors: 0, Skipped: 1 |
 
 ## Example XMLs: BEAST 2.8.0-SNAPSHOT against 2.8.0-rc1
 
@@ -49,7 +50,7 @@ Each example is run with both versions, same seeds, and the posteriors are compa
 | bModelTest | bModelTest | 3000000 | 4/4 | 4/4 | 91 | 91 | matched (ESS < 200) | min ESS (any replicate): 15; max z: 1.498; max clade \|Δp\|: – |
 | beast2-paper | bModelTest | 1000000 | 4/4 | 4/4 | 201 | 199 | matched (ESS < 200) | min ESS (any replicate): 3; max z: 2.54; max clade \|Δp\|: – |
 | primates | bModelTest | 3000000 | 4/4 | 4/4 | 143 | 144 | matched (ESS < 200) | min ESS (any replicate): 7; max z: 2.059; max clade \|Δp\|: – |
-| gophers | starbeast3 | 15000000 | 8/8 | 8/8 | 2532 | 2541 | borderline (ESS < 200) | min ESS (any replicate): 72; max z: 3.238; max clade \|Δp\|: – |
+| gophers | starbeast3 | 15000000 | 16/16 | 16/16 | 1462 | 1466 | matched (ESS < 200) | min ESS (any replicate): 72; max z: 2.299; max clade \|Δp\|: – |
 
 The full comparison of each example is in the work folder, `summary/<example>.md`.
 
@@ -78,4 +79,14 @@ Each scenario (`packages/scenarios.sh`) starts BEAUti, sets the model up as a us
 | MM-M3982-No | yes | yes |  |
 | MM-penguins-No | yes | yes |  |
 | StarBeast3 | yes | yes |  |
+
+## TreeAnnotator with the CCD package
+
+Both versions summarise the same tree file (`examples/new/bModelTest/rep1/dna.trees`) with the CCD package's point estimates and, as a control, MCC. "Identical" compares the summary trees, ignoring comment lines.
+
+| Method | Runs (2.8.0-rc1) | Runs (2.8.0-SNAPSHOT) | Identical |
+|---|---|---|---|
+| CCD0 | yes | yes | yes |
+| CCD1 | yes | yes | yes |
+| MCC | yes | yes | yes |
 

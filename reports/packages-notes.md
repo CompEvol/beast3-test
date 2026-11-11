@@ -29,7 +29,14 @@ Variants of the XML, 4 replicates of 10M each:
 So `BactrianSubtreeSlide` is the only thing this analysis uses that changed since rc1, and with
 it the two versions sample the same posterior. The example now runs 4 replicates of 10M.
 
-### gophers (StarBeast3): one parameter borderline, not explained
+### gophers (StarBeast3): borderline with 8 replicates, matched with 16
+
+**Settled on 12 Nov:** with 16 replicates of 15M steps per version, `SpeciesTreeRelaxedClockSD` is
+0.2805 with rc1 and 0.277 with master, z = 1.92, and the example is matched. Replicates 9-16 of
+master ran on master of 12 Nov (`b3427c2`), replicates 1-8 on master of 11 Nov; the beast-base
+changes in between only touch start-up checks and messages, not sampling. The first 8 rc1 replicates had happened to come out
+high: across all 16, the rc1 replicates disagree with each other about as much (z = 3.06 between
+replicates) as the two versions did with 8. The record of the 8-replicate result follows.
 
 With 8 replicates of 15M steps, `SpeciesTreeRelaxedClockSD` is 0.2837 with rc1 and 0.2752 with
 master, z = 3.2. The spread between the replicate means gives the same z, so it does not depend
@@ -54,9 +61,7 @@ What is known:
   the prior is poor for several other parameters (ESS 5 to 15), so that run says nothing about
   them.
 
-To settle it: more replicates of gophers (`packages/check_packages.sh -e gophers -n 16 -s
-examples,report`), or the well-calibrated simulation study in
-[starbeast3#18](https://github.com/rbouckaert/starbeast3/issues/18).
+It was settled with `packages/check_packages.sh -e gophers -n 16 -s examples,report`.
 
 ### Known problems, present with rc1 too
 

@@ -16,8 +16,9 @@ new BEAST 3 than with the baseline.
 
 ## What is tested
 
-The packages are listed in [packages.tsv](packages.tsv): ORC, SA, MM, SSM, bModelTest and
-StarBeast3. Each is taken from the default branch of its repository and built from source. **The
+The packages are listed in [packages.tsv](packages.tsv): ORC, SA, MM, SSM, bModelTest,
+StarBeast3 and CCD. Five of them (bModelTest, ORC, SA, StarBeast3, CCD) are bundled with
+BEAST 2.8.0 ([beast3#248](https://github.com/CompEvol/beast3/issues/248)). Each is taken from the default branch of its repository and built from source. **The
 released package zips that users install are not tested.**
 
 | Step | What it does | Where it is defined |
@@ -26,6 +27,7 @@ released package zips that users install are not tested.**
 | `build` | Clones each package, builds it against that BEAST 3, runs its unit tests, and unpacks the package zip into one folder, as if installed | [packages.tsv](packages.tsv) |
 | `examples` | Runs the packages' example XMLs with the new BEAST 3 and with the baseline, in replicates with the same seeds, and compares the posteriors with [`scripts/compare.py`](../scripts/compare.py) | [examples.tsv](examples.tsv) |
 | `beauti` | Starts the real BEAUti off-screen with all packages installed, sets up a model as a user would, saves the XML and runs it for 200,000 steps. Done with both versions | [scenarios.sh](scenarios.sh) |
+| `trees` | Runs TreeAnnotator with the CCD package's point estimates (CCD0, CCD1) and MCC on the same tree file, from the bModelTest example, with both versions. The summary trees must be identical | `check_packages.sh` |
 | `report` | Writes the report | [report.py](report.py) |
 
 "New" is the beast3 checkout given with `-B`. "Baseline" is a released BEAST 3 version on Maven
@@ -79,7 +81,7 @@ So far this has only been run on macOS.
 -j N        BEAST runs in parallel (default 4; run times are only comparable with -j 1)
 -e NAMES    comma-separated examples to run (default: all in examples.tsv)
 -f          run every example replicate again, also those that already finished
--s STEPS    comma-separated steps (default install,build,examples,beauti,report)
+-s STEPS    comma-separated steps (default install,build,examples,beauti,trees,report)
 -o FILE     report file, relative to this repository (default reports/packages-check.md)
 ```
 

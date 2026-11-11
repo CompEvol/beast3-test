@@ -237,7 +237,7 @@ Sophie and Yao, who needed more time in the rc2 round, have three combinations e
 
 - The 2.7 versions of SA and StarBeast3 install in BEAST 2.7.9, and SA's 2.7 package ships `bears.nex`.
 - The rc3 installers seed the five packages ([beast3#248](https://github.com/CompEvol/beast3/issues/248), "What is needed" 1–4).
-- CCD is in the automated package check (12 Nov).
+- ~~CCD is in the automated package check.~~ Done 12 Nov: it builds against master, its 110 unit tests pass, and TreeAnnotator gives identical CCD0 and CCD1 trees in rc1 and master.
 
 ## Open questions
 

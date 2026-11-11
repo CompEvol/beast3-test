@@ -28,7 +28,7 @@
 #   -j N        BEAST runs in parallel (default 4; run times are only comparable with -j 1)
 #   -e NAMES    comma-separated examples to run (default: all in packages/examples.tsv)
 #   -f          run every example replicate again, also those that already finished
-#   -s STEPS    comma-separated steps to run (default install,build,examples,beauti,report)
+#   -s STEPS    comma-separated steps to run (default install,build,examples,beauti,trees,report)
 #   -o FILE     report file, relative to this repository (default reports/packages-check.md)
 #   -h          help
 #
@@ -47,7 +47,7 @@ REPS=4
 JOBS=4
 ONLY=""
 FORCE=no
-STEPS="install,build,examples,beauti,report"
+STEPS="install,build,examples,beauti,trees,report"
 REPORT="reports/packages-check.md"
 
 while getopts "B:a:w:n:j:s:o:e:fh" opt; do
@@ -187,7 +187,7 @@ beauti_driver() { # <side> steps...
 finished() { grep -q "End likelihood" "$1" 2>/dev/null && echo yes || echo no; }
 set_chain() { sed -E "s/chainLength=(['\"])[0-9]+['\"]/chainLength=\\1$2\\1/" "$1"; }
 
-if has_step examples || has_step beauti; then
+if has_step examples || has_step beauti || has_step trees; then
     module_path new "$NEW"
     module_path base "$BASELINE"
 fi
@@ -291,6 +291,38 @@ if has_step beauti; then
     for SIDE in new base; do
         . "$HERE/scenarios.sh"
     done
+fi
+
+# ============================================================================================
+# TreeAnnotator with the CCD package's point estimates (CCD0, CCD1) and, as a control, MCC.
+# Both versions summarise the same tree file, so the summary trees must be identical.
+if has_step trees; then
+    TREES_IN="$WORK/examples/new/bModelTest/rep1/dna.trees"
+    : > "$WORK/trees.tsv"
+    if [ ! -s "$TREES_IN" ]; then
+        say "trees: $TREES_IN not found (run the bModelTest example first), skipped"
+    else
+        mkdir -p "$WORK/trees"; cp "$TREES_IN" "$WORK/trees/input.trees"
+        for method in CCD0 CCD1 MCC; do
+            for side in base new; do
+                out="$WORK/trees/$side-$method.tree"; rm -f "$out"
+                "$JAVA" -Djava.awt.headless=true --module-path "$(cat "$WORK/modulepath.$side.txt")" --add-modules ALL-MODULE-PATH \
+                    -DBEAST_PACKAGE_PATH="$(package_path)" -Dbeast.user.package.dir="$USERDIR" \
+                    -m beast.fx/beastfx.app.treeannotator.TreeAnnotator -topology "$method" -height mean -burnin 10 \
+                    "$WORK/trees/input.trees" "$out" > "$WORK/trees/$side-$method.out" 2>&1
+            done
+            ran_b=no; ran_n=no; same="–"
+            [ -s "$WORK/trees/base-$method.tree" ] && ran_b=yes
+            [ -s "$WORK/trees/new-$method.tree" ] && ran_n=yes
+            if [ $ran_b = yes ] && [ $ran_n = yes ]; then
+                # the files differ only in comment lines (version, date); compare the rest
+                if cmp -s <(grep -v '^\[' "$WORK/trees/base-$method.tree") <(grep -v '^\[' "$WORK/trees/new-$method.tree"); then
+                    same=yes; else same=no; fi
+            fi
+            printf '%s\t%s\t%s\t%s\n' "$method" "$ran_b" "$ran_n" "$same" >> "$WORK/trees.tsv"
+            say "trees: $method base=$ran_b new=$ran_n identical=$same"
+        done
+    fi
 fi
 
 # ============================================================================================

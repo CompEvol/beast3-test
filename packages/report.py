@@ -49,7 +49,8 @@ def main():
     add("| Baseline | BEAST %s from Maven Central |" % base)
     add("| Java | %s |" % v.get("java", ""))
     add("| Machine | %s |" % v.get("os", ""))
-    add("| Example runs | %s replicate(s) per version, %s at a time |" % (v.get("replicates", ""), v.get("jobs", "")))
+    add("| Example runs | %s replicate(s) per version in the last run, %s at a time; an example run with `-e` may have more (column Finished) |"
+        % (v.get("replicates", ""), v.get("jobs", "")))
     add("")
 
     # ---- build -----------------------------------------------------------------------------
@@ -152,6 +153,27 @@ def main():
             if not okn:
                 (regressions if okb else known).append("BEAUti scenario `%s`: %s" % (name, why or cn.strip("*")))
             add("| %s | %s | %s | %s |" % (name, cb, cn, why.replace("|", "\\|")))
+        add("")
+
+    # ---- trees: TreeAnnotator with CCD ------------------------------------------------------
+    tr = rows(os.path.join(w, "trees.tsv"))
+    if tr:
+        add("## TreeAnnotator with the CCD package")
+        add("")
+        add("Both versions summarise the same tree file (`examples/new/bModelTest/rep1/dna.trees`) with the CCD "
+            "package's point estimates and, as a control, MCC. \"Identical\" compares the summary trees, "
+            "ignoring comment lines.")
+        add("")
+        add("| Method | Runs (%s) | Runs (%s) | Identical |" % (base, new))
+        add("|---|---|---|---|")
+        for r in tr:
+            r += [""] * (4 - len(r))
+            method, rb, rn, same = r[:4]
+            if rn != "yes":
+                (regressions if rb == "yes" else known).append("TreeAnnotator `%s` does not run with %s" % (method, new))
+            elif same == "no":
+                regressions.append("TreeAnnotator `%s`: the summary tree differs from %s's" % (method, base))
+            add("| %s | %s | %s | %s |" % (method, rb, rn, "**no**" if same == "no" else same))
         add("")
 
     # ---- summary, placed at the top ---------------------------------------------------------
