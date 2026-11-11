@@ -1,7 +1,7 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T23:09:32Z",
+ "fetched": "2026-11-11T23:17:41Z",
  "closed": 11,
  "issues": [
   {
@@ -28,7 +28,7 @@
   },
   {
    "number": 248,
-   "title": "Bundle SSM, bModelTest, ORC, StarBeast3 and SA with the release",
+   "title": "Bundle bModelTest, ORC, StarBeast3, SA and CCD with the release",
    "url": "https://github.com/CompEvol/beast3/issues/248",
    "author": "alexeid",
    "created": "2026-11-10",
@@ -213,7 +213,7 @@
    "closes": [
     271
    ],
-   "checks": "running",
+   "checks": "pass",
    "review": "none yet",
    "updated": "2026-11-11"
   },
@@ -227,7 +227,7 @@
    "closes": [
     232
    ],
-   "checks": "running",
+   "checks": "pass",
    "review": "none yet",
    "updated": "2026-11-11"
   },

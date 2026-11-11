@@ -5,7 +5,7 @@
 
 1. **Reviewer** for [#273](https://github.com/CompEvol/beast3/pull/273) (BSP test reference values).
 1. **Branch protection.** The rule for `beast-base` ([#263](https://github.com/CompEvol/beast3/pull/263)) is merged. CODEOWNERS enforces nothing until an admin switches on branch protection for master.
-1. **Bundled packages** (#248): what to do about SSM.
+1. **Bundled packages** (#248): SSM is off the list and CCD is on it (12 Nov). Who does the seeding and the release scripts?
 1. **XML that changes** (#49, #38, #226): each is easier before the release than after it.
 1. **Linux and Windows builds** (#81): who writes them, and by when.
 1. **The issues under "Decide"**: 2.8.0, 2.9.0 or close.
@@ -19,7 +19,7 @@
 
 ## Outside this repository
 
-- [substmodels#8](https://github.com/BEAST2-Dev/substmodels/issues/8): every SSM model with rates crashes at the first posterior calculation, in 2.8.0-rc1 and in master. Blocks bundling SSM (#248).
+- [substmodels#8](https://github.com/BEAST2-Dev/substmodels/issues/8): every SSM model with rates crashes at the first posterior calculation, in 2.8.0-rc1 and in master. SSM is no longer to be bundled (#248).
 - [starbeast3#19](https://github.com/rbouckaert/starbeast3/issues/19): StarBeast3 does not start with `mvn exec:exec` from its own project. It works as an installed package.
 - **Package check** ([report](https://github.com/CompEvol/beast3-test/blob/main/reports/packages-check.md)): master against 2.8.0-rc1 shows no regressions in ORC, SA, MM, SSM, bModelTest and StarBeast3. One StarBeast3 parameter of 60 is borderline (z = 3.2) and not explained; see the [notes](https://github.com/CompEvol/beast3-test/blob/main/reports/packages-notes.md).
 - The released package zips that users install have not been tested, only the default branches built from source.
