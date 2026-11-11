@@ -215,7 +215,7 @@ Slow combinations are marked 🐢.
 | R11 🐢 | C23 | Haoyuan | anolis.nex | bModelTest + Γ4 + I, UPGMA start | bModelTest as bundled |
 | R12 | C29 | Yuan | anolis.nex | HKY + Γ4, edit every prior | Priors panel changed ([#245](https://github.com/CompEvol/beast3/pull/245), [#274](https://github.com/CompEvol/beast3/pull/274)); also try Bounded Real and Offset Real on kappa |
 | R13 | new | Eva | bears.nex (SA package, `examples/nexus`) | HKY, strict estimated, **Fossilized Birth Death** with sampled ancestors | SA in BEAUti: tip dates from the names (backward, after the last `_`), origin, sampled-ancestor count in the log |
-| R14 | new | Eva | bears.nex | as R13, **sample from prior** | SA tree prior on its own; compare with 2.7.9 and the FBD prior's known marginals |
+| R14 | new | Yuan | bears.nex | as R13, **sample from prior** | SA tree prior on its own; compare with 2.7.9 and the FBD prior's known marginals |
 | R15 🐢 | new | Haoyuan | 26.nex, 29.nex, 47.nex (core `examples/nexus`) | **StarBeast3** template, species from the Guess dialog (split on `_`) | StarBeast3 in BEAUti: species assignment, multispecies coalescent |
 | R16 🐢 | new | Eva | as R15 | StarBeast3 with the relaxed species-tree clock | StarBeast3's clock models |
 | R17 | new | Haoyuan | dna.nex | bModelTest + **ORC** relaxed clock + **FBD** (SA) | Three bundled packages in one analysis |
@@ -223,13 +223,13 @@ Slow combinations are marked 🐢.
 
 | Tester | Combinations |
 |--------|--------------|
-| Eva | R01 · R05 🐢 · R13 · R14 · R16 🐢 |
+| Eva | R01 · R05 🐢 · R13 · R16 🐢 |
 | Haoyuan | R03 · R11 🐢 · R15 🐢 · R17 |
 | Sophie | R02 · R04 🐢 · R10 |
 | Yao | R07 🐢 · R08 · R18 |
-| Yuan | R06 🐢 · R09 🐢 · R12 |
+| Yuan | R06 🐢 · R09 🐢 · R12 · R14 |
 
-Sophie and Yao, who needed more time in the rc2 round, have three combinations each and one slow one. Nobody has more than two slow ones. Testers keep the combinations they built in the rc2 round, apart from R01 (C04), which moves from Yuan to Eva, R09 (C17), from Yao to Yuan, and R10 (C24), from Yao to Sophie.
+Sophie and Yao, who needed more time in the rc2 round, have three combinations each and one slow one; the others have four, with at most two slow ones. R14 is built by Yuan from scratch, independently of Eva's R13, which also checks that two people set up SA the same way. Testers keep the combinations they built in the rc2 round, apart from R01 (C04), which moves from Yuan to Eva, R09 (C17), from Yao to Yuan, and R10 (C24), from Yao to Sophie.
 
 **One dependency:** Yao's R18 needs a tree file from R01. Eva, who was fastest in the rc2 round, has R01 and builds it first, so that R18 can start early.
 
