@@ -23,3 +23,4 @@
 254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
 271	todo	A documented option (`-xml FILE -exitaction usexml`) that fails at start-up with a null pointer, also for an XML BEAUti wrote. Cause is clear and the fix looks small. Low priority: File > Load works. Seen off-screen only.
 272	pr	Three-line fix in beast-fx for #54. Checked off-screen with a faulty test package. Needs a reviewer.
+273	pr	Test only: the BSP group size reference values from BEAST X instead of the 2011 BEAST 1 run. `testBSP` passes. Needs a reviewer.

@@ -1,24 +1,13 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T21:49:26Z",
- "closed": 9,
+ "fetched": "2026-11-11T22:44:44Z",
+ "closed": 10,
  "issues": [
   {
    "number": 271,
    "title": "BEAUti: -xml FILE -exitaction usexml fails at start-up with a NullPointerException",
    "url": "https://github.com/CompEvol/beast3/issues/271",
-   "author": "alexeid",
-   "created": "2026-11-11",
-   "updated": "2026-11-11",
-   "labels": [],
-   "assignees": [],
-   "comments": 0
-  },
-  {
-   "number": 264,
-   "title": "BEAUti hangs on the splash screen when a command-line argument fails",
-   "url": "https://github.com/CompEvol/beast3/issues/264",
    "author": "alexeid",
    "created": "2026-11-11",
    "updated": "2026-11-11",
@@ -226,28 +215,14 @@
  ],
  "prs": [
   {
-   "number": 272,
-   "title": "BEAUti: a template that fails to load no longer throws a second exception (#54)",
-   "url": "https://github.com/CompEvol/beast3/pull/272",
+   "number": 273,
+   "title": "TreePriorTest.testBSP: group size reference values from BEAST X",
+   "url": "https://github.com/CompEvol/beast3/pull/273",
    "author": "alexeid",
    "milestone": "2.8.0",
    "draft": false,
    "closes": [],
    "checks": "running",
-   "review": "none yet",
-   "updated": "2026-11-11"
-  },
-  {
-   "number": 267,
-   "title": "BEAUti reports a command-line argument it cannot process and exits (#264)",
-   "url": "https://github.com/CompEvol/beast3/pull/267",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [
-    264
-   ],
-   "checks": "pass",
    "review": "none yet",
    "updated": "2026-11-11"
   },
