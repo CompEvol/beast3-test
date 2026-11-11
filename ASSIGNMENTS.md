@@ -211,25 +211,25 @@ Slow combinations are marked 🐢.
 | R07 🐢 | C15 | Yao | RSV2.nex | HKY, random local clock, coalescent constant, tip dates | Blocked: priors differed |
 | R08 | C21 | Yao | E15-binary.fasta | MutationDeathModel, strict fixed, Yule | Rerun: priors differed |
 | R09 🐢 | C17 | Yao | Dengue4.env.nex | GTR + Γ4, ORC relaxed, Bayesian skyline, tip dates | GTR prior changed; ORC as bundled |
-| R10 | C24 | Sophie | primate-mtDNA.nex | GTR + Γ4 unlinked, fix mean substitution rate | GTR prior changed |
+| R10 | C24 | Haoyuan | primate-mtDNA.nex | GTR + Γ4 unlinked, fix mean substitution rate | GTR prior changed |
 | R11 🐢 | C23 | Haoyuan | anolis.nex | bModelTest + Γ4 + I, UPGMA start | bModelTest as bundled |
 | R12 | C29 | Yuan | anolis.nex | HKY + Γ4, edit every prior | Priors panel changed ([#245](https://github.com/CompEvol/beast3/pull/245), [#274](https://github.com/CompEvol/beast3/pull/274)); also try Bounded Real and Offset Real on kappa |
 | R13 | new | Eva | bears.nex (SA package, `examples/nexus`) | HKY, strict estimated, **Fossilized Birth Death** with sampled ancestors | SA in BEAUti: tip dates from the names (backward, after the last `_`), origin, sampled-ancestor count in the log |
 | R14 | new | Eva | bears.nex | as R13, **sample from prior** | SA tree prior on its own; compare with 2.7.9 and the FBD prior's known marginals |
 | R15 🐢 | new | Sophie | 26.nex, 29.nex, 47.nex (core `examples/nexus`) | **StarBeast3** template, species from the Guess dialog (split on `_`) | StarBeast3 in BEAUti: species assignment, multispecies coalescent |
-| R16 🐢 | new | Yao | as R15 | StarBeast3 with the relaxed species-tree clock | StarBeast3's clock models |
+| R16 🐢 | new | Eva | as R15 | StarBeast3 with the relaxed species-tree clock | StarBeast3's clock models |
 | R17 | new | Haoyuan | dna.nex | bModelTest + **ORC** relaxed clock + **FBD** (SA) | Three bundled packages in one analysis |
 | R18 | new | Yuan | one `.trees` file from R01 (BEAST 3, replicate 1) | Not BEAUti: **TreeAnnotator with CCD0 and CCD1** (CCD), in 2.7.9 and BEAST 3, on the same tree file | Summary trees from the same input must be identical: an exact pass or fail |
 
 | Tester | Combinations |
 |--------|--------------|
-| Eva | R05 🐢 · R13 · R14 |
-| Haoyuan | R03 · R11 🐢 · R17 |
-| Sophie | R02 · R04 🐢 · R10 · R15 🐢 |
-| Yao | R07 🐢 · R08 · R09 🐢 · R16 🐢 |
+| Eva | R05 🐢 · R13 · R14 · R16 🐢 |
+| Haoyuan | R03 · R10 · R11 🐢 · R17 |
+| Sophie | R02 · R04 🐢 · R15 🐢 |
+| Yao | R07 🐢 · R08 · R09 🐢 |
 | Yuan | R01 · R06 🐢 · R12 · R18 |
 
-Each tester has three or four combinations and at most three slow ones. Testers keep the combinations they built in the first round, apart from R10 (C24), which moves from Yao to Sophie to spread the load.
+Sophie and Yao, who needed more time in the rc2 round, have three combinations each; the others have four. Nobody has more than two slow ones. Testers keep the combinations they built in the rc2 round, apart from R10 (C24), which moves from Yao to Haoyuan.
 
 ### To check before the round
 
