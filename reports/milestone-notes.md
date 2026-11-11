@@ -7,7 +7,7 @@
 1. **Branch protection.** The rule for `beast-base` ([#263](https://github.com/CompEvol/beast3/pull/263)) is merged. CODEOWNERS enforces nothing until an admin switches on branch protection for master.
 1. **Bundled packages** (#248): bModelTest, ORC, SA, StarBeast3, CCD. Who builds and releases each against rc3 (Remco: bModelTest, StarBeast3; Jordan: ORC; SA; CCD)? Bundle MM too, for SA's `brachiopods.xml`?
 1. **XML that changes** (#49, #38, #226): each is easier before the release than after it.
-1. **Linux and Windows builds** (#81): CI already builds them (`release-bundles.yml` with `release/Linux` and `release/Windows/assemble-bundle.sh`). Can #81 be closed, or is something still missing (signing, an installer for Windows)?
+1. **Linux and Windows are untested.** CI builds the bundles (`release-bundles.yml`), but every tester uses a Mac, so no BEAUti or BEAST run in either round was on Linux or Windows. Who tests them before 2.8.0, on which machines, and how much (install, first-launch seeding of the bundled packages, a few BEAUti combinations)?
 1. **The issues under "Decide"**: 2.8.0, 2.9.0 or close.
 
 ## Found on 12 Nov
