@@ -1,7 +1,7 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T23:36:47Z",
+ "fetched": "2026-11-11T23:56:24Z",
  "closed": 11,
  "issues": [
   {
@@ -35,7 +35,7 @@
    "updated": "2026-11-11",
    "labels": [],
    "assignees": [],
-   "comments": 1
+   "comments": 2
   },
   {
    "number": 239,
@@ -203,6 +203,30 @@
   }
  ],
  "prs": [
+  {
+   "number": 277,
+   "title": "Release README: the order of work for the bundled packages (#248)",
+   "url": "https://github.com/CompEvol/beast3/pull/277",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [],
+   "checks": "running",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
+  {
+   "number": 276,
+   "title": "Launcher: seed every package bundled with the application (#248)",
+   "url": "https://github.com/CompEvol/beast3/pull/276",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [],
+   "checks": "pass",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
   {
    "number": 275,
    "title": "BEAUti: -xml FILE -exitaction usexml no longer fails at start-up (#271)",

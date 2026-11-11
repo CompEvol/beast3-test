@@ -4,7 +4,7 @@
 232	review	Inside Bounded: any distribution of the same kind plus Offset, no Bounded; inside Offset: no wrapper. Also fixes Normal missing from the list inside Bounded. Checked in BEAUti off-screen; new test.
 226	todo	Strong typing is the point of 2.8.0, and the check is dead code today. Must accept a sub-domain (Walter). This runs when the XML is loaded, not in the MCMC loop. Risk: it will reject XMLs and package templates that load today.
 231	todo	Marked "Target: 2.8.0" in the issue. Changes the RLC and EBSP templates and `BitFlipOperator`, so it needs a posterior comparison before and after.
-248	decide	Decided 12 Nov: SSM off the list (crashes, [substmodels#8](https://github.com/BEAST2-Dev/substmodels/issues/8)), CCD added. Bundled: bModelTest, ORC, StarBeast3, SA, CCD. The other four pass the package check; CCD is not in it yet. **Decide:** who does the seeding and release-script work.
+248	decide	Bundled: bModelTest, ORC, SA, StarBeast3, CCD. Seeding done ([#276](https://github.com/CompEvol/beast3/pull/276)); order of work written up ([#277](https://github.com/CompEvol/beast3/pull/277)); current release zips load and work with master (no MCMC). **Decide:** who builds the packages against rc3; MM for SA's brachiopods example.
 49	decide	The rate input of Gamma is still named `lambda`. Renaming changes XML, so it is now or not at all. **Decide:** rename to `beta` (keeping `lambda` as an alias?) or close.
 38	decide	The XMLs now say `version="2.8"`. **Decide:** is that the answer (close), or does the parser also have to reject older declarations?
 257	decide	The code runs on every `set()` of a parameter, so the change needs a timing check. Adds an interface, breaks nothing. **Decide:** 2.8.0 or 2.9.0 with #252.
@@ -22,3 +22,5 @@
 273	pr	Test only: the BSP group size reference values from BEAST X instead of the 2011 BEAST 1 run. `testBSP` passes. Needs a reviewer.
 274	pr	beast-fx only. Also reports a prior whose support reaches outside the parameter's domain (e.g. Normal bounded to [-1, 1] on a positive parameter). Needs a reviewer; a second look from Eva (who filed #232) would help.
 275	pr	beast-fx only, a few lines. Needs a reviewer.
+276	pr	Launcher seeds every bundled package (#248 item 1). beast-pkgmgmt only; tested end to end with the real zips. Needs a reviewer.
+277	pr	Documentation: the order of work for the bundled packages (publish core, packages built against rc3, pin, check, build installers). Needs a reviewer.

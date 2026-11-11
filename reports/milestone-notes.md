@@ -3,9 +3,9 @@
 
 ## To decide at the meeting
 
-1. **Reviewer** for [#273](https://github.com/CompEvol/beast3/pull/273) (BSP test reference values).
+1. **Reviewers** for the six open pull requests: [#273](https://github.com/CompEvol/beast3/pull/273), [#274](https://github.com/CompEvol/beast3/pull/274), [#275](https://github.com/CompEvol/beast3/pull/275), [#276](https://github.com/CompEvol/beast3/pull/276), [#277](https://github.com/CompEvol/beast3/pull/277), and Walter's [#254](https://github.com/CompEvol/beast3/pull/254).
 1. **Branch protection.** The rule for `beast-base` ([#263](https://github.com/CompEvol/beast3/pull/263)) is merged. CODEOWNERS enforces nothing until an admin switches on branch protection for master.
-1. **Bundled packages** (#248): SSM is off the list and CCD is on it (12 Nov). Who does the seeding and the release scripts?
+1. **Bundled packages** (#248): bModelTest, ORC, SA, StarBeast3, CCD. Who builds and releases each against rc3 (Remco: bModelTest, StarBeast3; Jordan: ORC; SA; CCD)? Bundle MM too, for SA's `brachiopods.xml`?
 1. **XML that changes** (#49, #38, #226): each is easier before the release than after it.
 1. **Linux and Windows builds** (#81): who writes them, and by when.
 1. **The issues under "Decide"**: 2.8.0, 2.9.0 or close.
