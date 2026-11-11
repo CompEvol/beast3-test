@@ -9,7 +9,7 @@
 38	decide	The XMLs now say `version="2.8"`. **Decide:** is that the answer (close), or does the parser also have to reject older declarations?
 257	decide	The code runs on every `set()` of a parameter, so the change needs a timing check. Adds an interface, breaks nothing. **Decide:** 2.8.0 or 2.9.0 with #252.
 191	decide	One of 12 EBSP runs got stuck at a very high coalescent density. Not investigated further. **Decide:** blocker, known issue in the release notes, or 2.9.0.
-239	decide	Placeholder for Remco's single Eclipse project workflow. No work done. **Decide:** what is needed before the release, if anything.
+239	decide	Decided 12 Nov: the single Eclipse project holds the core and exactly the bundled packages of #248 (bModelTest, ORC, SA, StarBeast3, CCD), with adding one more package as a documented step. No work done yet. **Decide:** who prototypes it, and whether it ships with 2.8.0.
 80	decide	A large feature (upgrade of Maven packages, per-package upgrade, BEAUti button). **Decide:** which part, if any, is needed for 2.8.0.
 81	release	**Needed to ship:** there is a build script for the Mac only. Linux and Windows build scripts are still to be written. Nobody is on it.
 84	release	A walk through the package skeleton from clone to installed package. No code expected.

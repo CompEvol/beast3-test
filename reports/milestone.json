@@ -1,7 +1,7 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T23:17:41Z",
+ "fetched": "2026-11-11T23:19:55Z",
  "closed": 11,
  "issues": [
   {
@@ -43,7 +43,7 @@
    "url": "https://github.com/CompEvol/beast3/issues/239",
    "author": "alexeid",
    "created": "2026-11-10",
-   "updated": "2026-11-10",
+   "updated": "2026-11-11",
    "labels": [],
    "assignees": [],
    "comments": 0
