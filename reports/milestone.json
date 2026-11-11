@@ -1,7 +1,7 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T22:56:02Z",
+ "fetched": "2026-11-11T23:06:28Z",
  "closed": 11,
  "issues": [
   {
@@ -205,7 +205,7 @@
  "prs": [
   {
    "number": 274,
-   "title": "BEAUti: inner distribution choices of Bounded and Offset priors (#232)",
+   "title": "BEAUti: valid inner distributions for Bounded and Offset priors, and report priors outside the domain (#232)",
    "url": "https://github.com/CompEvol/beast3/pull/274",
    "author": "alexeid",
    "milestone": "2.8.0",
