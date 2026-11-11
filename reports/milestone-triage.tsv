@@ -18,6 +18,7 @@
 183	release	Umbrella for the validation; the results are on the other pages of this site. Close at sign-off.
 34	release	Umbrella for release commits. Close at release.
 254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
-271	todo	A documented option (`-xml FILE -exitaction usexml`) that fails at start-up with a null pointer, also for an XML BEAUti wrote. Cause is clear and the fix looks small. Low priority: File > Load works. Seen off-screen only.
+271	review	Fixed in [#275](https://github.com/CompEvol/beast3/pull/275): the menu updates are skipped when the window does not exist yet. New test.
 273	pr	Test only: the BSP group size reference values from BEAST X instead of the 2011 BEAST 1 run. `testBSP` passes. Needs a reviewer.
 274	pr	beast-fx only. Also reports a prior whose support reaches outside the parameter's domain (e.g. Normal bounded to [-1, 1] on a positive parameter). Needs a reviewer; a second look from Eva (who filed #232) would help.
+275	pr	beast-fx only, a few lines. Needs a reviewer.

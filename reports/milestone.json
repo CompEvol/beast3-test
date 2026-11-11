@@ -1,7 +1,7 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T23:06:28Z",
+ "fetched": "2026-11-11T23:09:32Z",
  "closed": 11,
  "issues": [
   {
@@ -203,6 +203,20 @@
   }
  ],
  "prs": [
+  {
+   "number": 275,
+   "title": "BEAUti: -xml FILE -exitaction usexml no longer fails at start-up (#271)",
+   "url": "https://github.com/CompEvol/beast3/pull/275",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [
+    271
+   ],
+   "checks": "running",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
   {
    "number": 274,
    "title": "BEAUti: valid inner distributions for Bounded and Offset priors, and report priors outside the domain (#232)",
