@@ -3,7 +3,7 @@
 
 ## To decide at the meeting
 
-1. **[#267](https://github.com/CompEvol/beast3/pull/267)** (BEAUti hang): Walter's review points are addressed; it needs his second look.
+1. **Reviewer** for [#273](https://github.com/CompEvol/beast3/pull/273) (BSP test reference values).
 1. **Branch protection.** The rule for `beast-base` ([#263](https://github.com/CompEvol/beast3/pull/263)) is merged. CODEOWNERS enforces nothing until an admin switches on branch protection for master.
 1. **Bundled packages** (#248): what to do about SSM.
 1. **XML that changes** (#49, #38, #226): each is easier before the release than after it.

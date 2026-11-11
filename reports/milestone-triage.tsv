@@ -1,7 +1,6 @@
 # Suggested sorting of the open 2.8.0 milestone issues and open pull requests, for the page milestone.html.
 # number <tab> group <tab> note.   Groups: review, todo, decide, release, close; pr for a pull request.
 # The groups are a suggestion to be confirmed at the meeting, not a decision.
-264	review	The fix also covers a second fault found on the way: after a successful `-exitaction writexml` BEAUti did not exit either. The error dialog still has to be seen by eye.
 232	todo	BEAUti offers every distribution inside Bounded Real. Reported by Eva on 10 Nov; nobody is on it.
 226	todo	Strong typing is the point of 2.8.0, and the check is dead code today. Must accept a sub-domain (Walter). This runs when the XML is loaded, not in the MCMC loop. Risk: it will reject XMLs and package templates that load today.
 231	todo	Marked "Target: 2.8.0" in the issue. Changes the RLC and EBSP templates and `BitFlipOperator`, so it needs a posterior comparison before and after.
@@ -12,15 +11,13 @@
 191	decide	One of 12 EBSP runs got stuck at a very high coalescent density. Not investigated further. **Decide:** blocker, known issue in the release notes, or 2.9.0.
 239	decide	Placeholder for Remco's single Eclipse project workflow. No work done. **Decide:** what is needed before the release, if anything.
 80	decide	A large feature (upgrade of Maven packages, per-package upgrade, BEAUti button). **Decide:** which part, if any, is needed for 2.8.0.
-54	decide	No longer happens as reported: a template with a type mismatch is listed, and a wrong class is reported in a dialog when it is chosen. [#272](https://github.com/CompEvol/beast3/pull/272) fixes the crash that followed. A wrong domain is still accepted silently, which is #226. **Decide:** close #54 once #272 is in.
+54	decide	No longer happens as reported: a template with a type mismatch is listed, and a wrong class is reported in a dialog when it is chosen. [#272](https://github.com/CompEvol/beast3/pull/272) fixes the crash that followed. A wrong domain is still accepted silently, which is #226. **Decide:** close #54 now that #272 is in.
 81	release	**Needed to ship:** there is a build script for the Mac only. Linux and Windows build scripts are still to be written. Nobody is on it.
 84	release	A walk through the package skeleton from clone to installed package. No code expected.
 82	release	End-to-end test that AppLauncher finds an app of a Maven-installed package.
 83	release	A manual check of one BEAUti menu. Ten minutes.
 183	release	Umbrella for the validation; the results are on the other pages of this site. Close at sign-off.
 34	release	Umbrella for release commits. Close at release.
-267	pr	Needs a reviewer. One thing to check by eye: start BEAUti with `-nex nosuchfile.nex` and see the error dialog.
 254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
 271	todo	A documented option (`-xml FILE -exitaction usexml`) that fails at start-up with a null pointer, also for an XML BEAUti wrote. Cause is clear and the fix looks small. Low priority: File > Load works. Seen off-screen only.
-272	pr	Three-line fix in beast-fx for #54. Checked off-screen with a faulty test package. Needs a reviewer.
 273	pr	Test only: the BSP group size reference values from BEAST X instead of the 2011 BEAST 1 run. `testBSP` passes. Needs a reviewer.
