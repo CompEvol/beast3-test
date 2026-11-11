@@ -202,7 +202,7 @@ Slow combinations are marked 🐢.
 
 | ID | Was | Tester | Data | Model | Why it is in this round |
 |----|-----|--------|------|-------|-------------------------|
-| R01 | C04 | Yuan | anolis.nex | GTR + Γ4 + I, strict fixed, Yule | GTR prior changed (#251) |
+| R01 | C04 | Eva | anolis.nex | GTR + Γ4 + I, strict fixed, Yule | GTR prior changed (#251) |
 | R02 | C08 | Sophie | primate-mtDNA.nex | HKY + Γ4, strict estimated, Calibrated Yule, MRCA prior | Blocked on rc1 and rc2 (fixed by #198) |
 | R03 | C11 | Haoyuan | Dengue4.env.nex | GTR + Γ4, strict estimated, coalescent exponential, tip dates | GTR prior changed |
 | R04 🐢 | C12 | Sophie | Dengue4.env.nex | HKY + Γ4, strict estimated, Bayesian skyline, tip dates | Rerun needed on rc2 |
@@ -219,17 +219,19 @@ Slow combinations are marked 🐢.
 | R15 🐢 | new | Haoyuan | 26.nex, 29.nex, 47.nex (core `examples/nexus`) | **StarBeast3** template, species from the Guess dialog (split on `_`) | StarBeast3 in BEAUti: species assignment, multispecies coalescent |
 | R16 🐢 | new | Eva | as R15 | StarBeast3 with the relaxed species-tree clock | StarBeast3's clock models |
 | R17 | new | Haoyuan | dna.nex | bModelTest + **ORC** relaxed clock + **FBD** (SA) | Three bundled packages in one analysis |
-| R18 | new | Yao | one `.trees` file from R01 (BEAST 3, replicate 1) | Not BEAUti: **TreeAnnotator with CCD0 and CCD1** (CCD), in 2.7.9 and BEAST 3, on the same tree file | Summary trees from the same input must be identical: an exact pass or fail |
+| R18 | new | Yao | one `.trees` file from R01 (BEAST 3, replicate 1; Eva) | Not BEAUti: **TreeAnnotator with CCD0 and CCD1** (CCD), in 2.7.9 and BEAST 3, on the same tree file | Summary trees from the same input must be identical: an exact pass or fail |
 
 | Tester | Combinations |
 |--------|--------------|
-| Eva | R05 🐢 · R13 · R14 · R16 🐢 |
+| Eva | R01 · R05 🐢 · R13 · R14 · R16 🐢 |
 | Haoyuan | R03 · R11 🐢 · R15 🐢 · R17 |
 | Sophie | R02 · R04 🐢 · R10 |
 | Yao | R07 🐢 · R08 · R18 |
-| Yuan | R01 · R06 🐢 · R09 🐢 · R12 |
+| Yuan | R06 🐢 · R09 🐢 · R12 |
 
-Sophie and Yao, who needed more time in the rc2 round, have three combinations each and one slow one; the others have four, with at most two slow ones. Testers keep the combinations they built in the rc2 round, apart from R09 (C17), which moves from Yao to Yuan, and R10 (C24), which moves from Yao to Sophie. R18 uses the tree file Yuan writes for R01.
+Sophie and Yao, who needed more time in the rc2 round, have three combinations each and one slow one. Nobody has more than two slow ones. Testers keep the combinations they built in the rc2 round, apart from R01 (C04), which moves from Yuan to Eva, R09 (C17), from Yao to Yuan, and R10 (C24), from Yao to Sophie.
+
+**One dependency:** Yao's R18 needs a tree file from R01. Eva, who was fastest in the rc2 round, has R01 and builds it first, so that R18 can start early.
 
 ### To check before the round
 
