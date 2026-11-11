@@ -13,7 +13,7 @@
 ## Found on 12 Nov
 
 - **Sixteen test classes were never run.** The tests of `beast.base.spec.type` and `beast.base.spec.domain` used JUnit 4 annotations, and the build has no JUnit 4 engine, so Maven found no tests in them and CI was green. [#270](https://github.com/CompEvol/beast3/pull/270), now merged, converts them: 77 tests now run, and all pass.
-- **`TreePriorTest.testBSP` fails on master, as it has since January** (the expected value is marked "TODO diff bigger than 2*delta", commit 8b923b8; CI skips the test). The BEAST 1 reference for `skyline.groupSize.3` is 3.181. On 12 Nov, 4 seeds × 20M steps on master gave 3.311 ± 0.012 with the BEAST 3 XML and 3.289 ± 0.008 with the legacy BEAST 2 XML. The two code paths agree (z 1.6); both differ from BEAST 1, so the reference is the odd one out, not a BEAST 3 regression. The other four group sizes agree with BEAST 1 within z 1.5.
+- **`TreePriorTest.testBSP` fails on master, as it has since January**, on `skyline.groupSize.3` (CI skips the test). The expected values come from a single BEAST 1 run of 2011, never repeated; the group sizes were commented out in 2011 because BEAST 2 already disagreed, and switched back on in 2021. On 12 Nov, 4 seeds × 20M steps each: BEAST X 10.5.0 3.282 ± 0.013, BEAST 3 3.311 ± 0.012, BEAST 3 with the legacy BEAST 2 XML 3.289 ± 0.008, against 3.181 in the 2011 reference. BEAST X and BEAST 3 agree on all five group sizes (largest z 1.7); **the 2011 reference is the odd one out.** Fix: replace the reference values in the test.
 
 ## Outside this repository
 
