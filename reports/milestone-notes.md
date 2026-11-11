@@ -3,17 +3,17 @@
 
 ## To decide at the meeting
 
-1. **Reviewers** for the three small fixes: [#267](https://github.com/CompEvol/beast3/pull/267), [#268](https://github.com/CompEvol/beast3/pull/268) and [#269](https://github.com/CompEvol/beast3/pull/269). None has an approving review.
+1. **Reviewers** for the three small pull requests: [#267](https://github.com/CompEvol/beast3/pull/267), [#268](https://github.com/CompEvol/beast3/pull/268) and [#270](https://github.com/CompEvol/beast3/pull/270). None has an approving review.
 1. **Branch protection.** The rule for `beast-base` ([#263](https://github.com/CompEvol/beast3/pull/263)) is merged. CODEOWNERS enforces nothing until an admin switches on branch protection for master.
 1. **Bundled packages** (#248): what to do about SSM.
 1. **XML that changes** (#49, #38, #226): each is easier before the release than after it.
 1. **Linux and Windows builds** (#81): who writes them, and by when.
 1. **The issues under "Decide"**: 2.8.0, 2.9.0 or close.
 
-## Found on 12 Nov, no issue yet
+## Found on 12 Nov
 
-- **Sixteen test classes are never run.** The tests of `beast.base.spec.type` and `beast.base.spec.domain` (`SimplexTest`, `RealVectorTest`, `PositiveRealTest`, ...) use JUnit 4 annotations, and the build has no JUnit 4 engine, so Maven reports "Tests run: 0" for each and CI is green. `IntSimplexTest` was the seventeenth; #269 converts it. Whether the other sixteen pass is not known.
-- **`TreePriorTest.testBSP` fails on master.** It is tagged slow, so CI does not run it. `skyline.groupSize.3` has mean 3.350 against the expected 3.181 from BEAST 1, tolerance 0.148. One seed, so it may be chance; it has not been looked at.
+- **Sixteen test classes were never run.** The tests of `beast.base.spec.type` and `beast.base.spec.domain` used JUnit 4 annotations, and the build has no JUnit 4 engine, so Maven found no tests in them and CI was green. [#270](https://github.com/CompEvol/beast3/pull/270) converts them: 77 tests now run, and all pass.
+- **`TreePriorTest.testBSP` fails on master.** It is tagged slow, so CI does not run it. `skyline.groupSize.3` has mean 3.350 against the expected 3.181 from BEAST 1, tolerance 0.148. One seed, so it may be chance; it has not been looked at, and there is no issue for it yet.
 
 ## Outside this repository
 

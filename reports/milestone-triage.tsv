@@ -2,7 +2,6 @@
 # number <tab> group <tab> note.   Groups: review, todo, decide, release, close; pr for a pull request.
 # The groups are a suggestion to be confirmed at the meeting, not a decision.
 264	review	The fix also covers a second fault found on the way: after a successful `-exitaction writexml` BEAUti did not exit either. The error dialog still has to be seen by eye.
-255	review	One-line fix on its own, so it does not wait for the rework of [#254](https://github.com/CompEvol/beast3/pull/254). An XML whose integer simplex starts outside its domain is now rejected at load.
 258	review	The cast is removed; the warning now covers any shape. Not in the MCMC loop.
 232	todo	BEAUti offers every distribution inside Bounded Real. Reported by Eva on 10 Nov; nobody is on it.
 77	close	**Does not reproduce on master** (12 Nov): with the random local clock, the `initial = [...]` button on the priors panel opens its dialog and OK closes it, no error. The editor was fixed in commit 2773abc. Close.
@@ -26,4 +25,4 @@
 267	pr	Needs a reviewer. One thing to check by eye: start BEAUti with `-nex nosuchfile.nex` and see the error dialog.
 254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
 268	pr	Fixes the cast in `SiteModel`. Needs a reviewer. Touches `beast-base`, outside the MCMC loop.
-269	pr	One-line fix of `IntSimplex.isValid()`. Needs a reviewer; Walter is mentioned because of #254. It also makes `IntSimplexTest` run (see the panel on tests below).
+270	pr	Test sources only: two import lines in each of sixteen test classes, so that their 77 tests run. All pass. Needs a reviewer.

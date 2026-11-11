@@ -1,8 +1,8 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T21:10:33Z",
- "closed": 5,
+ "fetched": "2026-11-11T21:32:25Z",
+ "closed": 6,
  "issues": [
   {
    "number": 264,
@@ -30,17 +30,6 @@
    "number": 257,
    "title": "Parameter types test for ScalarDistribution and IID to find their bounds: use an interface",
    "url": "https://github.com/CompEvol/beast3/issues/257",
-   "author": "alexeid",
-   "created": "2026-11-11",
-   "updated": "2026-11-11",
-   "labels": [],
-   "assignees": [],
-   "comments": 0
-  },
-  {
-   "number": 255,
-   "title": "IntSimplex.isValid() ignores values outside the bounds",
-   "url": "https://github.com/CompEvol/beast3/issues/255",
    "author": "alexeid",
    "created": "2026-11-11",
    "updated": "2026-11-11",
@@ -259,15 +248,13 @@
  ],
  "prs": [
   {
-   "number": 269,
-   "title": "IntSimplex.isValid() rejects an element outside the domain or bounds (#255)",
-   "url": "https://github.com/CompEvol/beast3/pull/269",
+   "number": 270,
+   "title": "Run the type and domain tests: JUnit 4 annotations to JUnit 5",
+   "url": "https://github.com/CompEvol/beast3/pull/270",
    "author": "alexeid",
    "milestone": "2.8.0",
    "draft": false,
-   "closes": [
-    255
-   ],
+   "closes": [],
    "checks": "running",
    "review": "none yet",
    "updated": "2026-11-11"
