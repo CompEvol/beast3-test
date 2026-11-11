@@ -11,7 +11,6 @@
 191	decide	One of 12 EBSP runs got stuck at a very high coalescent density. Not investigated further. **Decide:** blocker, known issue in the release notes, or 2.9.0.
 239	decide	Placeholder for Remco's single Eclipse project workflow. No work done. **Decide:** what is needed before the release, if anything.
 80	decide	A large feature (upgrade of Maven packages, per-package upgrade, BEAUti button). **Decide:** which part, if any, is needed for 2.8.0.
-54	decide	No longer happens as reported: a template with a type mismatch is listed, and a wrong class is reported in a dialog when it is chosen. [#272](https://github.com/CompEvol/beast3/pull/272) fixes the crash that followed. A wrong domain is still accepted silently, which is #226. **Decide:** close #54 now that #272 is in.
 81	release	**Needed to ship:** there is a build script for the Mac only. Linux and Windows build scripts are still to be written. Nobody is on it.
 84	release	A walk through the package skeleton from clone to installed package. No code expected.
 82	release	End-to-end test that AppLauncher finds an app of a Maven-installed package.
