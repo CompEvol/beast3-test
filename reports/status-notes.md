@@ -2,18 +2,16 @@
      Each "## " heading starts a panel; "- " and "1. " lines become lists, other lines paragraphs.
      Inline `code` and **bold** are supported. -->
 
-## Next steps
+## The rc2 round is finished (12 Nov)
 
-1. **Yao:** on rc3, rebuild C15's BEAST 3 side with NonNegativeUniform(0, 10) on the mean clock rate (beast3#224; BEAUti 2.7 can't add one) and every other prior set to match the 2.7.9 XML, then rerun both; rerun C21 with the same birth-rate prior in both versions.
-1. **Sophie:** rebuild C12's BEAST 2 side with the default Gamma(0.01, 100) clock-rate prior (it has LogNormal(1, 1.25)) and rerun it to the end of the chain.
-1. **Yuan:** put C14's 100M tree files in Dropbox.
-1. **After rc3:** run the existing C08 and C13 XMLs (C13 also needs a BEAST.base 2.7.9 refresh).
+24 of 30 combinations pass. The other six are carried into the [rc3 round](rc3.html), with what they still need:
 
-## Is rc3 needed first?
-
-For C08 (calibrated Yule crash, fixed by beast3#198), C13 (`SampleOffValues` Hastings ratio, beast3#203 and beast2#1223) and C15 (NonNegativeUniform, beast3#224). On rc3, also check that BEAUti 3 refuses a BEAUti 2.7 file with a clear message (C28, beast3#229). Everything else can run on rc2 now.
-
-rc3 also changes BEAUti 3's default priors (#208, e.g. Gamma(0.01, 100) → LogNormal(0, 8)). The matching BEAUti 2.7 change, BeastFX#111, is still open, so an analysis rebuilt in rc3's BEAUti gets different defaults from its 2.7.9 side: set every prior by hand to match the 2.7.9 XML.
+- **C08 → R02** (Sophie): crashed on rc1 and rc2; fixed by beast3#198, so it runs on rc3.
+- **C12 → R04** (Sophie): rebuild the BEAST 2 side with the same clock-rate prior as BEAST 3, and run to the end of the chain.
+- **C13 → R05** (Eva): both versions had the `SampleOffValues` Hastings bug, fixed in beast3#203 and beast2#1223; needs rc3 and the matching BEAST.base 2.7.9 refresh.
+- **C14 → R06** (Yuan): chains too short; Yuan's 100M tree files still to go in Dropbox.
+- **C15 → R07** (Yao): set the BEAST 3 mean clock-rate prior to NonNegativeUniform(0, 10) (beast3#224) and every other prior to match the 2.7.9 XML.
+- **C21 → R08** (Yao): the same birth-rate prior in both versions.
 
 ## Known differences, not bugs
 
