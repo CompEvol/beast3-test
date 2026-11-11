@@ -19,3 +19,6 @@ doc/*.fdb_latexmk
 
 # Status page build output (scripts/build_status_page.py)
 _site/
+
+# Package check work folder (packages/check_packages.sh): clones, builds, logs
+packages/work/

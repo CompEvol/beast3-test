@@ -1,0 +1,9 @@
+# Packages checked against a BEAST 3 build. One per line, in build order
+# (StarBeast3 needs ORC installed in the local Maven repository first).
+# <folder name><TAB><GitHub repository><TAB><branch, optional>
+ORC	jordandouglas/ORC
+sampled-ancestors	CompEvol/sampled-ancestors
+morph-models	CompEvol/morph-models
+substmodels	BEAST2-Dev/substmodels
+bModelTest	BEAST2-Dev/bModelTest
+starbeast3	rbouckaert/starbeast3

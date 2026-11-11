@@ -1,0 +1,14 @@
+# Example XMLs run with both BEAST versions and compared.
+# <name><TAB><package folder><TAB><path in the package repository><TAB><chain length>
+# Chain lengths are chosen so that each run takes a few minutes and most parameters reach ESS 200.
+# M3982 needs 4 replicates of 10M: with 2 of 5M the ESS is overestimated and the comparison
+# gave a false "not matched" (see README, Reading the report).
+caterpillars	ORC	examples/caterpillars.xml	8000000
+bears	sampled-ancestors	examples/bears.xml	5000000
+bears_ranges	sampled-ancestors	examples/bears_ranges.xml	5000000
+brachiopods	sampled-ancestors	examples/brachiopods.xml	5000000
+M3982	morph-models	examples/M3982.xml	10000000
+bModelTest	bModelTest	examples/bModelTest.xml	3000000
+beast2-paper	bModelTest	examples/beast2-paper.xml	1000000
+primates	bModelTest	doc/tutorial/primates.xml	3000000
+gophers	starbeast3	src/main/resources/starbeast3/examples/gophers.xml	15000000

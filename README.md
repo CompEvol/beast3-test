@@ -12,6 +12,12 @@ documented as not yet converted / not applicable.
   <https://github.com/CompEvol/beast3/tree/master/beast-base/src/test/resources/beast.base/examples> — top-level `*.xml` / `*.json`.
   (`examples/legacy/` in beast3 holds unconverted BEAST 2 copies)
 
+### Packages
+
+Whether the main packages (ORC, SA, MM, SSM, bModelTest, StarBeast3) still work with the current
+BEAST 3 is a separate check, run with one script: see [packages/README.md](packages/README.md).
+The latest result is [reports/packages-check.md](reports/packages-check.md).
+
 ### Github issue to track
 
 Please use https://github.com/CompEvol/beast3/issues/183 as a reference to track pull requests or changes to [beast3 repo](https://github.com/CompEvol/beast3) during testing. 
