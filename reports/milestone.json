@@ -1,8 +1,8 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T21:32:25Z",
- "closed": 6,
+ "fetched": "2026-11-11T21:39:06Z",
+ "closed": 8,
  "issues": [
   {
    "number": 264,
@@ -180,28 +180,6 @@
    "comments": 0
   },
   {
-   "number": 79,
-   "title": "Misleading tip text for scaleFactor input of AbstractScale",
-   "url": "https://github.com/CompEvol/beast3/issues/79",
-   "author": "tgvaughan",
-   "created": "2026-05-08",
-   "updated": "2026-11-10",
-   "labels": [],
-   "assignees": [],
-   "comments": 0
-  },
-  {
-   "number": 77,
-   "title": "IntegerListInputEditor fails on shape input for RealVectorParam (BEAUti)",
-   "url": "https://github.com/CompEvol/beast3/issues/77",
-   "author": "tgvaughan",
-   "created": "2026-05-07",
-   "updated": "2026-11-10",
-   "labels": [],
-   "assignees": [],
-   "comments": 0
-  },
-  {
    "number": 54,
    "title": "BEAUti is suppressing error messages related to strong typing",
    "url": "https://github.com/CompEvol/beast3/issues/54",
@@ -255,7 +233,7 @@
    "milestone": "2.8.0",
    "draft": false,
    "closes": [],
-   "checks": "running",
+   "checks": "pass",
    "review": "none yet",
    "updated": "2026-11-11"
   },

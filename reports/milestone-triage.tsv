@@ -4,7 +4,6 @@
 264	review	The fix also covers a second fault found on the way: after a successful `-exitaction writexml` BEAUti did not exit either. The error dialog still has to be seen by eye.
 258	review	The cast is removed; the warning now covers any shape. Not in the MCMC loop.
 232	todo	BEAUti offers every distribution inside Bounded Real. Reported by Eva on 10 Nov; nobody is on it.
-77	close	**Does not reproduce on master** (12 Nov): with the random local clock, the `initial = [...]` button on the priors panel opens its dialog and OK closes it, no error. The editor was fixed in commit 2773abc. Close.
 226	todo	Strong typing is the point of 2.8.0, and the check is dead code today. Must accept a sub-domain (Walter). This runs when the XML is loaded, not in the MCMC loop. Risk: it will reject XMLs and package templates that load today.
 231	todo	Marked "Target: 2.8.0" in the issue. Changes the RLC and EBSP templates and `BitFlipOperator`, so it needs a posterior comparison before and after.
 248	decide	SSM cannot be bundled as it is: every SSM model with rates crashes ([substmodels#8](https://github.com/BEAST2-Dev/substmodels/issues/8)). The other four pass the package check. **Decide:** bundle four, wait for SSM, or bundle none.
@@ -21,7 +20,6 @@
 83	release	A manual check of one BEAUti menu. Ten minutes.
 183	release	Umbrella for the validation; the results are on the other pages of this site. Close at sign-off.
 34	release	Umbrella for release commits. Close at release.
-79	close	**Checked on master** (12 Nov): the tip text of the spec `AbstractScale` is right, the default upper limit is 10.0 and the `TODO why?` code is gone (commit 64b6076). Close.
 267	pr	Needs a reviewer. One thing to check by eye: start BEAUti with `-nex nosuchfile.nex` and see the error dialog.
 254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
 268	pr	Fixes the cast in `SiteModel`. Needs a reviewer. Touches `beast-base`, outside the MCMC loop.
