@@ -12,7 +12,7 @@
 191	decide	One of 12 EBSP runs got stuck at a very high coalescent density. Not investigated further. **Decide:** blocker, known issue in the release notes, or 2.9.0.
 239	decide	Placeholder for Remco's single Eclipse project workflow. No work done. **Decide:** what is needed before the release, if anything.
 80	decide	A large feature (upgrade of Maven packages, per-package upgrade, BEAUti button). **Decide:** which part, if any, is needed for 2.8.0.
-54	decide	BEAUti drops a template without a message when a type does not match. Cost Jordan an hour. **Decide:** print the exception for 2.8.0 (probably small) or 2.9.0.
+54	decide	No longer happens as reported: a template with a type mismatch is listed, and a wrong class is reported in a dialog when it is chosen. [#272](https://github.com/CompEvol/beast3/pull/272) fixes the crash that followed. A wrong domain is still accepted silently, which is #226. **Decide:** close #54 once #272 is in.
 81	release	**Needed to ship:** there is a build script for the Mac only. Linux and Windows build scripts are still to be written. Nobody is on it.
 84	release	A walk through the package skeleton from clone to installed package. No code expected.
 82	release	End-to-end test that AppLauncher finds an app of a Maven-installed package.
@@ -22,3 +22,4 @@
 267	pr	Needs a reviewer. One thing to check by eye: start BEAUti with `-nex nosuchfile.nex` and see the error dialog.
 254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
 271	todo	A documented option (`-xml FILE -exitaction usexml`) that fails at start-up with a null pointer, also for an XML BEAUti wrote. Cause is clear and the fix looks small. Low priority: File > Load works. Seen off-screen only.
+272	pr	Three-line fix in beast-fx for #54. Checked off-screen with a faulty test package. Needs a reviewer.

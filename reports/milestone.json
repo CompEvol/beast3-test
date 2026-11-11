@@ -1,7 +1,7 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T21:45:21Z",
+ "fetched": "2026-11-11T21:49:26Z",
  "closed": 9,
  "issues": [
   {
@@ -226,6 +226,18 @@
  ],
  "prs": [
   {
+   "number": 272,
+   "title": "BEAUti: a template that fails to load no longer throws a second exception (#54)",
+   "url": "https://github.com/CompEvol/beast3/pull/272",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [],
+   "checks": "running",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
+  {
    "number": 267,
    "title": "BEAUti reports a command-line argument it cannot process and exits (#264)",
    "url": "https://github.com/CompEvol/beast3/pull/267",
@@ -235,7 +247,7 @@
    "closes": [
     264
    ],
-   "checks": "running",
+   "checks": "pass",
    "review": "none yet",
    "updated": "2026-11-11"
   },
