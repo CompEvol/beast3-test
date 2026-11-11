@@ -3,7 +3,8 @@
 
 Pages:
   index.html     goal of the testing, with a summary of and link to each track
-  beauti.html    BEAUti by hand, C01-C30
+  beauti.html    BEAUti by hand, rc2 round, C01-C30
+  rc3.html       BEAUti by hand, rc3 round with the bundled packages, R01-R18
   examples.html  the BEAST 2 example XMLs and their BEAST 3 conversions
   milestone.html open issues and pull requests of the beast3 release milestone
 
@@ -12,6 +13,7 @@ Inputs:
   reports/examples-status.tsv, reports/examples-notes.md      examples: tester, status, note; panels
   reports/summary/batch-summary.md   min ESS and max z per name (compare.py --all)
   ASSIGNMENTS.md                     BEAUti tester and model per combination
+  reports/rc3-status.tsv, reports/rc3-notes.md                rc3 round: status, note; panels
   README.md                          example inventory (converted, converted in)
   reports/milestone.json             milestone: snapshot of GitHub (scripts/fetch_milestone.py)
   reports/milestone-triage.tsv, reports/milestone-notes.md    milestone: hand-set group, note; panels
@@ -236,8 +238,8 @@ def beauti_track(batch):
             '<td class="num">%s</td>' % ess_cell(b), '<td class="num">%s</td>' % z_cell(b),
             None, '<td class="note">%s</td>' % inline(note)]})
     return {
-        "file": "beauti.html", "title": "BEAUti Track Status", "short": "BEAUti by hand",
-        "eyebrow": "BEAUti by hand",
+        "file": "beauti.html", "title": "BEAUti Track Status", "short": "BEAUti rc2",
+        "eyebrow": "BEAUti by hand · rc2 round, finished 12 Nov",
         "h1": "C01–C30: analyses built by hand in BEAUti",
         "lede": "Each combination is built by hand in BEAUti 2.7.9 and BEAUti 3, run with seeds 1 and 2 in both "
                 "versions, and compared marginal by marginal. Together the 30 cover every substitution, frequency, "
@@ -250,6 +252,57 @@ def beauti_track(batch):
         "summary": lambda c, n: "<b>%d of %d</b> pass, counting the %d with explained differences. <b>%d of %d</b> agree "
                                 "between the versions." % (c("pass", "explained"), n, c("explained"),
                                                            c("pass", "explained", "partial"), n),
+    }
+
+
+RC3_ID_RE = re.compile(r"R\d{2}")
+
+
+def rc3_track(batch):
+    """The rc3 round: R01-R18 in ASSIGNMENTS.md (ID, Was, Tester, Data, Model, Why)."""
+    status = tsv("reports/rc3-status.tsv", 3, BEAUTI_STATUSES, RC3_ID_RE.fullmatch)
+    assign = {}
+    for c in md_rows(read("ASSIGNMENTS.md")):
+        m = RC3_ID_RE.match(c[0]) if c else None
+        if not m or len(c) < 6:
+            continue
+        was = plain(c[1])
+        assign[m.group(0)] = {"who": plain(c[2]), "model": plain(c[4]), "data": plain(c[3]),
+                              "slow": "🐢" in c[0], "was": was, "why": c[5]}
+    ids = sorted(set(status) | set(assign))
+    msgs = checks({k: v[0] for k, v in status.items()}, batch, BEAUTI_STATUSES)
+    for rid in ids:
+        if rid not in status:
+            msgs.append("%s is in ASSIGNMENTS.md but not in reports/rc3-status.tsv." % rid)
+        if rid not in assign:
+            msgs.append("%s is in reports/rc3-status.tsv but not in ASSIGNMENTS.md." % rid)
+    rows = []
+    for rid in ids:
+        st, note = status.get(rid, ("none", ""))
+        a, b = assign.get(rid, {}), batch.get(rid, {})
+        was = a.get("was", "")
+        rows.append({"st": st, "cells": [
+            '<td class="id">%s%s</td>' % (rid, " 🐢" if a.get("slow") else ""),
+            '<td>%s</td>' % ("new" if was == "new" else esc(was)),
+            '<td class="tester">%s</td>' % esc(a.get("who", "")),
+            '<td class="model">%s<small>%s</small></td>' % (esc(a.get("model", "")), esc(a.get("data", ""))),
+            '<td class="num">%s</td>' % ess_cell(b), '<td class="num">%s</td>' % z_cell(b),
+            None, '<td class="note">%s</td>' % inline(note or a.get("why", ""))]})
+    return {
+        "file": "rc3.html", "title": "BEAUti rc3 Round", "short": "BEAUti rc3",
+        "eyebrow": "BEAUti by hand · rc3 round, starts when rc3 is released",
+        "h1": "R01–R18: the bundled packages, built by hand in BEAUti",
+        "lede": "BEAST 2.8.0 ships with bModelTest, ORC, SA, StarBeast3 and CCD. Six new combinations test them; "
+                "twelve from the rc2 round are rebuilt because they did not pass on rc2 or changed since. Everything "
+                "is built with the rc3 installer and its bundled packages, and compared with BEAST 2.7.9 with the same "
+                "packages. The plan is in ASSIGNMENTS.md, \"rc3 round\".",
+        "unit": "combinations", "statuses": BEAUTI_STATUSES, "rows": rows, "checks": msgs,
+        "head": ["ID", "Was", "Tester", "Model", "Min ESS", "Max z", "Status", "Detail and next step"],
+        "num_cols": (4, 5), "min_width": 960, "panels": panels("reports/rc3-notes.md"),
+        "sources": "<code>reports/rc3-status.tsv</code> (status and note), <code>reports/rc3-notes.md</code>, "
+                   "<code>reports/summary/batch-summary.md</code> (numbers), <code>ASSIGNMENTS.md</code> (tester, model)",
+        "summary": lambda c, n: "<b>%d of %d</b> pass, counting the %d with explained differences. <b>%d</b> not run yet."
+                                % (c("pass", "explained"), n, c("explained"), c("none")),
     }
 
 
@@ -533,7 +586,7 @@ def index_page(tracks, stamp, footer, extra_cards=()):
     <p><b>The example XMLs.</b> Every example shipped with BEAST 2 is converted to BEAST 3 and both are run, which tests the XML-to-MCMC path model by model. The unmodified BEAST 2 XMLs are also loaded in BEAST 3, as a backward-compatibility check.</p>
     <p><b>Analyses built by hand in BEAUti.</b> 30 analyses are built in BEAUti 2.7.9 and BEAUti 3 by five testers, covering every model option in the templates. This tests what users actually do.</p>
     <p>Each analysis runs twice in each version (seeds 1 and 2). Every logged parameter is compared: a z test on the means (flag at z ≥ 3), overlap of the 95%% HPD intervals, ESS ≥ 200, and clade probabilities. A flag that can be traced to a known, harmless difference, such as a constant offset in the log prior, counts as passed, explained.</p>
-    <p>Results are collated on Wed 11 Nov and signed off on Fri 13 Nov.</p>
+    <p>The rc2 round was collated on Wed 11 Nov and is signed off on Fri 13 Nov. A second round, R01–R18, tests the five packages bundled with 2.8.0 (bModelTest, ORC, SA, StarBeast3, CCD) once rc3 is released.</p>
   </section>
   <section class="cards">
 %s
@@ -560,7 +613,7 @@ def main():
     args = ap.parse_args()
 
     batch = load_batch()
-    tracks = [examples_track(batch), beauti_track(batch)]
+    tracks = [examples_track(batch), beauti_track(batch), rc3_track(batch)]
     stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%-d %b %Y, %H:%M UTC")
     footer = ("Built from commit <code>%s</code> by <code>scripts/build_status_page.py</code>. Min ESS is the lowest ESS "
               "over all logged columns and replicates; max z is the largest standardised difference between the "

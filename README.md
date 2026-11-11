@@ -372,8 +372,10 @@ covering every substitution, frequency, clock, tree-prior and starting-tree opti
 BEAST 3 templates. Results go in `reports/beauti-manual.md` and `reports/model-coverage.md`.
 
 The [status site](https://compevol.github.io/beast3-test/) has an overview page stating the goal,
-and one page per track: [example XMLs](https://compevol.github.io/beast3-test/examples.html) and
-[BEAUti by hand](https://compevol.github.io/beast3-test/beauti.html). `.github/workflows/status-page.yml`
+and one page per track: [example XMLs](https://compevol.github.io/beast3-test/examples.html),
+[BEAUti by hand, rc2 round](https://compevol.github.io/beast3-test/beauti.html) and
+[BEAUti by hand, rc3 round](https://compevol.github.io/beast3-test/rc3.html) (R01–R18, status in
+`reports/rc3-status.tsv`, panels in `reports/rc3-notes.md`). `.github/workflows/status-page.yml`
 rebuilds it on every push to `main`. The numbers come from `reports/summary/batch-summary.md`, the
 BEAUti tester and model from `ASSIGNMENTS.md`, and the example inventory from this README. The
 status and one-line note of each entry are set by hand, in `reports/status.tsv` (BEAUti) and

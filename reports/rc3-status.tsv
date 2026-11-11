@@ -1,0 +1,21 @@
+# Status of each rc3-round combination (R01-R18), for the status page (scripts/build_status_page.py).
+# Columns: ID <TAB> status <TAB> note. Same statuses as reports/status.tsv. An empty note shows
+# the reason the combination is in the round, from ASSIGNMENTS.md.
+R01	none	
+R02	none	
+R03	none	
+R04	none	
+R05	none	
+R06	none	
+R07	none	
+R08	none	
+R09	none	
+R10	none	
+R11	none	
+R12	none	
+R13	none	
+R14	none	
+R15	none	
+R16	none	
+R17	none	
+R18	none	
