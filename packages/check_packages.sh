@@ -136,7 +136,8 @@ if has_step build; then
         built=no; grep -q "BUILD SUCCESS" "$log" && built=yes
         tests="$(grep -E '^\[(INFO|WARNING|ERROR)\] Tests run:' "$log" | grep -v 'Time elapsed' | tail -1 | sed 's/^\[[A-Z]*\] //')"
         [ -n "$tests" ] || tests="no unit tests"
-        zip="$(ls "$PKG/$name"/target/*.zip 2>/dev/null | head -1)"
+        # the newest zip: target/ can hold an older one from an earlier build
+        zip="$(ls -t "$PKG/$name"/target/*.zip 2>/dev/null | head -1)"
         pkgname=""
         if [ "$built" = yes ] && [ -n "$zip" ]; then
             tmp="$INSTALLED/.tmp"; rm -rf "$tmp"; mkdir -p "$tmp"; unzip -q "$zip" -d "$tmp"

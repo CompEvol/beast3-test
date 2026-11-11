@@ -63,6 +63,10 @@ What is known:
 
 It was settled with `packages/check_packages.sh -e gophers -n 16 -s examples,report`.
 
+### StarBeast3 changed during the check
+
+StarBeast3's default branch moved from `0f5304d` (version 1.3.0) on 11 Nov to `0003b37` (1.3.1) on 12 Nov. The build table shows 1.3.1. The `gophers` example and the StarBeast3 BEAUti scenario ran with the 1.3.0 build. Until 12 Nov the check took the alphabetically first zip in `target/`, which was a leftover 1.3.0 zip; it now takes the newest. Rerun with `-s examples,beauti,report` to check 1.3.1.
+
 ### Known problems, present with rc1 too
 
 - The six SSM models with estimated rates give a BEAUti XML that crashes at the first posterior

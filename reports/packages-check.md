@@ -33,7 +33,7 @@ Each package's default branch, built from source.
 | MM | [CompEvol/morph-models](https://github.com/CompEvol/morph-models) | `39e34c1` | 1.3.1 | yes | Tests run: 8, Failures: 0, Errors: 0, Skipped: 0 |
 | SSM | [BEAST2-Dev/substmodels](https://github.com/BEAST2-Dev/substmodels) | `41c4107` | 1.3.2 | yes | Tests run: 22, Failures: 0, Errors: 0, Skipped: 0 |
 | bModelTest | [BEAST2-Dev/bModelTest](https://github.com/BEAST2-Dev/bModelTest) | `106a45f` | 1.4.0 | yes | Tests run: 37, Failures: 0, Errors: 0, Skipped: 0 |
-| starbeast3 | [rbouckaert/starbeast3](https://github.com/rbouckaert/starbeast3) | `0003b37` | 1.3.0 | yes | no unit tests |
+| starbeast3 | [rbouckaert/starbeast3](https://github.com/rbouckaert/starbeast3) | `0003b37` | 1.3.1 | yes | no unit tests |
 | CCD | [CompEvol/CCD](https://github.com/CompEvol/CCD) | `7e93fb5` | 1.2.2 | yes | Tests run: 110, Failures: 0, Errors: 0, Skipped: 1 |
 
 ## Example XMLs: BEAST 2.8.0-SNAPSHOT against 2.8.0-rc1
