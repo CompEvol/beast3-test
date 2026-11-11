@@ -381,3 +381,9 @@ status and one-line note of each entry are set by hand, in `reports/status.tsv` 
 `reports/status-notes.md` and `reports/examples-notes.md`. Each page lists any entry whose status
 disagrees with the latest numbers. To preview locally, run `python3 scripts/build_status_page.py`
 and open `_site/index.html`.
+
+The site also has a [milestone page](https://compevol.github.io/beast3-test/milestone.html): the open
+issues on the beast3 release milestone and every open pull request, sorted for review at the
+meetings. The lists are a snapshot of GitHub in `reports/milestone.json`; bring it up to date with
+`scripts/fetch_milestone.py` (needs `gh`) and commit. The group and note of each entry are set by
+hand in `reports/milestone-triage.tsv`, and the panels in `reports/milestone-notes.md`.

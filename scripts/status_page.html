@@ -114,6 +114,14 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; color: var(--muted); }
 .legend span::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 2px; background: var(--c); margin-right: 5px; }
 .s-open { --c: var(--partial); --cbg: var(--partial-bg); }
+/* groups of the milestone page */
+.s-review { --c: var(--explained); --cbg: var(--explained-bg); }
+.s-todo { --c: var(--rerun); --cbg: var(--rerun-bg); }
+.s-decide { --c: var(--partial); --cbg: var(--partial-bg); }
+.s-release { --c: var(--none); --cbg: var(--none-bg); }
+.s-close { --c: var(--pass); --cbg: var(--pass-bg); }
+.s-new { --c: var(--blocked); --cbg: var(--blocked-bg); }
+td.note a, td.model a { white-space: normal; }
 td a { white-space: nowrap; }
 </style>
 </head>

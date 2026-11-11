@@ -1,0 +1,352 @@
+{
+ "repo": "CompEvol/beast3",
+ "milestone": "2.8.0",
+ "fetched": "2026-11-11T19:35:50Z",
+ "closed": 3,
+ "issues": [
+  {
+   "number": 265,
+   "title": "BEAST exits with status 0 after an exception in the MCMC run",
+   "url": "https://github.com/CompEvol/beast3/issues/265",
+   "author": "alexeid",
+   "created": "2026-11-11",
+   "updated": "2026-11-11",
+   "labels": [],
+   "assignees": [],
+   "comments": 1
+  },
+  {
+   "number": 264,
+   "title": "BEAUti hangs on the splash screen when a command-line argument fails",
+   "url": "https://github.com/CompEvol/beast3/issues/264",
+   "author": "alexeid",
+   "created": "2026-11-11",
+   "updated": "2026-11-11",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 258,
+   "title": "SiteModel casts its shape input to RealScalarParam only to read the lower bound",
+   "url": "https://github.com/CompEvol/beast3/issues/258",
+   "author": "alexeid",
+   "created": "2026-11-11",
+   "updated": "2026-11-11",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 257,
+   "title": "Parameter types test for ScalarDistribution and IID to find their bounds: use an interface",
+   "url": "https://github.com/CompEvol/beast3/issues/257",
+   "author": "alexeid",
+   "created": "2026-11-11",
+   "updated": "2026-11-11",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 255,
+   "title": "IntSimplex.isValid() ignores values outside the bounds",
+   "url": "https://github.com/CompEvol/beast3/issues/255",
+   "author": "alexeid",
+   "created": "2026-11-11",
+   "updated": "2026-11-11",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 248,
+   "title": "Bundle SSM, bModelTest, ORC, StarBeast3 and SA with the release",
+   "url": "https://github.com/CompEvol/beast3/issues/248",
+   "author": "alexeid",
+   "created": "2026-11-10",
+   "updated": "2026-11-11",
+   "labels": [],
+   "assignees": [],
+   "comments": 1
+  },
+  {
+   "number": 239,
+   "title": "Developer workflow without Maven: one plain Eclipse project for the core and several packages",
+   "url": "https://github.com/CompEvol/beast3/issues/239",
+   "author": "alexeid",
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 232,
+   "title": "Beauti prior panel: unlimited nesting of Bounded Real and Offset Real",
+   "url": "https://github.com/CompEvol/beast3/issues/232",
+   "author": "EvaLiyt",
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 231,
+   "title": "Indicator priors rely on BitFlipOperator's Hastings ratio: put the 1/C(K, s) factor in the prior",
+   "url": "https://github.com/CompEvol/beast3/issues/231",
+   "author": "alexeid",
+   "created": "2026-11-10",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 226,
+   "title": "Inputs don't enforce the declared domain of a tensor parameter",
+   "url": "https://github.com/CompEvol/beast3/issues/226",
+   "author": "alexeid",
+   "created": "2026-11-09",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 1
+  },
+  {
+   "number": 191,
+   "title": "EBSP: chain can get stuck at a very high coalescent density; sum(indicators) runs high vs BEAST 1",
+   "url": "https://github.com/CompEvol/beast3/issues/191",
+   "author": "alexeid",
+   "created": "2026-11-04",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 183,
+   "title": "Testing before BEAST 2.8.0 final release",
+   "url": "https://github.com/CompEvol/beast3/issues/183",
+   "author": "walterxie",
+   "created": "2026-11-03",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 146,
+   "title": "GTR substitution model rates should default to a Dirichlet prior in beauti",
+   "url": "https://github.com/CompEvol/beast3/issues/146",
+   "author": "jordandouglas",
+   "created": "2026-08-15",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 1
+  },
+  {
+   "number": 84,
+   "title": "v2.7→v2.8 parity: verify install-from-source via Maven (replaces ant install)",
+   "url": "https://github.com/CompEvol/beast3/issues/84",
+   "author": "alexeid",
+   "created": "2026-05-11",
+   "updated": "2026-11-10",
+   "labels": [
+    "enhancement"
+   ],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 83,
+   "title": "v2.7→v2.8 parity: smoke-test BEAUti File/Set working dir menu",
+   "url": "https://github.com/CompEvol/beast3/issues/83",
+   "author": "alexeid",
+   "created": "2026-05-11",
+   "updated": "2026-11-10",
+   "labels": [
+    "enhancement"
+   ],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 82,
+   "title": "v2.7→v2.8 parity: integration test for AppLauncher + version.xml (Maven packages)",
+   "url": "https://github.com/CompEvol/beast3/issues/82",
+   "author": "alexeid",
+   "created": "2026-05-11",
+   "updated": "2026-11-10",
+   "labels": [
+    "enhancement"
+   ],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 81,
+   "title": "v2.7→v2.8 parity: automated Linux and Windows release builds",
+   "url": "https://github.com/CompEvol/beast3/issues/81",
+   "author": "alexeid",
+   "created": "2026-05-11",
+   "updated": "2026-11-10",
+   "labels": [
+    "enhancement"
+   ],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 80,
+   "title": "v2.7→v2.8 parity: package upgrade support (BEAST.base, BEAST.fx, installed packages)",
+   "url": "https://github.com/CompEvol/beast3/issues/80",
+   "author": "alexeid",
+   "created": "2026-05-11",
+   "updated": "2026-11-10",
+   "labels": [
+    "enhancement"
+   ],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 79,
+   "title": "Misleading tip text for scaleFactor input of AbstractScale",
+   "url": "https://github.com/CompEvol/beast3/issues/79",
+   "author": "tgvaughan",
+   "created": "2026-05-08",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 77,
+   "title": "IntegerListInputEditor fails on shape input for RealVectorParam (BEAUti)",
+   "url": "https://github.com/CompEvol/beast3/issues/77",
+   "author": "tgvaughan",
+   "created": "2026-05-07",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 54,
+   "title": "BEAUti is suppressing error messages related to strong typing",
+   "url": "https://github.com/CompEvol/beast3/issues/54",
+   "author": "jordandouglas",
+   "created": "2026-03-31",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 49,
+   "title": "Gamma distribution parameterisation",
+   "url": "https://github.com/CompEvol/beast3/issues/49",
+   "author": "jordandouglas",
+   "created": "2026-03-26",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 38,
+   "title": "Bump BEAST XML version to 3.0 for spec-class XMLs",
+   "url": "https://github.com/CompEvol/beast3/issues/38",
+   "author": "alexeid",
+   "created": "2026-02-28",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
+  {
+   "number": 34,
+   "title": "Prep for v2.8.0 release",
+   "url": "https://github.com/CompEvol/beast3/issues/34",
+   "author": "rbouckaert",
+   "created": "2026-02-02",
+   "updated": "2026-11-10",
+   "labels": [],
+   "assignees": [],
+   "comments": 2
+  }
+ ],
+ "prs": [
+  {
+   "number": 267,
+   "title": "BEAUti reports a command-line argument it cannot process and exits (#264)",
+   "url": "https://github.com/CompEvol/beast3/pull/267",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [
+    264
+   ],
+   "checks": "pass",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
+  {
+   "number": 266,
+   "title": "BEAST exits with status 1 after an exception in the MCMC run (#265)",
+   "url": "https://github.com/CompEvol/beast3/pull/266",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [
+    265
+   ],
+   "checks": "pass",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
+  {
+   "number": 263,
+   "title": "Rules for changes to beast-base",
+   "url": "https://github.com/CompEvol/beast3/pull/263",
+   "author": "alexeid",
+   "milestone": "",
+   "draft": false,
+   "closes": [],
+   "checks": "pass",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
+  {
+   "number": 254,
+   "title": "TensorDistribution: say why a value is not valid (#253)",
+   "url": "https://github.com/CompEvol/beast3/pull/254",
+   "author": "walterxie",
+   "milestone": "",
+   "draft": false,
+   "closes": [
+    253
+   ],
+   "checks": "pass",
+   "review": "changes requested",
+   "updated": "2026-11-11"
+  },
+  {
+   "number": 251,
+   "title": "GTR in BEAUti: Dirichlet prior on the rates, more weight on rates and frequencies (#146)",
+   "url": "https://github.com/CompEvol/beast3/pull/251",
+   "author": "alexeid",
+   "milestone": "",
+   "draft": false,
+   "closes": [
+    146
+   ],
+   "checks": "pass",
+   "review": "commented",
+   "updated": "2026-11-11"
+  }
+ ]
+}

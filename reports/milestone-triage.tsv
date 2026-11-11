@@ -1,0 +1,32 @@
+# Suggested sorting of the open 2.8.0 milestone issues and open pull requests, for the page milestone.html.
+# number <tab> group <tab> note.   Groups: review, todo, decide, release, close; pr for a pull request.
+# The groups are a suggestion to be confirmed at the meeting, not a decision.
+265	review	Both entry points now exit with status 1. New test starts BEAST in a separate JVM. Touches `beast-base` (one line after the run has ended).
+264	review	The fix also covers a second fault found on the way: after a successful `-exitaction writexml` BEAUti did not exit either. The error dialog still has to be seen by eye.
+146	review	The PR gives the GTR rates a Dirichlet prior and more operator weight. Walter has commented; it needs an approving review. The PR is not on the milestone.
+255	todo	Small, clear bug: the element check is called and its result thrown away. Belongs with Walter's rework of [#254](https://github.com/CompEvol/beast3/pull/254).
+258	todo	Two-line clean-up from the audit in #256. Not in the MCMC loop.
+232	todo	BEAUti offers every distribution inside Bounded Real. Reported by Eva on 10 Nov; nobody is on it.
+77	todo	BEAUti error dialog on the random local clock's `initial=[...]` button. Reported against beta5 and **not rechecked since**: reproduce on master first.
+226	todo	Strong typing is the point of 2.8.0, and the check is dead code today. Must accept a sub-domain (Walter). This runs when the XML is loaded, not in the MCMC loop. Risk: it will reject XMLs and package templates that load today.
+231	todo	Marked "Target: 2.8.0" in the issue. Changes the RLC and EBSP templates and `BitFlipOperator`, so it needs a posterior comparison before and after.
+248	decide	SSM cannot be bundled as it is: every SSM model with rates crashes ([substmodels#8](https://github.com/BEAST2-Dev/substmodels/issues/8)). The other four pass the package check. **Decide:** bundle four, wait for SSM, or bundle none.
+49	decide	The rate input of Gamma is still named `lambda`. Renaming changes XML, so it is now or not at all. **Decide:** rename to `beta` (keeping `lambda` as an alias?) or close.
+38	decide	The XMLs now say `version="2.8"`. **Decide:** is that the answer (close), or does the parser also have to reject older declarations?
+257	decide	The code runs on every `set()` of a parameter, so the change needs a timing check. Adds an interface, breaks nothing. **Decide:** 2.8.0 or 2.9.0 with #252.
+191	decide	One of 12 EBSP runs got stuck at a very high coalescent density. Not investigated further. **Decide:** blocker, known issue in the release notes, or 2.9.0.
+239	decide	Placeholder for Remco's single Eclipse project workflow. No work done. **Decide:** what is needed before the release, if anything.
+80	decide	A large feature (upgrade of Maven packages, per-package upgrade, BEAUti button). **Decide:** which part, if any, is needed for 2.8.0.
+54	decide	BEAUti drops a template without a message when a type does not match. Cost Jordan an hour. **Decide:** print the exception for 2.8.0 (probably small) or 2.9.0.
+81	release	**Needed to ship:** there is a build script for the Mac only. Linux and Windows build scripts are still to be written. Nobody is on it.
+84	release	A walk through the package skeleton from clone to installed package. No code expected.
+82	release	End-to-end test that AppLauncher finds an app of a Maven-installed package.
+83	release	A manual check of one BEAUti menu. Ten minutes.
+183	release	Umbrella for the validation; the results are on the other pages of this site. Close at sign-off.
+34	release	Umbrella for release commits. Close at release.
+79	close	The tip text of the spec `AbstractScale` now says that close to zero gives small jumps. Looks fixed: check and close.
+267	pr	Needs a reviewer. One thing to check by eye: start BEAUti with `-nex nosuchfile.nex` and see the error dialog.
+266	pr	Needs a reviewer. It changes `beast-base/src/main` and answers the three questions of #263.
+263	pr	The written rule, the pull request template and CODEOWNERS (Alexei and Remco). Needs Remco's agreement. Branch protection then has to be switched on by an admin, or CODEOWNERS enforces nothing. Not on the milestone.
+254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
+251	pr	Fixes #146, which is on the milestone; the PR itself is not. Needs an approving review.

@@ -5,6 +5,7 @@ Pages:
   index.html     goal of the testing, with a summary of and link to each track
   beauti.html    BEAUti by hand, C01-C30
   examples.html  the BEAST 2 example XMLs and their BEAST 3 conversions
+  milestone.html open issues and pull requests of the beast3 release milestone
 
 Inputs:
   reports/status.tsv, reports/status-notes.md                 BEAUti: hand-set status, note; panels
@@ -12,6 +13,8 @@ Inputs:
   reports/summary/batch-summary.md   min ESS and max z per name (compare.py --all)
   ASSIGNMENTS.md                     BEAUti tester and model per combination
   README.md                          example inventory (converted, converted in)
+  reports/milestone.json             milestone: snapshot of GitHub (scripts/fetch_milestone.py)
+  reports/milestone-triage.tsv, reports/milestone-notes.md    milestone: hand-set group, note; panels
   scripts/status_page.html           page layout
 
 Usage: scripts/build_status_page.py [--out _site]
@@ -46,7 +49,17 @@ EXAMPLE_STATUSES = {
     "blocked": ["Needs rc3", "Fix landed after rc2"],
     "none": ["Not run yet", "No results in the repo"],
 }
+MILESTONE_GROUPS = {
+    "review": ["Fix in review", "An open pull request fixes it"],
+    "todo": ["To fix", "Clear what to do, nobody on it yet"],
+    "decide": ["Decide", "2.8.0, later, or close"],
+    "release": ["Release work", "Builds, checks and umbrella issues"],
+    "close": ["Check and close", "Looks done already"],
+    "new": ["Not sorted", "New since the list was sorted"],
+}
 PASSED = ("pass", "explained")
+# pages that are not validation tracks: (file, label in the navigation)
+EXTRA_PAGES = [("milestone.html", "2.8.0 milestone")]
 ID_RE = re.compile(r"C\d{2}")
 
 
@@ -323,7 +336,7 @@ def bar(statuses, rows):
 
 
 def nav(current, tracks):
-    links = [("index.html", "Overview")] + [(t["file"], t["short"]) for t in tracks]
+    links = [("index.html", "Overview")] + [(t["file"], t["short"]) for t in tracks] + EXTRA_PAGES
     return '  <nav class="nav">' + "".join(
         '<a href="%s"%s>%s</a>' % (f, ' aria-current="page"' if f == current else "", esc(lab)) for f, lab in links) + "</nav>"
 
@@ -367,7 +380,134 @@ def track_page(t, tracks, stamp, footer):
     return t["title"], body, script
 
 
-def index_page(tracks, stamp, footer):
+def milestone_data():
+    """The milestone snapshot and the hand-set sorting: (snapshot, issue rows, pr rows, messages)."""
+    snap = json.loads(read("reports/milestone.json"))
+    repo_url = "https://github.com/%s" % snap["repo"]
+
+    def refs(text):
+        # #123 on its own is an issue or pull request of the repository
+        return re.sub(r'(?<![\w/&">#])#(\d{2,5})\b', r'<a href="%s/issues/\1">#\1</a>' % repo_url, inline(text))
+
+    triage = {}
+    for n, line in enumerate(read("reports/milestone-triage.tsv").splitlines(), 1):
+        if not line.strip() or line.startswith("#"):
+            continue
+        parts = [x.strip() for x in line.split("\t")] + ["", ""]
+        if not parts[0].isdigit() or parts[1] not in list(MILESTONE_GROUPS) + ["pr"]:
+            sys.exit("reports/milestone-triage.tsv line %d: bad number or group: %r" % (n, line))
+        triage[int(parts[0])] = (parts[1], parts[2])
+
+    fixes = {}
+    for p in snap["prs"]:
+        for c in p["closes"]:
+            fixes.setdefault(c, []).append(p)
+    link = lambda x: '<a href="%s">#%d</a>' % (x["url"], x["number"])
+    seen, msgs, issues = set(), [], []
+    for i in snap["issues"]:
+        group, note = triage.get(i["number"], ("new", ""))
+        seen.add(i["number"])
+        if group == "pr":
+            msgs.append("#%d is an issue, but milestone-triage.tsv lists it as a pull request." % i["number"])
+            group = "new"
+        if fixes.get(i["number"]) and group != "review":
+            msgs.append("#%d has an open pull request, but is not sorted under 'Fix in review'." % i["number"])
+        if group == "review" and not fixes.get(i["number"]):
+            msgs.append("#%d is sorted under 'Fix in review', but no open pull request closes it." % i["number"])
+        who = ", ".join(i["assignees"]) or "–"
+        issues.append({"st": group, "cells": [
+            '<td class="id">%s</td>' % link(i),
+            '<td class="model">%s<small>opened %s by %s</small></td>' % (esc(i["title"]), i["created"], esc(i["author"])),
+            '<td class="tester">%s</td>' % esc(who),
+            '<td>%s</td>' % (", ".join(link(p) for p in fixes.get(i["number"], [])) or "–"),
+            None, '<td class="note">%s</td>' % refs(note)]})
+    order = list(MILESTONE_GROUPS)
+    issues.sort(key=lambda r: order.index(r["st"]))
+
+    prs = []
+    for p in snap["prs"]:
+        seen.add(p["number"])
+        checks_cell = {"pass": "pass", "none": "–"}.get(p["checks"], '<span class="hi">%s</span>' % esc(p["checks"]))
+        review_cell = esc(p["review"]) if p["review"] == "approved" else '<span class="hi">%s</span>' % esc(p["review"])
+        prs.append("<tr>" + "".join([
+            '<td class="id">%s</td>' % link(p),
+            '<td class="model">%s%s<small>by %s, updated %s</small></td>' % (
+                esc(p["title"]), " (draft)" if p["draft"] else "", esc(p["author"]), p["updated"]),
+            '<td>%s</td>' % (", ".join('<a href="%s/issues/%d">#%d</a>' % (repo_url, c, c) for c in p["closes"]) or "–"),
+            '<td>%s</td>' % (esc(p["milestone"]) or '<span class="hi">none</span>'),
+            '<td>%s</td>' % checks_cell, '<td>%s</td>' % review_cell,
+            '<td class="note">%s</td>' % refs(triage.get(p["number"], ("pr", ""))[1])]) + "</tr>")
+    for n in sorted(set(triage) - seen):
+        msgs.append("#%d is in milestone-triage.tsv but is no longer open (or no longer on the milestone)." % n)
+    return snap, issues, prs, msgs
+
+
+def milestone_page(tracks, footer):
+    snap, issues, prs, msgs = milestone_data()
+    fetched = datetime.datetime.strptime(snap["fetched"], "%Y-%m-%dT%H:%M:%SZ").strftime("%-d %b %Y, %H:%M UTC")
+    repo_url = "https://github.com/%s" % snap["repo"]
+    count = lambda k: sum(r["st"] == k for r in issues)
+    check_html = ""
+    if msgs:
+        check_html = ('  <section class="panel checks">\n    <h2>Sorting out of step with GitHub</h2>\n'
+                      "    <ul>" + "".join("<li>%s</li>" % esc(m) for m in msgs) + "</ul>\n  </section>\n")
+    on_ms = sum(1 for p in snap["prs"] if p["milestone"] == snap["milestone"])
+    body = """%s
+  <header>
+    <div class="eyebrow">BEAST 3 release · milestone %s · GitHub as at %s</div>
+    <h1>What is left for BEAST %s</h1>
+    <p class="lede">The open issues on the <a href="%s/milestones">%s milestone</a> of %s, and every open pull request.
+      The grouping and the notes are a suggestion for the meeting, not decisions.</p>
+  </header>
+%s  <section style="display:grid;gap:10px">
+    <h2>%d open pull requests</h2>
+    <div class="tablebox">
+      <table style="min-width:980px">
+        <thead><tr><th>PR</th><th>Title</th><th>Fixes</th><th>Milestone</th><th>CI</th><th>Review</th><th>What it needs</th></tr></thead>
+        <tbody>%s</tbody>
+      </table>
+    </div>
+    <div class="barnote"><span><b>%d of %d</b> are on the milestone. None has an approving review.</span></div>
+  </section>
+  <section style="display:grid;gap:10px">
+    <h2>%d open issues on the milestone</h2>
+    <div class="strip" id="strip"></div>
+    %s
+    <div class="barnote"><span><b>%d</b> have a fix in review, <b>%d</b> are ready to be fixed, <b>%d</b> need a decision. %d issue(s) on the milestone are closed.</span><span>Click a box to filter the table. Click again to show all.</span></div>
+    <div class="tablebox">
+      <table style="min-width:980px">
+        <thead><tr><th>Issue</th><th>Title</th><th>Assigned</th><th>PR</th><th>Suggested</th><th>Note</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+  <section class="cols">
+%s
+  </section>
+  <footer>Sources: <code>reports/milestone.json</code> (snapshot of GitHub, <code>scripts/fetch_milestone.py</code>),
+    <code>reports/milestone-triage.tsv</code> (group and note), <code>reports/milestone-notes.md</code>. %s</footer>""" % (
+        nav("milestone.html", tracks), esc(snap["milestone"]), fetched, esc(snap["milestone"]), repo_url,
+        esc(snap["milestone"]), esc(snap["repo"]), check_html, len(prs), "\n".join(prs), on_ms, len(prs),
+        len(issues), bar(MILESTONE_GROUPS, issues), count("review"), count("todo"), count("decide"), snap["closed"],
+        panels("reports/milestone-notes.md"), footer)
+    if any(p["review"] == "approved" for p in snap["prs"]):
+        body = body.replace(" None has an approving review.", "")
+    groups = {k: v for k, v in MILESTONE_GROUPS.items() if k != "new" or count("new")}
+    script = (FILTER_JS.replace("__STATUSES__", json.dumps(groups, ensure_ascii=False))
+              .replace("__ROWS__", json.dumps(issues, ensure_ascii=False).replace("</", "<\\/")))
+    card = """    <a class="card" href="milestone.html">
+      <h2>%s milestone →</h2>
+      <p>The open issues and pull requests that stand between master and the release, sorted for review.</p>
+      <div class="big">%d issues, %d pull requests open</div>
+      %s
+      <div class="legend">%s</div>
+    </a>""" % (esc(snap["milestone"]), len(issues), len(prs), bar(MILESTONE_GROUPS, issues),
+               "".join('<span class="s-%s">%d %s</span>' % (k, count(k), esc(v[0].lower()))
+                       for k, v in MILESTONE_GROUPS.items() if count(k)))
+    return ("BEAST %s Milestone" % snap["milestone"], body, script), card, msgs
+
+
+def index_page(tracks, stamp, footer, extra_cards=()):
     cards = []
     for t in tracks:
         n = len(t["rows"])
@@ -399,7 +539,7 @@ def index_page(tracks, stamp, footer):
 %s
   </section>
   <footer>%s Repository: <a href="https://github.com/CompEvol/beast3-test">CompEvol/beast3-test</a>.</footer>""" % (
-        nav("index.html", tracks), stamp, "\n".join(cards), footer)
+        nav("index.html", tracks), stamp, "\n".join(cards + list(extra_cards)), footer)
     return "BEAST 3 Validation", body, ""
 
 
@@ -427,7 +567,10 @@ def main():
               "BEAST 2 and BEAST 3 means." % commit())
     layout = read("scripts/status_page.html")
     os.makedirs(args.out, exist_ok=True)
-    pages = [("index.html", index_page(tracks, stamp, footer))] + [(t["file"], track_page(t, tracks, stamp, footer)) for t in tracks]
+    ms_page, ms_card, ms_msgs = milestone_page(tracks, "Built from commit <code>%s</code> by "
+                                               "<code>scripts/build_status_page.py</code>." % commit())
+    pages = ([("index.html", index_page(tracks, stamp, footer, [ms_card]))]
+             + [(t["file"], track_page(t, tracks, stamp, footer)) for t in tracks] + [("milestone.html", ms_page)])
     for fname, (title, body, script) in pages:
         page = layout.replace("__TITLE__", title).replace("__BODY__", body).replace("__SCRIPT__", script)
         with open(os.path.join(args.out, fname), "w", encoding="utf-8") as f:
@@ -436,6 +579,9 @@ def main():
         print("%s: %d %s, %d check(s)" % (t["file"], len(t["rows"]), t["unit"], len(t["checks"])))
         for m in t["checks"]:
             print("  check:", m)
+    print("milestone.html: %d check(s)" % len(ms_msgs))
+    for m in ms_msgs:
+        print("  check:", m)
     print("wrote %s" % args.out)
 
 
