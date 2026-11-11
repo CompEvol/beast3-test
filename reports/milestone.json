@@ -1,20 +1,9 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T19:35:50Z",
- "closed": 3,
+ "fetched": "2026-11-11T21:10:33Z",
+ "closed": 5,
  "issues": [
-  {
-   "number": 265,
-   "title": "BEAST exits with status 0 after an exception in the MCMC run",
-   "url": "https://github.com/CompEvol/beast3/issues/265",
-   "author": "alexeid",
-   "created": "2026-11-11",
-   "updated": "2026-11-11",
-   "labels": [],
-   "assignees": [],
-   "comments": 1
-  },
   {
    "number": 264,
    "title": "BEAUti hangs on the splash screen when a command-line argument fails",
@@ -135,17 +124,6 @@
    "labels": [],
    "assignees": [],
    "comments": 0
-  },
-  {
-   "number": 146,
-   "title": "GTR substitution model rates should default to a Dirichlet prior in beauti",
-   "url": "https://github.com/CompEvol/beast3/issues/146",
-   "author": "jordandouglas",
-   "created": "2026-08-15",
-   "updated": "2026-11-10",
-   "labels": [],
-   "assignees": [],
-   "comments": 1
   },
   {
    "number": 84,
@@ -281,6 +259,34 @@
  ],
  "prs": [
   {
+   "number": 269,
+   "title": "IntSimplex.isValid() rejects an element outside the domain or bounds (#255)",
+   "url": "https://github.com/CompEvol/beast3/pull/269",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [
+    255
+   ],
+   "checks": "running",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
+  {
+   "number": 268,
+   "title": "SiteModel: read the lower bound of the shape through the RealScalar interface (#258)",
+   "url": "https://github.com/CompEvol/beast3/pull/268",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [
+    258
+   ],
+   "checks": "pass",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
+  {
    "number": 267,
    "title": "BEAUti reports a command-line argument it cannot process and exits (#264)",
    "url": "https://github.com/CompEvol/beast3/pull/267",
@@ -290,32 +296,6 @@
    "closes": [
     264
    ],
-   "checks": "pass",
-   "review": "none yet",
-   "updated": "2026-11-11"
-  },
-  {
-   "number": 266,
-   "title": "BEAST exits with status 1 after an exception in the MCMC run (#265)",
-   "url": "https://github.com/CompEvol/beast3/pull/266",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [
-    265
-   ],
-   "checks": "pass",
-   "review": "none yet",
-   "updated": "2026-11-11"
-  },
-  {
-   "number": 263,
-   "title": "Rules for changes to beast-base",
-   "url": "https://github.com/CompEvol/beast3/pull/263",
-   "author": "alexeid",
-   "milestone": "",
-   "draft": false,
-   "closes": [],
    "checks": "pass",
    "review": "none yet",
    "updated": "2026-11-11"
@@ -332,20 +312,6 @@
    ],
    "checks": "pass",
    "review": "changes requested",
-   "updated": "2026-11-11"
-  },
-  {
-   "number": 251,
-   "title": "GTR in BEAUti: Dirichlet prior on the rates, more weight on rates and frequencies (#146)",
-   "url": "https://github.com/CompEvol/beast3/pull/251",
-   "author": "alexeid",
-   "milestone": "",
-   "draft": false,
-   "closes": [
-    146
-   ],
-   "checks": "pass",
-   "review": "commented",
    "updated": "2026-11-11"
   }
  ]
