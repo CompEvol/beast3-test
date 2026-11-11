@@ -1,8 +1,8 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-11T22:44:44Z",
- "closed": 10,
+ "fetched": "2026-11-11T22:56:02Z",
+ "closed": 11,
  "issues": [
   {
    "number": 271,
@@ -169,17 +169,6 @@
    "comments": 0
   },
   {
-   "number": 54,
-   "title": "BEAUti is suppressing error messages related to strong typing",
-   "url": "https://github.com/CompEvol/beast3/issues/54",
-   "author": "jordandouglas",
-   "created": "2026-03-31",
-   "updated": "2026-11-10",
-   "labels": [],
-   "assignees": [],
-   "comments": 0
-  },
-  {
    "number": 49,
    "title": "Gamma distribution parameterisation",
    "url": "https://github.com/CompEvol/beast3/issues/49",
@@ -215,6 +204,20 @@
  ],
  "prs": [
   {
+   "number": 274,
+   "title": "BEAUti: inner distribution choices of Bounded and Offset priors (#232)",
+   "url": "https://github.com/CompEvol/beast3/pull/274",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [
+    232
+   ],
+   "checks": "running",
+   "review": "none yet",
+   "updated": "2026-11-11"
+  },
+  {
    "number": 273,
    "title": "TreePriorTest.testBSP: group size reference values from BEAST X",
    "url": "https://github.com/CompEvol/beast3/pull/273",
@@ -222,7 +225,7 @@
    "milestone": "2.8.0",
    "draft": false,
    "closes": [],
-   "checks": "running",
+   "checks": "pass",
    "review": "none yet",
    "updated": "2026-11-11"
   },

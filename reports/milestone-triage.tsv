@@ -1,7 +1,7 @@
 # Suggested sorting of the open 2.8.0 milestone issues and open pull requests, for the page milestone.html.
 # number <tab> group <tab> note.   Groups: review, todo, decide, release, close; pr for a pull request.
 # The groups are a suggestion to be confirmed at the meeting, not a decision.
-232	todo	BEAUti offers every distribution inside Bounded Real. Reported by Eva on 10 Nov; nobody is on it.
+232	review	Inside Bounded: any distribution of the same kind plus Offset, no Bounded; inside Offset: no wrapper. Also fixes Normal missing from the list inside Bounded. Checked in BEAUti off-screen; new test.
 226	todo	Strong typing is the point of 2.8.0, and the check is dead code today. Must accept a sub-domain (Walter). This runs when the XML is loaded, not in the MCMC loop. Risk: it will reject XMLs and package templates that load today.
 231	todo	Marked "Target: 2.8.0" in the issue. Changes the RLC and EBSP templates and `BitFlipOperator`, so it needs a posterior comparison before and after.
 248	decide	SSM cannot be bundled as it is: every SSM model with rates crashes ([substmodels#8](https://github.com/BEAST2-Dev/substmodels/issues/8)). The other four pass the package check. **Decide:** bundle four, wait for SSM, or bundle none.
@@ -21,3 +21,4 @@
 254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
 271	todo	A documented option (`-xml FILE -exitaction usexml`) that fails at start-up with a null pointer, also for an XML BEAUti wrote. Cause is clear and the fix looks small. Low priority: File > Load works. Seen off-screen only.
 273	pr	Test only: the BSP group size reference values from BEAST X instead of the 2011 BEAST 1 run. `testBSP` passes. Needs a reviewer.
+274	pr	beast-fx only. Needs a reviewer; a second look from Eva (who filed #232) would help.
