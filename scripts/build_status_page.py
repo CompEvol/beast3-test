@@ -587,6 +587,7 @@ def index_page(tracks, stamp, footer, extra_cards=()):
     <p><b>Analyses built by hand in BEAUti.</b> 30 analyses are built in BEAUti 2.7.9 and BEAUti 3 by five testers, covering every model option in the templates. This tests what users actually do.</p>
     <p>Each analysis runs twice in each version (seeds 1 and 2). Every logged parameter is compared: a z test on the means (flag at z ≥ 3), overlap of the 95%% HPD intervals, ESS ≥ 200, and clade probabilities. A flag that can be traced to a known, harmless difference, such as a constant offset in the log prior, counts as passed, explained.</p>
     <p>The rc2 round was collated on Wed 11 Nov and is signed off on Fri 13 Nov. A second round, R01–R18, tests the five packages bundled with 2.8.0 (bModelTest, ORC, SA, StarBeast3, CCD) once rc3 is released.</p>
+    <p><b>Packages.</b> A separate, automated check builds ORC, SA, MM, SSM, bModelTest, StarBeast3 and CCD against the current BEAST 3 and compares them with the last release candidate: <a href="https://github.com/CompEvol/beast3-test/blob/main/reports/packages-check.md">latest report</a>, <a href="https://github.com/CompEvol/beast3-test/blob/main/reports/packages-notes.md">notes</a>.</p>
   </section>
   <section class="cards">
 %s
