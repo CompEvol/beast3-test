@@ -1,20 +1,9 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-12T01:18:27Z",
- "closed": 11,
+ "fetched": "2026-11-12T01:38:04Z",
+ "closed": 12,
  "issues": [
-  {
-   "number": 271,
-   "title": "BEAUti: -xml FILE -exitaction usexml fails at start-up with a NullPointerException",
-   "url": "https://github.com/CompEvol/beast3/issues/271",
-   "author": "alexeid",
-   "created": "2026-11-11",
-   "updated": "2026-11-11",
-   "labels": [],
-   "assignees": [],
-   "comments": 0
-  },
   {
    "number": 257,
    "title": "Parameter types test for ScalarDistribution and IID to find their bounds: use an interface",
@@ -43,9 +32,11 @@
    "url": "https://github.com/CompEvol/beast3/issues/239",
    "author": "alexeid",
    "created": "2026-11-10",
-   "updated": "2026-11-11",
+   "updated": "2026-11-12",
    "labels": [],
-   "assignees": [],
+   "assignees": [
+    "alexeid"
+   ],
    "comments": 0
   },
   {
@@ -211,21 +202,9 @@
    "milestone": "2.8.0",
    "draft": false,
    "closes": [],
-   "checks": "running",
-   "review": "none yet",
-   "updated": "2026-11-12"
-  },
-  {
-   "number": 277,
-   "title": "Release README: the order of work for the bundled packages (#248)",
-   "url": "https://github.com/CompEvol/beast3/pull/277",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [],
    "checks": "pass",
    "review": "none yet",
-   "updated": "2026-11-11"
+   "updated": "2026-11-12"
   },
   {
    "number": 276,
@@ -238,20 +217,6 @@
    "checks": "pass",
    "review": "none yet",
    "updated": "2026-11-12"
-  },
-  {
-   "number": 275,
-   "title": "BEAUti: -xml FILE -exitaction usexml no longer fails at start-up (#271)",
-   "url": "https://github.com/CompEvol/beast3/pull/275",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [
-    271
-   ],
-   "checks": "pass",
-   "review": "none yet",
-   "updated": "2026-11-11"
   },
   {
    "number": 274,
