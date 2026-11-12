@@ -126,10 +126,17 @@ def load_batch():
     return out
 
 
+# Entries that are passed without a row of their own in batch-summary.md: C28 runs Eva's 2.7.9
+# XMLs of C06 and C10 in BEAST 3, and is compared with her 2.7.9 runs of those (see its note).
+NO_OWN_NUMBERS = {"C28"}
+
+
 def checks(status, batch, labels, keyname=lambda k: k):
     """Entries whose status disagrees with the numbers. status: key -> status code."""
     msgs = []
     for key, st in sorted(status.items()):
+        if key in NO_OWN_NUMBERS:
+            continue
         b = batch.get(keyname(key))
         lab = labels[st][0].lower()
         if st == "none":
@@ -341,8 +348,9 @@ def examples_track(batch):
         "eyebrow": "Example XMLs",
         "h1": "The BEAST 2 example XMLs in BEAST 3",
         "lede": "Each example XML shipped with BEAST 2 v2.7.8 is converted to BEAST 3, both are run with seeds 1 and 2, "
-                "and the posteriors are compared marginal by marginal. %d examples are tested; the 2 *BEAST 1 "
-                "examples are excluded." % len(tested),
+                "and the posteriors are compared marginal by marginal. %d examples are tested; %d are excluded "
+                "(the 2 *BEAST 1 examples, and testSliceHKY, whose operator was removed on purpose)."
+                % (len(tested), len(inv) - len(tested)),
         "unit": "examples", "statuses": EXAMPLE_STATUSES, "rows": rows, "checks": msgs,
         "head": ["Example", "Tester", "Converted", "Converted in", "Min ESS", "Max z", "Status", "Detail and next step"],
         "num_cols": (4, 5), "min_width": 960, "panels": panels("reports/examples-notes.md"),

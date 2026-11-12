@@ -182,7 +182,7 @@ examples converted before this round.
 | 29 | testSYM.xml | yes |  |  |
 | 30 | testSeqGen.xml | yes, in beast-fx | [beast3#204](https://github.com/CompEvol/beast3/pull/204) | simulator, no MCMC posterior |
 | 31 | testSimulatedAlignment.xml | yes, in beast-fx | [beast3#204](https://github.com/CompEvol/beast3/pull/204) | simulates data, then runs MCMC |
-| 32 | testSliceHKY.xml | **no** |  | uses `SliceOperator`, which BEAST 3 doesn't have; exclude or port (open question in ASSIGNMENTS) |
+| 32 | testSliceHKY.xml | excluded |  | uses `SliceOperator`, removed from BEAST 3 on purpose (10 Nov; beast3#236) |
 | 33 | testStarBeast.xml | excluded |  | *BEAST 1, code not migrated to BEAST 3 |
 | 34 | testStarBeastFBD.xml | excluded |  | *BEAST 1, code not migrated to BEAST 3 |
 | 35 | testTIM.xml | yes |  |  |
@@ -196,10 +196,10 @@ examples converted before this round.
 | 43 | testYuleOneSite.xml | yes |  |  |
 | 44 | testYuleUncalibrated.xml | yes | [beast3#199](https://github.com/CompEvol/beast3/pull/199) |  |
 
-**Excluded:** the *BEAST 1 examples (`testStarBeast.xml`, `testStarBeastFBD.xml`) are excluded because the *BEAST 1 code was not migrated to BEAST 3.
+**Excluded:** the *BEAST 1 examples (`testStarBeast.xml`, `testStarBeastFBD.xml`) are excluded because the *BEAST 1 code was not migrated to BEAST 3, and testSliceHKY because `SliceOperator` was removed from BEAST 3 on purpose (decided 10 Nov).
 
-Summary: 44 examples, 2 excluded, 42 to test: 41 converted (18 before this round, 11 in beast3#199,
-12 in beast3#204) and 1 not converted (testSliceHKY).
+Summary: 44 examples, 3 excluded, 41 to test, all converted (18 before this round, 11 in beast3#199,
+12 in beast3#204).
 
 To regenerate the lists:
 

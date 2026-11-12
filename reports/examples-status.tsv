@@ -39,7 +39,6 @@ testSRD06.xml	Walter	none
 testSYM.xml	shared	explained	Constant offset in `prior`, as for testGTR (4 replicates).
 testSeqGen.xml	Walter	none	Simulator, no MCMC posterior. In beast-fx. The v2.7.8 original doesn't load in BEAST 2.7 either (stale class names); use the copy fixed in [beast2#1227](https://github.com/CompEvol/beast2/pull/1227).
 testSimulatedAlignment.xml	Walter	none	Simulates data, then runs MCMC. In beast-fx. The v2.7.8 original doesn't load in BEAST 2.7 either (stale class names); use the copy fixed in [beast2#1227](https://github.com/CompEvol/beast2/pull/1227).
-testSliceHKY.xml	–	explained	Excluded (10 Nov): uses `SliceOperator`, removed from BEAST 3 on purpose (beast3 `b74755d`). It was used only by this example, no BEAUti template or BeastFX; each move evaluates the posterior several times. To be listed as removed in the release notes.
 testTIM.xml	shared	explained	Constant offset in `prior`, as for testGTR.
 testTN93.xml	shared	explained	Constant offset in `prior`, as for testGTR.
 testTVM.xml	shared	explained	Constant offset in `prior`, as for testGTR.
