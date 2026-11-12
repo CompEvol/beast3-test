@@ -1,7 +1,7 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-12T01:38:04Z",
+ "fetched": "2026-11-12T01:46:07Z",
  "closed": 12,
  "issues": [
   {
@@ -194,6 +194,30 @@
   }
  ],
  "prs": [
+  {
+   "number": 280,
+   "title": "Tests: drop JUnit 4, so a JUnit 4 test cannot silently go unrun",
+   "url": "https://github.com/CompEvol/beast3/pull/280",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [],
+   "checks": "running",
+   "review": "none yet",
+   "updated": "2026-11-12"
+  },
+  {
+   "number": 279,
+   "title": "BEAUti tests: reset the expanded priors after every test",
+   "url": "https://github.com/CompEvol/beast3/pull/279",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [],
+   "checks": "running",
+   "review": "none yet",
+   "updated": "2026-11-12"
+  },
   {
    "number": 278,
    "title": "Release: bundle the pinned packages in the Mac, Linux and Windows installers (#248)",

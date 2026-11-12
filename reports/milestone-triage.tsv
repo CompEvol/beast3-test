@@ -21,3 +21,5 @@
 274	pr	beast-fx only. Also reports a prior whose support reaches outside the parameter's domain (e.g. Normal bounded to [-1, 1] on a positive parameter). Needs a reviewer; a second look from Eva (who filed #232) would help.
 276	pr	Launcher seeds every bundled package (#248 item 1). beast-pkgmgmt only; tested end to end with the real zips. Needs a reviewer.
 278	pr	Pinned list of the bundled packages (with checksums) and the Mac, Linux and Windows bundle scripts fetching them. Linux assembly tested locally. Needs a reviewer.
+279	pr	Test only: BEAUti tests reset the expanded priors, which made BeautiPriorValidationTest fail in full local runs. Needs a reviewer.
+280	pr	Test only: JUnit 4 removed, so a JUnit 4 test is a compile error instead of never running. Needs a reviewer.

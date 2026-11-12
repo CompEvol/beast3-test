@@ -14,7 +14,7 @@
 
 - **Sixteen test classes were never run.** The tests of `beast.base.spec.type` and `beast.base.spec.domain` used JUnit 4 annotations, and the build has no JUnit 4 engine, so Maven found no tests in them and CI was green. [#270](https://github.com/CompEvol/beast3/pull/270), now merged, converts them: 77 tests now run, and all pass.
 - **The slow tests that CI skips** (74 in beast-base) were run on master on 12 Nov: all pass except `TreePriorTest.testBSP`, which [#273](https://github.com/CompEvol/beast3/pull/273), merged, fixes.
-- **`BeautiPriorValidationTest.dirichletDimensionMismatchIsReported` fails in a full local beast-fx run** on master (it types into a field that shows "4.0 4.0"), but passes on its own. Order-dependent; no issue yet.
+- **`BeautiPriorValidationTest` failed in full local beast-fx runs**: an earlier test left a prior expanded through a static set. Fixed in [#279](https://github.com/CompEvol/beast3/pull/279).
 - **`TreePriorTest.testBSP` fails on master, as it has since January**, on `skyline.groupSize.3` (CI skips the test). The expected values come from a single BEAST 1 run of 2011, never repeated; the group sizes were commented out in 2011 because BEAST 2 already disagreed, and switched back on in 2021. On 12 Nov, 4 seeds × 20M steps each: BEAST X 10.5.0 3.282 ± 0.013, BEAST 3 3.311 ± 0.012, BEAST 3 with the legacy BEAST 2 XML 3.289 ± 0.008, against 3.181 in the 2011 reference. BEAST X and BEAST 3 agree on all five group sizes (largest z 1.7); **the 2011 reference is the odd one out.** [#273](https://github.com/CompEvol/beast3/pull/273) replaces the five values with the BEAST X ones; the test then passes.
 
 ## Outside this repository
