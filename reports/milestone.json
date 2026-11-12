@@ -1,9 +1,20 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-12T01:46:07Z",
+ "fetched": "2026-11-12T03:41:33Z",
  "closed": 12,
  "issues": [
+  {
+   "number": 281,
+   "title": "BEAUti: use whyNotValid() in the invalid initial value message",
+   "url": "https://github.com/CompEvol/beast3/issues/281",
+   "author": "alexeid",
+   "created": "2026-11-12",
+   "updated": "2026-11-12",
+   "labels": [],
+   "assignees": [],
+   "comments": 0
+  },
   {
    "number": 257,
    "title": "Parameter types test for ScalarDistribution and IID to find their bounds: use an interface",
@@ -24,7 +35,7 @@
    "updated": "2026-11-12",
    "labels": [],
    "assignees": [],
-   "comments": 2
+   "comments": 3
   },
   {
    "number": 239,
@@ -195,54 +206,6 @@
  ],
  "prs": [
   {
-   "number": 280,
-   "title": "Tests: drop JUnit 4, so a JUnit 4 test cannot silently go unrun",
-   "url": "https://github.com/CompEvol/beast3/pull/280",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [],
-   "checks": "running",
-   "review": "none yet",
-   "updated": "2026-11-12"
-  },
-  {
-   "number": 279,
-   "title": "BEAUti tests: reset the expanded priors after every test",
-   "url": "https://github.com/CompEvol/beast3/pull/279",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [],
-   "checks": "running",
-   "review": "none yet",
-   "updated": "2026-11-12"
-  },
-  {
-   "number": 278,
-   "title": "Release: bundle the pinned packages in the Mac, Linux and Windows installers (#248)",
-   "url": "https://github.com/CompEvol/beast3/pull/278",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [],
-   "checks": "pass",
-   "review": "none yet",
-   "updated": "2026-11-12"
-  },
-  {
-   "number": 276,
-   "title": "Launcher: seed every package bundled with the application (#248)",
-   "url": "https://github.com/CompEvol/beast3/pull/276",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [],
-   "checks": "pass",
-   "review": "none yet",
-   "updated": "2026-11-12"
-  },
-  {
    "number": 274,
    "title": "BEAUti: valid inner distributions for Bounded and Offset priors, and report priors outside the domain (#232)",
    "url": "https://github.com/CompEvol/beast3/pull/274",
@@ -254,21 +217,7 @@
    ],
    "checks": "pass",
    "review": "none yet",
-   "updated": "2026-11-11"
-  },
-  {
-   "number": 254,
-   "title": "TensorDistribution: say why a value is not valid (#253)",
-   "url": "https://github.com/CompEvol/beast3/pull/254",
-   "author": "walterxie",
-   "milestone": "",
-   "draft": false,
-   "closes": [
-    253
-   ],
-   "checks": "pass",
-   "review": "changes requested",
-   "updated": "2026-11-11"
+   "updated": "2026-11-12"
   }
  ]
 }

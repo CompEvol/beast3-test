@@ -1,10 +1,11 @@
 # Suggested sorting of the open 2.8.0 milestone issues and open pull requests, for the page milestone.html.
 # number <tab> group <tab> note.   Groups: review, todo, decide, release, close; pr for a pull request.
 # The groups are a suggestion to be confirmed at the meeting, not a decision.
-232	review	Inside Bounded: any distribution of the same kind plus Offset, no Bounded; inside Offset: no wrapper. Also fixes Normal missing from the list inside Bounded. Checked in BEAUti off-screen; new test.
+232	review	Inside Bounded: any distribution of the same kind plus Offset, no Bounded; inside Offset: no wrapper. Also fixes Normal missing from the list inside Bounded. Walter's review (12 Nov) found two problems: the inputs inside Offset inside Bounded were not shown, and Uniform-type priors were offered inside Bounded (bounds shown twice). Both fixed in #274, checked in the Priors panel; awaiting his re-review.
+281	todo	After #274: BEAUti builds its own "outside the range" message, so a simplex with a wrong sum is still reported as out of range there. Use `whyNotValid()` from #254. Small; beast-fx only.
 226	todo	Strong typing is the point of 2.8.0, and the check is dead code today. Must accept a sub-domain (Walter). This runs when the XML is loaded, not in the MCMC loop. Risk: it will reject XMLs and package templates that load today.
 231	todo	Marked "Target: 2.8.0" in the issue. Changes the RLC and EBSP templates and `BitFlipOperator`, so it needs a posterior comparison before and after.
-248	decide	Bundled: bModelTest, ORC, SA, StarBeast3, CCD. Done in PRs: seeding (#276), pinned list and bundle scripts (#278), release order (#277); package manager checked. **Decide:** who builds the packages against rc3; MM for SA's brachiopods example.
+248	decide	Bundled: bModelTest, ORC, SA, StarBeast3, CCD. Done and merged: seeding (#276), pinned list and bundle scripts (#278), release order (#277); package manager checked. **Decide:** who builds the packages against rc3; MM for SA's brachiopods example.
 49	decide	The rate input of Gamma is still named `lambda`. Renaming changes XML, so it is now or not at all. **Decide:** rename to `beta` (keeping `lambda` as an alias?) or close.
 38	decide	The XMLs now say `version="2.8"`. **Decide:** is that the answer (close), or does the parser also have to reject older declarations?
 257	decide	The code runs on every `set()` of a parameter, so the change needs a timing check. Adds an interface, breaks nothing. **Decide:** 2.8.0 or 2.9.0 with #252.
@@ -17,9 +18,4 @@
 83	release	A manual check of one BEAUti menu. Ten minutes.
 183	release	Umbrella for the validation; the results are on the other pages of this site. Close at sign-off.
 34	release	Umbrella for release commits. Close at release.
-254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
-274	pr	beast-fx only. Also reports a prior whose support reaches outside the parameter's domain (e.g. Normal bounded to [-1, 1] on a positive parameter). Needs a reviewer; a second look from Eva (who filed #232) would help.
-276	pr	Launcher seeds every bundled package (#248 item 1). beast-pkgmgmt only; tested end to end with the real zips. Needs a reviewer.
-278	pr	Pinned list of the bundled packages (with checksums) and the Mac, Linux and Windows bundle scripts fetching them. Linux assembly tested locally. Needs a reviewer.
-279	pr	Test only: BEAUti tests reset the expanded priors, which made BeautiPriorValidationTest fail in full local runs. Needs a reviewer.
-280	pr	Test only: JUnit 4 removed, so a JUnit 4 test is a compile error instead of never running. Needs a reviewer.
+274	pr	beast-fx only (#232). Also reports a prior whose support reaches outside the parameter's domain (e.g. Normal bounded to [-1, 1] on a positive parameter). Reviewed by Walter on 12 Nov; both problems fixed (5dc7ed7). Awaiting his re-review.
