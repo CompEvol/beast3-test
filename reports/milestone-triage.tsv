@@ -18,9 +18,6 @@
 183	release	Umbrella for the validation; the results are on the other pages of this site. Close at sign-off.
 34	release	Umbrella for release commits. Close at release.
 254	pr	Walter is reworking it after the review of 11 Nov. #255 belongs with it. Not on the milestone.
-271	review	Fixed in [#275](https://github.com/CompEvol/beast3/pull/275): the menu updates are skipped when the window does not exist yet. New test.
 274	pr	beast-fx only. Also reports a prior whose support reaches outside the parameter's domain (e.g. Normal bounded to [-1, 1] on a positive parameter). Needs a reviewer; a second look from Eva (who filed #232) would help.
-275	pr	beast-fx only, a few lines. Needs a reviewer.
 276	pr	Launcher seeds every bundled package (#248 item 1). beast-pkgmgmt only; tested end to end with the real zips. Needs a reviewer.
-277	pr	Documentation: the order of work for the bundled packages (publish core, packages built against rc3, pin, check, build installers). Needs a reviewer.
 278	pr	Pinned list of the bundled packages (with checksums) and the Mac, Linux and Windows bundle scripts fetching them. Linux assembly tested locally. Needs a reviewer.
