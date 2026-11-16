@@ -1,17 +1,19 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-12T03:41:33Z",
- "closed": 12,
+ "fetched": "2026-11-16T01:35:02Z",
+ "closed": 14,
  "issues": [
   {
-   "number": 281,
-   "title": "BEAUti: use whyNotValid() in the invalid initial value message",
-   "url": "https://github.com/CompEvol/beast3/issues/281",
-   "author": "alexeid",
+   "number": 282,
+   "title": "BEAUti: Inconsistent GUI validation for prior initial value and bounds",
+   "url": "https://github.com/CompEvol/beast3/issues/282",
+   "author": "walterxie",
    "created": "2026-11-12",
-   "updated": "2026-11-12",
-   "labels": [],
+   "updated": "2026-11-16",
+   "labels": [
+    "bug"
+   ],
    "assignees": [],
    "comments": 0
   },
@@ -48,17 +50,6 @@
    "assignees": [
     "alexeid"
    ],
-   "comments": 0
-  },
-  {
-   "number": 232,
-   "title": "Beauti prior panel: unlimited nesting of Bounded Real and Offset Real",
-   "url": "https://github.com/CompEvol/beast3/issues/232",
-   "author": "EvaLiyt",
-   "created": "2026-11-10",
-   "updated": "2026-11-10",
-   "labels": [],
-   "assignees": [],
    "comments": 0
   },
   {
@@ -182,17 +173,6 @@
    "comments": 0
   },
   {
-   "number": 38,
-   "title": "Bump BEAST XML version to 3.0 for spec-class XMLs",
-   "url": "https://github.com/CompEvol/beast3/issues/38",
-   "author": "alexeid",
-   "created": "2026-02-28",
-   "updated": "2026-11-10",
-   "labels": [],
-   "assignees": [],
-   "comments": 0
-  },
-  {
    "number": 34,
    "title": "Prep for v2.8.0 release",
    "url": "https://github.com/CompEvol/beast3/issues/34",
@@ -204,20 +184,5 @@
    "comments": 2
   }
  ],
- "prs": [
-  {
-   "number": 274,
-   "title": "BEAUti: valid inner distributions for Bounded and Offset priors, and report priors outside the domain (#232)",
-   "url": "https://github.com/CompEvol/beast3/pull/274",
-   "author": "alexeid",
-   "milestone": "2.8.0",
-   "draft": false,
-   "closes": [
-    232
-   ],
-   "checks": "pass",
-   "review": "none yet",
-   "updated": "2026-11-12"
-  }
- ]
+ "prs": []
 }
