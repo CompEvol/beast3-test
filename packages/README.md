@@ -114,9 +114,46 @@ BEAST 3 on every run, so if those internals change, the `beauti` step stops with
 error, or a scenario fails with "could not pick" or "no button". That is a reason to update the
 driver or the scenario, not a regression in a package.
 
+## Installer check
+
+`check_packages.sh` builds the packages from source and never touches an installer, so it cannot
+see what is missing from one: the rc3 installer could not install a package from Maven at all
+([beast3#297](https://github.com/CompEvol/beast3/issues/297)). `check_installer.sh` tests an
+installer as shipped, through its own `bin/` scripts. Run it on every release candidate, from
+rc4 on:
+
+```bash
+packages/check_installer.sh -d BEAST.v2.8.0-rc4.dmg          # macOS: mounted read-only
+packages/check_installer.sh -i "/Applications/BEAST 2.8.0"   # an installed or unpacked BEAST
+```
+
+It takes a few minutes and writes [reports/installer-check.md](../reports/installer-check.md).
+
+| Check | What it does |
+|---|---|
+| `beast` | `bin/beast` runs the installer's `examples/testHKY.xml` for 200,000 steps (its trees are used below) |
+| `bundled-list` | `applauncher -list` on a new package folder: the bundled packages are unpacked on first launch, and their apps (CCD's EntropyCalculator among them) are listed |
+| `bundled-run` | `applauncher EntropyCalculator -trees ... -output ...`: a bundled package's app runs with its arguments and writes its output |
+| `maven-install` | `packagemanager -maven io.github.compevol:ccd:1.2.2` in another new package folder, with the bundled CCD removed first, so CCD comes from Maven Central |
+| `maven-list` | `applauncher -list` shows the apps of that Maven-installed CCD ([beast3#82](https://github.com/CompEvol/beast3/issues/82)) |
+| `maven-run` | its EntropyCalculator runs with arguments, as for the bundled copy |
+
+Everything runs headless (`-Djava.awt.headless=true`), so no window opens; each command is
+stopped after 300 s (`-t`). The package folders are in `packages/work/installer/`, given to BEAST
+with `-Dbeast.user.package.dir`, so your own BEAST folder is not read or changed. Each check's
+output is kept there too.
+
+A failure caused by an open issue is reported as KNOWN with a link to it, and does not make the
+script fail; the list is `KNOWN=` at the top of the script. Remove a line from it when its issue
+is fixed, so that the check counts again. The script exits with status 1 on any other failure.
+
+On rc3: `beast`, `bundled-list` and `bundled-run` pass; the three Maven checks fail (#297, and
+#82 for the list).
+
 ## Limits
 
-- Default branches built from source, not released zips.
+- Default branches built from source, not released zips (the [installer check](#installer-check)
+  covers the zips bundled with an installer).
 - An example run compares two versions of BEAST 3 with the same package build. It does not
   compare with BEAST 2.
 - A BEAUti scenario shows that the XML BEAUti writes is valid and samples. It does not compare

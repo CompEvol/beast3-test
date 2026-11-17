@@ -18,6 +18,11 @@ Whether the main packages (ORC, SA, MM, SSM, bModelTest, StarBeast3) still work 
 BEAST 3 is a separate check, run with one script: see [packages/README.md](packages/README.md).
 The latest result is [reports/packages-check.md](reports/packages-check.md).
 
+Whether a release candidate's installer, as shipped, runs BEAST, finds and runs package apps and
+installs packages from Maven is checked by `packages/check_installer.sh`
+([packages/README.md](packages/README.md#installer-check)); run it on every installer from rc4 on.
+The latest result is [reports/installer-check.md](reports/installer-check.md).
+
 ### Github issue to track
 
 Please use https://github.com/CompEvol/beast3/issues/183 as a reference to track pull requests or changes to [beast3 repo](https://github.com/CompEvol/beast3) during testing. 
