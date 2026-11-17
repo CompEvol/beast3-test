@@ -1,0 +1,87 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	6	0.207033	0.304003	0.096971	
+RN-bN-bears.trees	Canis_lupus_0.0 Ursus_spelaeus_0.054	2	0.115598	0.035033	0.080565	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	5	0.340684	0.265008	0.075677	
+RN-bN-bears.trees	Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	7	0.125542	0.049957	0.075584	
+RN-bN-bears.trees	Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	7	0.165648	0.235011	0.069363	
+RN-bN-bears.trees	Acrophoca_6.695 Canis_lupus_0.0	2	0.000000	0.065585	0.065585	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Phoca_vitulina_0.805 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	6	0.099100	0.035255	0.063845	
+RN-bN-bears.trees	Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	10	0.052272	0.000000	0.052272	
+RN-bN-bears.trees	Phoca_largha_0.0 Ursus_spelaeus_0.054	2	0.130985	0.079250	0.051735	
+RN-bN-bears.trees	Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	9	0.089268	0.039921	0.049346	
+RN-bN-bears.trees	Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	8	0.094878	0.048217	0.046661	
+RN-bN-bears.trees	Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	11	0.127153	0.172536	0.045384	
+RN-bN-bears.trees	Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	8	0.060160	0.016850	0.043310	
+RN-bN-bears.trees	Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	8	0.126653	0.167759	0.041107	
+RN-bN-bears.trees	Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	9	0.107266	0.147724	0.040458	
+RN-bN-bears.trees	Tremarctos_ornatus_0.0 Ursus_spelaeus_0.054	2	0.152483	0.113024	0.039459	
+RN-bN-bears.trees	Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	8	0.071214	0.033330	0.037885	
+RN-bN-bears.trees	Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	10	0.155038	0.192460	0.037422	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	5	0.025608	0.060030	0.034422	
+RN-bN-bears.trees	Ailuropoda_melanoleuca_0.0 Indarctos_punjabiensis_4.996	2	0.051439	0.017517	0.033922	
+RN-bN-bears.trees	Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	9	0.118154	0.151613	0.033459	
+RN-bN-bears.trees	Phoca_vitulina_0.805 Tremarctos_ornatus_0.0	2	0.085435	0.118579	0.033144	
+RN-bN-bears.trees	Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487	2	0.111043	0.078584	0.032459	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	5	0.028775	0.061030	0.032256	
+RN-bN-bears.trees	Arctodus_simus_0.487 Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	7	0.106210	0.137725	0.031515	
+RN-bN-bears.trees	Ursus_americanus_0.0 Ursus_spelaeus_0.054	2	0.079491	0.110136	0.030645	
+RN-bN-bears.trees	Borophagus_diversidens_4.284 Ursus_abstrusus_4.27	2	0.027330	0.056475	0.029145	
+RN-bN-bears.trees	Arctodus_simus_0.487 Phoca_largha_0.0	2	0.102155	0.130726	0.028571	
+RN-bN-bears.trees	Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	6	0.172759	0.146243	0.026516	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_spelaeus_0.054	2	0.074547	0.099878	0.025331	
+RN-bN-bears.trees	Canis_lupus_0.0 Ursus_abstrusus_4.27	2	0.102766	0.127282	0.024516	
+RN-bN-bears.trees	Ursus_maritimus_0.0 Ursus_spelaeus_0.054	2	0.071492	0.094027	0.022535	
+RN-bN-bears.trees	Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	2	0.077103	0.099396	0.022294	
+RN-bN-bears.trees	Ursus_arctos_0.0 Ursus_spelaeus_0.054	2	0.085324	0.107173	0.021849	
+RN-bN-bears.trees	Helarctos_malayanus_0.0 Phoca_vitulina_0.805	2	0.111488	0.090064	0.021424	
+RN-bN-bears.trees	Ailuropoda_melanoleuca_0.0 Ursus_spelaeus_0.054	2	0.117043	0.136948	0.019905	
+RN-bN-bears.trees	Phoca_largha_0.0 Phoca_vitulina_0.805	2	0.098711	0.118246	0.019535	
+RN-bN-bears.trees	Acrophoca_6.695 Phoca_largha_0.0	2	0.056105	0.038255	0.017850	
+RN-bN-bears.trees	Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	7	0.138596	0.120764	0.017831	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0	3	0.051105	0.034218	0.016887	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	4	0.102822	0.087250	0.015572	
+RN-bN-bears.trees	Arctodus_simus_0.487 Canis_lupus_0.0	2	0.123153	0.108247	0.014906	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	4	0.102322	0.087472	0.014850	
+RN-bN-bears.trees	Canis_lupus_0.0 Indarctos_punjabiensis_4.996	2	0.086601	0.101322	0.014721	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_thibetanus_0.0	2	0.197311	0.183165	0.014147	
+RN-bN-bears.trees	Agriarctos_spp_5.006 Canis_lupus_0.0	2	0.062882	0.076991	0.014110	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	3	0.143262	0.129800	0.013461	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_maritimus_0.0	2	0.204366	0.191016	0.013350	
+RN-bN-bears.trees	Canis_lupus_0.0 Phoca_vitulina_0.805	2	0.123597	0.110691	0.012906	
+RN-bN-bears.trees	Acrophoca_6.695 Agriarctos_spp_5.006 Ailurarctos_lufengensis_7.652 Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Ballusia_elmensis_14.01 Borophagus_diversidens_4.284 Caedocyon_tedfordi_25.88 Canis_lupus_0.0 Cormocyon_copei_26.14 Enaliarctos_tedfordi_27.11 Helarctos_malayanus_0.0 Indarctos_arctoides_9.54 Indarctos_punjabiensis_4.996 Indarctos_vireti_8.68 Kretzoiarctos_beatrix_11.69 Leptophoca_lenis_14.99 Melursus_ursinus_0.0 Osbornodon_sesnoni_30.08 Phoca_largha_0.0 Phoca_vitulina_0.805 Proneotherium_repenningi_17.92 Tremarctos_ornatus_0.0 Ursavus_brevihinus_16.2 Ursavus_primaevus_14.41 Ursus_abstrusus_4.27 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0 Zaragocyon_daamsi_21.86	32	0.631596	0.644114	0.012517	
+RN-bN-bears.trees	Arctodus_simus_0.487 Melursus_ursinus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_thibetanus_0.0	6	0.144151	0.131689	0.012462	
+RN-bN-bears.trees	Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	10	0.065382	0.077658	0.012276	
+RN-bN-bears.trees	Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	8	0.092934	0.104914	0.011980	
+RN-bN-bears.trees	Arctodus_simus_0.487 Tremarctos_ornatus_0.0	2	0.114043	0.102248	0.011795	
+RN-bN-bears.trees	Agriarctos_spp_5.006 Phoca_largha_0.0	2	0.068659	0.079658	0.010999	
+RN-bN-bears.trees	Helarctos_malayanus_0.0 Ursus_spelaeus_0.054	2	0.075658	0.086361	0.010703	
+RN-bN-bears.trees	Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Tremarctos_ornatus_0.0 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	9	0.095156	0.084916	0.010240	
+RN-bN-bears.trees	Borophagus_diversidens_4.284 Canis_lupus_0.0	2	0.115765	0.105766	0.009999	
+RN-bN-bears.trees	Acrophoca_6.695 Agriarctos_spp_5.006 Ailurarctos_lufengensis_7.652 Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Ballusia_elmensis_14.01 Borophagus_diversidens_4.284 Canis_lupus_0.0 Helarctos_malayanus_0.0 Indarctos_arctoides_9.54 Indarctos_punjabiensis_4.996 Indarctos_vireti_8.68 Kretzoiarctos_beatrix_11.69 Leptophoca_lenis_14.99 Melursus_ursinus_0.0 Phoca_largha_0.0 Phoca_vitulina_0.805 Proneotherium_repenningi_17.92 Tremarctos_ornatus_0.0 Ursavus_brevihinus_16.2 Ursavus_primaevus_14.41 Ursus_abstrusus_4.27 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	27	0.123097	0.132504	0.009406	
+RN-bN-bears.trees	Arctodus_simus_0.487 Ursus_americanus_0.0	2	0.050828	0.041440	0.009388	
+RN-bN-bears.trees	Ursus_americanus_0.0 Ursus_arctos_0.0	2	0.095600	0.086620	0.008980	
+RN-bN-bears.trees	Acrophoca_6.695 Agriarctos_spp_5.006 Ailurarctos_lufengensis_7.652 Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Ballusia_elmensis_14.01 Borophagus_diversidens_4.284 Canis_lupus_0.0 Helarctos_malayanus_0.0 Indarctos_arctoides_9.54 Indarctos_punjabiensis_4.996 Indarctos_vireti_8.68 Kretzoiarctos_beatrix_11.69 Leptophoca_lenis_14.99 Melursus_ursinus_0.0 Phoca_largha_0.0 Phoca_vitulina_0.805 Proneotherium_repenningi_17.92 Tremarctos_ornatus_0.0 Ursavus_brevihinus_16.2 Ursavus_primaevus_14.41 Ursus_abstrusus_4.27 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0 Zaragocyon_daamsi_21.86	28	0.174147	0.182387	0.008240	
+RN-bN-bears.trees	Ailuropoda_melanoleuca_0.0 Borophagus_diversidens_4.284	2	0.067326	0.074881	0.007555	
+RN-bN-bears.trees	Ailuropoda_melanoleuca_0.0 Phoca_vitulina_0.805	2	0.104433	0.111691	0.007258	
+RN-bN-bears.trees	Helarctos_malayanus_0.0 Melursus_ursinus_0.0 Phoca_vitulina_0.805 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0	8	0.091934	0.084842	0.007092	
+RN-bN-bears.trees	Caedocyon_tedfordi_25.88 Cormocyon_copei_26.14	2	0.096378	0.103433	0.007055	
+RN-bN-bears.trees	Phoca_largha_0.0 Ursus_abstrusus_4.27	2	0.137429	0.130615	0.006814	
+RN-bN-bears.trees	Acrophoca_6.695 Agriarctos_spp_5.006 Ailurarctos_lufengensis_7.652 Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Ballusia_elmensis_14.01 Borophagus_diversidens_4.284 Caedocyon_tedfordi_25.88 Canis_lupus_0.0 Cormocyon_copei_26.14 Enaliarctos_tedfordi_27.11 Helarctos_malayanus_0.0 Indarctos_arctoides_9.54 Indarctos_punjabiensis_4.996 Indarctos_vireti_8.68 Kretzoiarctos_beatrix_11.69 Leptophoca_lenis_14.99 Melursus_ursinus_0.0 Phoca_largha_0.0 Phoca_vitulina_0.805 Proneotherium_repenningi_17.92 Tremarctos_ornatus_0.0 Ursavus_brevihinus_16.2 Ursavus_primaevus_14.41 Ursus_abstrusus_4.27 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0 Zaragocyon_daamsi_21.86	31	0.269303	0.276043	0.006740	
+RN-bN-bears.trees	Indarctos_punjabiensis_4.996 Phoca_largha_0.0	2	0.078658	0.071992	0.006666	
+RN-bN-bears.trees	Acrophoca_6.695 Agriarctos_spp_5.006 Ailurarctos_lufengensis_7.652 Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Ballusia_elmensis_14.01 Borophagus_diversidens_4.284 Caedocyon_tedfordi_25.88 Canis_lupus_0.0 Cormocyon_copei_26.14 Enaliarctos_tedfordi_27.11 Helarctos_malayanus_0.0 Indarctos_arctoides_9.54 Indarctos_punjabiensis_4.996 Indarctos_vireti_8.68 Kretzoiarctos_beatrix_11.69 Leptophoca_lenis_14.99 Melursus_ursinus_0.0 Osbornodon_sesnoni_30.08 Parictis_montanus_36.6 Phoca_largha_0.0 Phoca_vitulina_0.805 Proneotherium_repenningi_17.92 Tremarctos_ornatus_0.0 Ursavus_brevihinus_16.2 Ursavus_primaevus_14.41 Ursus_abstrusus_4.27 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0 Zaragocyon_daamsi_21.86	33	0.697700	0.703737	0.006036	
+RN-bN-bears.trees	Ailuropoda_melanoleuca_0.0 Ursus_abstrusus_4.27	2	0.088712	0.083028	0.005685	
+RN-bN-bears.trees	Ursus_americanus_0.0 Ursus_thibetanus_0.0	2	0.098100	0.092508	0.005592	
+RN-bN-bears.trees	Ursus_arctos_0.0 Ursus_maritimus_0.0	2	0.099322	0.094027	0.005296	
+RN-bN-bears.trees	Ursus_americanus_0.0 Ursus_maritimus_0.0	2	0.093323	0.088953	0.004370	
+RN-bN-bears.trees	Arctodus_simus_0.487 Helarctos_malayanus_0.0	2	0.111265	0.115321	0.004055	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_americanus_0.0	2	0.095323	0.091656	0.003666	
+RN-bN-bears.trees	Ursus_arctos_0.0 Ursus_thibetanus_0.0	2	0.097211	0.093545	0.003666	
+RN-bN-bears.trees	Caedocyon_tedfordi_25.88 Enaliarctos_tedfordi_27.11	2	0.058105	0.061475	0.003370	
+RN-bN-bears.trees	Melursus_ursinus_0.0 Ursus_arctos_0.0	2	0.092601	0.089768	0.002833	
+RN-bN-bears.trees	Acrophoca_6.695 Agriarctos_spp_5.006 Ailurarctos_lufengensis_7.652 Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Ballusia_elmensis_14.01 Borophagus_diversidens_4.284 Caedocyon_tedfordi_25.88 Canis_lupus_0.0 Helarctos_malayanus_0.0 Indarctos_arctoides_9.54 Indarctos_punjabiensis_4.996 Indarctos_vireti_8.68 Kretzoiarctos_beatrix_11.69 Leptophoca_lenis_14.99 Melursus_ursinus_0.0 Phoca_largha_0.0 Phoca_vitulina_0.805 Proneotherium_repenningi_17.92 Tremarctos_ornatus_0.0 Ursavus_brevihinus_16.2 Ursavus_primaevus_14.41 Ursus_abstrusus_4.27 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0 Zaragocyon_daamsi_21.86	29	0.105433	0.107914	0.002481	
+RN-bN-bears.trees	Ursus_maritimus_0.0 Ursus_thibetanus_0.0	2	0.194478	0.192127	0.002352	
+RN-bN-bears.trees	Acrophoca_6.695 Agriarctos_spp_5.006 Ailurarctos_lufengensis_7.652 Ailuropoda_melanoleuca_0.0 Arctodus_simus_0.487 Ballusia_elmensis_14.01 Borophagus_diversidens_4.284 Caedocyon_tedfordi_25.88 Canis_lupus_0.0 Cormocyon_copei_26.14 Helarctos_malayanus_0.0 Indarctos_arctoides_9.54 Indarctos_punjabiensis_4.996 Indarctos_vireti_8.68 Kretzoiarctos_beatrix_11.69 Leptophoca_lenis_14.99 Melursus_ursinus_0.0 Phoca_largha_0.0 Phoca_vitulina_0.805 Proneotherium_repenningi_17.92 Tremarctos_ornatus_0.0 Ursavus_brevihinus_16.2 Ursavus_primaevus_14.41 Ursus_abstrusus_4.27 Ursus_americanus_0.0 Ursus_arctos_0.0 Ursus_maritimus_0.0 Ursus_spelaeus_0.054 Ursus_thibetanus_0.0 Zaragocyon_daamsi_21.86	30	0.117265	0.119542	0.002278	
+RN-bN-bears.trees	Borophagus_diversidens_4.284 Phoca_largha_0.0	2	0.099989	0.098137	0.001852	
+RN-bN-bears.trees	Cormocyon_copei_26.14 Enaliarctos_tedfordi_27.11	2	0.066826	0.065363	0.001463	
+RN-bN-bears.trees	Ballusia_elmensis_14.01 Ursavus_primaevus_14.41	2	0.063660	0.064956	0.001296	
+RN-bN-bears.trees	Leptophoca_lenis_14.99 Ursavus_primaevus_14.41	2	0.056605	0.057142	0.000537	

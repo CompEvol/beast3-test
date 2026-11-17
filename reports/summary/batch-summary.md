@@ -31,6 +31,10 @@
 | C27 | 2/2 | 207 | 8.229 | – | 1 | not matched |
 | C29 | 2/2 | 854 | 1.701 | 0.034 | 0 | matched |
 | C30 | 2/2 | 348 | 2.337 | 0.003 | 0 | matched |
+| R01 | 2/2 | 228 | 211.71 | 0.024 | 2 | not matched (constant `prior` offset: GTR rates scaled to sum 6 vs 1, see rc3 notes) |
+| R05 | 2/4 | 217 | 14.4 | 0.041 | 8 | not matched (2.7.9 prerelease lacks the `SampleOffValues` fix) |
+| R13 | 2/3 | 234 | 2.301 | 0.097 | 0 | matched |
+| R16 | 3/2 | 562 | 2.391 | 0.060 | 0 | matched |
 | bitflip | 2/2 | 3510 | 0 | – | 0 | matched |
 | testBSP | 2/2 | 2429 | 1.911 | 0.018 | 0 | matched |
 | testCalYule_5t_2c | 2/2 | 355 | 2.098 | 0.005 | 0 | matched |

@@ -1,0 +1,79 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus Thomomys_bottae_riparius Thomomys_umbrinus_chihuahuae	4	0.000000	0.060488	0.060488	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_riparius Thomomys_umbrinus_chihuahuae	3	0.019978	0.058824	0.038846	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus	3	0.017018	0.053274	0.036256	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_riparius	2	0.038106	0.070477	0.032371	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_riparius Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	4	0.059933	0.029412	0.030522	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_alpinus Thomomys_bottae_cactophilus Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus Thomomys_townsendii_relictus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	9	0.391787	0.421199	0.029412	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus Thomomys_townsendii_relictus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	8	0.613762	0.585461	0.028302	
+N.trees	Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus	2	0.280059	0.307436	0.027377	
+N.trees	Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_townsendii_relictus	3	0.060673	0.036071	0.024602	
+N.trees	Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus Thomomys_townsendii_relictus	4	0.200148	0.176471	0.023677	
+N.trees	Thomomys_bottae_cactophilus Thomomys_umbrinus_chihuahuae	2	0.168331	0.145394	0.022937	
+N.trees	Thomomys_bottae_ruidosae Thomomys_townsendii_relictus	2	0.207177	0.184795	0.022383	
+N.trees	Thomomys_bottae_albatus Thomomys_umbrinus_chihuahuae	2	0.302627	0.323529	0.020903	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_alpinus Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b Thomomys_bottae_bottae Thomomys_bottae_cactophilus Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus Thomomys_townsendii_relictus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	12	0.040696	0.059933	0.019238	
+N.trees	Thomomys_bottae_xerophilus Thomomys_townsendii_relictus	2	0.213097	0.194229	0.018868	
+N.trees	Thomomys_bottae_albatus Thomomys_umbrinus_atroavarius	2	0.160562	0.178690	0.018128	
+N.trees	Thomomys_bottae_riparius Thomomys_bottae_xerophilus	2	0.118017	0.099889	0.018128	
+N.trees	Thomomys_bottae_awahnee_b Thomomys_bottae_bottae	2	0.185350	0.201998	0.016648	
+N.trees	Thomomys_bottae_cactophilus Thomomys_umbrinus_atroavarius	2	0.200888	0.184240	0.016648	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_alpinus Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b Thomomys_bottae_bottae Thomomys_bottae_cactophilus Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_saxatilis Thomomys_bottae_xerophilus Thomomys_idahoensis_pygmaeus_a Thomomys_idahoensis_pygmaeus_b Thomomys_mazama_mazama Thomomys_mazama_nasicus Thomomys_monticola_a Thomomys_monticola_b Thomomys_talpoides_bridgeri Thomomys_talpoides_ocius Thomomys_talpoides_yakimensis Thomomys_townsendii_relictus Thomomys_townsendii_townsendii Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	25	0.704033	0.687569	0.016463	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b	3	0.129856	0.114317	0.015538	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	4	0.532741	0.518313	0.014428	
+N.trees	Orthogeomys_heterodus Thomomys_idahoensis_pygmaeus_a Thomomys_idahoensis_pygmaeus_b Thomomys_mazama_mazama Thomomys_mazama_nasicus Thomomys_monticola_a Thomomys_monticola_b Thomomys_talpoides_bridgeri Thomomys_talpoides_ocius Thomomys_talpoides_yakimensis	10	0.077691	0.091010	0.013319	
+N.trees	Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b Thomomys_bottae_bottae Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_saxatilis	6	0.093970	0.107103	0.013134	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus Thomomys_bottae_riparius Thomomys_townsendii_relictus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	6	0.096559	0.108768	0.012209	
+N.trees	Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus Thomomys_townsendii_relictus	3	0.271550	0.259711	0.011839	
+N.trees	Thomomys_bottae_laticeps Thomomys_bottae_saxatilis	2	0.294488	0.283019	0.011469	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b Thomomys_bottae_bottae	4	0.241213	0.230300	0.010914	
+N.trees	Thomomys_bottae_riparius Thomomys_bottae_ruidosae	2	0.104329	0.114872	0.010544	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus Thomomys_bottae_riparius Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	5	0.418054	0.408435	0.009619	
+N.trees	Thomomys_bottae_laticeps Thomomys_bottae_mewa	2	0.278579	0.288013	0.009434	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b Thomomys_bottae_bottae Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_saxatilis	7	0.141324	0.132075	0.009249	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_ruidosae	2	0.065853	0.074362	0.008509	
+N.trees	Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	2	0.166482	0.158158	0.008324	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_laticeps Thomomys_bottae_saxatilis	3	0.060673	0.052719	0.007954	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus Thomomys_umbrinus_chihuahuae	3	0.176841	0.169256	0.007584	
+N.trees	Thomomys_bottae_riparius Thomomys_umbrinus_chihuahuae	2	0.070662	0.063263	0.007399	
+N.trees	Thomomys_bottae_mewa Thomomys_bottae_saxatilis	2	0.295967	0.302997	0.007029	
+N.trees	Thomomys_bottae_cactophilus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	3	0.090640	0.097114	0.006474	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_saxatilis Thomomys_bottae_xerophilus Thomomys_townsendii_relictus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	11	0.183130	0.177026	0.006104	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus	2	0.160562	0.166482	0.005919	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_xerophilus	2	0.070292	0.064373	0.005919	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus Thomomys_umbrinus_atroavarius	3	0.087310	0.093230	0.005919	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus Thomomys_townsendii_relictus	5	0.099149	0.104883	0.005734	
+N.trees	Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b Thomomys_bottae_bottae	3	0.653348	0.648169	0.005179	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus Thomomys_townsendii_relictus	4	0.099889	0.104883	0.004994	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_saxatilis	4	0.237884	0.233074	0.004809	
+N.trees	Thomomys_idahoensis_pygmaeus_a Thomomys_idahoensis_pygmaeus_b Thomomys_talpoides_bridgeri Thomomys_talpoides_yakimensis	4	0.982242	0.977802	0.004440	
+N.trees	Thomomys_bottae_riparius Thomomys_umbrinus_atroavarius	2	0.082131	0.077691	0.004440	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_laticeps Thomomys_bottae_mewa	3	0.055124	0.059378	0.004255	
+N.trees	Thomomys_bottae_albatus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	3	0.173881	0.169811	0.004070	
+N.trees	Thomomys_bottae_awahnee_a Thomomys_bottae_bottae	2	0.108398	0.104329	0.004070	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_alpinus Thomomys_bottae_cactophilus Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_saxatilis Thomomys_bottae_xerophilus Thomomys_townsendii_relictus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	12	0.443581	0.439512	0.004070	
+N.trees	Orthogeomys_heterodus Thomomys_bottae_albatus Thomomys_bottae_alpinus Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b Thomomys_bottae_bottae Thomomys_bottae_cactophilus Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_saxatilis Thomomys_bottae_xerophilus Thomomys_townsendii_relictus Thomomys_townsendii_townsendii Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	17	0.218276	0.221421	0.003145	
+N.trees	Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_xerophilus	3	0.096189	0.099334	0.003145	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_saxatilis	2	0.068073	0.064928	0.003145	
+N.trees	Thomomys_bottae_riparius Thomomys_bottae_xerophilus Thomomys_townsendii_relictus	3	0.058084	0.054939	0.003145	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_cactophilus Thomomys_townsendii_relictus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	5	0.070662	0.067703	0.002960	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_laticeps	2	0.078801	0.076027	0.002775	
+N.trees	Thomomys_bottae_alpinus Thomomys_townsendii_relictus	2	0.064373	0.061598	0.002775	
+N.trees	Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_saxatilis	3	0.595265	0.597669	0.002405	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_awahnee_a	2	0.082871	0.080466	0.002405	
+N.trees	Thomomys_idahoensis_pygmaeus_a Thomomys_idahoensis_pygmaeus_b Thomomys_mazama_mazama Thomomys_mazama_nasicus Thomomys_talpoides_bridgeri Thomomys_talpoides_ocius Thomomys_talpoides_yakimensis	7	0.135405	0.133740	0.001665	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_awahnee_b	2	0.082131	0.083796	0.001665	
+N.trees	Thomomys_mazama_mazama Thomomys_mazama_nasicus Thomomys_monticola_a Thomomys_monticola_b	4	0.184980	0.185905	0.000925	
+N.trees	Thomomys_bottae_riparius Thomomys_townsendii_relictus	2	0.111358	0.110433	0.000925	
+N.trees	Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b	2	0.563448	0.564373	0.000925	
+N.trees	Thomomys_idahoensis_pygmaeus_a Thomomys_idahoensis_pygmaeus_b Thomomys_mazama_mazama Thomomys_mazama_nasicus Thomomys_monticola_a Thomomys_monticola_b Thomomys_talpoides_bridgeri Thomomys_talpoides_ocius Thomomys_talpoides_yakimensis	9	0.999260	1.000000	0.000740	
+N.trees	Thomomys_idahoensis_pygmaeus_a Thomomys_idahoensis_pygmaeus_b Thomomys_monticola_a Thomomys_monticola_b Thomomys_talpoides_bridgeri Thomomys_talpoides_ocius Thomomys_talpoides_yakimensis	7	0.679615	0.680355	0.000740	
+N.trees	Thomomys_bottae_cactophilus Thomomys_bottae_riparius	2	0.073252	0.073807	0.000555	
+N.trees	Thomomys_talpoides_bridgeri Thomomys_talpoides_yakimensis	2	0.995191	0.995560	0.000370	
+N.trees	Thomomys_idahoensis_pygmaeus_a Thomomys_idahoensis_pygmaeus_b Thomomys_talpoides_bridgeri Thomomys_talpoides_ocius Thomomys_talpoides_yakimensis	5	0.999630	0.999445	0.000185	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_alpinus Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b Thomomys_bottae_bottae Thomomys_bottae_cactophilus Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_saxatilis Thomomys_bottae_xerophilus Thomomys_townsendii_relictus Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	15	0.999630	0.999445	0.000185	
+N.trees	Thomomys_bottae_alpinus Thomomys_bottae_mewa	2	0.070292	0.070477	0.000185	
+N.trees	Thomomys_idahoensis_pygmaeus_a Thomomys_idahoensis_pygmaeus_b	2	1.000000	1.000000	0.000000	
+N.trees	Thomomys_mazama_mazama Thomomys_mazama_nasicus	2	1.000000	1.000000	0.000000	
+N.trees	Thomomys_monticola_a Thomomys_monticola_b	2	1.000000	1.000000	0.000000	
+N.trees	Thomomys_bottae_albatus Thomomys_bottae_alpinus Thomomys_bottae_awahnee_a Thomomys_bottae_awahnee_b Thomomys_bottae_bottae Thomomys_bottae_cactophilus Thomomys_bottae_laticeps Thomomys_bottae_mewa Thomomys_bottae_riparius Thomomys_bottae_ruidosae Thomomys_bottae_saxatilis Thomomys_bottae_xerophilus Thomomys_townsendii_relictus Thomomys_townsendii_townsendii Thomomys_umbrinus_atroavarius Thomomys_umbrinus_chihuahuae	16	1.000000	1.000000	0.000000	

@@ -613,12 +613,22 @@ class ColumnMap(OrderedDict):
     """A column map: A column -> B column, plus directives (lines starting with '!'):
 
         !exclude<TAB>REGEX<TAB>reason    do not compare columns matching REGEX (full match)
-        !branch-meta<TAB>KEY             compare the tree-log branch metadata KEY (e.g. rate) by clade"""
+        !branch-meta<TAB>KEY             compare the tree-log branch metadata KEY (e.g. rate) by clade
+        !scale-a<TAB>REGEX<TAB>FACTOR<TAB>reason
+                                         multiply set A columns matching REGEX by FACTOR before comparing
+                                         (e.g. GTR rates that sum to 6 in A and to 1 in B)"""
 
     def __init__(self):
         OrderedDict.__init__(self)
         self.exclude = []
         self.branch_meta = None
+        self.scale_a = []
+
+
+def _factor(text):
+    """A number, or a ratio such as 1/6."""
+    num, _, den = text.partition("/")
+    return float(num) / float(den) if den else float(num)
 
 
 def read_map(path):
@@ -634,6 +644,8 @@ def read_map(path):
                 d = f[0][1:]
                 if d == "exclude" and len(f) >= 2:
                     m.exclude.append((re.compile(f[1]), f[2] if len(f) > 2 else ""))
+                elif d == "scale-a" and len(f) >= 3:
+                    m.scale_a.append((re.compile(f[1]), _factor(f[2]), f[3] if len(f) > 3 else ""))
                 elif d == "branch-meta" and len(f) >= 2:
                     m.branch_meta = f[1]
                 else:
@@ -844,9 +856,22 @@ def run_comparison(name, side_a, side_b, opts, mapping):
         only_b = [c for c in cols_b if c not in taken_b]
         title = ka.replace("#", "N") if ka == kb else "%s / %s" % (ka.replace("#", "N"), kb.replace("#", "N"))
         rows, consts = [], []
+        def scale_of(c):
+            for rx, k, _ in mapping.scale_a:
+                if rx.fullmatch(c):
+                    return k
+            return None
+        for rx, k, why in mapping.scale_a:
+            hits = [ca for ca, _ in matched if rx.fullmatch(ca)]
+            if hits:
+                F.append(("NOTE", "%d %s column(s) matching `%s` multiplied by %s before comparing%s (column map)"
+                          % (len(hits), la, rx.pattern, fmt(k), ": " + why if why else "")))
         for ca, cb in matched:
-            nm = ca if ca == cb else "%s → %s" % (ca, cb)
-            r = compare_columns(nm, ca, cb, [t.columns[ca] for t in ta], [t.columns[cb] for t in tb], opts)
+            k = scale_of(ca)
+            sa = ca if k is None else "%s × %s" % (ca, fmt(k))
+            nm = sa if ca == cb else "%s → %s" % (sa, cb)
+            va = [t.columns[ca] if k is None else [x * k for x in t.columns[ca]] for t in ta]
+            r = compare_columns(nm, ca, cb, va, [t.columns[cb] for t in tb], opts)
             r.section = title
             (consts if (r.a.constant and r.b.constant) else rows).append(r)
             if ca != cb:

@@ -1,0 +1,16 @@
+# R01: GTR + G4 + I. The 2.7.9 side uses SSM's GTR, whose Dirichlet prior is on rates that sum
+# to 6; BEAUti 3's GTR (beast3#251) puts the same Dirichlet(1,...,1) on a simplex that sums to 1.
+# So the SSM rates are divided by 6 before comparing. The change of scale shifts the log prior by
+# 5 ln 6 = 8.96, so `prior` and `posterior` are flagged with a constant offset; the likelihood
+# is unaffected.
+!scale-a	Rate[A-Z]{2}-Standard_GTR	1/6	SSM rates sum to 6, BEAST 3 rates to 1
+RateAC-Standard_GTR	gtrRates.AC
+RateAG-Standard_GTR	gtrRates.AG
+RateAT-Standard_GTR	gtrRates.AT
+RateCG-Standard_GTR	gtrRates.CG
+RateCT-Standard_GTR	gtrRates.CT
+RateGT-Standard_GTR	gtrRates.GT
+GTRfreqParameter.1	freqParameter.1
+GTRfreqParameter.2	freqParameter.2
+GTRfreqParameter.3	freqParameter.3
+GTRfreqParameter.4	freqParameter.4

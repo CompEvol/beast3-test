@@ -1,0 +1,8 @@
+# R16: StarBeast3 with the relaxed species-tree clock. BEAUti 2.7's StarBeast3 template also logs
+# beastlabs TreeDistanceLogger columns (each gene tree's distance to its NJ and UPGMA tree) and the
+# per-branch popSize.N, which BEAST 3 does not log. The tree distances change only when a gene-tree
+# topology changes, so they mix slowly (ESS < 30 in some 100M-step replicates) and get no better
+# with longer chains; the gene-tree topologies themselves are compared from the tree files.
+SpeciesTreeRelaxedClockSD.Species	SpeciesTreeRelaxedClockSD
+!exclude	TreeDistance(NJ|UPGMA)\.t:\d+\.treeDistance	BEAST 2 only (beastlabs diagnostic), mixes slowly
+!exclude	popSize\.\d+	BEAST 2 only
