@@ -5,7 +5,7 @@ R01	explained	GTR rates match once SSM's (sum 6) are divided by 6 (`reports/maps
 R02	none	
 R03	none	
 R04	none	
-R05	blocked	BEAST 3 rc3 has the `SampleOffValues` fix (accepted 100 %), the 2.7.9 prerelease doesn't (1.5 %): `prior` 66.7 lower in BEAST 3, as expected. Tree, likelihood, clock rate match. Rerun the BEAST 2 side with BEAST.base from beast2 master (in Dropbox, `beast2-2.7.9-SampleOffValues-fix`).
+R05	pass	BEAST 2 side rerun with the `SampleOffValues` fix (BEAST.base from beast2 master): all shared columns match, `prior` now agrees (z 0.93). Max z 2.48, min ESS 373. rc3 replicates disagree with each other on `indicators.alltrees.62` (z 3.4); the versions agree on it.
 R06	none	
 R07	none	
 R08	none	
