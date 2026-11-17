@@ -191,18 +191,118 @@ Writing file test.766755024.trees
          980000     -3937.1415 4s/Msamples
          990000     -3941.0514 4s/Msamples
         1000000     -3947.4052 4s/Msamples
+        1010000     -3946.5644 4s/Msamples
+        1020000     -3944.2531 4s/Msamples
+        1030000     -3937.8126 4s/Msamples
+        1040000     -3944.3364 4s/Msamples
+        1050000     -3939.9570 4s/Msamples
+        1060000     -3946.1833 4s/Msamples
+        1070000     -3937.5875 4s/Msamples
+        1080000     -3934.3322 4s/Msamples
+        1090000     -3951.8340 4s/Msamples
+        1100000     -3949.6124 4s/Msamples
+        1110000     -3956.3732 4s/Msamples
+        1120000     -3938.0100 4s/Msamples
+        1130000     -3942.9036 4s/Msamples
+        1140000     -3947.8100 4s/Msamples
+        1150000     -3942.8271 4s/Msamples
+        1160000     -3953.1163 4s/Msamples
+        1170000     -3948.9005 4s/Msamples
+        1180000     -3948.9625 4s/Msamples
+        1190000     -3933.0355 4s/Msamples
+        1200000     -3951.7487 4s/Msamples
+        1210000     -3947.2434 4s/Msamples
+        1220000     -3939.6351 4s/Msamples
+        1230000     -3949.1443 4s/Msamples
+        1240000     -3939.3547 4s/Msamples
+        1250000     -3948.1859 4s/Msamples
+        1260000     -3973.6989 4s/Msamples
+        1270000     -3942.2561 4s/Msamples
+        1280000     -3942.1588 4s/Msamples
+        1290000     -3934.0512 4s/Msamples
+        1300000     -3957.7978 4s/Msamples
+        1310000     -3937.3422 4s/Msamples
+        1320000     -3951.5434 4s/Msamples
+        1330000     -3944.8264 4s/Msamples
+        1340000     -3966.6616 4s/Msamples
+        1350000     -3945.9061 4s/Msamples
+        1360000     -3941.6665 4s/Msamples
+        1370000     -3952.6254 4s/Msamples
+        1380000     -3951.6832 4s/Msamples
+        1390000     -3946.2610 4s/Msamples
+        1400000     -3947.4439 4s/Msamples
+        1410000     -3957.1317 4s/Msamples
+        1420000     -3951.9041 4s/Msamples
+        1430000     -3934.1484 4s/Msamples
+        1440000     -3934.4579 4s/Msamples
+        1450000     -3946.4283 4s/Msamples
+        1460000     -3947.1916 4s/Msamples
+        1470000     -3950.9296 4s/Msamples
+        1480000     -3943.2089 4s/Msamples
+        1490000     -3949.3745 4s/Msamples
+        1500000     -3951.6798 4s/Msamples
+        1510000     -3959.2824 4s/Msamples
+        1520000     -3945.1426 4s/Msamples
+        1530000     -3938.9414 4s/Msamples
+        1540000     -3959.6236 4s/Msamples
+        1550000     -3950.6221 4s/Msamples
+        1560000     -3944.2089 4s/Msamples
+        1570000     -3965.7245 4s/Msamples
+        1580000     -3949.7448 4s/Msamples
+        1590000     -3948.9250 4s/Msamples
+        1600000     -3953.5432 4s/Msamples
+        1610000     -3945.8684 4s/Msamples
+        1620000     -3951.3153 4s/Msamples
+        1630000     -3954.2439 4s/Msamples
+        1640000     -3954.2804 4s/Msamples
+        1650000     -3962.7738 4s/Msamples
+        1660000     -3953.3434 4s/Msamples
+        1670000     -3956.8071 4s/Msamples
+        1680000     -3945.8314 4s/Msamples
+        1690000     -3953.5963 4s/Msamples
+        1700000     -3948.7682 4s/Msamples
+        1710000     -3925.3539 4s/Msamples
+        1720000     -3923.2687 4s/Msamples
+        1730000     -3953.3514 4s/Msamples
+        1740000     -3941.4837 4s/Msamples
+        1750000     -3947.3507 4s/Msamples
+        1760000     -3964.0984 4s/Msamples
+        1770000     -3951.3505 4s/Msamples
+        1780000     -3949.0076 4s/Msamples
+        1790000     -3940.4901 4s/Msamples
+        1800000     -3943.1480 4s/Msamples
+        1810000     -3945.1413 4s/Msamples
+        1820000     -3944.4805 4s/Msamples
+        1830000     -3946.1465 4s/Msamples
+        1840000     -3953.0783 4s/Msamples
+        1850000     -3949.3277 4s/Msamples
+        1860000     -3941.4323 4s/Msamples
+        1870000     -3940.3998 4s/Msamples
+        1880000     -3949.8045 4s/Msamples
+        1890000     -3946.4171 4s/Msamples
+        1900000     -3962.0427 4s/Msamples
+        1910000     -3942.8649 4s/Msamples
+        1920000     -3945.2490 4s/Msamples
+        1930000     -3950.3262 4s/Msamples
+        1940000     -3948.6473 4s/Msamples
+        1950000     -3955.4108 4s/Msamples
+        1960000     -3938.7086 4s/Msamples
+        1970000     -3940.4964 4s/Msamples
+        1980000     -3958.5234 4s/Msamples
+        1990000     -3942.6087 4s/Msamples
+        2000000     -3943.2612 4s/Msamples
 
 Operator                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-TipDatesRandomWalker(TipDatesRandomWalker)     3.86147      11256      32204    0.04348    0.25900 
-TipDatesRandomWalker(TipDatesRandomWalker2)    5.62525      12272      31045    0.04348    0.28331 
-ScaleOperator(kappaScaler)                     0.37472      10588      32907    0.04348    0.24343 
-ScaleOperator(clockRateScaler)                 0.67213       9399      34078    0.04348    0.21618 
-ScaleOperator(treeScaler)                      0.90390       1510      41571    0.04348    0.03505 Try setting scaleFactor to about 0.951
-Uniform(unknown)                                     -     146454     288691    0.43478    0.33656 
-SubtreeSlide(unknown)                          1.75449      52776     164733    0.21739    0.24264 
-Exchange(narrow)                                     -       2858      40237    0.04348    0.06632 
-Exchange(wide)                                       -        140      43423    0.04348    0.00321 
-WilsonBalding(unknown)                               -        179      43680    0.04348    0.00408 
+TipDatesRandomWalker(TipDatesRandomWalker)     3.91882      22338      64651    0.04348    0.25679 
+TipDatesRandomWalker(TipDatesRandomWalker2)    5.72086      23580      63407    0.04348    0.27107 
+ScaleOperator(kappaScaler)                     0.37429      20901      65970    0.04348    0.24060 
+ScaleOperator(clockRateScaler)                 0.67484      18780      68080    0.04348    0.21621 
+ScaleOperator(treeScaler)                      0.91487       3486      82928    0.04348    0.04034 Try setting scaleFactor to about 0.956
+Uniform(unknown)                                     -     293259     576434    0.43478    0.33720 
+SubtreeSlide(unknown)                          1.76066     104890     330486    0.21739    0.24092 
+Exchange(narrow)                                     -       5753      80799    0.04348    0.06647 
+Exchange(wide)                                       -        282      86746    0.04348    0.00324 
+WilsonBalding(unknown)                               -        365      86866    0.04348    0.00418 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -211,5 +311,5 @@ WilsonBalding(unknown)                               -        179      43680    
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 4.535 seconds
+Total calculation time: 9.188 seconds
 Done!

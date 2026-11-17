@@ -1,4 +1,4 @@
-File: testTipDates.xml seed: 894497562 threads: 1
+File: testTipDates.xml seed: 520154643 threads: 1
 Loading package feast v10.6.1 bModelTest v1.3.3 starbeast3 v1.2.1 CCD v1.0.3 SA v2.1.1 BEAST.base v2.7.9 BEASTLabs v2.0.3 BEAST.app v2.7.8 ORC v1.2.1    
     D4Brazi82  = 1982
     D4ElSal83  = 1983
@@ -30,4 +30,4 @@ WARNING: Loggers appear to have different log frequency.
 WARNING: This may cause problems in post-processing based on more than one log files.
 WARNING: Therefore, it is recommended to use the same log frequency
 Hint: note that TreeWithMetaDataLogger with dp="X" prints out trees with decimal places, potentially reducing tree file sizes substantially.
-End likelihood: -4062.1513097850598
+End likelihood: -4063.178643238214

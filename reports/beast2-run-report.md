@@ -10,8 +10,10 @@ Run on 2026-11-10 by `scripts/run_examples.sh beast2`. The earlier Java 17 runs 
 - ✅ **48 / 48 replicates finished.** Every `beast.out` ends with `Done!`, and no run failed.
 - ✅ **Java 25 gives the same results as Java 17** (same seeds; see the comparison below).
 - ✅ **Java 25 is faster:** 12–45% less run time per example.
-- ⚠ **4 of the 8 MCMC examples have a min ESS below 200:** testRandomLocalClock, testRelaxedClock, testTipDates
-  and testSimulatedAlignment. They are short example chains and score the same on Java 17, so these are not failures.
+- ⚠ **3 of the 8 MCMC examples have a min ESS below 200:** testRandomLocalClock, testRelaxedClock and
+  testSimulatedAlignment. They are short example chains and score the same on Java 17, so these are not failures.
+- ↻ **testTipDates was re-run on 2026-11-17 with a doubled chain length** (2,000,000 instead of 1,000,000), as
+  2 of its 4 original replicates had a min ESS below 200 (43 and 155). Its min ESS is now 271.
 - ⚠ **New warning on Java 25:** BEAGLE uses a "restricted method", which a future Java will block (see Warnings).
 
 ## Summary
@@ -26,7 +28,7 @@ about 0.1%. Min ESS is the lowest value over all non-constant columns of all `*.
 | testRandomLocalClock | MCMC | 4/4 | 3.9 – 4.0 | 74 KB | 50 KB | 7 ⚠ (posterior, rep2) |
 | testRelaxedClock | MCMC | 4/4 | 2.7 | 183 KB | 2 × 287 KB ¹ | 42 ⚠ (posterior, rep1) |
 | testUCLNclock (JSON) | MCMC | 4/4 | 51 – 52 | 3.2 MB | 8.6 MB | 321 (freqParameter.4, rep1) |
-| testTipDates | MCMC | 4/4 | 4.5 – 4.6 | 177 KB | 70 KB | 43 ⚠ (likelihood, rep1) |
+| testTipDates ⁶ | MCMC | 4/4 | 8.2 – 9.3 | 354 KB | 138 KB | 271 (likelihood, rep2) |
 | testTipDates2 | MCMC | 4/4 | 66 | 274 KB | 508 KB | 652 (freqParameter.2, rep2) |
 | testSRD06 | MCMC | 4/4 | 79 – 80 | 257 KB | 508 KB ² | 563 (thirdSites.hky.kappa, rep3) |
 | testMultipleAlignments_randomTaxaOrder | MCMC | 4/4 | 498 – 502 | 3.5 MB | 3 × 228 KB ³ | 651 (gammaShape, rep4) |
@@ -41,6 +43,10 @@ about 0.1%. Min ESS is the lowest value over all non-constant columns of all `*.
    The file-name pattern in the XML is probably wrong.
 ³ One tree file per gene (gene1–3).
 ⁴ No output files. The simulated alignment goes into `beast.out` (about 20 KB).
+⁶ Re-run on 2026-11-17 with `chainLength` 2,000,000, twice the example's 1,000,000, so it logs 2001 samples
+   (1801 after burn-in). rep1 and rep4 also have new seeds: with their original seeds (505579092, 894497562) the
+   doubled chains still had a min ESS of 69 and 181. These two no longer share seeds with the BEAST 3 runs.
+   The original 1,000,000 runs had min ESS 43, 218, 155 and 350, run times 4.5 – 4.6 s, 177 KB `.log` and 70 KB `.trees`.
 
 ## Java 25 vs Java 17
 
@@ -50,7 +56,7 @@ Both sets used the same seeds, so a Java change that broke something would show 
 |---|---|---|--:|
 | testRandomLocalClock | ✅ identical up to rounding (≤ 1e-10) | – | 6.3 → 3.9 s (−37%) |
 | testRelaxedClock | ✅ identical up to rounding | – | 4.8 → 2.7 s (−45%) |
-| testTipDates | ✅ identical up to rounding | – | 7.4 → 4.5 s (−38%) |
+| testTipDates ⁷ | ✅ identical up to rounding | – | 7.4 → 4.5 s (−38%) |
 | testSRD06 | ✅ identical up to rounding | – | 100 → 80 s (−20%) |
 | testUCLNclock | ↪ chains part ways in 2 of 4 reps ⁵ | ✅ matched (max z 0.6) | 68 → 52 s (−24%) |
 | testTipDates2 | ↪ chains part ways in 3 of 4 reps ⁵ | ✅ matched (max z 1.2) | 87 → 66 s (−24%) |
@@ -66,6 +72,7 @@ Both sets used the same seeds, so a Java change that broke something would show 
    random paths. This is expected. What matters is that they sample the same posterior, which
    `scripts/compare.py` confirms: every parameter mean agrees (z well below the flag level of 3) and clade
    frequencies differ by at most 0.04.
+⁷ Compared with the original 1,000,000-step Java 25 runs of 2026-11-10, which have since been replaced (see ⁶).
 
 ## Warnings in `beast.err`
 
@@ -107,13 +114,13 @@ beast3 repo.
 
 - Launcher: `/Applications/BEAST 2.7.7/bin/beast`. Its `-version` output starts with `BEAST v2.7.7`, which is the launcher's own version. The version that runs is **BEAST.base v2.7.9**, from the full list: BEAST v2.7.7, feast v10.6.1, bModelTest v1.3.3, starbeast3 v1.2.1, CCD v1.0.3, SA v2.1.1, BEAST.base v2.7.9, BEASTLabs v2.0.3, BEAST.app v2.7.8, ORC v1.2.1.
 - BEAST options: `-working -beagle_SSE -seed <seed>`
-- XMLs: copied by `scripts/copy_examples.sh` into `beast2/xml/` on 2026-11-09 from the `legacy/` folders of the examples of `../beast3`, branch `master`, commit 8cb5fd0. testSeqGen and testSimulatedAlignment were then edited to write the deprecated `SiteModel` by its full class name (see the beast-fx section above). Recorded per example in `beast2/log/run_examples.tsv`.
+- XMLs: copied by `scripts/copy_examples.sh` into `beast2/xml/` on 2026-11-09 (testTipDates was then edited to `chainLength="2000000"`, see ⁶) from the `legacy/` folders of the examples of `../beast3`, branch `master`, commit 8cb5fd0. testSeqGen and testSimulatedAlignment were then edited to write the deprecated `SiteModel` by its full class name (see the beast-fx section above). Recorded per example in `beast2/log/run_examples.tsv`.
 - Java: **25.0.2**. BEAST.base 2.7.9 has no app or launcher of its own yet, so it runs through the launcher of the
   installed BEAST 2.7.7 app. That launcher normally always uses the Java 17 bundled with the app. BEAST 2.7.9 is
   meant to run on Java 25, so the launcher was changed to use the computer's Java 25 instead (the original is
   kept as `bin/beast.orig`). The BEAST and Java versions of every run are recorded in `beast2/log/run_examples.tsv`
   and in `run_info.txt` in each replicate folder.
-- Run date: 2026-11-10
+- Run date: 2026-11-10; testTipDates re-run on 2026-11-17
 - Machine: Darwin 25.6.0 (arm64)
 - Replicates: 4 per example, 4 run at a time; seed per replicate in `beast.out`, the same as the BEAST 3 runs
   and the Java 17 runs
@@ -138,10 +145,10 @@ beast3 repo.
 | testUCLNclock | rep2 | 998153067 | completed | 51 | 9001 | 399 | freqParameter.1 (dna.log) |
 | testUCLNclock | rep3 | 1067999948 | completed | 52 | 9001 | 523 | freqParameter.1 (dna.log) |
 | testUCLNclock | rep4 | 887198521 | completed | 52 | 9001 | 404 | freqParameter.1 (dna.log) |
-| testTipDates | rep1 | 505579092 | completed | 4 | 901 | 43 ⚠ | likelihood (test.505579092.log) |
-| testTipDates | rep2 | 712860779 | completed | 5 | 901 | 218 | likelihood (test.712860779.log) |
-| testTipDates | rep3 | 766755024 | completed | 5 | 901 | 155 ⚠ | likelihood (test.766755024.log) |
-| testTipDates | rep4 | 894497562 | completed | 5 | 901 | 350 | likelihood (test.894497562.log) |
+| testTipDates | rep1 | 171681931 | completed | 9 | 1801 | 783 | likelihood (test.171681931.log) |
+| testTipDates | rep2 | 712860779 | completed | 9 | 1801 | 271 | likelihood (test.712860779.log) |
+| testTipDates | rep3 | 766755024 | completed | 9 | 1801 | 392 | likelihood (test.766755024.log) |
+| testTipDates | rep4 | 520154643 | completed | 8 | 1801 | 412 | tree.treeLength (test.520154643.log) |
 | testTipDates2 | rep1 | 204377550 | completed | 66 | 901 | 671 | freqParameter.1 (beast_204377550.log) |
 | testTipDates2 | rep2 | 618627302 | completed | 66 | 901 | 652 | freqParameter.2 (beast_618627302.log) |
 | testTipDates2 | rep3 | 547306038 | completed | 66 | 901 | 716 | freqParameter.3 (beast_547306038.log) |

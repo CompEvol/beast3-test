@@ -32,7 +32,7 @@ Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel,
                                Thanks to:
           Roald Forsberg, Beth Shapiro and Korbinian Strimmer
 
-Random number seed: 505579092
+Random number seed: 171681931
 
 D4Brazi82: 1485 4
 D4ElSal83: 1485 4
@@ -87,122 +87,222 @@ Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a
 
 ===============================================================================
 Start likelihood: -31204.48754592617 
-Writing file test.505579092.log
-Writing file test.505579092.trees
+Writing file test.171681931.log
+Writing file test.171681931.trees
          Sample     likelihood
               0    -30954.4149 --
-          10000     -3957.2912 --
-          20000     -3946.9540 --
-          30000     -3947.9533 --
-          40000     -3948.0342 --
-          50000     -3939.7765 --
-          60000     -3961.5288 4s/Msamples
-          70000     -3950.7805 4s/Msamples
-          80000     -3944.4855 4s/Msamples
-          90000     -3937.6641 4s/Msamples
-         100000     -3937.9001 4s/Msamples
-         110000     -3953.6431 4s/Msamples
-         120000     -3923.8380 4s/Msamples
-         130000     -3928.9052 4s/Msamples
-         140000     -3951.6326 4s/Msamples
-         150000     -3947.1422 4s/Msamples
-         160000     -3948.4471 4s/Msamples
-         170000     -3951.4744 4s/Msamples
-         180000     -3942.3729 4s/Msamples
-         190000     -3944.7444 4s/Msamples
-         200000     -3950.2733 4s/Msamples
-         210000     -3935.7626 4s/Msamples
-         220000     -3945.3185 4s/Msamples
-         230000     -3949.0685 4s/Msamples
-         240000     -3939.6537 4s/Msamples
-         250000     -3937.4893 4s/Msamples
-         260000     -3950.7902 4s/Msamples
-         270000     -3940.2312 4s/Msamples
-         280000     -3957.8871 4s/Msamples
-         290000     -3949.4472 4s/Msamples
-         300000     -3948.7979 4s/Msamples
-         310000     -3941.5932 4s/Msamples
-         320000     -3954.7368 4s/Msamples
-         330000     -3944.4362 4s/Msamples
-         340000     -3942.6713 4s/Msamples
-         350000     -3941.8193 4s/Msamples
-         360000     -3941.9021 4s/Msamples
-         370000     -3955.6430 4s/Msamples
-         380000     -3945.3074 4s/Msamples
-         390000     -3943.9981 4s/Msamples
-         400000     -3937.5257 4s/Msamples
-         410000     -3962.5447 4s/Msamples
-         420000     -3941.1246 4s/Msamples
-         430000     -3949.5652 4s/Msamples
-         440000     -3948.6297 4s/Msamples
-         450000     -3946.6112 4s/Msamples
-         460000     -3938.0030 4s/Msamples
-         470000     -3938.2659 4s/Msamples
-         480000     -3947.7854 4s/Msamples
-         490000     -3953.8661 4s/Msamples
-         500000     -3943.6452 4s/Msamples
-         510000     -3950.4439 4s/Msamples
-         520000     -3946.5907 4s/Msamples
-         530000     -3934.7341 4s/Msamples
-         540000     -3952.5642 4s/Msamples
-         550000     -3949.2886 4s/Msamples
-         560000     -3939.8724 4s/Msamples
-         570000     -3956.8570 4s/Msamples
-         580000     -3959.7558 4s/Msamples
-         590000     -3948.5458 4s/Msamples
-         600000     -3942.2191 4s/Msamples
-         610000     -3951.5876 4s/Msamples
-         620000     -3946.0212 4s/Msamples
-         630000     -3946.3117 4s/Msamples
-         640000     -3942.9967 4s/Msamples
-         650000     -3952.3365 4s/Msamples
-         660000     -3954.4615 4s/Msamples
-         670000     -3973.2590 4s/Msamples
-         680000     -3934.7003 4s/Msamples
-         690000     -3959.0017 4s/Msamples
-         700000     -3941.6992 4s/Msamples
-         710000     -3945.3456 4s/Msamples
-         720000     -3941.0495 4s/Msamples
-         730000     -3954.2769 4s/Msamples
-         740000     -3940.1174 4s/Msamples
-         750000     -3947.5547 4s/Msamples
-         760000     -3947.0839 4s/Msamples
-         770000     -3948.6912 4s/Msamples
-         780000     -3937.5968 4s/Msamples
-         790000     -3955.6707 4s/Msamples
-         800000     -3954.4723 4s/Msamples
-         810000     -3940.5531 4s/Msamples
-         820000     -3951.1667 4s/Msamples
-         830000     -3966.2454 4s/Msamples
-         840000     -3941.5101 4s/Msamples
-         850000     -3958.2436 4s/Msamples
-         860000     -3942.6854 4s/Msamples
-         870000     -3940.6549 4s/Msamples
-         880000     -3949.2773 4s/Msamples
-         890000     -3937.0517 4s/Msamples
-         900000     -3947.5523 4s/Msamples
-         910000     -3936.3539 4s/Msamples
-         920000     -3950.8198 4s/Msamples
-         930000     -3921.0338 4s/Msamples
-         940000     -3924.5003 4s/Msamples
-         950000     -3917.0168 4s/Msamples
-         960000     -3946.4919 4s/Msamples
-         970000     -3941.8308 4s/Msamples
-         980000     -3926.5322 4s/Msamples
-         990000     -3922.9786 4s/Msamples
-        1000000     -3921.4177 4s/Msamples
+          10000     -3936.9274 --
+          20000     -3948.2854 --
+          30000     -3954.0833 --
+          40000     -3956.9731 --
+          50000     -3944.2748 --
+          60000     -3947.6299 4s/Msamples
+          70000     -3938.6913 4s/Msamples
+          80000     -3952.0040 4s/Msamples
+          90000     -3953.4441 4s/Msamples
+         100000     -3943.7629 4s/Msamples
+         110000     -3944.4962 4s/Msamples
+         120000     -3967.4176 4s/Msamples
+         130000     -3951.4711 4s/Msamples
+         140000     -3949.6811 4s/Msamples
+         150000     -3934.5716 4s/Msamples
+         160000     -3926.8783 4s/Msamples
+         170000     -3933.9707 4s/Msamples
+         180000     -3939.0607 4s/Msamples
+         190000     -3947.7817 4s/Msamples
+         200000     -3939.6997 4s/Msamples
+         210000     -3948.5876 4s/Msamples
+         220000     -3944.5654 4s/Msamples
+         230000     -3942.6731 4s/Msamples
+         240000     -3942.9313 4s/Msamples
+         250000     -3952.5712 4s/Msamples
+         260000     -3949.8194 4s/Msamples
+         270000     -3944.5064 4s/Msamples
+         280000     -3963.5382 4s/Msamples
+         290000     -3961.5421 4s/Msamples
+         300000     -3950.3334 4s/Msamples
+         310000     -3943.0726 4s/Msamples
+         320000     -3951.4115 4s/Msamples
+         330000     -3965.8657 4s/Msamples
+         340000     -3946.0664 4s/Msamples
+         350000     -3943.3793 4s/Msamples
+         360000     -3949.4489 4s/Msamples
+         370000     -3943.4582 4s/Msamples
+         380000     -3946.6248 4s/Msamples
+         390000     -3944.9757 4s/Msamples
+         400000     -3941.3558 4s/Msamples
+         410000     -3948.9166 4s/Msamples
+         420000     -3942.9037 4s/Msamples
+         430000     -3964.8619 4s/Msamples
+         440000     -3938.6510 4s/Msamples
+         450000     -3956.0722 4s/Msamples
+         460000     -3946.4585 4s/Msamples
+         470000     -3955.9774 4s/Msamples
+         480000     -3942.0008 4s/Msamples
+         490000     -3950.2629 4s/Msamples
+         500000     -3941.8793 4s/Msamples
+         510000     -3951.2306 4s/Msamples
+         520000     -3960.7193 4s/Msamples
+         530000     -3945.6570 4s/Msamples
+         540000     -3960.8305 4s/Msamples
+         550000     -3961.6633 4s/Msamples
+         560000     -3946.5385 4s/Msamples
+         570000     -3962.7122 4s/Msamples
+         580000     -3941.5268 4s/Msamples
+         590000     -3961.7625 4s/Msamples
+         600000     -3940.9205 4s/Msamples
+         610000     -3947.8992 4s/Msamples
+         620000     -3947.7142 4s/Msamples
+         630000     -3947.7331 4s/Msamples
+         640000     -3942.1745 4s/Msamples
+         650000     -3947.3527 4s/Msamples
+         660000     -3947.9428 4s/Msamples
+         670000     -3946.8066 4s/Msamples
+         680000     -3957.4733 4s/Msamples
+         690000     -3948.6481 4s/Msamples
+         700000     -3947.1911 4s/Msamples
+         710000     -3953.9842 4s/Msamples
+         720000     -3944.5001 4s/Msamples
+         730000     -3941.5365 4s/Msamples
+         740000     -3944.7320 4s/Msamples
+         750000     -3957.6376 4s/Msamples
+         760000     -3945.8619 4s/Msamples
+         770000     -3936.5080 4s/Msamples
+         780000     -3952.4511 4s/Msamples
+         790000     -3942.4899 4s/Msamples
+         800000     -3953.8249 4s/Msamples
+         810000     -3936.7083 4s/Msamples
+         820000     -3940.3547 4s/Msamples
+         830000     -3953.3208 4s/Msamples
+         840000     -3940.3557 4s/Msamples
+         850000     -3943.5334 4s/Msamples
+         860000     -3951.1291 4s/Msamples
+         870000     -3955.6785 4s/Msamples
+         880000     -3948.0075 4s/Msamples
+         890000     -3967.6052 4s/Msamples
+         900000     -3939.3268 4s/Msamples
+         910000     -3966.0538 4s/Msamples
+         920000     -3936.1120 4s/Msamples
+         930000     -3955.1604 4s/Msamples
+         940000     -3947.6349 4s/Msamples
+         950000     -3974.6561 4s/Msamples
+         960000     -3954.3491 4s/Msamples
+         970000     -3942.8987 4s/Msamples
+         980000     -3946.1485 4s/Msamples
+         990000     -3941.8001 4s/Msamples
+        1000000     -3946.8406 4s/Msamples
+        1010000     -3949.3244 4s/Msamples
+        1020000     -3941.6064 4s/Msamples
+        1030000     -3966.6908 4s/Msamples
+        1040000     -3947.6057 4s/Msamples
+        1050000     -3951.7337 4s/Msamples
+        1060000     -3948.6917 4s/Msamples
+        1070000     -3944.8411 4s/Msamples
+        1080000     -3948.7369 4s/Msamples
+        1090000     -3953.6096 4s/Msamples
+        1100000     -3943.0957 4s/Msamples
+        1110000     -3951.8766 4s/Msamples
+        1120000     -3947.8580 4s/Msamples
+        1130000     -3942.0220 4s/Msamples
+        1140000     -3953.6688 4s/Msamples
+        1150000     -3945.5060 4s/Msamples
+        1160000     -3954.7473 4s/Msamples
+        1170000     -3961.1759 4s/Msamples
+        1180000     -3956.2973 4s/Msamples
+        1190000     -3968.9518 4s/Msamples
+        1200000     -3946.7841 4s/Msamples
+        1210000     -3958.0998 4s/Msamples
+        1220000     -3949.8962 4s/Msamples
+        1230000     -3943.6476 4s/Msamples
+        1240000     -3936.4639 4s/Msamples
+        1250000     -3936.9999 4s/Msamples
+        1260000     -3954.1540 4s/Msamples
+        1270000     -3949.8660 4s/Msamples
+        1280000     -3950.3451 4s/Msamples
+        1290000     -3941.4598 4s/Msamples
+        1300000     -3951.0254 4s/Msamples
+        1310000     -3943.3172 4s/Msamples
+        1320000     -3947.9970 4s/Msamples
+        1330000     -3948.2099 4s/Msamples
+        1340000     -3965.2985 4s/Msamples
+        1350000     -3964.2304 4s/Msamples
+        1360000     -3952.3313 4s/Msamples
+        1370000     -3943.2451 4s/Msamples
+        1380000     -3944.0807 4s/Msamples
+        1390000     -3956.4701 4s/Msamples
+        1400000     -3944.0726 4s/Msamples
+        1410000     -3955.3543 4s/Msamples
+        1420000     -3965.1460 4s/Msamples
+        1430000     -3945.8185 4s/Msamples
+        1440000     -3950.9856 4s/Msamples
+        1450000     -3949.0234 4s/Msamples
+        1460000     -3939.1112 4s/Msamples
+        1470000     -3939.9298 4s/Msamples
+        1480000     -3941.4539 4s/Msamples
+        1490000     -3948.0349 4s/Msamples
+        1500000     -3944.9080 4s/Msamples
+        1510000     -3955.0658 4s/Msamples
+        1520000     -3942.4288 4s/Msamples
+        1530000     -3948.6880 4s/Msamples
+        1540000     -3947.7165 4s/Msamples
+        1550000     -3936.8387 4s/Msamples
+        1560000     -3952.7884 4s/Msamples
+        1570000     -3948.0808 4s/Msamples
+        1580000     -3947.3833 4s/Msamples
+        1590000     -3958.8253 4s/Msamples
+        1600000     -3946.5318 4s/Msamples
+        1610000     -3956.0979 4s/Msamples
+        1620000     -3949.4430 4s/Msamples
+        1630000     -3938.7655 4s/Msamples
+        1640000     -3968.5336 4s/Msamples
+        1650000     -3955.6573 4s/Msamples
+        1660000     -3949.4571 4s/Msamples
+        1670000     -3950.9904 4s/Msamples
+        1680000     -3939.3650 4s/Msamples
+        1690000     -3934.3897 4s/Msamples
+        1700000     -3937.6692 4s/Msamples
+        1710000     -3943.2073 4s/Msamples
+        1720000     -3939.6923 4s/Msamples
+        1730000     -3938.2990 4s/Msamples
+        1740000     -3950.3500 4s/Msamples
+        1750000     -3941.8168 4s/Msamples
+        1760000     -3943.8677 4s/Msamples
+        1770000     -3964.2229 4s/Msamples
+        1780000     -3959.6381 4s/Msamples
+        1790000     -3936.8937 4s/Msamples
+        1800000     -3962.6831 4s/Msamples
+        1810000     -3941.7413 4s/Msamples
+        1820000     -3949.2309 4s/Msamples
+        1830000     -3953.7748 4s/Msamples
+        1840000     -3956.1500 4s/Msamples
+        1850000     -3945.4733 4s/Msamples
+        1860000     -3941.1979 4s/Msamples
+        1870000     -3961.9041 4s/Msamples
+        1880000     -3950.2684 4s/Msamples
+        1890000     -3950.6696 4s/Msamples
+        1900000     -3947.2112 4s/Msamples
+        1910000     -3935.4572 4s/Msamples
+        1920000     -3967.2783 4s/Msamples
+        1930000     -3940.4167 4s/Msamples
+        1940000     -3956.7441 4s/Msamples
+        1950000     -3938.3299 4s/Msamples
+        1960000     -3938.5337 4s/Msamples
+        1970000     -3959.4449 4s/Msamples
+        1980000     -3942.9675 4s/Msamples
+        1990000     -3953.2629 4s/Msamples
+        2000000     -3943.6364 4s/Msamples
 
 Operator                                        Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
-TipDatesRandomWalker(TipDatesRandomWalker)     3.33258      11768      31732    0.04348    0.27053 
-TipDatesRandomWalker(TipDatesRandomWalker2)    5.63222      12218      31071    0.04348    0.28224 
-ScaleOperator(kappaScaler)                     0.39457      11465      32001    0.04348    0.26377 
-ScaleOperator(clockRateScaler)                 0.66596       9182      34281    0.04348    0.21126 
-ScaleOperator(treeScaler)                      0.89899       1498      42184    0.04348    0.03429 Try setting scaleFactor to about 0.948
-Uniform(unknown)                                     -     146552     288269    0.43478    0.33704 
-SubtreeSlide(unknown)                          1.61330      57042     160597    0.21739    0.26209 
-Exchange(narrow)                                     -       2847      40693    0.04348    0.06539 
-Exchange(wide)                                       -        165      43412    0.04348    0.00379 
-WilsonBalding(unknown)                               -        193      42831    0.04348    0.00449 
+TipDatesRandomWalker(TipDatesRandomWalker)     3.51317      22486      64421    0.04348    0.25874 
+TipDatesRandomWalker(TipDatesRandomWalker2)    5.80098      22989      63769    0.04348    0.26498 
+ScaleOperator(kappaScaler)                     0.38450      21817      64844    0.04348    0.25175 
+ScaleOperator(clockRateScaler)                 0.66111      17646      69773    0.04348    0.20186 
+ScaleOperator(treeScaler)                      0.91411       3661      83044    0.04348    0.04222 Try setting scaleFactor to about 0.956
+Uniform(unknown)                                     -     291657     577973    0.43478    0.33538 
+SubtreeSlide(unknown)                          1.68207     108301     326651    0.21739    0.24900 
+Exchange(narrow)                                     -       5552      81307    0.04348    0.06392 
+Exchange(wide)                                       -        311      86795    0.04348    0.00357 
+WilsonBalding(unknown)                               -        392      86612    0.04348    0.00451 
 
      Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
     #accept: The total number of times a proposal by this operator has been accepted.
@@ -211,5 +311,5 @@ WilsonBalding(unknown)                               -        193      42831    
   Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
 
 
-Total calculation time: 4.491 seconds
+Total calculation time: 8.57 seconds
 Done!

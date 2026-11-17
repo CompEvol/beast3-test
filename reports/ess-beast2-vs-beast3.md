@@ -9,6 +9,7 @@ Generated 2026-11-17 14:37 with the `rep_status` / `rep_min_ess` functions of `s
 - BEAST 3 app: BEAST v2.8.0 rc3; BEAST 2 app: "BEAST 2.7.7" launcher (BEAST.base 2.7.9)
 - Replicates paired by number: beast2 rep N vs beast3 rep N. Seeds are listed but **not** required to match.
 - ESS: minimum over all non-constant columns of all `*.log` files in a replicate, 10 % burn-in; ⚠ = below 200
+- beast2 testTipDates rep1–rep4 were re-run on 2026-11-17 with chainLength 2,000,000 (doubled, as the 1,000,000 runs had min ESS < 200); rep1 and rep4 also with a new seed (seeds 505579092 and 894497562 still gave min ESS 69 and 181 at 2,000,000).
 - Each version uses its own column names; the minimum may come from different columns in the two versions.
 
 ## Summary (minimum over replicates)
@@ -18,7 +19,7 @@ Generated 2026-11-17 14:37 with the `rep_status` / `rep_min_ess` functions of `s
 | testRandomLocalClock | MCMC | 4 | 4/4 | 7 ⚠ | posterior in rep2 | 4/4 | 73 ⚠ | indicators.5 in rep4 |
 | testRelaxedClock | MCMC | 4 | 4/4 | 42 ⚠ | posterior in rep1 | 4/4 | 596 | ucld.stdev in rep4 |
 | testUCLNclock | MCMC | 4 | 4/4 | 321 | freqParameter.4 in rep1 | 4/4 | 159 ⚠ | rate.mean in rep3 |
-| testTipDates | MCMC | 4 | 4/4 | 43 ⚠ | likelihood in rep1 | 4/4 | 353 | likelihood in rep1 |
+| testTipDates | MCMC | 4 | 4/4 | 271 | likelihood in rep2 | 4/4 | 353 | likelihood in rep1 |
 | testTipDates2 | MCMC | 4 | 4/4 | 652 | freqParameter.2 in rep2 | 4/4 | 719 | freqParameter.1 in rep1 |
 | testSRD06 | MCMC | 4 | 4/4 | 563 | thirdSites.hky.kappa in rep3 | 4/4 | 690 | thirdSites.freqParameter.1 in rep2 |
 | testMultipleAlignments_randomTaxaOrder | MCMC | 4 | 4/4 | 651 | gammaShape in rep4 | 4/4 | 4877 | gammaShape in rep4 |
@@ -44,10 +45,10 @@ Generated 2026-11-17 14:37 with the `rep_status` / `rep_min_ess` functions of `s
 | testUCLNclock | rep2 | 998153067 | completed | 9001 | 399 | freqParameter.1 | 998153067 | completed | 9001 | 625 | freqParameter.1 | yes |
 | testUCLNclock | rep3 | 1067999948 | completed | 9001 | 523 | freqParameter.1 | 1067999948 | completed | 9001 | 159 ⚠ | rate.mean | yes |
 | testUCLNclock | rep4 | 887198521 | completed | 9001 | 404 | freqParameter.1 | 887198521 | completed | 9001 | 548 | freqParameter.2 | yes |
-| testTipDates | rep1 | 505579092 | completed | 901 | 43 ⚠ | likelihood | 505579092 | completed | 901 | 353 | likelihood | yes |
-| testTipDates | rep2 | 712860779 | completed | 901 | 218 | likelihood | 712860779 | completed | 901 | 394 | likelihood | yes |
-| testTipDates | rep3 | 766755024 | completed | 901 | 155 ⚠ | likelihood | 766755024 | completed | 901 | 393 | likelihood | yes |
-| testTipDates | rep4 | 894497562 | completed | 901 | 350 | likelihood | 894497562 | completed | 901 | 393 | likelihood | yes |
+| testTipDates | rep1 | 171681931 | completed | 1801 | 783 | likelihood | 505579092 | completed | 901 | 353 | likelihood | no |
+| testTipDates | rep2 | 712860779 | completed | 1801 | 271 | likelihood | 712860779 | completed | 901 | 394 | likelihood | yes |
+| testTipDates | rep3 | 766755024 | completed | 1801 | 392 | likelihood | 766755024 | completed | 901 | 393 | likelihood | yes |
+| testTipDates | rep4 | 520154643 | completed | 1801 | 412 | tree.treeLength | 894497562 | completed | 901 | 393 | likelihood | no |
 | testTipDates2 | rep1 | 204377550 | completed | 901 | 671 | freqParameter.1 | 204377550 | completed | 901 | 719 | freqParameter.1 | yes |
 | testTipDates2 | rep2 | 618627302 | completed | 901 | 652 | freqParameter.2 | 618627302 | completed | 901 | 813 | freqParameter.3 | yes |
 | testTipDates2 | rep3 | 547306038 | completed | 901 | 716 | freqParameter.3 | 547306038 | completed | 901 | 767 | freqParameter.4 | yes |

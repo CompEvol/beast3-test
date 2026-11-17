@@ -30,4 +30,4 @@ WARNING: Loggers appear to have different log frequency.
 WARNING: This may cause problems in post-processing based on more than one log files.
 WARNING: Therefore, it is recommended to use the same log frequency
 Hint: note that TreeWithMetaDataLogger with dp="X" prints out trees with decimal places, potentially reducing tree file sizes substantially.
-End likelihood: -4067.932103806227
+End likelihood: -4070.739610345242
