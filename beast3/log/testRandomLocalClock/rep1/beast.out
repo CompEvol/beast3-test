@@ -1,0 +1,335 @@
+
+                      BEAST v2.8.0 rc3, 2002-2026
+             Bayesian Evolutionary Analysis Sampling Trees
+                       Designed and developed by
+ Remco Bouckaert, Alexei J. Drummond, Andrew Rambaut & Marc A. Suchard
+                                    
+                   Centre for Computational Evolution
+                         University of Auckland
+                       r.bouckaert@auckland.ac.nz
+                        alexei@cs.auckland.ac.nz
+                                    
+                   Institute of Evolutionary Biology
+                        University of Edinburgh
+                           a.rambaut@ed.ac.uk
+                                    
+                    David Geffen School of Medicine
+                 University of California, Los Angeles
+                           msuchard@ucla.edu
+                                    
+                      Downloads, Help & Resources:
+                           http://beast2.org/
+                                    
+  Source code distributed under the GNU Lesser General Public License:
+                   https://github.com/CompEvol/beast3
+                                    
+                           BEAST developers:
+   Alex Alekseyenko, Trevor Bedford, Erik Bloomquist, Joseph Heled, 
+ Sebastian Hoehna, Denise Kuehnert, Philippe Lemey, Wai Lok Sibon Li, 
+Gerton Lunter, Sidney Markowitz, Vladimir Minin, Michael Defoin Platel, 
+          Oliver Pybus, Tim Vaughan, Chieh-Hsi Wu, Walter Xie
+                                    
+                               Thanks to:
+          Roald Forsberg, Beth Shapiro and Korbinian Strimmer
+
+Random number seed: 798545320
+
+human: 768 4
+chimp: 768 4
+bonobo: 768 4
+gorilla: 768 4
+orangutan: 768 4
+siamang: 768 4
+Alignment(alignment)
+  6 taxa
+  768 sites
+  69 patterns
+
+Starting frequencies: [0.3390942900867236, 0.24655436447178358, 0.1531393568179342, 0.26121198862355866]
+  Using BEAGLE version: 4.0.0 (PRE-RELEASE) resource 0: CPU (arm64)
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_SSE THREADING_NONE PROCESSOR_CPU FRAMEWORK_CPU
+===============================================================================
+Citations for this model:
+
+Bouckaert, Remco, Timothy G. Vaughan, Joëlle Barido-Sottani, Sebastián Duchêne, Mathieu Fourment, 
+Alexandra Gavryushkina, Joseph Heled, Graham Jones, Denise Kühnert, Nicola De Maio, Michael Matschiner, 
+Fábio K. Mendes, Nicola F. Müller, Huw A. Ogilvie, Louis du Plessis, Alex Popinga, Andrew Rambaut, 
+David Rasmussen, Igor Siveroni, Marc A. Suchard, Chieh-Hsi Wu, Dong Xie, Chi Zhang, Tanja Stadler, 
+Alexei J. Drummond 
+  BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. 
+  PLoS computational biology 15, no. 4 (2019): e1006650.
+
+Hasegawa M, Kishino H, Yano T (1985) Dating the human-ape splitting by a
+  molecular clock of mitochondrial DNA. Journal of Molecular Evolution
+  22:160-174.
+
+Drummond AJ, Suchard MA (2010) Bayesian random local clocks, or one rate to rule them all. BMC biology 8, 114.
+
+===============================================================================
+Start likelihood: -1988.2815020578855 
+Writing file test.798545320.log
+Writing file test.798545320.trees
+#
+#model:
+#
+#<?xml version="1.0" encoding="UTF-8" standalone="no"?><input id="posterior" spec="beast.base.inference.CompoundDistribution">
+#    <distribution id="hky.kappa.prior" spec="beast.base.spec.inference.distribution.LogNormal">
+#        <M domain="Real" estimate="false" id="RealScalarParam" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#        <S domain="PositiveReal" estimate="false" id="RealScalarParam1" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.25"/>
+#        <param domain="PositiveReal" id="hky.kappa" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#    </distribution>
+#    <distribution id="popSize.prior" spec="beast.base.spec.inference.distribution.LogNormal">
+#        <M domain="Real" estimate="false" id="RealScalarParam2" spec="beast.base.spec.inference.parameter.RealScalarParam"/>
+#        <S domain="PositiveReal" estimate="false" id="RealScalarParam3" spec="beast.base.spec.inference.parameter.RealScalarParam" value="8.0"/>
+#        <param domain="PositiveReal" id="popSize" spec="beast.base.spec.inference.parameter.RealScalarParam" value="1.0"/>
+#    </distribution>
+#    <distribution id="rates.prior" spec="beast.base.spec.inference.distribution.IID">
+#        <distr id="rates.prior.distr" spec="beast.base.spec.inference.distribution.LogNormal">
+#            <M domain="Real" estimate="false" id="RealScalarParam4" spec="beast.base.spec.inference.parameter.RealScalarParam"/>
+#            <S domain="PositiveReal" estimate="false" id="RealScalarParam5" spec="beast.base.spec.inference.parameter.RealScalarParam" value="8.0"/>
+#        </distr>
+#        <param dimension="10" domain="PositiveReal" id="rates" spec="beast.base.spec.inference.parameter.RealVectorParam">1.0</param>
+#    </distribution>
+#    <distribution id="coalescent" spec="beast.base.evolution.tree.coalescent.Coalescent">
+#        <populationModel id="ConstantPopulation" popSize="@popSize" spec="beast.base.spec.evolution.tree.coalescent.ConstantPopulation"/>
+#        <treeIntervals id="TreeIntervals" spec="beast.base.evolution.tree.TreeIntervals">
+#            <tree clusterType="upgma" id="tree" spec="beast.base.spec.evolution.tree.ClusterTree">
+#            </tree>
+#        </treeIntervals>
+#    </distribution>
+#    <distribution data="@alignment" id="treeLikelihood" spec="beast.base.spec.evolution.likelihood.TreeLikelihood" tree="@tree">
+#        <siteModel id="siteModel" spec="beast.base.spec.evolution.sitemodel.SiteModel">
+#            <substModel id="hky" kappa="@hky.kappa" spec="beast.base.spec.evolution.substitutionmodel.HKY">
+#                <frequencies data="@alignment" id="freqs" spec="beast.base.spec.evolution.substitutionmodel.Frequencies"/>
+#            </substModel>
+#        </siteModel>
+#        <branchRateModel id="branchRates" rates="@rates" spec="beast.base.spec.evolution.branchratemodel.RandomLocalClockModel" tree="@tree">
+#            <indicators dimension="10" id="indicators" spec="beast.base.spec.inference.parameter.BoolVectorParam">false</indicators>
+#        </branchRateModel>
+#    </distribution>
+#</input>
+#
+         Sample     coalescent treeLikelihood    tree.height tree.tr_Length        popSize      hky.kappa   indicators.1   indicators.2   indicators.3   indicators.4   indicators.5   indicators.6   indicators.7   indicators.8   indicators.9  indicators.10      posterior
+              0        -0.3456     -1953.4915         0.0534         0.2075         1.0            1.0                 0              0              0              0              0              0              0              0              0              0     -1988.2815 --
+          10000         6.8360     -1815.0670         0.0648         0.2434         0.1457        25.3376              0              0              0              0              0              0              0              0              0              0     -1849.6795 --
+          20000         7.1589     -1816.3862         0.0690         0.2405         0.1462        30.6690              0              0              0              0              0              0              0              0              0              0     -1843.5824 --
+          30000         6.2852     -1815.6255         0.0603         0.2322         0.0386        24.5768              0              0              0              0              0              0              0              0              0              0     -1852.7626 --
+          40000         8.4184     -1814.6885         0.0550         0.2085         0.0693        22.5636              0              0              0              0              0              0              0              0              0              0     -1831.4540 --
+          50000         7.3421     -1815.1772         0.0660         0.2567         0.0827        49.8532              0              0              0              0              0              0              0              0              0              0     -1834.2853 --
+          60000         6.8276     -1815.6526         0.0549         0.2186         0.1637        19.9510              0              0              0              0              0              0              0              0              0              0     -1906.0450 2s/Msamples
+          70000         7.4025     -1814.3534         0.0681         0.2522         0.0609        21.7325              0              0              0              0              0              0              0              0              0              0     -1858.6674 2s/Msamples
+          80000         6.9454     -1813.8619         0.0704         0.2569         0.0486        28.7729              0              0              0              0              0              0              0              0              0              0     -1866.3702 2s/Msamples
+          90000         7.1211     -1817.3186         0.0649         0.2582         0.0961        21.2605              0              0              0              0              0              0              0              0              0              0     -1910.9423 2s/Msamples
+         100000         6.6588     -1814.4228         0.0671         0.2533         0.1564        22.3843              0              0              0              0              0              0              0              0              0              0     -1867.7017 2s/Msamples
+         110000         7.1307     -1815.7687         0.0545         0.2178         0.0414        20.8436              0              0              0              0              0              0              0              0              0              0     -1873.9848 2s/Msamples
+         120000         3.0122     -1814.6612         0.0710         0.2574         0.4600        21.9470              0              0              0              0              0              0              0              0              0              0     -1850.2841 2s/Msamples
+         130000         7.6795     -1814.6569         0.0578         0.2191         0.1210        22.8305              0              0              0              0              0              0              0              0              0              0     -1831.9115 2s/Msamples
+         140000         7.8776     -1815.2473         0.0635         0.2352         0.0949        31.2380              0              0              0              0              0              0              0              0              0              0     -1806.0763 2s/Msamples
+         150000         7.8054     -1815.1093         0.0585         0.2310         0.0695        20.1918              0              0              0              0              0              0              0              0              0              0     -1847.1700 2s/Msamples
+         160000         7.8736     -1816.4852         0.0615         0.2325         0.0991        32.5971              0              0              0              0              0              0              0              0              0              0     -1848.2869 2s/Msamples
+         170000         7.2827     -1818.7542         0.0680         0.2622         0.0715        15.3098              0              0              0              0              0              0              0              0              0              0     -1872.2000 1s/Msamples
+         180000         7.7142     -1814.5794         0.0606         0.2259         0.1112        17.6861              0              0              0              0              0              0              0              0              0              0     -1823.7508 1s/Msamples
+         190000         7.9022     -1816.2872         0.0623         0.2186         0.1195        32.5670              0              0              0              0              0              0              0              0              0              0     -1823.2289 1s/Msamples
+         200000         7.6020     -1814.5888         0.0537         0.2109         0.1206        30.0178              0              0              0              0              0              0              0              0              0              0     -1826.6838 1s/Msamples
+         210000         6.6812     -1814.6153         0.0563         0.2350         0.1493        23.2555              0              0              0              0              0              0              0              0              0              0     -1829.0296 1s/Msamples
+         220000         7.4054     -1813.9261         0.0644         0.2364         0.0520        22.6605              0              0              0              0              0              0              0              0              0              0     -1893.4868 1s/Msamples
+         230000         7.6428     -1817.4868         0.0616         0.2321         0.1103        33.7105              0              0              0              0              0              0              0              0              0              0     -1826.7506 1s/Msamples
+         240000         6.9111     -1815.6419         0.0613         0.2546         0.0743        29.2849              0              0              0              0              0              0              0              0              0              0     -1822.0154 1s/Msamples
+         250000         8.0409     -1813.1518         0.0590         0.2244         0.0763        26.6886              0              0              0              0              0              0              0              0              0              0     -1867.5469 1s/Msamples
+         260000         7.3231     -1812.7961         0.0605         0.2310         0.0487        32.1219              0              0              0              0              0              0              0              0              0              0     -1860.0680 1s/Msamples
+         270000         9.2547     -1825.0215         0.0597         0.2034         0.0611        48.6312              0              0              0              0              0              0              0              0              0              0     -1863.8693 1s/Msamples
+         280000         7.3599     -1816.6651         0.0636         0.2538         0.0836        17.1996              0              0              0              0              0              0              0              0              0              0     -1867.1123 1s/Msamples
+         290000         6.9978     -1814.9073         0.0561         0.2358         0.0603        29.2241              0              0              0              0              0              0              0              0              0              0     -1855.7797 1s/Msamples
+         300000         7.9784     -1816.3675         0.0640         0.2345         0.0702        27.0379              0              0              0              0              0              0              0              0              0              0     -1846.6185 1s/Msamples
+         310000         7.2443     -1813.6379         0.0600         0.2217         0.1455        35.9064              0              1              0              0              0              0              0              0              0              0     -1838.2430 1s/Msamples
+         320000         7.6256     -1813.3862         0.0587         0.2298         0.0952        22.9661              0              0              0              0              0              0              0              0              0              0     -1849.0374 1s/Msamples
+         330000         7.8380     -1813.0946         0.0645         0.2393         0.0909        25.1854              0              0              0              0              0              0              0              0              0              0     -1857.5032 1s/Msamples
+         340000         7.3113     -1814.7922         0.0632         0.2500         0.0703        24.6595              0              0              0              0              0              0              0              0              0              0     -1820.1276 1s/Msamples
+         350000         6.6630     -1815.4906         0.0693         0.2695         0.0661        22.7530              0              0              0              0              0              0              0              0              0              0     -1854.8644 1s/Msamples
+         360000         7.0065     -1816.0060         0.0721         0.2699         0.0588        27.9201              0              0              0              0              0              0              0              0              0              0     -1828.4642 1s/Msamples
+         370000         6.5202     -1815.1688         0.0673         0.2638         0.1495        28.5264              0              0              0              0              0              0              0              0              0              0     -1882.7551 1s/Msamples
+         380000         7.2084     -1814.1845         0.0664         0.2361         0.0444        25.2547              0              0              0              0              0              0              0              0              0              0     -1818.1213 1s/Msamples
+         390000         7.9442     -1814.8154         0.0561         0.2216         0.0624        20.6179              0              0              0              0              0              0              0              0              0              0     -1894.6565 1s/Msamples
+         400000         6.8874     -1814.4127         0.0643         0.2334         0.0375        40.7818              0              0              0              0              0              0              0              0              0              0     -1916.4875 1s/Msamples
+         410000         8.1461     -1813.5907         0.0582         0.2171         0.0921        29.5196              0              0              0              0              0              0              0              0              0              0     -1835.7100 1s/Msamples
+         420000         8.1135     -1815.9885         0.0609         0.2300         0.0581        22.8903              0              0              0              0              0              0              0              0              0              0     -1874.7938 1s/Msamples
+         430000         7.1643     -1815.2991         0.0668         0.2589         0.1054        27.9648              0              0              0              0              0              0              0              0              0              0     -1869.1876 1s/Msamples
+         440000         7.6831     -1815.8790         0.0630         0.2344         0.0853        20.8979              0              0              0              0              0              0              0              0              0              0     -1827.6507 1s/Msamples
+         450000         8.6620     -1819.0365         0.0663         0.2238         0.0579        22.9725              0              0              0              0              0              0              0              0              0              0     -1855.3689 1s/Msamples
+         460000         7.5751     -1817.2826         0.0582         0.2173         0.1268        15.7251              0              0              0              0              0              0              0              0              0              0     -1842.3567 1s/Msamples
+         470000         6.6687     -1814.9832         0.0714         0.2742         0.0668        33.2327              0              0              0              0              0              0              0              0              0              0     -1873.7127 1s/Msamples
+         480000         7.8573     -1814.4681         0.0630         0.2293         0.0997        36.2341              0              0              0              0              0              0              0              0              0              0     -1861.0307 1s/Msamples
+         490000         7.5956     -1813.9570         0.0644         0.2444         0.0720        36.1547              0              0              0              0              0              0              0              0              0              0     -1831.7494 1s/Msamples
+         500000         7.1631     -1816.3090         0.0788         0.2808         0.1116        36.3844              0              0              0              0              0              0              0              0              0              0     -1850.8725 1s/Msamples
+         510000         6.6096     -1816.0544         0.0671         0.2429         0.1742        17.1809              0              0              0              0              0              0              0              0              0              0     -1828.1663 1s/Msamples
+         520000         8.6755     -1820.8935         0.0515         0.1918         0.0777        16.5276              0              0              0              0              0              0              0              0              0              0     -1866.8671 1s/Msamples
+         530000         7.3986     -1816.8693         0.0692         0.2512         0.0674        28.0653              0              0              0              0              0              0              0              0              0              0     -1864.3442 1s/Msamples
+         540000         7.4010     -1817.7340         0.0475         0.2039         0.1259        25.5129              0              0              0              0              0              0              0              0              0              0     -1843.9834 1s/Msamples
+         550000         1.9244     -1815.7848         0.0683         0.2397         0.6009        21.6829              0              0              0              0              0              0              0              0              0              0     -1833.7702 1s/Msamples
+         560000         8.9380     -1816.4829         0.0565         0.2005         0.0609        25.6159              0              0              0              0              0              0              0              0              0              0     -1859.2384 1s/Msamples
+         570000         8.1674     -1817.1109         0.0608         0.2294         0.0614        17.9250              0              0              0              0              0              0              0              0              0              0     -1883.0886 1s/Msamples
+         580000         7.9077     -1818.7710         0.0566         0.2198         0.1022        67.0473              0              0              0              0              0              0              0              0              0              0     -1869.5630 1s/Msamples
+         590000         6.7646     -1815.6975         0.0593         0.2509         0.1247        23.0564              0              0              0              0              0              0              0              0              0              0     -1852.1095 1s/Msamples
+         600000         8.0007     -1814.1845         0.0580         0.2252         0.0822        21.6794              0              0              0              0              0              0              0              0              0              0     -1888.0284 1s/Msamples
+         610000         7.5790     -1814.1954         0.0548         0.2146         0.1240        29.1636              0              0              0              0              0              0              0              0              0              0     -1807.5189 1s/Msamples
+         620000         7.8004     -1819.4106         0.0606         0.2334         0.1025        19.6196              0              0              0              0              0              0              0              0              0              0     -1829.6443 1s/Msamples
+         630000         8.4121     -1813.4751         0.0673         0.2310         0.0721        21.1158              0              0              0              0              0              0              0              0              0              1     -1828.8772 1s/Msamples
+         640000         7.5290     -1814.2502         0.0553         0.2247         0.1102        35.2517              0              0              0              0              0              0              0              0              0              0     -1859.0294 1s/Msamples
+         650000         7.2064     -1813.2664         0.0632         0.2500         0.0705        32.0265              0              0              0              0              0              0              0              0              0              0     -1859.3998 1s/Msamples
+         660000         7.1979     -1815.8512         0.0738         0.2695         0.0933        22.0606              0              0              0              0              0              0              0              0              0              0     -1848.6901 1s/Msamples
+         670000         7.1260     -1816.5560         0.0574         0.2379         0.0608        18.2790              0              0              0              0              0              0              0              0              0              0     -1800.9007 1s/Msamples
+         680000         6.3833     -1819.4187         0.0689         0.2464         0.0368        23.6690              0              0              0              0              0              0              0              0              0              0     -1904.0653 1s/Msamples
+         690000         6.6303     -1814.0641         0.0591         0.2280         0.0383        28.1209              0              0              0              0              0              0              0              0              0              0     -1941.9604 1s/Msamples
+         700000         8.2347     -1816.8614         0.0653         0.2238         0.0550        23.8514              0              0              0              0              0              0              0              0              0              0     -1817.0811 1s/Msamples
+         710000         7.2578     -1819.3728         0.0534         0.2278         0.0975        35.0455              0              0              0              0              0              0              0              0              0              0     -1894.3758 1s/Msamples
+         720000         6.8874     -1815.4652         0.0718         0.2627         0.0535        40.2446              0              0              0              0              0              0              0              0              0              0     -1840.7202 1s/Msamples
+         730000         6.9574     -1819.5492         0.0632         0.2407         0.0427        15.9815              0              0              0              0              0              0              0              0              0              0     -1860.8298 1s/Msamples
+         740000         7.8732     -1815.2026         0.0618         0.2280         0.0621        24.7948              0              0              0              0              0              0              0              0              0              0     -1869.4115 1s/Msamples
+         750000         6.9062     -1812.9651         0.0643         0.2463         0.1419        30.6503              0              0              0              0              0              0              0              0              0              0     -1806.8891 1s/Msamples
+         760000         7.2440     -1815.1690         0.0624         0.2462         0.1097        23.9622              0              0              0              0              0              0              0              0              0              0     -1847.9404 1s/Msamples
+         770000         7.3226     -1814.3590         0.0673         0.2540         0.0750        26.8895              0              0              0              0              0              0              0              0              0              0     -1900.1720 1s/Msamples
+         780000         6.8908     -1814.5210         0.0595         0.2366         0.0521        31.2948              0              0              0              0              0              0              0              0              0              0     -1839.5568 1s/Msamples
+         790000         8.2038     -1814.2432         0.0655         0.2295         0.0901        25.4090              0              0              0              0              0              0              0              0              0              0     -1857.3678 1s/Msamples
+         800000         7.0906     -1817.6153         0.0694         0.2608         0.0656        24.3279              0              0              0              0              0              0              0              0              0              0     -1845.5603 1s/Msamples
+         810000         7.7192     -1814.2775         0.0690         0.2519         0.0760        42.9622              0              0              0              0              0              0              0              0              0              0     -1845.1309 1s/Msamples
+         820000         7.9121     -1815.0811         0.0570         0.2175         0.1019        20.7422              0              0              0              0              0              0              0              0              0              0     -1829.8129 1s/Msamples
+         830000         7.2592     -1820.9131         0.0727         0.2587         0.0744        36.9179              0              0              0              0              0              0              0              0              0              0     -1868.7059 1s/Msamples
+         840000         8.1752     -1815.7605         0.0751         0.2423         0.0547        24.4709              0              0              0              0              1              0              0              1              0              0     -1853.8537 1s/Msamples
+         850000         6.6483     -1818.8872         0.0634         0.2300         0.0357        76.3972              0              0              0              0              0              0              0              0              0              0     -1792.3234 1s/Msamples
+         860000         8.2523     -1816.6806         0.0679         0.2397         0.0611        33.5731              0              0              0              0              0              0              0              0              0              0     -1851.1982 1s/Msamples
+         870000         7.2096     -1814.2354         0.0652         0.2537         0.1003        31.9094              0              0              0              0              0              0              0              0              0              0     -1815.7754 1s/Msamples
+         880000         7.9944     -1813.7561         0.0632         0.2315         0.0584        30.4697              0              0              0              0              0              0              0              0              0              0     -1863.9235 1s/Msamples
+         890000         8.0068     -1820.0208         0.0649         0.2307         0.1050        40.3701              0              0              0              0              0              0              0              0              0              0     -1848.0105 1s/Msamples
+         900000         8.0935     -1818.1141         0.0608         0.2293         0.0646        14.6572              0              0              0              0              0              0              0              0              0              0     -1841.6848 1s/Msamples
+         910000         7.9280     -1815.3429         0.0699         0.2488         0.0717        33.2903              0              0              0              0              0              0              0              0              0              0     -1810.6596 1s/Msamples
+         920000         7.0271     -1813.9683         0.0661         0.2626         0.0775        24.1008              0              0              0              0              0              0              0              0              0              0     -1861.6376 1s/Msamples
+         930000         8.0487     -1819.5622         0.0626         0.2270         0.0459        62.1508              0              0              0              0              0              0              0              0              0              0     -1852.8527 1s/Msamples
+         940000         6.7997     -1820.3235         0.0555         0.2461         0.0665        25.6098              0              0              0              0              0              0              0              0              0              0     -1836.8098 1s/Msamples
+         950000         7.6189     -1813.4997         0.0619         0.2315         0.0564        24.8834              0              0              0              0              0              0              0              0              0              0     -1852.0331 1s/Msamples
+         960000         8.3163     -1816.3358         0.0553         0.2086         0.0760        29.6765              0              0              0              0              0              0              0              0              0              0     -1828.7511 1s/Msamples
+         970000         6.5168     -1815.5917         0.0718         0.2727         0.1480        19.6141              0              0              0              0              0              0              0              0              0              0     -1872.0911 1s/Msamples
+         980000         5.6329     -1814.2757         0.0572         0.2296         0.0356        20.4014              0              0              0              0              0              0              0              0              0              0     -1827.4047 1s/Msamples
+         990000         7.8412     -1816.2267         0.0560         0.2126         0.1183        18.9704              0              0              0              0              0              0              0              0              0              0     -1856.8355 1s/Msamples
+        1000000         7.7986     -1815.6027         0.0521         0.2175         0.0641        24.0897              0              0              0              0              0              0              0              0              0              0     -1801.3839 1s/Msamples
+        1010000         7.9436     -1815.4546         0.0572         0.2157         0.1049        26.4797              0              0              0              0              0              0              0              0              0              0     -1773.4989 1s/Msamples
+        1020000         3.8862     -1816.1219         0.0696         0.2462         0.3779        17.1881              0              1              0              0              0              0              0              0              0              0     -1864.4424 1s/Msamples
+        1030000         8.6737     -1821.5870         0.0585         0.2081         0.0833        11.5394              0              0              0              0              0              0              0              0              0              0     -1853.5334 1s/Msamples
+        1040000         7.4405     -1815.1260         0.0567         0.2263         0.0558        36.8120              0              0              0              0              0              0              0              0              0              0     -1815.2320 1s/Msamples
+        1050000         7.5081     -1813.5113         0.0616         0.2242         0.0437        25.9176              0              0              0              0              0              0              0              0              0              0     -1814.6040 1s/Msamples
+        1060000         7.8260     -1814.7967         0.0594         0.2205         0.1090        39.0055              0              0              0              0              0              0              0              0              0              0     -1862.6918 1s/Msamples
+        1070000         6.2621     -1814.5022         0.0658         0.2406         0.0397        24.1940              0              0              0              0              0              0              0              0              0              0     -1848.5517 1s/Msamples
+        1080000         6.7813     -1814.9407         0.0668         0.2602         0.1342        19.9967              0              0              0              0              0              0              0              0              0              0     -1831.5020 1s/Msamples
+        1090000         6.7655     -1814.6578         0.0622         0.2269         0.1698        19.5304              0              0              0              0              0              0              0              0              0              0     -1794.9837 1s/Msamples
+        1100000         9.5170     -1815.8479         0.0777         0.2275         0.0555        28.5655              0              0              0              0              0              0              0              0              0              1     -1842.8110 1s/Msamples
+        1110000         8.0603     -1818.8491         0.0761         0.2368         0.0431        13.0902              0              0              0              0              0              1              0              0              0              0     -1800.5212 1s/Msamples
+        1120000         8.3098     -1816.7086         0.0776         0.2397         0.0941        17.9167              0              0              0              0              0              1              1              0              0              0     -1830.4491 1s/Msamples
+        1130000         9.4000     -1813.0516         0.0767         0.2210         0.0694        29.3231              0              0              0              0              0              1              0              0              0              1     -1844.7418 1s/Msamples
+        1140000         9.1772     -1813.9930         0.0801         0.2361         0.0552        25.4324              0              0              0              0              0              0              0              0              0              1     -1861.2546 1s/Msamples
+        1150000         8.6816     -1819.9334         0.0595         0.2114         0.0634        32.6549              0              0              0              0              0              0              0              0              0              0     -1864.0995 1s/Msamples
+        1160000         7.7898     -1818.2251         0.0503         0.1942         0.1233        26.5210              0              0              0              0              0              0              0              0              0              0     -1892.7143 1s/Msamples
+        1170000         7.4239     -1814.8793         0.0567         0.2362         0.0850        24.7910              0              0              0              0              0              0              0              0              0              0     -1868.8654 1s/Msamples
+        1180000         7.8704     -1815.6725         0.0560         0.2198         0.0888        23.7692              0              0              0              0              0              0              0              0              0              0     -1814.5286 1s/Msamples
+        1190000         7.2505     -1813.5198         0.0693         0.2533         0.1172        31.0821              0              0              0              0              0              0              0              0              0              0     -1800.4245 1s/Msamples
+        1200000         6.7094     -1816.5555         0.0712         0.2678         0.1399        40.9635              0              0              0              0              0              0              0              0              0              0     -1819.2148 1s/Msamples
+        1210000         7.5138     -1814.7868         0.0577         0.2311         0.0991        34.3710              0              0              0              0              0              0              0              0              0              0     -1880.3635 1s/Msamples
+        1220000         7.4687     -1815.8092         0.0652         0.2453         0.0742        30.8725              0              0              0              0              0              0              0              0              0              0     -1858.9497 1s/Msamples
+        1230000         7.5495     -1815.1306         0.0603         0.2286         0.1114        31.1505              0              0              0              0              0              0              0              0              0              0     -1855.3866 1s/Msamples
+        1240000         6.4896     -1814.5116         0.0563         0.2235         0.1755        30.9458              0              0              0              0              0              0              0              0              0              0     -1858.6904 1s/Msamples
+        1250000         8.8694     -1813.5650         0.0795         0.2394         0.0663        29.9727              0              0              0              0              0              1              0              0              0              1     -1877.3555 1s/Msamples
+        1260000         5.8356     -1816.5028         0.0599         0.2468         0.2074        23.5655              0              0              0              0              0              0              0              0              0              0     -1875.5946 1s/Msamples
+        1270000         7.6223     -1816.4901         0.0740         0.2615         0.1017        38.2268              0              0              0              0              0              0              0              0              0              0     -1867.1084 1s/Msamples
+        1280000         7.0956     -1817.9617         0.0658         0.2604         0.0892        16.0844              0              0              0              0              0              0              0              0              0              0     -1849.9436 1s/Msamples
+        1290000         7.9670     -1813.3310         0.0645         0.2371         0.0823        24.9351              0              0              0              0              0              0              0              0              0              0     -1857.1611 1s/Msamples
+        1300000         7.8008     -1817.2433         0.0587         0.2283         0.0547        27.7970              0              0              0              0              0              0              0              0              0              0     -1867.2904 1s/Msamples
+        1310000         6.7698     -1817.5564         0.0642         0.2519         0.1269        30.2165              0              0              0              0              0              0              0              0              0              0     -1839.8985 1s/Msamples
+        1320000         7.5553     -1819.5134         0.0671         0.2378         0.1244        17.2133              0              0              0              0              0              0              0              0              0              0     -1858.3176 1s/Msamples
+        1330000         8.0890     -1814.1763         0.0656         0.2355         0.0726        19.0719              0              0              0              0              0              0              0              0              0              0     -1862.1057 1s/Msamples
+        1340000         7.4721     -1814.5389         0.0603         0.2395         0.1009        22.1448              0              0              0              0              0              0              0              0              0              1     -1860.5874 1s/Msamples
+        1350000         7.7061     -1814.3808         0.0601         0.2364         0.0710        17.9067              0              0              0              0              0              0              0              0              0              0     -1871.3146 1s/Msamples
+        1360000         8.2292     -1815.2854         0.0628         0.2281         0.0627        19.7876              0              0              0              0              0              0              0              0              0              0     -1831.6628 1s/Msamples
+        1370000         7.8380     -1813.9684         0.0617         0.2228         0.0446        25.0810              0              0              0              0              0              0              0              0              0              0     -1875.3911 1s/Msamples
+        1380000         8.9897     -1817.5125         0.0543         0.1977         0.0568        19.2210              0              0              0              0              0              0              0              0              0              0     -1873.2095 1s/Msamples
+        1390000         7.6954     -1818.6986         0.0474         0.1956         0.1185        22.1659              0              0              0              0              0              0              0              0              0              0     -1813.0368 1s/Msamples
+        1400000         6.6936     -1816.7962         0.0796         0.2839         0.1362        23.5772              0              0              0              0              0              0              0              0              0              0     -1852.2513 1s/Msamples
+        1410000         7.9641     -1815.0653         0.0535         0.1998         0.0391        27.5438              0              0              0              0              0              0              0              0              0              0     -1885.0050 1s/Msamples
+        1420000         7.3353     -1815.7844         0.0712         0.2562         0.0665        17.1840              0              0              1              0              0              0              0              0              0              0     -1862.8469 1s/Msamples
+        1430000         5.7467     -1815.9824         0.0697         0.2605         0.2124        38.1886              0              0              0              0              0              0              0              0              0              0     -1887.1848 1s/Msamples
+        1440000         6.7268     -1815.9636         0.0649         0.2304         0.1778        27.8480              0              0              0              0              0              0              0              0              0              0     -1851.5293 1s/Msamples
+        1450000         7.7788     -1813.9184         0.0621         0.2323         0.0905        28.0718              0              0              0              0              0              0              0              0              0              0     -1822.6492 1s/Msamples
+        1460000         7.7189     -1815.3233         0.0566         0.2292         0.0868        16.9739              0              0              0              0              0              0              0              0              0              0     -1867.0863 1s/Msamples
+        1470000         7.4814     -1816.2192         0.0625         0.2372         0.0580        17.2656              0              0              0              0              0              0              0              0              0              0     -1847.5778 1s/Msamples
+        1480000         7.3175     -1815.9117         0.0643         0.2415         0.1210        23.0015              0              0              0              0              0              0              0              0              0              0     -1813.3892 1s/Msamples
+        1490000         8.1435     -1814.7453         0.0648         0.2352         0.0727        22.8294              0              0              0              0              0              0              0              0              0              0     -1817.0028 1s/Msamples
+        1500000         7.3151     -1813.0945         0.0710         0.2391         0.1397        32.1232              0              0              0              0              0              1              0              0              0              0     -1828.2240 1s/Msamples
+        1510000         7.6788     -1813.8362         0.0589         0.2294         0.1000        35.9317              0              0              0              0              0              0              1              0              0              0     -1846.0120 1s/Msamples
+        1520000         7.8130     -1814.5299         0.0640         0.2363         0.0560        20.0867              0              0              0              0              0              0              0              0              0              0     -1851.7230 1s/Msamples
+        1530000         8.1318     -1815.6281         0.0655         0.2282         0.0922        28.9025              0              0              0              0              0              0              0              0              0              0     -1880.7572 1s/Msamples
+        1540000         7.6850     -1813.7254         0.0612         0.2316         0.1017        21.4099              0              0              0              0              0              0              0              0              0              0     -1900.0210 1s/Msamples
+        1550000         6.6756     -1818.3428         0.0604         0.2569         0.1198        20.2906              0              0              0              0              0              0              0              0              0              0     -1868.2867 1s/Msamples
+        1560000         7.8394     -1814.3534         0.0636         0.2377         0.0816        22.6134              0              0              0              0              0              0              0              0              0              0     -1853.6045 1s/Msamples
+        1570000         7.6710     -1815.0507         0.0562         0.2250         0.0941        22.3367              0              0              0              0              0              0              0              0              0              0     -1840.4915 1s/Msamples
+        1580000         7.8892     -1814.6836         0.0617         0.2293         0.0553        38.6813              0              0              0              0              0              0              0              0              0              0     -1825.8933 1s/Msamples
+        1590000         7.5652     -1816.7138         0.0552         0.2226         0.0565        14.5935              0              0              0              0              0              0              0              0              0              0     -1846.1026 1s/Msamples
+        1600000         5.9144     -1815.8069         0.0707         0.2533         0.0397        18.7970              0              0              0              0              0              0              0              0              0              0     -1820.0394 1s/Msamples
+        1610000         5.0812     -1815.9691         0.0633         0.2497         0.2604        23.2139              0              0              0              0              0              0              0              0              0              0     -1881.4961 1s/Msamples
+        1620000         8.7424     -1815.4999         0.0829         0.2507         0.0633        26.8695              0              0              0              0              0              0              0              0              0              1     -1875.1286 1s/Msamples
+        1630000         7.8309     -1815.1891         0.0826         0.2320         0.1392        20.7578              0              0              0              0              0              1              0              0              0              1     -1874.4490 1s/Msamples
+        1640000         8.9006     -1815.6098         0.0797         0.2406         0.0732        25.8099              0              1              0              0              1              1              0              0              0              1     -1834.8779 1s/Msamples
+        1650000         8.5265     -1819.1107         0.0520         0.2037         0.0630        23.0431              0              1              0              0              0              0              0              0              0              0     -1867.2292 1s/Msamples
+        1660000         7.1064     -1815.1130         0.0650         0.2568         0.0810        19.5414              0              0              0              0              0              0              0              0              0              0     -1783.0348 1s/Msamples
+        1670000         6.6826     -1815.2216         0.0573         0.2444         0.0618        25.8562              0              0              0              0              0              0              0              0              0              0     -1830.6814 1s/Msamples
+        1680000         6.9270     -1814.5715         0.0670         0.2441         0.0461        21.6214              0              0              0              0              0              0              0              0              0              0     -1809.2828 1s/Msamples
+        1690000         8.0205     -1814.7964         0.0687         0.2414         0.0723        30.8407              0              0              0              0              0              0              0              0              0              0     -1855.4040 1s/Msamples
+        1700000         8.0178     -1816.0767         0.0618         0.2349         0.0756        25.4004              0              0              0              0              0              0              0              0              0              0     -1873.4019 1s/Msamples
+        1710000         8.2204     -1814.4875         0.0614         0.2235         0.0785        37.9907              0              0              0              0              0              0              0              0              0              0     -1814.8160 1s/Msamples
+        1720000         6.5752     -1814.4354         0.0626         0.2479         0.1533        22.8584              0              0              0              0              0              0              0              0              0              0     -1851.2631 1s/Msamples
+        1730000         6.5354     -1815.0121         0.0673         0.2609         0.0591        22.9687              0              0              0              0              0              0              0              0              0              0     -1805.5173 1s/Msamples
+        1740000         6.5876     -1813.8996         0.0581         0.2213         0.0365        19.9835              0              0              0              0              0              0              0              0              0              0     -1807.5359 1s/Msamples
+        1750000         7.6744     -1816.2807         0.0631         0.2383         0.0652        19.1226              0              0              0              0              0              0              0              0              0              0     -1898.3038 1s/Msamples
+        1760000         7.9737     -1813.9016         0.0596         0.2253         0.0614        18.4373              0              0              0              0              0              0              0              0              0              0     -1832.5116 1s/Msamples
+        1770000         6.3201     -1813.6578         0.0599         0.2405         0.0446        23.1180              0              0              0              0              0              0              0              0              0              0     -1855.6015 1s/Msamples
+        1780000         5.3447     -1816.4807         0.0683         0.2577         0.2436        16.8406              0              0              0              0              0              0              0              0              0              0     -1848.3721 1s/Msamples
+        1790000         8.0250     -1814.1947         0.0593         0.2177         0.0496        26.0448              0              0              0              0              0              0              0              0              0              0     -1823.9227 1s/Msamples
+        1800000         7.0224     -1815.3885         0.0610         0.2568         0.0928        23.6027              0              0              0              0              0              0              0              0              0              0     -1838.6570 1s/Msamples
+        1810000         8.2983     -1814.9043         0.0643         0.2260         0.0887        28.6663              0              0              0              0              0              0              0              0              0              0     -1827.3611 1s/Msamples
+        1820000         8.5322     -1816.6161         0.0604         0.2142         0.0484        23.6452              0              0              0              0              0              0              0              0              0              0     -1809.5942 1s/Msamples
+        1830000         8.1030     -1816.7215         0.0577         0.2225         0.0874        18.0374              0              0              0              0              0              0              0              0              0              0     -1805.2907 1s/Msamples
+        1840000         7.6430     -1814.6786         0.0692         0.2488         0.0787        37.4922              0              0              0              0              0              0              0              0              1              0     -1831.3717 1s/Msamples
+        1850000         6.0064     -1815.5135         0.0629         0.2409         0.0362        19.7971              0              0              0              0              0              0              0              0              0              0     -1846.0393 1s/Msamples
+        1860000         5.7200     -1817.1602         0.0724         0.2545         0.2291        15.8691              0              0              0              0              0              0              0              0              0              0     -1870.0473 1s/Msamples
+        1870000         7.0769     -1814.3742         0.0657         0.2452         0.0537        28.6355              0              0              0              0              0              0              0              0              0              0     -1815.0589 1s/Msamples
+        1880000         7.4833     -1819.0357         0.0521         0.2163         0.1081        20.2503              0              0              0              0              0              0              0              0              0              0     -1867.6572 1s/Msamples
+        1890000         7.3325     -1815.9405         0.0613         0.2430         0.1096        17.1885              0              0              0              0              0              0              0              0              0              0     -1825.2989 1s/Msamples
+        1900000         7.7192     -1813.9227         0.0699         0.2502         0.0616        25.6594              0              0              0              0              0              0              0              0              0              0     -1869.3360 1s/Msamples
+        1910000         7.2383     -1814.8727         0.0670         0.2346         0.1460        29.7508              0              0              0              0              0              0              0              0              0              0     -1828.9332 1s/Msamples
+        1920000         6.2029     -1815.6293         0.0578         0.2330         0.0381        23.2165              0              0              0              0              0              0              0              0              0              0     -1876.3886 1s/Msamples
+        1930000         7.6912     -1814.3024         0.0688         0.2404         0.1155        26.0968              0              0              0              0              0              0              0              0              0              0     -1863.8554 1s/Msamples
+        1940000         6.9252     -1813.8089         0.0626         0.2432         0.0527        22.0545              0              0              0              0              0              0              0              0              0              0     -1824.2059 1s/Msamples
+        1950000         8.2062     -1815.7772         0.0631         0.2271         0.0729        18.8986              0              0              0              0              0              0              0              0              0              0     -1827.8896 1s/Msamples
+        1960000         7.4491     -1813.4460         0.0567         0.2275         0.1088        25.7756              0              0              0              0              0              0              0              0              0              0     -1834.4560 1s/Msamples
+        1970000         7.0657     -1813.7085         0.0636         0.2396         0.1397        24.3347              0              0              0              0              0              0              0              0              0              0     -1815.0118 1s/Msamples
+        1980000         7.2605     -1814.7821         0.0722         0.2644         0.1118        34.1622              0              0              0              0              0              0              0              0              0              0     -1880.9406 1s/Msamples
+        1990000         8.0284     -1815.3599         0.0558         0.2160         0.0984        25.5718              0              0              0              0              0              0              0              0              0              0     -1859.4253 1s/Msamples
+        2000000         7.2180     -1820.8397         0.0601         0.2475         0.0849        22.5791              0              0              0              0              0              0              0              0              0              0     -1880.3359 1s/Msamples
+
+Operator                                                              Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+beast.base.spec.inference.operator.BitFlipOperator(indicatorFlip)          -       1394      85419    0.04348    0.01606 
+beast.base.spec.inference.operator.ScaleOperator(rateScaler)         9.99997      48662      38404    0.04348    0.55891 Try setting scale factor to about 18.63
+beast.base.spec.inference.operator.ScaleOperator(kappaScaler)        0.62274      26679      60495    0.04348    0.30604 
+beast.base.spec.inference.operator.ScaleOperator(popSizeScaler)      1.06050      26975      60429    0.04348    0.30862 
+beast.base.spec.evolution.operator.ScaleTreeOperator(treeScaler)     0.18217      25426      62332    0.04348    0.28973 
+Uniform(unknown)                                                           -     328815     539675    0.43478    0.37861 
+kernel.BactrianSubtreeScale(unknown)                                 0.46155     133229     301245    0.21739    0.30664 
+Exchange(narrow)                                                           -       4334      82500    0.04348    0.04991 
+Exchange(wide)                                                             -        681      85967    0.04348    0.00786 
+WilsonBalding(unknown)                                                     -        379      86961    0.04348    0.00434 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 3.907 seconds
+Done!

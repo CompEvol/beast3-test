@@ -1,0 +1,21 @@
+BEAST modules in boot layer: [beast.pkgmgmt]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/bModelTest: [bmodeltest]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/starbeast3: [starbeast3]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/CCD: [ccd]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/SA: [sampled.ancestors]
+Loading package BEAST.base v2.8.0 from ~/Library/Application Support/BEAST/2.8/BEAST.base
+Loading package BEAST.app v2.8.0 from ~/Library/Application Support/BEAST/2.8/BEAST.app
+Loading package ORC v1.3.1 from ~/Library/Application Support/BEAST/2.8/ORC
+Loading package bModelTest v1.4.0 from ~/Library/Application Support/BEAST/2.8/bModelTest
+Loading package starbeast3 v1.3.1 from ~/Library/Application Support/BEAST/2.8/starbeast3
+Loading package CCD v1.2.2 from ~/Library/Application Support/BEAST/2.8/CCD
+Loading package SA v2.3.0 from ~/Library/Application Support/BEAST/2.8/SA
+File: testUCLNclock.json seed: 1067999948 threads: 1
+The quantile calculator in SiteModel fails when the shape parameter goes much below 1.0E-3.
+A TruncatedDistribution may be used to enforce this constraint.
+Lower = 0.0
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 358 unique site patterns.
+  Using rescaling scheme : dynamic
+End likelihood: -5064.727901150952

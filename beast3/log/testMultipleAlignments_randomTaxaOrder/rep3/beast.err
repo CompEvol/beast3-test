@@ -1,0 +1,47 @@
+BEAST modules in boot layer: [beast.pkgmgmt]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/bModelTest: [bmodeltest]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/starbeast3: [starbeast3]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/CCD: [ccd]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/SA: [sampled.ancestors]
+Loading package BEAST.base v2.8.0 from ~/Library/Application Support/BEAST/2.8/BEAST.base
+Loading package BEAST.app v2.8.0 from ~/Library/Application Support/BEAST/2.8/BEAST.app
+Loading package ORC v1.3.1 from ~/Library/Application Support/BEAST/2.8/ORC
+Loading package bModelTest v1.4.0 from ~/Library/Application Support/BEAST/2.8/bModelTest
+Loading package starbeast3 v1.3.1 from ~/Library/Application Support/BEAST/2.8/starbeast3
+Loading package CCD v1.2.2 from ~/Library/Application Support/BEAST/2.8/CCD
+Loading package SA v2.3.0 from ~/Library/Application Support/BEAST/2.8/SA
+File: testMultipleAlignments_randomTaxaOrder.xml seed: 538607592 threads: 1
+Element trait found with idref='dateTrait.t:gene1'. All other attributes are ignored.
+
+Element trait found with idref='dateTrait.t:gene1'. All other attributes are ignored.
+
+
+				CA1.T401_1=0
+CA3.T415_1=0
+CB121212.12_1=5388
+CB070117.03_1=6220
+CB070121.08_1=25600
+CB070121.16_1=30000
+					
+				
+The quantile calculator in SiteModel fails when the shape parameter goes much below 1.0E-3.
+A TruncatedDistribution may be used to enforce this constraint.
+Lower = 0.0
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 48 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 45 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 48 unique site patterns.
+  Using rescaling scheme : dynamic
+Warning: state contains a node popSize.t:gene1 for which there is no operator.
+WARNING: Loggers appear to have different log frequency.
+WARNING: This may cause problems in post-processing based on more than one log files.
+WARNING: Therefore, it is recommended to use the same log frequency
+Hint: note that TreeWithMetaDataLogger with dp="X" prints out trees with decimal places, potentially reducing tree file sizes substantially.
+End likelihood: -44229.56011123057

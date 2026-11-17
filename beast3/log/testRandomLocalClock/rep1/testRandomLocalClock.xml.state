@@ -1,0 +1,21 @@
+<itsabeastystatewerein version='2.0' sample='2000000'>
+<statenode id='hky.kappa'>hky.kappa: 22.579163464976677</statenode>
+<statenode id='popSize'>popSize: 0.08496285703778846</statenode>
+<statenode id='rates'>rates{10}: 9.839427182080955 0.8609418987060301 483.3574956981298 0.427934690128247 81.62548382661258 0.13689581090584144 1.2102525549542613 3.0024889870145693E7 68.63720851849318 0.015257173020222052 </statenode>
+<statenode id='tree'>((4:0.05010517421598319,((0:0.03002054787773315,(1:0.006220424321300177,2:0.006220424321300177)6:0.023800123556432976)8:0.010838931266866102,3:0.04085947914459925)7:0.009245695071383939)9:0.010055685765557973,5:0.060160859981541165)10:0.0</statenode>
+<statenode id='indicators'>indicators{10}: false false false false false false false false false false </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"indicatorFlip","p":"NaN","accept":1394,"reject":85419,"acceptFC":1352,"rejectFC":84412,"rejectIv":3,"rejectOp":0},
+{"id":"rateScaler","p":9.999970808674078,"accept":48662,"reject":38404,"acceptFC":47583,"rejectFC":38368,"rejectIv":0,"rejectOp":0},
+{"id":"kappaScaler","p":0.6227399285126375,"accept":26679,"reject":60495,"acceptFC":26272,"rejectFC":59862,"rejectIv":0,"rejectOp":0},
+{"id":"popSizeScaler","p":1.0605020667418483,"accept":26975,"reject":60429,"acceptFC":26280,"rejectFC":59973,"rejectIv":0,"rejectOp":0},
+{"id":"treeScaler","p":0.1821708889021221,"accept":25426,"reject":62332,"acceptFC":25392,"rejectFC":61240,"rejectIv":0,"rejectOp":0},
+{"id":"unknown","p":"NaN","accept":328815,"reject":539675,"acceptFC":324677,"rejectFC":532803,"rejectIv":0,"rejectOp":0},
+{"id":"unknown","p":0.46154696766675857,"accept":133229,"reject":301245,"acceptFC":130686,"rejectFC":298219,"rejectIv":0,"rejectOp":0},
+{"id":"narrow","p":"NaN","accept":4334,"reject":82500,"acceptFC":4283,"rejectFC":81457,"rejectIv":0,"rejectOp":0},
+{"id":"wide","p":"NaN","accept":681,"reject":85967,"acceptFC":672,"rejectFC":84868,"rejectIv":48090,"rejectOp":48090},
+{"id":"unknown","p":"NaN","accept":379,"reject":86961,"acceptFC":374,"rejectFC":85827,"rejectIv":44598,"rejectOp":44598}
+]}
+-->

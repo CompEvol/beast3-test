@@ -1,0 +1,13 @@
+example	source	beast3_branch	beast3_commit	beast_base	java	run_date
+testRandomLocalClock	beast3/xml/testRandomLocalClock.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testRelaxedClock	beast3/xml/testRelaxedClock.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testUCLNclock	beast3/xml/testUCLNclock.json	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testTipDates	beast3/xml/testTipDates.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testTipDates2	beast3/xml/testTipDates2.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testSRD06	beast3/xml/testSRD06.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testMultipleAlignments_randomTaxaOrder	beast3/xml/testMultipleAlignments_randomTaxaOrder.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testDirectSimulator	beast3/xml/testDirectSimulator.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testDirectSimulator2	beast3/xml/testDirectSimulator2.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testDirectSimulatorHierarchical	beast3/xml/testDirectSimulatorHierarchical.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testSeqGen	beast3/xml/testSeqGen.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17
+testSimulatedAlignment	beast3/xml/testSimulatedAlignment.xml	master	0dbce1a	2.8.0	25.0.3	2026-11-17

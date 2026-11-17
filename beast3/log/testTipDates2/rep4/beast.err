@@ -1,0 +1,37 @@
+BEAST modules in boot layer: [beast.pkgmgmt]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/bModelTest: [bmodeltest]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/starbeast3: [starbeast3]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/CCD: [ccd]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/SA: [sampled.ancestors]
+Loading package BEAST.base v2.8.0 from ~/Library/Application Support/BEAST/2.8/BEAST.base
+Loading package BEAST.app v2.8.0 from ~/Library/Application Support/BEAST/2.8/BEAST.app
+Loading package ORC v1.3.1 from ~/Library/Application Support/BEAST/2.8/ORC
+Loading package bModelTest v1.4.0 from ~/Library/Application Support/BEAST/2.8/bModelTest
+Loading package starbeast3 v1.3.1 from ~/Library/Application Support/BEAST/2.8/starbeast3
+Loading package CCD v1.2.2 from ~/Library/Application Support/BEAST/2.8/CCD
+Loading package SA v2.3.0 from ~/Library/Application Support/BEAST/2.8/SA
+File: testTipDates2.xml seed: 351625106 threads: 1
+
+Lemur_catta=1
+
+M_fascicularis=1
+					
+                
+WARNING: no trait specified for Tarsius_syrichta: Assumed to be 1.0
+WARNING: no trait specified for Homo_sapiens: Assumed to be 1.0
+WARNING: no trait specified for Pan: Assumed to be 1.0
+WARNING: no trait specified for Gorilla: Assumed to be 1.0
+WARNING: no trait specified for Pongo: Assumed to be 1.0
+WARNING: no trait specified for Hylobates: Assumed to be 1.0
+WARNING: no trait specified for Macaca_fuscata: Assumed to be 1.0
+WARNING: no trait specified for M_mulatta: Assumed to be 1.0
+WARNING: no trait specified for M_sylvanus: Assumed to be 1.0
+WARNING: no trait specified for Saimiri_sciureus: Assumed to be 1.0
+The quantile calculator in SiteModel fails when the shape parameter goes much below 1.0E-3.
+A TruncatedDistribution may be used to enforce this constraint.
+Lower = 0.0
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 413 unique site patterns.
+  Using rescaling scheme : dynamic
+End likelihood: -6003.230067259212

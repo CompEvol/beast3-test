@@ -1,0 +1,39 @@
+BEAST modules in boot layer: [beast.pkgmgmt]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/bModelTest: [bmodeltest]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/starbeast3: [starbeast3]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/CCD: [ccd]
+Skipping modules with unsatisfied dependencies in ~/Library/Application Support/BEAST/2.8/SA: [sampled.ancestors]
+Loading package BEAST.base v2.8.0 from ~/Library/Application Support/BEAST/2.8/BEAST.base
+Loading package BEAST.app v2.8.0 from ~/Library/Application Support/BEAST/2.8/BEAST.app
+Loading package ORC v1.3.1 from ~/Library/Application Support/BEAST/2.8/ORC
+Loading package bModelTest v1.4.0 from ~/Library/Application Support/BEAST/2.8/bModelTest
+Loading package starbeast3 v1.3.1 from ~/Library/Application Support/BEAST/2.8/starbeast3
+Loading package CCD v1.2.2 from ~/Library/Application Support/BEAST/2.8/CCD
+Loading package SA v2.3.0 from ~/Library/Application Support/BEAST/2.8/SA
+File: testTipDates.xml seed: 505579092 threads: 1
+    D4Brazi82  = 1982
+    D4ElSal83  = 1983
+    D4ElSal94  = 1994
+    D4Indon76  = 1976
+    D4Indon77  = 1977
+    D4Mexico84 = 1984
+    D4NewCal81 = 1981
+    D4Philip64 = 1964
+    D4Philip56 = 1956
+    D4Philip84 = 1984
+    D4PRico86  = 1986
+    D4SLanka78 = 1978
+    D4Tahiti79 = 1979
+    D4Tahiti85 = 1985
+    D4Thai63   = 1963
+    D4Thai78   = 1978
+    D4Thai84   = 1984    
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 138 unique site patterns.
+  Using rescaling scheme : dynamic
+WARNING: Loggers appear to have different log frequency.
+WARNING: This may cause problems in post-processing based on more than one log files.
+WARNING: Therefore, it is recommended to use the same log frequency
+Hint: note that TreeWithMetaDataLogger with dp="X" prints out trees with decimal places, potentially reducing tree file sizes substantially.
+End likelihood: -4062.33160662838
