@@ -1,6 +1,6 @@
 # BEAST 3 example runs
 
-Generated 2026-11-17 13:21 by `scripts/run_examples.sh beast3`.
+Generated 2026-11-17 16:27 by `scripts/run_examples.sh beast3`.
 
 ## Failed runs
 
@@ -28,9 +28,9 @@ None — every replicate completed.
 
 | Example | Source | Type | Completed | Min ESS | Lowest column |
 |---|---|---|---|---|---|
-| testRandomLocalClock | `beast3/xml/testRandomLocalClock.xml` | MCMC | 4/4 | 73 ⚠ | indicators.5 in rep4 |
+| testRandomLocalClock | `beast3/xml/testRandomLocalClock.xml` | MCMC | 4/4 | 365 | indicators.7 in rep2 |
 | testRelaxedClock | `beast3/xml/testRelaxedClock.xml` | MCMC | 4/4 | 596 | ucld.stdev in rep4 |
-| testUCLNclock | `beast3/xml/testUCLNclock.json` | MCMC | 4/4 | 159 ⚠ | rate.mean in rep3 |
+| testUCLNclock | `beast3/xml/testUCLNclock.json` | MCMC | 4/4 | 637 | rate.variance in rep2 |
 | testTipDates | `beast3/xml/testTipDates.xml` | MCMC | 4/4 | 353 | likelihood in rep1 |
 | testTipDates2 | `beast3/xml/testTipDates2.xml` | MCMC | 4/4 | 719 | freqParameter.1 in rep1 |
 | testSRD06 | `beast3/xml/testSRD06.xml` | MCMC | 4/4 | 690 | thirdSites.freqParameter.1 in rep2 |
@@ -39,24 +39,24 @@ None — every replicate completed.
 | testDirectSimulator2 | `beast3/xml/testDirectSimulator2.xml` | simulator | 4/4 | 8589 | x in rep3 |
 | testDirectSimulatorHierarchical | `beast3/xml/testDirectSimulatorHierarchical.xml` | simulator | 4/4 | n/a |  |
 | testSeqGen | `beast3/xml/testSeqGen.xml` | simulator | 4/4 | n/a |  |
-| testSimulatedAlignment | `beast3/xml/testSimulatedAlignment.xml` | MCMC | 4/4 | 26 ⚠ | coalescent in rep2 |
+| testSimulatedAlignment | `beast3/xml/testSimulatedAlignment.xml` | MCMC | 4/4 | 1205 | popSize in rep3 |
 
 ## Replicates
 
 | Example | Rep | Seed | Status | Run time (s) | Samples | Min ESS | Column (file) |
 |---|---|---|---|---|---|---|---|
-| testRandomLocalClock | rep1 | 798545320 | completed | 4 | 181 | 89 ⚠ | indicators.6 (test.798545320.log) |
-| testRandomLocalClock | rep2 | 337199670 | completed | 4 | 181 | 78 ⚠ | indicators.6 (test.337199670.log) |
-| testRandomLocalClock | rep3 | 380329619 | completed | 4 | 181 | 82 ⚠ | indicators.10 (test.380329619.log) |
-| testRandomLocalClock | rep4 | 562333788 | completed | 4 | 181 | 73 ⚠ | indicators.5 (test.562333788.log) |
+| testRandomLocalClock | rep1 | 1010103437 | completed | 209 | 1801 | 743 | indicators.9 (test.1010103437.log) |
+| testRandomLocalClock | rep2 | 337199670 | completed | 218 | 1801 | 365 | indicators.7 (test.337199670.log) |
+| testRandomLocalClock | rep3 | 380329619 | completed | 219 | 1801 | 744 | indicators.9 (test.380329619.log) |
+| testRandomLocalClock | rep4 | 562333788 | completed | 217 | 1801 | 389 | indicators.10 (test.562333788.log) |
 | testRelaxedClock | rep1 | 317721114 | completed | 2 | 901 | 733 | rateCategories.1 (test.317721114.log) |
 | testRelaxedClock | rep2 | 870681542 | completed | 2 | 901 | 599 | ucld.stdev (test.870681542.log) |
 | testRelaxedClock | rep3 | 1025853318 | completed | 2 | 901 | 633 | coalescent (test.1025853318.log) |
 | testRelaxedClock | rep4 | 913274257 | completed | 2 | 901 | 596 | ucld.stdev (test.913274257.log) |
-| testUCLNclock | rep1 | 181696971 | completed | 47 | 9001 | 670 | freqParameter.2 (dna.log) |
-| testUCLNclock | rep2 | 998153067 | completed | 50 | 9001 | 625 | freqParameter.1 (dna.log) |
-| testUCLNclock | rep3 | 1067999948 | completed | 51 | 9001 | 159 ⚠ | rate.mean (dna.log) |
-| testUCLNclock | rep4 | 887198521 | completed | 49 | 9001 | 548 | freqParameter.2 (dna.log) |
+| testUCLNclock | rep1 | 181696971 | completed | 101 | 1801 | 994 | freqParameter.1 (dna.log) |
+| testUCLNclock | rep2 | 998153067 | completed | 107 | 1801 | 637 | rate.variance (dna.log) |
+| testUCLNclock | rep3 | 1067999948 | completed | 107 | 1801 | 957 | freqParameter.2 (dna.log) |
+| testUCLNclock | rep4 | 887198521 | completed | 110 | 1801 | 1012 | freqParameter.2 (dna.log) |
 | testTipDates | rep1 | 505579092 | completed | 5 | 901 | 353 | likelihood (test.505579092.log) |
 | testTipDates | rep2 | 712860779 | completed | 5 | 901 | 394 | likelihood (test.712860779.log) |
 | testTipDates | rep3 | 766755024 | completed | 5 | 901 | 393 | likelihood (test.766755024.log) |
@@ -89,7 +89,7 @@ None — every replicate completed.
 | testSeqGen | rep2 | 290602668 | completed |  | - | n/a | |
 | testSeqGen | rep3 | 933393725 | completed |  | - | n/a | |
 | testSeqGen | rep4 | 88938131 | completed |  | - | n/a | |
-| testSimulatedAlignment | rep1 | 231899804 | completed | 2 | 91 | 65 ⚠ | treeLikelihood (test.231899804.log) |
-| testSimulatedAlignment | rep2 | 642061937 | completed | 2 | 91 | 26 ⚠ | coalescent (test.642061937.log) |
-| testSimulatedAlignment | rep3 | 298730249 | completed | 2 | 91 | 75 ⚠ | coalescent (test.298730249.log) |
-| testSimulatedAlignment | rep4 | 70342620 | completed | 2 | 91 | 84 ⚠ | treeLikelihood (test.70342620.log) |
+| testSimulatedAlignment | rep1 | 231899804 | completed | 31 | 1801 | 1268 | treeLikelihood (test.231899804.log) |
+| testSimulatedAlignment | rep2 | 642061937 | completed | 31 | 1801 | 1466 | popSize (test.642061937.log) |
+| testSimulatedAlignment | rep3 | 298730249 | completed | 31 | 1801 | 1205 | popSize (test.298730249.log) |
+| testSimulatedAlignment | rep4 | 70342620 | completed | 31 | 1801 | 1503 | hky.kappa (test.70342620.log) |

@@ -1,21 +1,21 @@
-<itsabeastystatewerein version='2.0' sample='2000000'>
-<statenode id='hky.kappa'>hky.kappa[1 1] (0.0,Infinity): 27.63268173253303 </statenode>
-<statenode id='popSize'>popSize[1 1] (-Infinity,Infinity): 0.1424518627144239 </statenode>
-<statenode id='rates'>rates[10 1] (0.0,100.0): 10.09546557875314 4.650739251793056 0.02377213301154604 0.2869379516052466 3.65286808961365E-7 0.6995457434462633 0.028503490914996314 0.11672256475097566 27.00458930889223 8.910019558276096 </statenode>
-<statenode id='tree'>(((((1:0.010580025933479224,2:0.010580025933479224)8:0.010695628500442284,0:0.021275654433921508)6:0.00828455454851746,3:0.029560208982438968)7:0.02417288913211446,4:0.05373309811455343)9:0.005099154545233998,5:0.05883225265978743)10:0.0</statenode>
+<itsabeastystatewerein version='2.0' sample='100000000'>
+<statenode id='hky.kappa'>hky.kappa[1 1] (0.0,Infinity): 32.10409399948414 </statenode>
+<statenode id='popSize'>popSize[1 1] (-Infinity,Infinity): 0.08410847535972188 </statenode>
+<statenode id='rates'>rates[10 1] (0.0,100.0): 0.15387717328628633 0.004204524977587136 0.26309974370919975 7.651733678628597 78.9539199907426 10.708432079155141 51.008297986645026 1.8551721420767422 0.5908636540125614 0.004743486180741544 </statenode>
+<statenode id='tree'>(5:0.061442209839603676,(((0:0.012959817694543654,(2:0.009336627881374232,1:0.009336627881374232)7:0.0036231898131694213)6:0.015033195098610508,3:0.02799301279315416)8:0.02724836485738071,4:0.05524137765053487)9:0.006200832189068806)10:0.0</statenode>
 <statenode id='indicators'>indicators[10 1] (null,true): false false false false false false false false false false </statenode>
 </itsabeastystatewerein>
 <!--
 {"operators":[
-{"id":"indicatorFlip","p":"NaN","accept":1874,"reject":85461,"acceptFC":1766,"rejectFC":84482,"rejectIv":0,"rejectOp":0},
-{"id":"rateScaler","p":0.15895154152572608,"accept":24908,"reject":61787,"acceptFC":24188,"rejectFC":61426,"rejectIv":4269,"rejectOp":4269},
-{"id":"kappaScaler","p":0.2934168622934013,"accept":22894,"reject":63685,"acceptFC":22341,"rejectFC":63150,"rejectIv":0,"rejectOp":0},
-{"id":"popSizeScaler","p":0.22196373996574068,"accept":24195,"reject":62883,"acceptFC":23565,"rejectFC":62386,"rejectIv":0,"rejectOp":0},
-{"id":"treeScaler","p":0.5621115654396968,"accept":17170,"reject":69855,"acceptFC":16989,"rejectFC":68867,"rejectIv":0,"rejectOp":0},
-{"id":"unknown","p":"NaN","accept":331560,"reject":537602,"acceptFC":327246,"rejectFC":530714,"rejectIv":0,"rejectOp":0},
-{"id":"unknown","p":0.07051048904694075,"accept":24246,"reject":410709,"acceptFC":24216,"rejectFC":405204,"rejectIv":171037,"rejectOp":171037},
-{"id":"narrow","p":"NaN","accept":4512,"reject":82761,"acceptFC":4456,"rejectFC":81674,"rejectIv":0,"rejectOp":0},
-{"id":"wide","p":"NaN","accept":661,"reject":86236,"acceptFC":654,"rejectFC":85102,"rejectIv":48514,"rejectOp":48514},
-{"id":"unknown","p":"NaN","accept":399,"reject":86603,"acceptFC":393,"rejectFC":85446,"rejectIv":44582,"rejectOp":44582}
+{"id":"indicatorFlip","p":"NaN","accept":103460,"reject":4248159,"acceptFC":103352,"rejectFC":4247180,"rejectIv":30,"rejectOp":0},
+{"id":"rateScaler","p":0.14526926780210583,"accept":1112616,"reject":3233789,"acceptFC":1111896,"rejectFC":3233428,"rejectIv":281107,"rejectOp":281107},
+{"id":"kappaScaler","p":0.28165750607288415,"accept":1067866,"reject":3278959,"acceptFC":1067313,"rejectFC":3278424,"rejectIv":0,"rejectOp":0},
+{"id":"popSizeScaler","p":0.20754721124574163,"accept":1096456,"reject":3255438,"acceptFC":1095826,"rejectFC":3254941,"rejectIv":0,"rejectOp":0},
+{"id":"treeScaler","p":0.5832003523472457,"accept":937244,"reject":3408994,"acceptFC":937063,"rejectFC":3408006,"rejectIv":0,"rejectOp":0},
+{"id":"unknown","p":"NaN","accept":16363469,"reject":27112277,"acceptFC":16359155,"rejectFC":27105389,"rejectIv":0,"rejectOp":0},
+{"id":"unknown","p":0.039972042283308834,"accept":2208627,"reject":19534001,"acceptFC":2208597,"rejectFC":19528496,"rejectIv":6898293,"rejectOp":6898292},
+{"id":"narrow","p":"NaN","accept":210127,"reject":4134969,"acceptFC":210071,"rejectFC":4133882,"rejectIv":0,"rejectOp":0},
+{"id":"wide","p":"NaN","accept":33649,"reject":4313468,"acceptFC":33642,"rejectFC":4312334,"rejectIv":2415057,"rejectOp":2415057},
+{"id":"unknown","p":"NaN","accept":18735,"reject":4327698,"acceptFC":18729,"rejectFC":4326541,"rejectIv":2221353,"rejectOp":2221353}
 ]}
 -->

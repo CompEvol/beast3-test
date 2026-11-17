@@ -15,4 +15,4 @@ File: testSimulatedAlignment.xml seed: 642061937 threads: 1
   Ignoring character uncertainty in tree likelihood.
   With 6 unique site patterns.
   Using rescaling scheme : dynamic
-End likelihood: -2764.3227442283355
+End likelihood: -2750.736634680837

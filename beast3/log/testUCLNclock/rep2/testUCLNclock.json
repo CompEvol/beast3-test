@@ -25,7 +25,7 @@ beast: [
 	},
 
 	{id: "mcmc",
-	 spec: "MCMC", chainLength: "10000000",
+	 spec: "MCMC", chainLength: "20000000",
 	 state: {id: "state",
 		 spec: "State", storeEvery: 5000,
 		 stateNode: [
@@ -98,7 +98,7 @@ beast: [
 	  ],
 	 logger: [
 		{id: "tracelog",
-		 spec: "Logger", fileName: "dna.log", logEvery: 1000, model: "@posterior", sort: "smart", sanitiseHeaders: true,
+		 spec: "Logger", fileName: "dna.log", logEvery: 10000, model: "@posterior", sort: "smart", sanitiseHeaders: true,
 		 log: [
 			 {idref: "posterior" },
 			 {idref: "likelihood" },
@@ -114,7 +114,7 @@ beast: [
 		  ]
 		},
 		{id: "screenlog",
-		 spec: "Logger", logEvery: 1000,
+		 spec: "Logger", logEvery: 10000,
 		 log: [
 			 {idref: "posterior" },
 			 {id: "ESS.0", spec: "beast.base.spec.inference.util.ESS", arg: "@posterior" },
@@ -123,7 +123,7 @@ beast: [
 		  ]
 		},
 		{id: "treelog.t:dna",
-		 spec: "Logger", fileName: "$(tree).trees", logEvery: 1000, mode: "tree",
+		 spec: "Logger", fileName: "$(tree).trees", logEvery: 10000, mode: "tree",
 		 log: [
 			 {id: "TreeWithMetaDataLogger.t:dna", spec: "beast.base.spec.evolution.TreeWithMetaDataLogger", tree: "@Tree.t:dna", branchratemodel: "@RelaxedClock.c:dna" }
 		  ]

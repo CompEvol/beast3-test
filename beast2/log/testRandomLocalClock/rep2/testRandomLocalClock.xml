@@ -52,7 +52,7 @@
     <parameter spec='beast.base.inference.parameter.RealParameter' id="popSize">1.0</parameter>
 
 
-    <run spec="MCMC" id="mcmc" chainLength="2000000"> <!--autoOptimize="true"-->
+    <run spec="MCMC" id="mcmc" chainLength="100000000"> <!--autoOptimize="true"-->
         <state>
             <input name='stateNode' idref='hky.kappa'/>
             <input name='stateNode' idref='popSize'/>
@@ -99,7 +99,7 @@
         <operator id='wide' spec='Exchange' isNarrow='false' weight="1" tree='@tree'/>
         <operator spec='WilsonBalding' weight="1" tree='@tree'/>
 
-        <logger logEvery="10000" fileName="test.$(seed).log">
+        <logger logEvery="50000" fileName="test.$(seed).log">
 	    <model idref='posterior'/>
             <log idref="coalescent"/>
             <log idref="likelihood"/>
@@ -112,10 +112,10 @@
             <log idref="rates"/>
             <log idref="posterior"/>
         </logger>
-        <logger logEvery="10000" fileName="test.$(seed).trees">
+        <logger logEvery="50000" fileName="test.$(seed).trees">
             <log idref="tree"/>
         </logger>
-        <logger logEvery="10000">
+        <logger logEvery="50000">
 	    <model idref='posterior'/>
             <log idref="coalescent"/>
             <log idref="likelihood"/>

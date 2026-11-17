@@ -10,11 +10,11 @@ Loading package bModelTest v1.4.0 from ~/Library/Application Support/BEAST/2.8/b
 Loading package starbeast3 v1.3.1 from ~/Library/Application Support/BEAST/2.8/starbeast3
 Loading package CCD v1.2.2 from ~/Library/Application Support/BEAST/2.8/CCD
 Loading package SA v2.3.0 from ~/Library/Application Support/BEAST/2.8/SA
-File: testRandomLocalClock.xml seed: 798545320 threads: 1
+File: testRandomLocalClock.xml seed: 1010103437 threads: 1
 RandomLocalClockModel::Setting dimension of indicators to 10
 RandomLocalClockModel::Setting dimension of rates to 10
   Ignoring ambiguities in tree likelihood.
   Ignoring character uncertainty in tree likelihood.
   With 69 unique site patterns.
   Using rescaling scheme : dynamic
-End likelihood: -1880.3359292832781
+End likelihood: -1861.141219366261

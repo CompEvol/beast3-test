@@ -3,3 +3,4 @@ beast3_commit	0dbce1a
 beast_base	2.8.0
 java	25.0.3
 run_date	2026-11-17
+note	chainLength 100000000 and logEvery x5 for 2001 samples (min ESS < 200 before); new seed (seed 798545320 gave min ESS 52 at 100000000)

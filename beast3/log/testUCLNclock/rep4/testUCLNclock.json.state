@@ -1,26 +1,26 @@
-<itsabeastystatewerein version='2.0' sample='10000000'>
-<statenode id='Tree.t:dna'>((((0:0.11479625780127553,5:0.11479625780127553)10:0.03913374775984793,3:0.15393000556112346)17:0.08274632147529393,1:0.2366763270364174)15:0.031229301097983275,((((2:0.11118685877294347,9:0.11118685877294347)14:0.029172221338105528,8:0.140359080111049)16:0.02732887590002725,(6:0.08672618452882114,7:0.08672618452882114)11:0.08096177148225511)12:0.07734606933608762,4:0.24503402534716387)13:0.022871602787236794)18:0.0</statenode>
-<statenode id='birthRate.t:dna'>birthRate.t:dna: 3.7331163996690107</statenode>
-<statenode id='kappa.s:dna'>kappa.s:dna: 2.575090312132878</statenode>
-<statenode id='ucldStdev.c:dna'>ucldStdev.c:dna: 0.04258146998573509</statenode>
-<statenode id='rateCategories.c:dna'>rateCategories.c:dna{18}: 6 0 4 14 17 2 15 8 14 14 10 6 0 8 13 4 8 3 </statenode>
-<statenode id='freqParameter.s:dna'>freqParameter.s:dna{4}: 0.28782972396365747 0.2829581929211781 0.13715333412567837 0.29205874898948636 </statenode>
+<itsabeastystatewerein version='2.0' sample='20000000'>
+<statenode id='Tree.t:dna'>((((0:0.097325997070448,5:0.097325997070448)10:0.08261961136556273,3:0.17994560843601073)17:0.06018909040907708,1:0.2401346988450878)15:0.022359215815000055,((((2:0.12107739084651938,8:0.12107739084651938)16:0.007583239508216391,9:0.12866063035473577)13:0.034622116704564915,(6:0.07049367247237623,7:0.07049367247237623)11:0.09278907458692445)14:0.06380806081075913,4:0.2270908078700598)12:0.03540310679002806)18:0.0</statenode>
+<statenode id='birthRate.t:dna'>birthRate.t:dna: 4.966945296603781</statenode>
+<statenode id='kappa.s:dna'>kappa.s:dna: 2.363407122899523</statenode>
+<statenode id='ucldStdev.c:dna'>ucldStdev.c:dna: 0.13340952719743815</statenode>
+<statenode id='rateCategories.c:dna'>rateCategories.c:dna{18}: 17 8 1 0 8 13 16 13 4 1 8 10 16 8 4 9 12 7 </statenode>
+<statenode id='freqParameter.s:dna'>freqParameter.s:dna{4}: 0.28899473464190045 0.3137406346254905 0.1216976094231786 0.27556702130942823 </statenode>
 </itsabeastystatewerein>
 <!--
 {"operators":[
-{"id":"YuleBirthRateScaler.t:dna","p":0.7912951560874145,"accept":81808,"reject":195908,"acceptFC":81498,"rejectFC":195159,"rejectIv":0,"rejectOp":0},
-{"id":"YuleModelTreeScaler.t:dna","p":0.07748882663665727,"accept":77099,"reject":199749,"acceptFC":77088,"rejectFC":198649,"rejectIv":3,"rejectOp":0},
-{"id":"YuleModelTreeRootScaler.t:dna","p":0.06843029842434825,"accept":76693,"reject":200986,"acceptFC":76688,"rejectFC":199867,"rejectIv":36706,"rejectOp":36701},
-{"id":"YuleModelUniformOperator.t:dna","p":"NaN","accept":708097,"reject":2065407,"acceptFC":705184,"rejectFC":2057265,"rejectIv":22,"rejectOp":0},
-{"id":"YuleModelSubtreeSlide.t:dna","p":0.2562304758391881,"accept":412175,"reject":975240,"acceptFC":410816,"rejectFC":971098,"rejectIv":13,"rejectOp":0},
-{"id":"YuleModelNarrow.t:dna","p":"NaN","accept":63643,"reject":1322151,"acceptFC":63465,"rejectFC":1316822,"rejectIv":8,"rejectOp":0},
-{"id":"YuleModelWide.t:dna","p":"NaN","accept":1046,"reject":276443,"acceptFC":1041,"rejectFC":275374,"rejectIv":147054,"rejectOp":147053},
-{"id":"YuleModelWilsonBalding.t:dna","p":"NaN","accept":307,"reject":276842,"acceptFC":304,"rejectFC":275705,"rejectIv":84877,"rejectOp":84877},
-{"id":"KappaScaler.s:dna","p":0.16899717240203838,"accept":2295,"reject":6969,"acceptFC":2292,"rejectFC":6933,"rejectIv":0,"rejectOp":0},
-{"id":"ucldStdevScaler.c:dna","p":1.511750463966199,"accept":90375,"reject":185482,"acceptFC":89536,"rejectFC":185190,"rejectIv":1,"rejectOp":0},
-{"id":"CategoriesRandomWalk.c:dna","p":"NaN","accept":557511,"reject":365983,"acceptFC":555207,"rejectFC":364575,"rejectIv":341380,"rejectOp":341369},
-{"id":"CategoriesSwapOperator.c:dna","p":"NaN","accept":694114,"reject":231094,"acceptFC":690999,"rejectFC":230546,"rejectIv":7,"rejectOp":0},
-{"id":"CategoriesUniform.c:dna","p":"NaN","accept":754791,"reject":168599,"acceptFC":751561,"rejectFC":168149,"rejectIv":7,"rejectOp":0},
-{"id":"FrequenciesExchanger.s:dna","p":0.03626167527027564,"accept":3249,"reject":5945,"acceptFC":3218,"rejectFC":5938,"rejectIv":0,"rejectOp":0}
+{"id":"YuleBirthRateScaler.t:dna","p":0.7859648599918219,"accept":165427,"reject":389385,"acceptFC":165082,"rejectFC":388632,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeScaler.t:dna","p":0.07719811219597955,"accept":156652,"reject":398135,"acceptFC":156640,"rejectFC":397056,"rejectIv":37,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:dna","p":0.06783447189752237,"accept":157134,"reject":399410,"acceptFC":157131,"rejectFC":398356,"rejectIv":72057,"rejectOp":72033},
+{"id":"YuleModelUniformOperator.t:dna","p":"NaN","accept":1413927,"reject":4128472,"acceptFC":1411216,"rejectFC":4120263,"rejectIv":440,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:dna","p":0.2543028716443424,"accept":835859,"reject":1938554,"acceptFC":834415,"rejectFC":1934422,"rejectIv":240,"rejectOp":0},
+{"id":"YuleModelNarrow.t:dna","p":"NaN","accept":129078,"reject":2642062,"acceptFC":128743,"rejectFC":2636886,"rejectIv":256,"rejectOp":0},
+{"id":"YuleModelWide.t:dna","p":"NaN","accept":2000,"reject":552783,"acceptFC":1996,"rejectFC":551699,"rejectIv":293755,"rejectOp":293744},
+{"id":"YuleModelWilsonBalding.t:dna","p":"NaN","accept":732,"reject":554724,"acceptFC":731,"rejectFC":553530,"rejectIv":171024,"rejectOp":171001},
+{"id":"KappaScaler.s:dna","p":0.16532191402059937,"accept":4725,"reject":13538,"acceptFC":4723,"rejectFC":13502,"rejectIv":0,"rejectOp":0},
+{"id":"ucldStdevScaler.c:dna","p":1.577057330241284,"accept":167952,"reject":387025,"acceptFC":167289,"rejectFC":386578,"rejectIv":48,"rejectOp":0},
+{"id":"CategoriesRandomWalk.c:dna","p":"NaN","accept":1115620,"reject":733373,"acceptFC":1113355,"rejectFC":731927,"rejectIv":683100,"rejectOp":683005},
+{"id":"CategoriesSwapOperator.c:dna","p":"NaN","accept":1377252,"reject":470550,"acceptFC":1374692,"rejectFC":469472,"rejectIv":157,"rejectOp":0},
+{"id":"CategoriesUniform.c:dna","p":"NaN","accept":1502899,"reject":344323,"acceptFC":1499992,"rejectFC":343559,"rejectIv":134,"rejectOp":0},
+{"id":"FrequenciesExchanger.s:dna","p":0.036050049923451434,"accept":6249,"reject":12161,"acceptFC":6224,"rejectFC":12153,"rejectIv":0,"rejectOp":0}
 ]}
 -->
