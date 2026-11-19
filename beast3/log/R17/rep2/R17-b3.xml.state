@@ -1,0 +1,44 @@
+<itsabeastystatewerein version='2.0' sample='20000000'>
+<statenode id='Tree.t:dna'>((((0:0.29259440296008843,5:0.29259440296008843)13:0.30841331551104,3:0.6010077184711284)11:0.07277880477350485,1:0.6737865232446333)14:0.10425103835771588,((((2:0.23791305274196967,8:0.23791305274196967)18:0.05016877301466599,9:0.28808182575663566)16:0.08990754993684974,(6:0.1589945101602651,7:0.1589945101602651)12:0.21899486553322028)15:0.27262345260637627,4:0.6506128282998617)10:0.1274247333024875)17:0.0</statenode>
+<statenode id='BMT_ModelIndicator.s:dna'>BMT_ModelIndicator.s:dna: 3</statenode>
+<statenode id='BMT_Rates.s:dna'>BMT_Rates.s:dna{6}: 0.36085925974750777 1.5912405753118897 2.965322385698099 0.4534077987110384 0.43697920760464476 0.24241952222650476 </statenode>
+<statenode id='BMT_gammaShape.s:dna'>BMT_gammaShape.s:dna: 0.26330322540545964</statenode>
+<statenode id='BMT_ProportionInvariable.s:dna'>BMT_ProportionInvariable.s:dna: 0.08650314406752622</statenode>
+<statenode id='hasInvariableSites.s:dna'>hasInvariableSites.s:dna: 0</statenode>
+<statenode id='hasGammaRates.s:dna'>hasGammaRates.s:dna: 1</statenode>
+<statenode id='hasEqualFreqs.s:dna'>hasEqualFreqs.s:dna: false</statenode>
+<statenode id='BMT_frequencies.s:dna'>BMT_frequencies.s:dna{4}: 0.3419701396694022 0.3039965682588504 0.11043177246376393 0.24360151960798332 </statenode>
+<statenode id='ORCsigma.c:dna'>ORCsigma.c:dna: 0.09040566793690542</statenode>
+<statenode id='ORCRates.c:dna'>ORCRates.c:dna{18}: 0.9941594057591487 1.0867866714018826 0.9661073833581998 0.9292902831909466 1.0180750126747207 1.1155237255376975 0.9726623110413589 0.9813181455527282 1.0964953926239949 0.9088081903350125 0.981381802878442 1.0851072743811043 1.0842121625679904 1.0929350639110884 1.0118348892599534 1.039409848431496 0.8765930091801004 0.99341919476092 </statenode>
+<statenode id='diversificationRateFBD.t:dna'>diversificationRateFBD.t:dna: 1.2227329034666226</statenode>
+<statenode id='turnoverFBD.t:dna'>turnoverFBD.t:dna: 0.1444948271997425</statenode>
+<statenode id='samplingProportionFBD.t:dna'>samplingProportionFBD.t:dna: 0.006785749466424722</statenode>
+<statenode id='originFBD.t:dna'>originFBD.t:dna: 1.8005938954112912</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"BMT_ModelTestOperator.s:dna","p":"NaN","accept":27508,"reject":127018,"acceptFC":27490,"rejectFC":126896,"rejectIv":1480,"rejectOp":1480},
+{"id":"BMT_Ratescaler.s:dna","p":0.4360707985665848,"accept":41123,"reject":113556,"acceptFC":41054,"rejectFC":113496,"rejectIv":14972,"rejectOp":14972},
+{"id":"BMT_gammaShapeScaler.s:dna","p":0.20274672291430965,"accept":21757,"reject":55666,"acceptFC":21752,"rejectFC":55594,"rejectIv":0,"rejectOp":0},
+{"id":"BMT_ProportionInvariableScaler.s:dna","p":0.32731756436911447,"accept":30779,"reject":46631,"acceptFC":30759,"rejectFC":46573,"rejectIv":18614,"rejectOp":18614},
+{"id":"BMT_hasGammaRatesFlipper.s:dna","p":"NaN","accept":0,"reject":15135,"acceptFC":0,"rejectFC":15126,"rejectIv":7476,"rejectOp":7476},
+{"id":"BMT_hasInvariableSitesFlipper.s:dna","p":"NaN","accept":1171,"reject":14157,"acceptFC":1170,"rejectFC":14144,"rejectIv":7699,"rejectOp":7699},
+{"id":"BMT_FreqsFlipOperator.s:dna","p":"NaN","accept":2,"reject":15551,"acceptFC":1,"rejectFC":15536,"rejectIv":0,"rejectOp":0},
+{"id":"BMT_FrequenciesExchanger.s:dna","p":0.06628105413829931,"accept":2069,"reject":28675,"acceptFC":2043,"rejectFC":28669,"rejectIv":100,"rejectOp":100},
+{"id":"ORCAdaptableOperatorSampler_sigma.c:dna","p":"NaN","accept":144746,"reject":319285,"acceptFC":144638,"rejectFC":318951,"rejectIv":0,"rejectOp":0,"nProposals":464031,"param_mean_sum":"[0.25148193344608893]","param_mean_SS":"[0.07024746449345004]","numAccepts":"[89297, 55449]","numProposals":"[304593, 158439]","operator_mean_runtimes":"[0.0018921019195989866, 0.0028537481301862014]","mean_SS":"[[0.006258730748700711], [0.004043712020346245]]","weights":"[0.6616501813835578, 0.3383498186164422]","operators":[{"id":"ORCUcldStdevScale.c:dna","p":0.364536987026276,"accept":89297,"reject":215788,"acceptFC":89255,"rejectFC":215628,"rejectIv":0,"rejectOp":0},{"id":"ORCSampleFromPriorOperator_sigma.c:dna","p":0.9999948666292378,"accept":55449,"reject":103497,"acceptFC":55383,"rejectFC":103323,"rejectIv":0,"rejectOp":0}]},
+{"id":"ORCAdaptableOperatorSampler_rates_root.c:dna","p":"NaN","accept":65663,"reject":89104,"acceptFC":65597,"rejectFC":89032,"rejectIv":5952,"rejectOp":4252,"nProposals":154767,"param_mean_sum":"[0.9987679429876142, 0.18705496377041517]","param_mean_SS":"[1.0015444863450436, 0.036235510939992]","numAccepts":"[32059, 33604]","numProposals":"[72667, 81101]","operator_mean_runtimes":"[0.01647984642270489, 0.015966338269547162]","mean_SS":"[[0.09169293406249572, 5.873091400455673E-4], [0.10433598797194443, 0.0]]","weights":"[0.48058588008477693, 0.5194141199152231]","operators":[{"id":"ORCRootOperator1.c:dna","p":0.029764761445277503,"accept":32059,"reject":41128,"acceptFC":32021,"rejectFC":41089,"rejectIv":5945,"rejectOp":4245},{"id":"ORCRootOperator2.c:dna","p":0.03239341170152413,"accept":33604,"reject":47976,"acceptFC":33576,"rejectFC":47943,"rejectIv":7,"rejectOp":7}]},
+{"id":"ORCAdaptableOperatorSampler_rates_internal.c:dna","p":"NaN","accept":993992,"reject":2090911,"acceptFC":992715,"rejectFC":2089202,"rejectIv":0,"rejectOp":0,"nProposals":3084903,"param_mean_sum":"[0.9988201208076111, 0.1865958925035606]","param_mean_SS":"[1.0016681227709325, 0.03610469063063146]","numAccepts":"[484160, 283575, 226257]","numProposals":"[1263421, 914392, 906091]","operator_mean_runtimes":"[0.032005333138649845, 0.029175236660168764, 0.05306296387357857]","mean_SS":"[[0.1376035501394768, 8.055055731618255E-4], [0.10767105216634515, 0.0], [0.23867121053868656, 0.0]]","weights":"[0.4252431937678053, 0.29008517782063514, 0.2846716284115596]","operators":[{"id":"ORCInternalnodesOperator.c:dna","p":0.03445904655719695,"accept":484160,"reject":779606,"acceptFC":483699,"rejectFC":779229,"rejectIv":0,"rejectOp":0},{"id":"ORCRatesScale.c:dna","p":0.38544750844947756,"accept":283575,"reject":631120,"acceptFC":283442,"rejectFC":630130,"rejectIv":0,"rejectOp":0},{"id":"ORCSampleFromPriorOperator.rates.c:dna","p":4.619319631138426,"accept":226257,"reject":680185,"acceptFC":225574,"rejectFC":679843,"rejectIv":0,"rejectOp":0}]},
+{"id":"ORCNER_dAE_dBE_dCE.c:dna","p":0,"accept":52242,"reject":718721,"acceptFC":52210,"rejectFC":718037,"rejectIv":236109,"rejectOp":236109},
+{"id":"originScalerFBD.t:dna","p":0.7577134087774954,"accept":135758,"reject":327922,"acceptFC":135602,"rejectFC":327633,"rejectIv":163863,"rejectOp":0},
+{"id":"divRateScalerFBD.t:dna","p":0.7767334274439385,"accept":461778,"reject":1083781,"acceptFC":461338,"rejectFC":1082717,"rejectIv":0,"rejectOp":0},
+{"id":"turnoverScalerFBD.t:dna","p":1.976937060687432,"accept":471575,"reject":1072944,"acceptFC":470553,"rejectFC":1072480,"rejectIv":318703,"rejectOp":317948},
+{"id":"samplingPScalerFBD.t:dna","p":1.9431396636529108,"accept":472372,"reject":1071943,"acceptFC":471490,"rejectFC":1071446,"rejectIv":423863,"rejectOp":423701},
+{"id":"LeafToSAFBD.t:dna","p":"NaN","accept":0,"reject":1544792,"acceptFC":0,"rejectFC":1543302,"rejectIv":1544792,"rejectOp":1544792},
+{"id":"SAWilsonBaldingFBD.t:dna","p":"NaN","accept":11013,"reject":1534179,"acceptFC":10996,"rejectFC":1532702,"rejectIv":170222,"rejectOp":85557},
+{"id":"SAWideFBD.t:dna","p":"NaN","accept":9866,"reject":1532900,"acceptFC":9858,"rejectFC":1531422,"rejectIv":817110,"rejectOp":817110},
+{"id":"SANarrowFBD.t:dna","p":"NaN","accept":94367,"reject":1452934,"acceptFC":94259,"rejectFC":1451541,"rejectIv":408813,"rejectOp":408813},
+{"id":"SAUniformOperatorFBD.t:dna","p":"NaN","accept":946978,"reject":2142520,"acceptFC":946127,"rejectFC":2140427,"rejectIv":0,"rejectOp":0},
+{"id":"SATreeRootScalerFBD.t:dna","p":0.12394252326007837,"accept":42253,"reject":111789,"acceptFC":42252,"rejectFC":111658,"rejectIv":45175,"rejectOp":32895},
+{"id":"SATreeScalerFBD.t:dna","p":0.17968931569349533,"accept":137403,"reject":325472,"acceptFC":137399,"rejectFC":325019,"rejectIv":51946,"rejectOp":0}
+]}
+-->

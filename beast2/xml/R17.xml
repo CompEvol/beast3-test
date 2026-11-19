@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='Standard' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood" required="BEAST.base v2.7.9:SA v2.1.1:bModelTest v1.3.3:ORC v1.2.1:BEASTLabs v2.0.3" version="2.7">
+
+    <data
+id="dna"
+spec="Alignment"
+name="alignment">
+        <sequence id="seq_Carp" spec="Sequence" taxon="Carp" totalcount="4" value="ATGGCACACCCAACGCAACTAGGTTTCAAGGACGCGGCCATACCCGTTATAGAGGAACTTCTTCACTTCCACGACCACGCATTAATAATTGTGCTCCTAATTAGCACTTTAGTTTTATATATTATTACTGCAATGGTATCAACTAAACTTACTAATAAATATATTCTAGACTCCCAAGAAATCGAAATCGTATGAACCATTCTACCAGCCGTCATTTTAGTACTAATCGCCCTGCCCTCCCTACGCATCCTGTACCTTATAGACGAAATTAACGACCCTCACCTGACAATTAAAGCAATAGGACACCAATGATACTGAAGTTACGAGTATACAGACTATGAAAATCTAGGATTCGACTCCTATATAGTACCAACCCAAGACCTTGCCCCCGGACAATTCCGACTTCTGGAAACAGACCACCGAATAGTTGTTCCAATAGAATCCCCAGTCCGTGTCCTAGTATCTGCTGAAGACGTGCTACATTCTTGAGCTGTTCCATCCCTTGGCGTAAAAATGGACGCAGTCCCAGGACGACTAAATCAAGCCGCCTTTATTGCCTCACGCCCAGGGGTCTTTTACGGACAATGCTCTGAAATTTGTGGAGCTAATCACAGCTTTATACCAATTGTAGTTGAAGCAGTACCTCTCGAACACTTCGAAAACTGATCCTCATTAATACTAGAAGACGCCTCGCTAGGAAGCTAA"/>
+        <sequence id="seq_Chicken" spec="Sequence" taxon="Chicken" totalcount="4" value="ATGGCCAACCACTCCCAACTAGGCTTTCAAGACGCCTCATCCCCCATCATAGAAGAGCTCGTTGAATTCCACGACCACGCCCTGATAGTCGCACTAGCAATTTGCAGCTTAGTACTCTACCTTCTAACTCTTATACTTATAGAAAAACTATCA---TCAAACACCGTAGATGCCCAAGAAGTTGAACTAATCTGAACCATCCTACCCGCTATTGTCCTAGTCCTGCTTGCCCTCCCCTCCCTCCAAATCCTCTACATAATAGACGAAATCGACGAACCTGATCTCACCCTAAAAGCCATCGGACACCAATGATACTGAACCTATGAATACACAGACTTCAAGGACCTCTCATTTGACTCCTACATAACCCCAACAACAGACCTCCCCCTAGGCCACTTCCGCCTACTAGAAGTCGACCATCGCATTGTAATCCCCATAGAATCCCCCATTCGAGTAATCATCACCGCTGATGACGTCCTCCACTCATGAGCCGTACCCGCCCTCGGGGTAAAAACAGACGCAATCCCTGGACGACTAAATCAAACCTCCTTCATCACCACTCGACCAGGAGTGTTTTACGGACAATGCTCAGAAATCTGCGGAGCTAACCACAGCTACATACCCATTGTAGTAGAGTCTACCCCCCTAAAACACTTTGAAGCCTGATCCTCACTA------------------CTGTCATCTTAA"/>
+        <sequence id="seq_Cow" spec="Sequence" taxon="Cow" totalcount="4" value="ATGGCATATCCCATACAACTAGGATTCCAAGATGCAACATCACCAATCATAGAAGAACTACTTCACTTTCATGACCACACGCTAATAATTGTCTTCTTAATTAGCTCATTAGTACTTTACATTATTTCACTAATACTAACGACAAAGCTGACCCATACAAGCACGATAGATGCACAAGAAGTAGAGACAATCTGAACCATTCTGCCCGCCATCATCTTAATTCTAATTGCTCTTCCTTCTTTACGAATTCTATACATAATAGATGAAATCAATAACCCATCTCTTACAGTAAAAACCATAGGACATCAGTGATACTGAAGCTATGAGTATACAGATTATGAGGACTTAAGCTTCGACTCCTACATAATTCCAACATCAGAATTAAAGCCAGGGGAGCTACGACTATTAGAAGTCGATAATCGAGTTGTACTACCAATAGAAATAACAATCCGAATGTTAGTCTCCTCTGAAGACGTATTACACTCATGAGCTGTGCCCTCTCTAGGACTAAAAACAGACGCAATCCCAGGCCGTCTAAACCAAACAACCCTTATATCGTCCCGTCCAGGCTTATATTACGGTCAATGCTCAGAAATTTGCGGGTCAAACCACAGTTTCATACCCATTGTCCTTGAGTTAGTCCCACTAAAGTACTTTGAAAAATGATCTGCGTCAATATTA---------------------TAA"/>
+        <sequence id="seq_Frog" spec="Sequence" taxon="Frog" totalcount="4" value="ATGGCACACCCATCACAATTAGGTTTTCAAGACGCAGCCTCTCCAATTATAGAAGAATTACTTCACTTCCACGACCATACCCTCATAGCCGTTTTTCTTATTAGTACGCTAGTTCTTTACATTATTACTATTATAATAACTACTAAACTAACTAATACAAACCTAATGGACGCACAAGAGATCGAAATAGTGTGAACTATTATACCAGCTATTAGCCTCATCATAATTGCCCTTCCATCCCTTCGTATCCTATATTTAATAGATGAAGTTAATGATCCACACTTAACAATTAAAGCAATCGGCCACCAATGATACTGAAGCTACGAATATACTAACTATGAGGATCTCTCATTTGACTCTTATATAATTCCAACTAATGACCTTACCCCTGGACAATTCCGGCTGCTAGAAGTTGATAATCGAATAGTAGTCCCAATAGAATCTCCAACCCGACTTTTAGTTACAGCCGAAGACGTCCTCCACTCGTGAGCTGTACCCTCCTTGGGTGTCAAAACAGATGCAATCCCAGGACGACTTCATCAAACATCATTTATTGCTACTCGTCCGGGAGTATTTTACGGACAATGTTCAGAAATTTGCGGAGCAAACCACAGCTTTATACCAATTGTAGTTGAAGCAGTACCGCTAACCGACTTTGAAAACTGATCTTCATCAATACTA---GAAGCATCACTA------AGA"/>
+        <sequence id="seq_Human" spec="Sequence" taxon="Human" totalcount="4" value="ATGGCACATGCAGCGCAAGTAGGTCTACAAGACGCTACTTCCCCTATCATAGAAGAGCTTATCACCTTTCATGATCACGCCCTCATAATCATTTTCCTTATCTGCTTCCTAGTCCTGTATGCCCTTTTCCTAACACTCACAACAAAACTAACTAATACTAACATCTCAGACGCTCAGGAAATAGAAACCGTCTGAACTATCCTGCCCGCCATCATCCTAGTCCTCATCGCCCTCCCATCCCTACGCATCCTTTACATAACAGACGAGGTCAACGATCCCTCCCTTACCATCAAATCAATTGGCCACCAATGGTACTGAACCTACGAGTACACCGACTACGGCGGACTAATCTTCAACTCCTACATACTTCCCCCATTATTCCTAGAACCAGGCGACCTGCGACTCCTTGACGTTGACAATCGAGTAGTACTCCCGATTGAAGCCCCCATTCGTATAATAATTACATCACAAGACGTCTTGCACTCATGAGCTGTCCCCACATTAGGCTTAAAAACAGATGCAATTCCCGGACGTCTAAACCAAACCACTTTCACCGCTACACGACCGGGGGTATACTACGGTCAATGCTCTGAAATCTGTGGAGCAAACCACAGTTTCATGCCCATCGTCCTAGAATTAATTCCCCTAAAAATCTTTGAAATA---------------------GGGCCCGTATTTACCCTATAG"/>
+        <sequence id="seq_Loach" spec="Sequence" taxon="Loach" totalcount="4" value="ATGGCACATCCCACACAATTAGGATTCCAAGACGCGGCCTCACCCGTAATAGAAGAACTTCTTCACTTCCATGACCATGCCCTAATAATTGTATTTTTGATTAGCGCCCTAGTACTTTATGTTATTATTACAACCGTCTCAACAAAACTCACTAACATATATATTTTGGACTCACAAGAAATTGAAATCGTATGAACTGTGCTCCCTGCCCTAATCCTCATTTTAATCGCCCTCCCCTCACTACGAATTCTATATCTTATAGACGAGATTAATGACCCCCACCTAACAATTAAGGCCATGGGGCACCAATGATACTGAAGCTACGAGTATACTGATTATGAAAACTTAAGTTTTGACTCCTACATAATCCCCACCCAGGACCTAACCCCTGGACAATTCCGGCTACTAGAGACAGACCACCGAATGGTTGTTCCCATAGAATCCCCTATTCGCATTCTTGTTTCCGCCGAAGATGTACTACACTCCTGGGCCCTTCCAGCCATGGGGGTAAAGATAGACGCGGTCCCAGGACGCCTTAACCAAACCGCCTTTATTGCCTCCCGCCCCGGGGTATTCTATGGGCAATGCTCAGAAATCTGTGGAGCAAACCACAGCTTTATACCCATCGTAGTAGAAGCGGTCCCACTATCTCACTTCGAAAACTGGTCCACCCTTATACTAAAAGACGCCTCACTAGGAAGCTAA"/>
+        <sequence id="seq_Mouse" spec="Sequence" taxon="Mouse" totalcount="4" value="ATGGCCTACCCATTCCAACTTGGTCTACAAGACGCCACATCCCCTATTATAGAAGAGCTAATAAATTTCCATGATCACACACTAATAATTGTTTTCCTAATTAGCTCCTTAGTCCTCTATATCATCTCGCTAATATTAACAACAAAACTAACACATACAAGCACAATAGATGCACAAGAAGTTGAAACCATTTGAACTATTCTACCAGCTGTAATCCTTATCATAATTGCTCTCCCCTCTCTACGCATTCTATATATAATAGACGAAATCAACAACCCCGTATTAACCGTTAAAACCATAGGGCACCAATGATACTGAAGCTACGAATATACTGACTATGAAGACCTATGCTTTGATTCATATATAATCCCAACAAACGACCTAAAACCTGGTGAACTACGACTGCTAGAAGTTGATAACCGAGTCGTTCTGCCAATAGAACTTCCAATCCGTATATTAATTTCATCTGAAGACGTCCTCCACTCATGAGCAGTCCCCTCCCTAGGACTTAAAACTGATGCCATCCCAGGCCGACTAAATCAAGCAACAGTAACATCAAACCGACCAGGGTTATTCTATGGCCAATGCTCTGAAATTTGTGGATCTAACCATAGCTTTATGCCCATTGTCCTAGAAATGGTTCCACTAAAATATTTCGAAAACTGATCTGCTTCAATAATT---------------------TAA"/>
+        <sequence id="seq_Rat" spec="Sequence" taxon="Rat" totalcount="4" value="ATGGCTTACCCATTTCAACTTGGCTTACAAGACGCTACATCACCTATCATAGAAGAACTTACAAACTTTCATGACCACACCCTAATAATTGTATTCCTCATCAGCTCCCTAGTACTTTATATTATTTCACTAATACTAACAACAAAACTAACACACACAAGCACAATAGACGCCCAAGAAGTAGAAACAATTTGAACAATTCTCCCAGCTGTCATTCTTATTCTAATTGCCCTTCCCTCCCTACGAATTCTATACATAATAGACGAGATTAATAACCCAGTTCTAACAGTAAAAACTATAGGACACCAATGATACTGAAGCTATGAATATACTGACTATGAAGACCTATGCTTTGACTCCTACATAATCCCAACCAATGACCTAAAACCAGGTGAACTTCGTCTATTAGAAGTTGATAATCGGGTAGTCTTACCAATAGAACTTCCAATTCGTATACTAATCTCATCCGAAGACGTCCTGCACTCATGAGCCATCCCTTCACTAGGGTTAAAAACCGACGCAATCCCCGGCCGCCTAAACCAAGCTACAGTCACATCAAACCGACCAGGTCTATTCTATGGCCAATGCTCTGAAATTTGCGGCTCAAATCACAGCTTCATACCCATTGTACTAGAAATAGTGCCTCTAAAATATTTCGAAAACTGATCAGCTTCTATAATT---------------------TAA"/>
+        <sequence id="seq_Seal" spec="Sequence" taxon="Seal" totalcount="4" value="ATGGCATACCCCCTACAAATAGGCCTACAAGATGCAACCTCTCCCATTATAGAGGAGTTACTACACTTCCATGACCACACATTAATAATTGTGTTCCTAATTAGCTCATTAGTACTCTACATTATCTCACTTATACTAACCACGAAACTCACCCACACAAGTACAATAGACGCACAAGAAGTGGAAACGGTGTGAACGATCCTACCCGCTATCATTTTAATTCTCATTGCCCTACCATCATTACGAATCCTCTACATAATGGACGAGATCAATAACCCTTCCTTGACCGTAAAAACTATAGGACATCAGTGATACTGAAGCTATGAGTACACAGACTACGAAGACCTGAACTTTGACTCATATATGATCCCCACACAAGAACTAAAGCCCGGAGAACTACGACTGCTAGAAGTAGACAATCGAGTAGTCCTCCCAATAGAAATAACAATCCGCATACTAATCTCATCAGAAGATGTACTCCACTCATGAGCCGTACCGTCCCTAGGACTAAAAACTGATGCTATCCCAGGACGACTAAACCAAACAACCCTAATAACCATACGACCAGGACTGTACTACGGTCAATGCTCAGAAATCTGTGGTTCAAACCACAGCTTCATACCTATTGTCCTCGAATTGGTCCCACTATCCCACTTCGAGAAATGATCTACCTCAATGCTT---------------------TAA"/>
+        <sequence id="seq_Whale" spec="Sequence" taxon="Whale" totalcount="4" value="ATGGCATATCCATTCCAACTAGGTTTCCAAGATGCAGCATCACCCATCATAGAAGAGCTCCTACACTTTCACGATCATACACTAATAATCGTTTTTCTAATTAGCTCTTTAGTTCTCTACATTATTACCCTAATGCTTACAACCAAATTAACACATACTAGTACAATAGACGCCCAAGAAGTAGAAACTGTCTGAACTATCCTCCCAGCCATTATCTTAATTTTAATTGCCTTGCCTTCATTACGGATCCTTTACATAATAGACGAAGTCAATAACCCCTCCCTCACTGTAAAAACAATAGGTCACCAATGATATTGAAGCTATGAGTATACCGACTACGAAGACCTAAGCTTCGACTCCTATATAATCCCAACATCAGACCTAAAGCCAGGAGAACTACGATTATTAGAAGTAGATAACCGAGTTGTCTTACCTATAGAAATAACAATCCGAATATTAGTCTCATCAGAAGACGTACTCCACTCATGGGCCGTACCCTCCTTGGGCCTAAAAACAGATGCAATCCCAGGACGCCTAAACCAAACAACCTTAATATCAACACGACCAGGCCTATTTTATGGACAATGCTCAGAGATCTGCGGCTCAAACCACAGTTTCATACCAATTGTCCTAGAACTAGTACCCCTAGAAGTCTTTGAAAAATGATCTGTATCAATACTA---------------------TAA"/>
+    </data>
+
+    <map name="Uniform" >beast.base.inference.distribution.Uniform</map>
+
+    <map name="Exponential" >beast.base.inference.distribution.Exponential</map>
+
+    <map name="LogNormal" >beast.base.inference.distribution.LogNormalDistributionModel</map>
+
+    <map name="Normal" >beast.base.inference.distribution.Normal</map>
+
+    <map name="Beta" >beast.base.inference.distribution.Beta</map>
+
+    <map name="Gamma" >beast.base.inference.distribution.Gamma</map>
+
+    <map name="LaplaceDistribution" >beast.base.inference.distribution.LaplaceDistribution</map>
+
+    <map name="prior" >beast.base.inference.distribution.Prior</map>
+
+    <map name="InverseGamma" >beast.base.inference.distribution.InverseGamma</map>
+
+    <map name="OneOnX" >beast.base.inference.distribution.OneOnX</map>
+
+    <run id="mcmc" spec="MCMC" chainLength="20000000">
+        <state id="state" spec="State" storeEvery="5000">
+            <tree id="Tree.t:dna" spec="beast.base.evolution.tree.Tree" name="stateNode">
+                <taxonset id="TaxonSet.dna" spec="TaxonSet">
+                    <alignment idref="dna"/>
+                </taxonset>
+            </tree>
+            <stateNode id="BMT_ModelIndicator.s:dna" spec="parameter.IntegerParameter" lower="0" upper="5">5</stateNode>
+            <parameter id="BMT_Rates.s:dna" spec="parameter.RealParameter" dimension="6" lower="0.01" name="stateNode" upper="100.0">1.0</parameter>
+            <parameter id="BMT_gammaShape.s:dna" spec="parameter.RealParameter" name="stateNode">1.0</parameter>
+            <parameter id="BMT_ProportionInvariable.s:dna" spec="parameter.RealParameter" lower="0.0" name="stateNode" upper="1.0">0.1</parameter>
+            <stateNode id="hasInvariableSites.s:dna" spec="parameter.IntegerParameter">1</stateNode>
+            <stateNode id="hasGammaRates.s:dna" spec="parameter.IntegerParameter">1</stateNode>
+            <stateNode id="hasEqualFreqs.s:dna" spec="parameter.BooleanParameter">false</stateNode>
+            <parameter id="BMT_frequencies.s:dna" spec="parameter.RealParameter" dimension="4" name="stateNode">0.25 0.25 0.25 0.25</parameter>
+            <parameter id="ORCsigma.c:dna" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.2</parameter>
+            <parameter id="ORCRates.c:dna" spec="parameter.RealParameter" dimension="18" lower="1.0E-100" name="stateNode">0.5</parameter>
+            <parameter id="diversificationRateFBD.t:dna" spec="parameter.RealParameter" lower="0.0" name="stateNode">1.0</parameter>
+            <parameter id="turnoverFBD.t:dna" spec="parameter.RealParameter" lower="0.0" name="stateNode" upper="1.0">0.5</parameter>
+            <parameter id="samplingProportionFBD.t:dna" spec="parameter.RealParameter" lower="0.0" name="stateNode" upper="1.0">0.5</parameter>
+            <parameter id="originFBD.t:dna" spec="parameter.RealParameter" lower="0.0" name="stateNode">100.0</parameter>
+        </state>
+        <init id="RandomTree.t:dna" spec="RandomTree" estimate="false" initial="@Tree.t:dna" taxa="@dna">
+            <populationModel id="ConstantPopulation0.t:dna" spec="ConstantPopulation">
+                <parameter id="randomPopSize.t:dna" spec="parameter.RealParameter" name="popSize">1.0</parameter>
+            </populationModel>
+        </init>
+        <distribution id="posterior" spec="CompoundDistribution">
+            <distribution id="prior" spec="CompoundDistribution">
+                <distribution id="FBD.t:dna" spec="sa.evolution.speciation.SABirthDeathModel" conditionOnRhoSampling="true" diversificationRate="@diversificationRateFBD.t:dna" origin="@originFBD.t:dna" samplingProportion="@samplingProportionFBD.t:dna" tree="@Tree.t:dna" turnover="@turnoverFBD.t:dna">
+                    <parameter id="rFBD.t:dna" spec="parameter.RealParameter" lower="0.0" name="removalProbability" upper="1.0">0.0</parameter>
+                    <parameter id="rhoFBD.t:dna" spec="parameter.RealParameter" estimate="false" lower="0.0" name="rho" upper="1.0">1.0</parameter>
+                </distribution>
+                <distribution id="BMT_PropInvariablePrior.s:dna" spec="bmodeltest.math.distributions.BMTPrior" count="@hasInvariableSites.s:dna" x="@BMT_ProportionInvariable.s:dna">
+                    <Beta id="Beta.0" name="distr">
+                        <alpha id="Function$Constant.0" spec="Function$Constant" value="1.0"/>
+                        <beta id="Function$Constant.1" spec="Function$Constant" value="4.0"/>
+                    </Beta>
+                </distribution>
+                <distribution id="BMT_RatesPrior.s:dna" spec="bmodeltest.math.distributions.NucleotideRevJumpSubstModelRatePrior" modelIndicator="@BMT_ModelIndicator.s:dna" x="@BMT_Rates.s:dna">
+                    <substModel id="RevJump.s:dna" spec="bmodeltest.evolution.substitutionmodel.NucleotideRevJumpSubstModel" modelIndicator="@BMT_ModelIndicator.s:dna" rates="@BMT_Rates.s:dna">
+                        <frequencies id="BMTfreqs.s:dna" spec="bmodeltest.evolution.substitutionmodel.ModelFrequencies" empirical="false" frequencies="@BMT_frequencies.s:dna" hasEqualFreqs="@hasEqualFreqs.s:dna"/>
+                    </substModel>
+                    <Exponential id="BMT_RatesPrior.s:dnax" name="distr"/>
+                </distribution>
+                <prior id="BMT_freqsPrior.s:dna" name="distribution" x="@BMT_frequencies.s:dna">
+                    <distr id="Dirichlet.0" spec="distribution.Dirichlet">
+                        <alpha id="Function$Constant.2" spec="Function$Constant" value="1.0 1.0 1.0 1.0"/>
+                    </distr>
+                </prior>
+                <distribution id="BMT_GammaShapePrior.s:dna" spec="bmodeltest.math.distributions.BMTPrior" count="@hasGammaRates.s:dna" x="@BMT_gammaShape.s:dna">
+                    <Exponential id="Exponential.1" name="distr">
+                        <parameter id="RealParameter.1" spec="parameter.RealParameter" estimate="false" lower="0.0" name="mean" upper="0.0">1.0</parameter>
+                    </Exponential>
+                </distribution>
+                <prior id="ORCRatePriorDistribution.c:dna" name="distribution" x="@ORCRates.c:dna">
+                    <LogNormal id="LogNormalDistributionModel.0" S="@ORCsigma.c:dna" meanInRealSpace="true" name="distr">
+                        <parameter id="RealParameter.3" spec="parameter.RealParameter" estimate="false" name="M">1.0</parameter>
+                    </LogNormal>
+                </prior>
+                <prior id="ORCsigmaPrior.c:dna" name="distribution" x="@ORCsigma.c:dna">
+                    <Gamma id="Gamma.0" name="distr">
+                        <parameter id="RealParameter.4" spec="parameter.RealParameter" estimate="false" name="alpha">5.0</parameter>
+                        <parameter id="RealParameter.5" spec="parameter.RealParameter" estimate="false" name="beta">0.05</parameter>
+                    </Gamma>
+                </prior>
+                <prior id="diversificationRatePriorFBD.t:dna" name="distribution" x="@diversificationRateFBD.t:dna">
+                    <Uniform id="Uniform.4" name="distr" upper="10000.0"/>
+                </prior>
+                <prior id="originPriorFBD.t:dna" name="distribution" x="@originFBD.t:dna">
+                    <Uniform id="Uniform.3" name="distr" upper="10000.0"/>
+                </prior>
+                <prior id="samplingProportionPriorFBD.t:dna" name="distribution" x="@samplingProportionFBD.t:dna">
+                    <Uniform id="Uniform.6" name="distr"/>
+                </prior>
+                <prior id="turnoverPriorFBD.t:dna" name="distribution" x="@turnoverFBD.t:dna">
+                    <Uniform id="Uniform.5" name="distr"/>
+                </prior>
+            </distribution>
+            <distribution id="likelihood" spec="CompoundDistribution" useThreads="true">
+                <distribution id="treeLikelihood.dna" spec="ThreadedTreeLikelihood" data="@dna" tree="@Tree.t:dna">
+                    <siteModel id="BEASTModelTest.s:dna" spec="bmodeltest.evolution.sitemodel.BEASTModelTestSiteModel" gammaCategoryCount="4" hasGammaRates="@hasGammaRates.s:dna" hasInvariantSites="@hasInvariableSites.s:dna" proportionInvariant="@BMT_ProportionInvariable.s:dna" shape="@BMT_gammaShape.s:dna" substModel="@RevJump.s:dna">
+                        <parameter id="BMT_mutationRate.s:dna" spec="parameter.RealParameter" estimate="false" name="mutationRate">1.0</parameter>
+                    </siteModel>
+                    <branchRateModel id="OptimisedRelaxedClock.c:dna" spec="beast.base.evolution.branchratemodel.UCRelaxedClockModel" rates="@ORCRates.c:dna" tree="@Tree.t:dna">
+                        <LogNormal id="ORCLogNormalDistributionModel.c:dna" S="@ORCsigma.c:dna" meanInRealSpace="true" name="distr">
+                            <parameter id="RealParameter.2" spec="parameter.RealParameter" estimate="false" name="M">1.0</parameter>
+                        </LogNormal>
+                        <parameter id="ORCucldMean.c:dna" spec="parameter.RealParameter" estimate="false" name="clock.rate">1.0</parameter>
+                    </branchRateModel>
+                </distribution>
+            </distribution>
+        </distribution>
+        <operator id="BMT_ModelTestOperator.s:dna" spec="bmodeltest.evolution.operators.BMTMergeSplitOperator" modelIndicator="@BMT_ModelIndicator.s:dna" rates="@BMT_Rates.s:dna" substModel="@RevJump.s:dna" weight="1.0"/>
+        <operator id="BMT_Ratescaler.s:dna" spec="bmodeltest.evolution.operators.BMTExchangeOperator" delta="0.15" modelIndicator="@BMT_ModelIndicator.s:dna" rates="@BMT_Rates.s:dna" substModel="@RevJump.s:dna" weight="1.0"/>
+        <operator id="BMT_gammaShapeScaler.s:dna" spec="bmodeltest.evolution.operators.BMTScaleOperator" count="@hasGammaRates.s:dna" parameter="@BMT_gammaShape.s:dna" scaleFactor="0.5" weight="0.5"/>
+        <operator id="BMT_ProportionInvariableScaler.s:dna" spec="bmodeltest.evolution.operators.BMTScaleOperator" count="@hasInvariableSites.s:dna" parameter="@BMT_ProportionInvariable.s:dna" scaleFactor="0.5" weight="0.5"/>
+        <operator id="BMT_hasGammaRatesFlipper.s:dna" spec="bmodeltest.evolution.operators.BMTBirthDeathOperator" count="@hasGammaRates.s:dna" rates="@BMT_gammaShape.s:dna" weight="0.1"/>
+        <operator id="BMT_hasInvariableSitesFlipper.s:dna" spec="bmodeltest.evolution.operators.BMTBirthDeathOperator" count="@hasInvariableSites.s:dna" rates="@BMT_ProportionInvariable.s:dna" weight="0.1"/>
+        <operator id="BMT_FreqsFlipOperator.s:dna" spec="operator.BitFlipOperator" parameter="@hasEqualFreqs.s:dna" weight="0.1"/>
+        <operator id="BMT_FrequenciesExchanger.s:dna" spec="operator.kernel.BactrianDeltaExchangeOperator" delta="0.01" weight="0.2">
+            <parameter idref="BMT_frequencies.s:dna"/>
+        </operator>
+        <operator id="ORCAdaptableOperatorSampler_sigma.c:dna" spec="AdaptableOperatorSampler" weight="3.0">
+            <parameter idref="ORCsigma.c:dna"/>
+            <operator id="ORCucldStdevScaler.c:dna" spec="orc.consoperators.UcldScalerOperator" distr="@ORCLogNormalDistributionModel.c:dna" rates="@ORCRates.c:dna" scaleFactor="0.5" stdev="@ORCsigma.c:dna" weight="1.0">
+                <kernel id="KernelDistribution$Bactrian.17" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCUcldStdevRandomWalk.c:dna" spec="operator.kernel.BactrianRandomWalkOperator" parameter="@ORCsigma.c:dna" scaleFactor="0.1" weight="1.0">
+                <kernelDistribution id="KernelDistribution$Bactrian.18" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCUcldStdevScale.c:dna" spec="kernel.BactrianScaleOperator" parameter="@ORCsigma.c:dna" scaleFactor="0.5" upper="10.0" weight="1.0">
+                <kernelDistribution id="KernelDistribution$Bactrian.19" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCSampleFromPriorOperator_sigma.c:dna" spec="orc.operators.SampleFromPriorOperator" parameter="@ORCsigma.c:dna" prior2="@ORCsigmaPrior.c:dna" weight="1.0"/>
+        </operator>
+        <operator id="ORCAdaptableOperatorSampler_rates_root.c:dna" spec="AdaptableOperatorSampler" weight="1.0">
+            <parameter idref="ORCRates.c:dna"/>
+            <tree idref="Tree.t:dna"/>
+            <operator id="ORCRootOperator1.c:dna" spec="orc.consoperators.SimpleDistance" clockModel="@OptimisedRelaxedClock.c:dna" rates="@ORCRates.c:dna" tree="@Tree.t:dna" twindowSize="0.005" weight="1.0">
+                <kernel id="KernelDistribution$Bactrian.20" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCRootOperator2.c:dna" spec="orc.consoperators.SmallPulley" clockModel="@OptimisedRelaxedClock.c:dna" dwindowSize="0.005" rates="@ORCRates.c:dna" tree="@Tree.t:dna" weight="1.0">
+                <kernel id="KernelDistribution$Bactrian.21" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+        </operator>
+        <operator id="ORCAdaptableOperatorSampler_rates_internal.c:dna" spec="AdaptableOperatorSampler" weight="20.0">
+            <parameter idref="ORCRates.c:dna"/>
+            <tree idref="Tree.t:dna"/>
+            <operator id="ORCInternalnodesOperator.c:dna" spec="orc.consoperators.InConstantDistanceOperator" clockModel="@OptimisedRelaxedClock.c:dna" rates="@ORCRates.c:dna" tree="@Tree.t:dna" twindowSize="0.005" weight="1.0">
+                <kernel id="KernelDistribution$Bactrian.22" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCRatesRandomWalk.c:dna" spec="operator.kernel.BactrianRandomWalkOperator" parameter="@ORCRates.c:dna" scaleFactor="0.1" weight="1.0">
+                <kernelDistribution id="KernelDistribution$Bactrian.23" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCRatesScale.c:dna" spec="kernel.BactrianScaleOperator" parameter="@ORCRates.c:dna" scaleFactor="0.5" upper="10.0" weight="1.0">
+                <kernelDistribution id="KernelDistribution$Bactrian.24" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCSampleFromPriorOperator.rates.c:dna" spec="orc.operators.SampleFromPriorOperator" parameter="@ORCRates.c:dna" prior2="@ORCRatePriorDistribution.c:dna" weight="1.0"/>
+        </operator>
+        <operator id="ORCAdaptableOperatorSampler_NER.c:dna" spec="AdaptableOperatorSampler" weight="10.0">
+            <tree idref="Tree.t:dna"/>
+            <operator id="ORCNER_null.c:dna" spec="orc.operators.MetaNEROperator" rates="@ORCRates.c:dna" tree="@Tree.t:dna" weight="1.0"/>
+            <operator id="ORCNER_dAE_dBE_dCE.c:dna" spec="orc.ner.NEROperator_dAE_dBE_dCE" rates="@ORCRates.c:dna" tree="@Tree.t:dna" weight="1.0"/>
+            <metric id="RNNIMetric.0" spec="beastlabs.evolution.tree.RNNIMetric" taxonset="@TaxonSet.dna"/>
+        </operator>
+        <operator id="originScalerFBD.t:dna" spec="ScaleOperator" parameter="@originFBD.t:dna" weight="3.0"/>
+        <operator id="divRateScalerFBD.t:dna" spec="ScaleOperator" parameter="@diversificationRateFBD.t:dna" weight="10.0"/>
+        <operator id="turnoverScalerFBD.t:dna" spec="ScaleOperator" parameter="@turnoverFBD.t:dna" weight="10.0"/>
+        <operator id="samplingPScalerFBD.t:dna" spec="ScaleOperator" parameter="@samplingProportionFBD.t:dna" weight="10.0"/>
+        <operator id="LeafToSAFBD.t:dna" spec="sa.evolution.operators.LeafToSampledAncestorJump" tree="@Tree.t:dna" weight="10.0"/>
+        <operator id="SAWilsonBaldingFBD.t:dna" spec="sa.evolution.operators.SAWilsonBalding" tree="@Tree.t:dna" weight="10.0"/>
+        <operator id="SAWideFBD.t:dna" spec="sa.evolution.operators.SAExchange" isNarrow="false" tree="@Tree.t:dna" weight="10.0"/>
+        <operator id="SANarrowFBD.t:dna" spec="sa.evolution.operators.SAExchange" tree="@Tree.t:dna" weight="10.0"/>
+        <operator id="SAUniformOperatorFBD.t:dna" spec="sa.evolution.operators.SAUniform" tree="@Tree.t:dna" weight="20.0"/>
+        <operator id="SATreeRootScalerFBD.t:dna" spec="sa.evolution.operators.SAScaleOperator" rootOnly="true" scaleFactor="0.95" tree="@Tree.t:dna" weight="1.0"/>
+        <operator id="SATreeScalerFBD.t:dna" spec="sa.evolution.operators.SAScaleOperator" scaleFactor="0.95" tree="@Tree.t:dna" weight="3.0"/>
+        <logger id="tracelog" spec="Logger" fileName="$(filebase).log" logEvery="4000" model="@posterior" sanitiseHeaders="true" sort="smart">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log idref="treeLikelihood.dna"/>
+            <log id="TreeHeight.t:dna" spec="beast.base.evolution.tree.TreeStatLogger" tree="@Tree.t:dna"/>
+            <log idref="RevJump.s:dna"/>
+            <log idref="BMT_ModelIndicator.s:dna"/>
+            <log idref="BMT_gammaShape.s:dna"/>
+            <log idref="BMT_ProportionInvariable.s:dna"/>
+            <log idref="hasGammaRates.s:dna"/>
+            <log idref="hasInvariableSites.s:dna"/>
+            <log id="ActivePropInvariable.s:dna" spec="bmodeltest.evolution.substitutionmodel.ActiveLogger" mask="@hasInvariableSites.s:dna" parameter="@BMT_ProportionInvariable.s:dna"/>
+            <log id="ActiveGammaShape.s:dna" spec="bmodeltest.evolution.substitutionmodel.ActiveLogger" mask="@hasGammaRates.s:dna" parameter="@BMT_gammaShape.s:dna"/>
+            <log idref="hasEqualFreqs.s:dna"/>
+            <log idref="BMT_frequencies.s:dna"/>
+            <log idref="ORCsigma.c:dna"/>
+            <log id="ORCRatesStat.c:dna" spec="beast.base.evolution.RateStatistic" branchratemodel="@OptimisedRelaxedClock.c:dna" tree="@Tree.t:dna"/>
+            <log idref="FBD.t:dna"/>
+            <log idref="diversificationRateFBD.t:dna"/>
+            <log idref="turnoverFBD.t:dna"/>
+            <log idref="samplingProportionFBD.t:dna"/>
+            <log idref="originFBD.t:dna"/>
+            <log id="SACountFBD.t:dna" spec="sa.evolution.tree.SampledAncestorLogger" tree="@Tree.t:dna"/>
+        </logger>
+        <logger id="screenlog" spec="Logger" logEvery="4000">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+        </logger>
+        <logger id="treelog.t:dna" spec="Logger" fileName="$(filebase)-$(tree).trees" logEvery="4000" mode="tree">
+            <log id="TreeWithMetaDataLogger.t:dna" spec="beast.base.evolution.TreeWithMetaDataLogger" branchratemodel="@OptimisedRelaxedClock.c:dna" tree="@Tree.t:dna"/>
+        </logger>
+        <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>
+    </run>
+
+</beast>

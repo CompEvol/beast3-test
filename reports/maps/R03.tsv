@@ -1,0 +1,17 @@
+# R03: GTR + G4, strict clock (estimated), coalescent exponential, tip dates (Dengue4.env.nex).
+# The 2.7.9 side uses SSM's GTR. Unlike R01, its rates prior was set in BEAUti to Dirichlet(1,...,1)
+# with sum = 1 (initial values 1/6), so the rates sum to 1 in both versions and are compared
+# without rescaling. The gamma-shape prior is Exponential(1) with offset 0.1 in 2.7.9, which equals
+# BEAST 3's TruncatedReal(Exponential(1), lower 0.1). With both changes the log prior is the same
+# function in both versions (checked to 1e-14 on 10,002 BEAST 3 samples), so `prior` and
+# `posterior` are compared directly, with no constant offset.
+RateAC-Standard_GTR	gtrRates.AC
+RateAG-Standard_GTR	gtrRates.AG
+RateAT-Standard_GTR	gtrRates.AT
+RateCG-Standard_GTR	gtrRates.CG
+RateCT-Standard_GTR	gtrRates.CT
+RateGT-Standard_GTR	gtrRates.GT
+GTRfreqParameter.1	freqParameter.1
+GTRfreqParameter.2	freqParameter.2
+GTRfreqParameter.3	freqParameter.3
+GTRfreqParameter.4	freqParameter.4

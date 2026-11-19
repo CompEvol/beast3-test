@@ -1,0 +1,7 @@
+# R15: StarBeast3 (strict species-tree clock), 26.nex, 29.nex, 47.nex, species from the Guess dialog
+# (split on _, group 1: Orthogeomys, Thomomys). Same exclusions as R16: BEAUti 2.7's StarBeast3 template
+# also logs beastlabs TreeDistanceLogger columns (each gene tree's distance to its NJ and UPGMA tree)
+# and the per-branch popSize.N, which BEAST 3 does not log. Every other column has the same name in
+# both versions. The gene-tree and species-tree topologies are compared from the tree files.
+!exclude	TreeDistance(NJ|UPGMA)\.t:\d+\.treeDistance	BEAST 2 only (beastlabs diagnostic)
+!exclude	popSize\.\d+	BEAST 2 only
