@@ -128,7 +128,8 @@ def load_batch():
 
 # Entries that are passed without a row of their own in batch-summary.md: C28 runs Eva's 2.7.9
 # XMLs of C06 and C10 in BEAST 3, and is compared with her 2.7.9 runs of those (see its note).
-NO_OWN_NUMBERS = {"C28"}
+# R18 is TreeAnnotator, not MCMC: its summary trees are compared for identity (see its note).
+NO_OWN_NUMBERS = {"C28", "R18"}
 
 
 def checks(status, batch, labels, keyname=lambda k: k):

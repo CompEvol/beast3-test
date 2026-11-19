@@ -2,20 +2,20 @@
 # Columns: ID <TAB> status <TAB> note. Same statuses as reports/status.tsv. An empty note shows
 # the reason the combination is in the round, from ASSIGNMENTS.md.
 R01	explained	GTR rates match once SSM's (sum 6) are divided by 6 (`reports/maps/R01.tsv`); max z 1.33. `prior` offset 9.0 is that change of scale (5 ln 6 = 8.96). Likelihood z = 0.31.
-R02	none	
-R03	none	
-R04	none	
+R02	pass	All columns match (max z 2.02, min ESS 598); clades identical (max |Δp| 0.000).
+R03	pass	All columns match with the SSM GTR map (`reports/maps/R03.tsv`): max z 2.93, min ESS 448, max clade |Δp| 0.014.
+R04	explained	The models differ by design: rc3 BEAUti puts an exponential prior with an estimated mean (`bPopSizesInitialMean`, LogNormal(0, 8)) on the first skyline population size, where 2.7.9 has the improper Jeffreys prior (beast3 `05cba42`). Hence the `prior` gap (z 151) and `bPopSizes.1` (z 3.0, 64.9 vs 60.8). Likelihood, tree height, tree length, clock rate and the other population sizes match. `gammaShape` z 3.46 (0.119 vs 0.117, both bounded at 0.1) is below the fail threshold. Clades not compared: the BEAST 2 tree files are not in Dropbox.
 R05	pass	BEAST 2 side rerun with the `SampleOffValues` fix (BEAST.base from beast2 master): all shared columns match, `prior` now agrees (z 0.93). Max z 2.48, min ESS 373. rc3 replicates disagree with each other on `indicators.alltrees.62` (z 3.4); the versions agree on it.
-R06	none	
-R07	none	
-R08	none	
+R06	pass	Compared by clade from the trees, as C14 (`reports/maps/R06.tsv`): all columns and branch rates match, max z 2.28, min ESS 218, max clade |Δp| 0.007. **One replicate per version**; the second is still to come.
+R07	explained	Compared by clade from the trees, as C15 (`reports/maps/R07.tsv`). Everything matches except `prior` and `posterior`, which differ by 2.49: BEAST 3 has NonNegativeUniform(0, 10) on the mean clock rate (−ln 10 = −2.30), BEAST 2 an improper flat prior; the remaining 0.19 is z ≈ 0.6. `meanClockRate` z 0.45, branch rates and clades match (max |Δp| 0.028).
+R08	pass	All columns match (max z 2.20, min ESS 6130), max clade |Δp| 0.024.
 R09	none	
 R10	none	
-R11	none	
-R12	none	
+R11	pass	bModelTest as bundled: all columns match (max z 1.66, min ESS 380), max clade |Δp| 0.009.
+R12	pass	All edited priors match (max z 2.74, min ESS 804), max clade |Δp| 0.013. **One replicate per version.**
 R13	pass	Max z 2.30, min ESS 234. Replicates of each version differ on some clades (|Δp| up to 0.24), more than the versions do (0.097): slow topology mixing with sampled ancestors.
-R14	none	
-R15	none	
+R14	pass	FBD sample from prior: matches 2.7.9 (max z 2.15, min ESS 546), max clade |Δp| 0.012. Not yet checked against the FBD prior's analytic marginals. **One replicate per version.**
+R15	pass	StarBeast3: all shared columns match with the map (`reports/maps/R15.tsv`), max z 2.19, min ESS 1686, max clade |Δp| 0.055.
 R16	pass	All shared columns match (max z 2.39, min ESS 562), gene-tree clades too. The low-ESS TreeDistance NJ/UPGMA columns are logged only by 2.7.9 and excluded (`reports/maps/R16.tsv`); longer chains don't help them.
-R17	none	
-R18	none	
+R17	pass	bModelTest + ORC + FBD: all columns match (max z 1.75, min ESS 330), max clade |Δp| 0.012. rc3 replicates differ slightly on `samplingProportionFBD` (z 3.02); the versions agree.
+R18	pass	TreeAnnotator CCD0 and CCD1 give the same summary tree in 2.7.9 (CCD 1.0.3) and rc3 (CCD 1.2.2): same 28 clades, identical branch lengths and all 622 shared annotation values identical. rc3 also writes `pSubtree` and `logPSubtree`.

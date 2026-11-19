@@ -1,0 +1,13 @@
+trees	clade	size	p_beast2	p_beast3	abs_dp	flag
+RN-bN-dna.trees	Chicken Frog	2	0.129082	0.117307	0.011775	
+RN-bN-dna.trees	Carp Frog Loach	3	0.836703	0.845812	0.009109	
+RN-bN-dna.trees	Cow Whale	2	0.084315	0.089536	0.005221	
+RN-bN-dna.trees	Cow Seal	2	0.884137	0.879249	0.004888	
+RN-bN-dna.trees	Carp Chicken Frog Loach	4	0.887803	0.885248	0.002555	
+RN-bN-dna.trees	Carp Chicken Cow Frog Loach Mouse Rat Seal Whale	9	0.106421	0.107865	0.001444	
+RN-bN-dna.trees	Carp Cow Frog Human Loach Mouse Rat Seal Whale	9	0.086870	0.085981	0.000889	
+RN-bN-dna.trees	Cow Human Mouse Rat Seal Whale	6	0.868363	0.867696	0.000667	
+RN-bN-dna.trees	Cow Mouse Rat Seal Whale	5	0.999667	1.000000	0.000333	
+RN-bN-dna.trees	Cow Seal Whale	3	0.991557	0.991669	0.000111	
+RN-bN-dna.trees	Carp Loach	2	1.000000	1.000000	0.000000	
+RN-bN-dna.trees	Mouse Rat	2	1.000000	1.000000	0.000000	

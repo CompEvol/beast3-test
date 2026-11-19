@@ -32,9 +32,20 @@
 | C29 | 2/2 | 854 | 1.701 | 0.034 | 0 | matched |
 | C30 | 2/2 | 348 | 2.337 | 0.003 | 0 | matched |
 | R01 | 2/2 | 228 | 211.71 | 0.024 | 2 | not matched (constant `prior` offset: GTR rates scaled to sum 6 vs 1, see rc3 notes) |
+| R02 | 2/2 | 598 | 2.023 | 0.000 | 0 | matched |
+| R03 | 2/2 | 448 | 2.926 | 0.014 | 0 | matched |
+| R04 | 2/2 | 203 | 150.92 | – | 4 | not matched (BEAST 3 skyline: estimated-mean prior on the first population size, not Jeffreys, beast3 `05cba42`) |
 | R05 | 2/4 | 373 | 2.479 | 0.041 | 0 | matched |
+| R06 | 1/1 | 218 | 2.276 | 0.007 | 0 | matched |
+| R07 | 2/2 | 537 | 10.98 | 0.028 | 2 | not matched (constant `prior` offset: NonNegativeUniform(0, 10) on the mean clock rate, ln 10) |
+| R08 | 2/2 | 6130 | 2.197 | 0.024 | 0 | matched |
+| R11 | 2/2 | 380 | 1.66 | 0.009 | 0 | matched |
+| R12 | 1/1 | 804 | 2.735 | 0.013 | 0 | matched |
 | R13 | 2/3 | 234 | 2.301 | 0.097 | 0 | matched |
+| R14 | 1/1 | 546 | 2.154 | 0.012 | 0 | matched |
+| R15 | 2/2 | 1686 | 2.19 | 0.055 | 0 | matched |
 | R16 | 3/2 | 562 | 2.391 | 0.060 | 0 | matched |
+| R17 | 2/2 | 330 | 1.745 | 0.012 | 0 | matched |
 | bitflip | 2/2 | 3510 | 0 | – | 0 | matched |
 | testBSP | 2/2 | 2429 | 1.911 | 0.018 | 0 | matched |
 | testCalYule_5t_2c | 2/2 | 355 | 2.098 | 0.005 | 0 | matched |
