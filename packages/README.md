@@ -137,6 +137,9 @@ It takes a few minutes and writes [reports/installer-check.md](../reports/instal
 | `maven-install` | `packagemanager -maven io.github.compevol:ccd:1.2.2` in another new package folder, with the bundled CCD removed first, so CCD comes from Maven Central |
 | `maven-list` | `applauncher -list` shows the apps of that Maven-installed CCD ([beast3#82](https://github.com/CompEvol/beast3/issues/82)) |
 | `maven-run` | its EntropyCalculator runs with arguments, as for the bundled copy |
+| `maven-load` | `packagemanager -maven io.github.beast2-dev:beast-labs:2.1.0-beta2` in that folder, then `bin/beast` must load BEASTLabs. Its Nashorn needs the JDK module `jdk.dynalink`, which the launchers' boot layer does not have; when the JVM rejects the load plan, BEAST runs without any of its packages, which a run needing only the core does not show |
+| `maven-first` | `packagemanager -maven io.github.compevol:ccd:1.2.2` in an empty package folder, before any other program has run: `packagemanager` must unpack the bundled core itself, or every Maven package is refused as needing BEAST.base |
+| `load-plan` | no log of the checks above says "rejected the load plan" or "Loading BEAST without its packages" |
 
 Everything runs headless (`-Djava.awt.headless=true`), so no window opens; each command is
 stopped after 300 s (`-t`). The package folders are in `packages/work/installer/`, given to BEAST
@@ -144,11 +147,20 @@ with `-Dbeast.user.package.dir`, so your own BEAST folder is not read or changed
 output is kept there too.
 
 A failure caused by an open issue is reported as KNOWN with a link to it, and does not make the
-script fail; the list is `KNOWN=` at the top of the script. Remove a line from it when its issue
-is fixed, so that the check counts again. The script exits with status 1 on any other failure.
+script fail; the list is `KNOWN=` at the top of the script. A line can end with a text from the
+check's log (`work/installer/<check>.out`); then the failure is KNOWN only when the log has it,
+so the same check failing for another reason still fails. `maven-first` and `maven-load` are
+KNOWN only for the missing resolver of #297. Remove a line when its issue is fixed, so that the
+check counts again. The script exits with status 1 on any other failure.
 
-On rc3: `beast`, `bundled-list` and `bundled-run` pass; the three Maven checks fail (#297, and
-#82 for the list).
+On rc3: `beast`, `bundled-list` and `bundled-run` pass; the Maven checks fail (#297, and #82 for
+the list).
+
+`maven-load`, `maven-first` and `load-plan` were added after an unsigned bundle of beast3#315
+merged with #308 passed the first six checks while BEAST loaded none of its Maven packages once
+BEASTLabs was installed, and `packagemanager` refused every package on a new install. Both are
+fixed in beast3#315 (411d4af, 116710d); on that bundle without the two fixes the three new checks
+fail, with them all nine pass.
 
 ## Limits
 

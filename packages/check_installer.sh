@@ -21,13 +21,20 @@ MAVEN_COORD="io.github.compevol:ccd:1.2.2"
 MAVEN_PKG_DIR="CCD"          # its folder when it is bundled (unpacked from a zip)
 APP="EntropyCalculator"      # one of its apps
 APP_CLASS="ccd.tools.EntropyCalculator"
+# a Maven package that needs a JDK module the launchers' boot layer does not have: BEASTLabs
+# brings Nashorn, which needs jdk.dynalink
+MAVEN_JDK_COORD="io.github.beast2-dev:beast-labs:2.1.0-beta2"
+MAVEN_JDK_PKG="BEASTLabs"
 
-# Checks that fail because of an open issue: <check id> <issue>. A failure listed here is
-# reported as a known problem and does not make the script fail.
+# Checks that fail because of an open issue: <check id> <issue> [<text in work/<check id>.out>].
+# A failure listed here is reported as a known problem and does not make the script fail; with a
+# text, only when its log has that text, so a failure for another reason still fails.
 KNOWN="
 maven-install https://github.com/CompEvol/beast3/issues/297
 maven-list https://github.com/CompEvol/beast3/issues/82
 maven-run https://github.com/CompEvol/beast3/issues/297
+maven-first https://github.com/CompEvol/beast3/issues/297 Maven resolver not available
+maven-load https://github.com/CompEvol/beast3/issues/297 Maven resolver not available
 "
 
 usage() { sed -n '2,9p' "$0" | sed 's/^# \{0,1\}//'; exit 2; }
@@ -84,8 +91,12 @@ run() {
 RESULTS=()
 # result <check id> <PASS|FAIL> <what> <detail>
 result() {
-    local id=$1 status=$2 what=$3 detail=$4 issue
+    local id=$1 status=$2 what=$3 detail=$4 issue text
     issue=$(echo "$KNOWN" | awk -v id="$id" '$1 == id {print $2}')
+    text=$(echo "$KNOWN" | awk -v id="$id" '$1 == id {$1 = ""; $2 = ""; sub(/^ +/, ""); print}')
+    if [ -n "$text" ] && ! grep -qF "$text" "$WORK/$id.out" 2>/dev/null; then
+        issue=""
+    fi
     if [ "$status" = FAIL ] && [ -n "$issue" ]; then
         status="KNOWN"
         detail="$detail ([${issue##*/}]($issue))"
@@ -163,6 +174,49 @@ else
 fi
 
 run_app maven-run "applauncher $APP (Maven-installed) with arguments" "$MPKG"
+
+# maven-load: BEAST loads a Maven package that needs a JDK module the launchers' boot layer does
+# not have (BEASTLabs' Nashorn needs jdk.dynalink). If the JVM rejects the plan, BEAST still runs,
+# without any of its packages. In the folder above, which is seeded, so this does not depend on
+# maven-first.
+run "$WORK/maven-load-install.out" "$MPKG" "$BIN/packagemanager" -maven "$MAVEN_JDK_COORD"
+mkdir -p "$WORK/beast-labs"
+sed -E 's/chainLength="[0-9]+"/chainLength="20000"/; s/logEvery="[0-9]+"/logEvery="1000"/g' \
+    "$INSTALL/examples/testHKY.xml" > "$WORK/beast-labs/hky.xml"
+run "$WORK/maven-load.out" "$MPKG" "$BIN/beast" -overwrite -seed 1 -working "$WORK/beast-labs/hky.xml"
+cat "$WORK/maven-load-install.out" >> "$WORK/maven-load.out"
+if grep -q "End likelihood" "$WORK/maven-load.out" && grep -q "^Loading package $MAVEN_JDK_PKG " "$WORK/maven-load.out" \
+        && ! grep -q "rejected the load plan" "$WORK/maven-load.out"; then
+    result maven-load PASS "bin/beast loads $MAVEN_JDK_PKG installed from Maven (needs jdk.dynalink)" ""
+else
+    ERR=$(grep -m1 -E "rejected the load plan|Not installing|(Exception|Error): " "$WORK/maven-load.out" \
+        | sed -E 's/^Warning: //; s/^.*\.([A-Za-z]+(Exception|Error): )/\1/' | cut -c1-160)
+    result maven-load FAIL "bin/beast loads $MAVEN_JDK_PKG installed from Maven (needs jdk.dynalink)" "${ERR:-see work/installer/maven-load.out}"
+fi
+
+# --- packagemanager first, straight after installing --------------------------------------------
+# packagemanager may be the first program run after installing BEAST. It must seed the bundled
+# core itself: without BEAST.base in the folder, a Maven package is refused as needing it.
+FPKG="$WORK/packages-first"
+rm -rf "$FPKG" && mkdir -p "$FPKG"
+run "$WORK/maven-first.out" "$FPKG" "$BIN/packagemanager" -maven "$MAVEN_COORD"
+if grep -q "artifactId=\"$(echo "$MAVEN_COORD" | cut -d: -f2)\"" "$FPKG/maven-packages.xml" 2>/dev/null; then
+    result maven-first PASS "packagemanager -maven $MAVEN_COORD, before any other program" "listed in maven-packages.xml"
+else
+    ERR=$(grep -m1 -E "(Exception|Error): " "$WORK/maven-first.out" | sed -E 's/^.*\.([A-Za-z]+(Exception|Error): )/\1/' | cut -c1-160)
+    result maven-first FAIL "packagemanager -maven $MAVEN_COORD, before any other program" "${ERR:-see work/installer/maven-first.out}"
+fi
+
+# --- every run loaded what it planned ----------------------------------------------------------
+# When the JVM rejects a load plan, BEAST goes on without its packages, and a run that needs only
+# the core still succeeds. So look for the warning in the logs of all the checks above.
+REJECTED=$(grep -rlE "rejected the load plan|Loading BEAST without its packages" "$WORK" --include='*.out' 2>/dev/null \
+    | sed "s|^$WORK/||" | tr '\n' ' ')
+if [ -z "$REJECTED" ]; then
+    result load-plan PASS "no run fell back to loading BEAST without its packages" ""
+else
+    result load-plan FAIL "no run fell back to loading BEAST without its packages" "in: $REJECTED"
+fi
 
 # --- report ------------------------------------------------------------------------------------
 FAILED=0
