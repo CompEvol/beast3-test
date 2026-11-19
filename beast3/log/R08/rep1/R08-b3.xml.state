@@ -1,0 +1,16 @@
+<itsabeastystatewerein version='2.0' sample='10000000'>
+<statenode id='Tree.t:E15-binary'>((15:1.73775224492729,2:1.73775224492729)20:0.19479212893307296,((13:1.8717039810253786,6:1.8717039810253786)27:0.05376308989966527,((((7:1.2246167085841917,11:1.2246167085841917)17:0.5629806365930461,12:1.7875973451772378)24:0.004867362958681953,(9:1.5574988459197014,4:1.5574988459197014)22:0.2349658622162183)23:0.04696747025664516,((0:1.7341201282235146,(3:1.6406464559394438,10:1.6406464559394438)25:0.09347367228407077)19:0.03514088654127878,(((1:1.5210588145578472,8:1.5210588145578472)21:0.1124313476714689,5:1.633490162229316)28:0.054401405905564415,14:1.6878915681348805)29:0.08136944662991286)26:0.07017116362777154)18:0.08603489253247898)16:0.007077302935319052)30:0.0</statenode>
+<statenode id='birthRate.t:E15-binary'>birthRate.t:E15-binary: 0.6273348518259574</statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"YuleBirthRateScaler.t:E15-binary","p":0.5843054375258355,"accept":117602,"reject":276716,"acceptFC":117493,"rejectFC":276290,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelTreeRootScaler.t:E15-binary","p":0.035886416788937024,"accept":93534,"reject":300512,"acceptFC":93531,"rejectFC":299976,"rejectIv":144764,"rejectOp":144764},
+{"id":"YuleModelUniformOperator.t:E15-binary","p":2.9227044578306365,"accept":1222351,"reject":2725628,"acceptFC":1217147,"rejectFC":2725405,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelSubtreeSlide.t:E15-binary","p":0.5772743143059932,"accept":595600,"reject":1380059,"acceptFC":594369,"rejectFC":1378529,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelNarrow.t:E15-binary","p":"NaN","accept":1257939,"reject":715382,"acceptFC":1256310,"rejectFC":714342,"rejectIv":0,"rejectOp":0},
+{"id":"YuleModelWide.t:E15-binary","p":"NaN","accept":37998,"reject":357132,"acceptFC":37938,"rejectFC":356642,"rejectIv":204240,"rejectOp":204240},
+{"id":"YuleModelWilsonBalding.t:E15-binary","p":"NaN","accept":41959,"reject":350598,"acceptFC":41905,"rejectFC":350107,"rejectIv":87548,"rejectOp":87548},
+{"id":"YuleModelTreeScaler.t:E15-binary","p":0.12515159414238244,"accept":122976,"reject":404015,"acceptFC":122727,"rejectFC":403525,"rejectIv":0,"rejectOp":0}
+]}
+-->

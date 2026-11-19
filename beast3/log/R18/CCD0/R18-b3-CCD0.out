@@ -1,0 +1,62 @@
+BEAST modules in boot layer: [beast.pkgmgmt]
+Skipping modules with unsatisfied dependencies in /Users/yxia415/Library/Application Support/BEAST/2.8/bModelTest: [bmodeltest]
+Skipping modules with unsatisfied dependencies in /Users/yxia415/Library/Application Support/BEAST/2.8/starbeast3: [starbeast3]
+Skipping modules with unsatisfied dependencies in /Users/yxia415/Library/Application Support/BEAST/2.8/CCD: [ccd]
+Skipping modules with unsatisfied dependencies in /Users/yxia415/Library/Application Support/BEAST/2.8/SA: [sampled.ancestors]
+Loading package BEAST.base v2.8.0 from /Users/yxia415/Library/Application Support/BEAST/2.8/BEAST.base
+Loading package BEAST.app v2.8.0 from /Users/yxia415/Library/Application Support/BEAST/2.8/BEAST.app
+Loading package ORC v1.3.1 from /Users/yxia415/Library/Application Support/BEAST/2.8/ORC
+Loading package bModelTest v1.4.0 from /Users/yxia415/Library/Application Support/BEAST/2.8/bModelTest
+Loading package starbeast3 v1.3.1 from /Users/yxia415/Library/Application Support/BEAST/2.8/starbeast3
+Loading package CCD v1.2.2 from /Users/yxia415/Library/Application Support/BEAST/2.8/CCD
+Loading package SA v2.3.0 from /Users/yxia415/Library/Application Support/BEAST/2.8/SA
+
+            TreeAnnotator v2.8.0 rc3, 2002-2026
+                    MCMC Output analysis
+                             by
+           Andrew Rambaut and Alexei J. Drummond
+
+             Institute of Evolutionary Biology
+                  University of Edinburgh
+                     a.rambaut@ed.ac.uk
+
+               Department of Computer Science
+                   University of Auckland
+                  alexei@cs.auckland.ac.nz
+
+
+======================================================
+Please cite the following when using the summary tree:
+
+
+Heled and Bouckaert (2013). BMC Evolutionary Biology.
+Looking for trees in the forest: summary tree from posterior samples.
+
+
+-----------------------------------------------------
+
+
+Berling and Klawitter et al. (2025). PLOS Computational Biology.
+Accurate Bayesian phylogenetic point estimation using a tree distribution parameterized by clade probabilities.
+
+======================================================
+Processing 9001 trees from file after ignoring first 10% = 1000 trees.
+CCD0 MAP tree computation
+0              25             50             75            100
+|--------------|--------------|--------------|--------------|
+*************************************************************
+Expanding CCD0: processing 102 clades
+............................................................
+... done.
+Collecting node information...
+0              25             50             75            100
+|--------------|--------------|--------------|--------------|
+*************************************************************
+
+Annotating target tree...
+Setting node heights...
+0              25             50             75            100
+|--------------|--------------|--------------|--------------|
+*************************************************************
+
+Writing annotated tree....

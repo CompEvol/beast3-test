@@ -1,0 +1,44 @@
+Loading package starbeast3 v1.2.1 CCD v1.0.3 SA v2.1.1 BEAST.base v2.7.9 BEASTLabs v2.0.3 BEAST.app v2.7.8 ORC v1.2.1    
+
+              TreeAnnotator v2.7.7, 2002-2024
+                    MCMC Output analysis
+                             by
+           Andrew Rambaut and Alexei J. Drummond
+
+             Institute of Evolutionary Biology
+                  University of Edinburgh
+                     a.rambaut@ed.ac.uk
+
+               Department of Computer Science
+                   University of Auckland
+                  alexei@cs.auckland.ac.nz
+
+
+======================================================
+Please cite the following when using the summary tree:
+
+
+Heled and Bouckaert (2013). BMC Evolutionary Biology.
+Looking for trees in the forest: summary tree from posterior samples.
+
+======================================================
+Processing 9001 trees from file after ignoring first 10% = 1000 trees.
+CCD0 MAP tree computation
+0              25             50             75            100
+|--------------|--------------|--------------|--------------|
+*************************************************************
+Expanding CCD0: processing 102 clades
+............................................................
+... done.
+Collecting node information...
+0              25             50             75            100
+|--------------|--------------|--------------|--------------|
+*************************************************************
+
+Annotating target tree...
+Setting node heights...
+0              25             50             75            100
+|--------------|--------------|--------------|--------------|
+*************************************************************
+
+Writing annotated tree....
