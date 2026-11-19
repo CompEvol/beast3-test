@@ -1,21 +1,21 @@
 {
  "repo": "CompEvol/beast3",
  "milestone": "2.8.0",
- "fetched": "2026-11-16T01:35:02Z",
- "closed": 14,
+ "fetched": "2026-11-19T00:34:30Z",
+ "closed": 16,
  "issues": [
   {
-   "number": 282,
-   "title": "BEAUti: Inconsistent GUI validation for prior initial value and bounds",
-   "url": "https://github.com/CompEvol/beast3/issues/282",
-   "author": "walterxie",
-   "created": "2026-11-12",
-   "updated": "2026-11-16",
-   "labels": [
-    "bug"
+   "number": 297,
+   "title": "rc3: installing a package from Maven fails, the Maven resolver is not in the release",
+   "url": "https://github.com/CompEvol/beast3/issues/297",
+   "author": "alexeid",
+   "created": "2026-11-17",
+   "updated": "2026-11-17",
+   "labels": [],
+   "assignees": [
+    "walterxie"
    ],
-   "assignees": [],
-   "comments": 0
+   "comments": 1
   },
   {
    "number": 257,
@@ -69,10 +69,10 @@
    "url": "https://github.com/CompEvol/beast3/issues/226",
    "author": "alexeid",
    "created": "2026-11-09",
-   "updated": "2026-11-10",
+   "updated": "2026-11-18",
    "labels": [],
    "assignees": [],
-   "comments": 1
+   "comments": 2
   },
   {
    "number": 191,
@@ -80,10 +80,10 @@
    "url": "https://github.com/CompEvol/beast3/issues/191",
    "author": "alexeid",
    "created": "2026-11-04",
-   "updated": "2026-11-10",
+   "updated": "2026-11-18",
    "labels": [],
    "assignees": [],
-   "comments": 0
+   "comments": 1
   },
   {
    "number": 183,
@@ -128,12 +128,12 @@
    "url": "https://github.com/CompEvol/beast3/issues/82",
    "author": "alexeid",
    "created": "2026-05-11",
-   "updated": "2026-11-10",
+   "updated": "2026-11-18",
    "labels": [
     "enhancement"
    ],
    "assignees": [],
-   "comments": 0
+   "comments": 1
   },
   {
    "number": 81,
@@ -184,5 +184,96 @@
    "comments": 2
   }
  ],
- "prs": []
+ "prs": [
+  {
+   "number": 310,
+   "title": "Alert: confirm dialog shows no HTML tags and can be closed; input dialog is centred",
+   "url": "https://github.com/CompEvol/beast3/pull/310",
+   "author": "alexeid",
+   "milestone": "2.8.0",
+   "draft": false,
+   "closes": [],
+   "checks": "pass",
+   "review": "none yet",
+   "updated": "2026-11-19"
+  },
+  {
+   "number": 309,
+   "title": "Decision needed: one set of rules for package versions (Maven and ZIP packages), and fixing #298",
+   "url": "https://github.com/CompEvol/beast3/pull/309",
+   "author": "walterxie",
+   "milestone": "",
+   "draft": true,
+   "closes": [
+    298
+   ],
+   "checks": "pass",
+   "review": "none yet",
+   "updated": "2026-11-18"
+  },
+  {
+   "number": 308,
+   "title": "Bundle the Maven resolver on the classpath so Maven packages install and load in the release",
+   "url": "https://github.com/CompEvol/beast3/pull/308",
+   "author": "walterxie",
+   "milestone": "",
+   "draft": false,
+   "closes": [
+    297
+   ],
+   "checks": "pass",
+   "review": "none yet",
+   "updated": "2026-11-18"
+  },
+  {
+   "number": 306,
+   "title": "CountPrior: the whole prior on indicators is in the model (#231)",
+   "url": "https://github.com/CompEvol/beast3/pull/306",
+   "author": "alexeid",
+   "milestone": "",
+   "draft": false,
+   "closes": [
+    231
+   ],
+   "checks": "pass",
+   "review": "commented",
+   "updated": "2026-11-19"
+  },
+  {
+   "number": 305,
+   "title": "Tests deal with dialogs nobody answers, instead of hanging (#302)",
+   "url": "https://github.com/CompEvol/beast3/pull/305",
+   "author": "alexeid",
+   "milestone": "",
+   "draft": false,
+   "closes": [],
+   "checks": "pass",
+   "review": "commented",
+   "updated": "2026-11-19"
+  },
+  {
+   "number": 304,
+   "title": "BEAUti: choosing a distribution for an input with no value no longer throws (#302)",
+   "url": "https://github.com/CompEvol/beast3/pull/304",
+   "author": "alexeid",
+   "milestone": "",
+   "draft": false,
+   "closes": [],
+   "checks": "pass",
+   "review": "commented",
+   "updated": "2026-11-19"
+  },
+  {
+   "number": 303,
+   "title": "Deprecate a tensor input value whose domain does not fit the declared one (#226)",
+   "url": "https://github.com/CompEvol/beast3/pull/303",
+   "author": "alexeid",
+   "milestone": "",
+   "draft": false,
+   "closes": [],
+   "checks": "pass",
+   "review": "commented",
+   "updated": "2026-11-18"
+  }
+ ]
 }

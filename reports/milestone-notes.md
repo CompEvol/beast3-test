@@ -3,12 +3,19 @@
 
 ## To decide at the meeting
 
-1. **Open pull requests:** none. [#274](https://github.com/CompEvol/beast3/pull/274) (merged 12 Nov) and [#283](https://github.com/CompEvol/beast3/pull/283) (merged 16 Nov, fixes #281) were the last.
+1. **Open pull requests:** seven, listed below. Walter reviewed #303–#306 on 18 Nov, and his points were addressed on 19 Nov. #310 fixes bugs he found in master on the way. Walter's [#308](https://github.com/CompEvol/beast3/pull/308) (fixes #297, the Maven resolver missing from the release) waits for Alexei's review. His draft [#309](https://github.com/CompEvol/beast3/pull/309) asks for a **decision** on one set of rules for package versions.
 1. **Branch protection.** The rule for `beast-base` ([#263](https://github.com/CompEvol/beast3/pull/263)) is merged. CODEOWNERS enforces nothing until an admin switches on branch protection for master.
 1. **Bundled packages** (#248): bModelTest, ORC, SA, StarBeast3, CCD. Who builds and releases each against rc3 (Remco: bModelTest, StarBeast3; Jordan: ORC; SA; CCD)? Bundle MM too, for SA's `brachiopods.xml`?
-1. **XML that changes** (#49, #226): each is easier before the release than after it. #38 (XML version 3.0) moved to the 3.0.0 milestone on 16 Nov.
+1. **XML that changes** (#49, #226): each is easier before the release than after it. #38 (XML version 3.0) moved to the 3.0.0 milestone on 16 Nov. For #226, [#303](https://github.com/CompEvol/beast3/pull/303) only warns for now: a value whose domain does not fit its input still loads.
 1. **Linux and Windows are untested.** CI builds the bundles (`release-bundles.yml`), but every tester uses a Mac, so no BEAUti or BEAST run in either round was on Linux or Windows. Who tests them before 2.8.0, on which machines, and how much (install, first-launch seeding of the bundled packages, a few BEAUti combinations)?
 1. **The issues under "Decide"**: 2.8.0, 2.9.0 or close.
+
+## Since 16 Nov
+
+- **Merged:** the domain-aware Offset and Bounded priors in five steps (#284, #287–#289, #291, #292, #295); Geometric, NegativeBinomial and Binomial priors (#294); BEAUti log-scale density plot (#293, #299); IID default by domain (#290); `mvn exec` program arguments (#296); morph-models coordinate (#307, fixes #300); AppLauncher lists the apps of Maven packages (#301, part of #82). #286 and #300 are closed.
+- **#282** (BEAUti validation of an initial value against bounds) moved to 2.9.0.
+- **`BeautiDivergenceDatingTest` hung the slow beast-fx tests** on an error dialog nobody closed ([#302](https://github.com/CompEvol/beast3/issues/302), no milestone). [#304](https://github.com/CompEvol/beast3/pull/304) fixes the NPE behind the dialog, and [#305](https://github.com/CompEvol/beast3/pull/305) makes such a test fail after 20 s with the dialog's text instead of hanging. The test then still fails: 12 priors where 16 are expected (open).
+- **Installer check** ([report](https://github.com/CompEvol/beast3-test/blob/main/reports/installer-check.md)): the rc3 dmg runs BEAST and the bundled packages' apps. The three Maven checks fail because of #297 and #82. The check is to be run on rc4.
 
 ## Found on 12 Nov
 

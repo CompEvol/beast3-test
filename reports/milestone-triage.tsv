@@ -1,18 +1,25 @@
 # Suggested sorting of the open 2.8.0 milestone issues and open pull requests, for the page milestone.html.
 # number <tab> group <tab> note.   Groups: review, todo, decide, release, close; pr for a pull request.
 # The groups are a suggestion to be confirmed at the meeting, not a decision.
-282	todo	BEAUti: an initial value outside the bounds (e.g. 10 for a BoundReal with upper 1) is rolled back silently, with the exception only in the terminal; whether it is kept with a red flag or refused depends on whether the bounds or the value are changed first. Make both paths behave the same and tell the user. Before rc3.
-226	todo	Strong typing is the point of 2.8.0, and the check is dead code today. Must accept a sub-domain (Walter). This runs when the XML is loaded, not in the MCMC loop. Risk: it will reject XMLs and package templates that load today.
-231	todo	Marked "Target: 2.8.0" in the issue. Changes the RLC and EBSP templates and `BitFlipOperator`, so it needs a posterior comparison before and after.
+297	review	Fix in [#308](https://github.com/CompEvol/beast3/pull/308) (Walter; review requested from Alexei): the resolver jars go on the classpath, because on the module path Maven's split packages stop the JVM. Blocks the three Maven checks in `packages/check_installer.sh`. Found on the way: BEAST decides package versions in three places with different rules (#298); **decision** in [#309](https://github.com/CompEvol/beast3/pull/309).
+226	todo	[#303](https://github.com/CompEvol/beast3/pull/303) makes a mismatch a deprecation warning, so XML and packages get a release cycle to fix it; it becomes an error later, so #226 stays open. Walter's review addressed 19 Nov, including a BEAUti template that would have warned for every analysis.
+231	review	[#306](https://github.com/CompEvol/beast3/pull/306): `CountPrior` puts the whole prior on the indicators, in the RLC and EBSP templates. Walter's review addressed 19 Nov: normalised over 0..K, `sample()` always succeeds, and the `BitFlipOperator` default follows the new `IndicatorPrior`. MCMC checks with fixed and with estimated rate.
 248	decide	Bundled: bModelTest, ORC, SA, StarBeast3, CCD. Done and merged: seeding (#276), pinned list and bundle scripts (#278), release order (#277); package manager checked. **Decide:** who builds the packages against rc3; MM for SA's brachiopods example.
 49	decide	The rate input of Gamma is still named `lambda`. Renaming changes XML, so it is now or not at all. **Decide:** rename to `beta` (keeping `lambda` as an alias?) or close.
 257	decide	The code runs on every `set()` of a parameter, so the change needs a timing check. Adds an interface, breaks nothing. **Decide:** 2.8.0 or 2.9.0 with #252.
-191	decide	One of 12 EBSP runs got stuck at a very high coalescent density. Not investigated further. **Decide:** blocker, known issue in the release notes, or 2.9.0.
+191	decide	One of 12 EBSP runs got stuck at a very high coalescent density. 18 Nov: `testEBSP.xml` sampled from the prior alone shows the same spike (comment on the issue), so it comes from the prior, not the data. **Decide:** blocker, known issue in the release notes, or 2.9.0.
 239	todo	Decided 12 Nov: **Alexei** prototypes the single Eclipse project (core + the five bundled packages); **Remco** tests it when back, around 26 Nov.
 80	decide	A large feature (upgrade of Maven packages, per-package upgrade, BEAUti button). **Decide:** which part, if any, is needed for 2.8.0.
 81	release	CI builds the Linux and Windows bundles (`release-bundles.yml`), but **nobody has tested them**: all testers use Macs. **Decide:** who tests Linux and Windows, and what.
 84	release	A walk through the package skeleton from clone to installed package. No code expected.
-82	release	End-to-end test that AppLauncher finds an app of a Maven-installed package.
+82	release	Listing done in [#301](https://github.com/CompEvol/beast3/pull/301) (merged 19 Nov). Running a Maven package's app waits on #297. Close when `packages/check_installer.sh` passes on rc4.
 83	release	A manual check of one BEAUti menu. Ten minutes.
 183	release	Umbrella for the validation; the results are on the other pages of this site. Close at sign-off.
 34	release	Umbrella for release commits. Close at release.
+303	pr	Domain mismatch as a deprecation warning (#226). Walter reviewed 18 Nov; all points addressed 19 Nov.
+304	pr	BEAUti: one null-safe partition-context lookup, fixes the NPE in #302. Walter reviewed 18 Nov; addressed 19 Nov.
+305	pr	Tests answer dialogs nobody answers instead of hanging (#302). Reworked 19 Nov as Walter proposed: test-only watchdog and timeouts, BEAUti unchanged.
+306	pr	`CountPrior` (#231). Walter: sound, nothing blocking; his points addressed 19 Nov.
+308	pr	Walter: Maven resolver on the classpath (fixes #297). Waiting for Alexei's review.
+309	pr	Walter, draft: **decision needed** on one set of rules for package versions (Maven and ZIP), and the fix for #298. Not for merging.
+310	pr	`Alert` bugs Walter found in master while reviewing #305 (confirm dialog shows HTML tags and throws when closed; input dialog not centred).
